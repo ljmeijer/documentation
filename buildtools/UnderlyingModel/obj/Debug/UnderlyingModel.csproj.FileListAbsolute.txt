@@ -1,0 +1,15 @@
+C:\alchemy\Tools\UnityTxtParser\UnderlyingModel\obj\Debug\ResolveAssemblyReference.cache
+C:\alchemy\Tools\UnityTxtParser\UnderlyingModel\bin\Debug\UnderlyingModel.dll
+C:\alchemy\Tools\UnityTxtParser\UnderlyingModel\bin\Debug\UnderlyingModel.pdb
+C:\alchemy\Tools\UnityTxtParser\UnderlyingModel\bin\Debug\Mono.Cecil.dll
+C:\alchemy\Tools\UnityTxtParser\UnderlyingModel\bin\Debug\nunit.framework.dll
+C:\alchemy\Tools\UnityTxtParser\UnderlyingModel\bin\Debug\nunit.framework.xml
+C:\alchemy\Tools\UnityTxtParser\UnderlyingModel\obj\Debug\UnderlyingModel.dll
+C:\alchemy\Tools\UnityTxtParser\UnderlyingModel\obj\Debug\UnderlyingModel.pdb
+C:\documentation\buildtools\UnderlyingModel\obj\Debug\ResolveAssemblyReference.cache
+C:\documentation\buildtools\UnderlyingModel\bin\Debug\UnderlyingModel.dll
+C:\documentation\buildtools\UnderlyingModel\bin\Debug\UnderlyingModel.pdb
+C:\documentation\buildtools\UnderlyingModel\bin\Debug\Mono.Cecil.dll
+C:\documentation\buildtools\UnderlyingModel\bin\Debug\nunit.framework.dll
+C:\documentation\buildtools\UnderlyingModel\obj\Debug\UnderlyingModel.dll
+C:\documentation\buildtools\UnderlyingModel\obj\Debug\UnderlyingModel.pdb

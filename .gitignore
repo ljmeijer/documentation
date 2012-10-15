@@ -1,0 +1,4 @@
+buildtools/_ReSharper.BuildTools
+output
+buildtools/APIDocumentationGenerator/bin
+buildtools/APIDocumentationGenerator/obj
