@@ -19,7 +19,7 @@ namespace UnderlyingModel
 				if (curDir == null)
 				{
 					Console.Write("CURDIR = {0}", Directory.GetCurrentDirectory());
-					return "CRAP";
+					return "notfound";
 				}
 
     			var toolsIndex = curDir.IndexOf("buildtools", StringComparison.CurrentCultureIgnoreCase);
@@ -27,7 +27,7 @@ namespace UnderlyingModel
 				if (toolsIndex < 0)
 				{
 					Console.WriteLine("could not find 'tools' inside directory name (curdir = {0})", curDir);
-					return "crap";
+					return "notfound";
 				}
     			var rootDir = curDir.Substring(0, toolsIndex);
     			return rootDir;
