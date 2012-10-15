@@ -1,6 +1,13 @@
-The [[Animation]] attached to this [[GameObject]] (null if there is none attached).
+The [[Animation]] attached to this [[GameObject]]
 CONVERTEXAMPLE
 BEGIN EX
 
-	animation.Play();
+	animation.Play(); // play it yall
+END EX
+
+BEGIN EX
+function Start()
+{
+  Debug.Log("Booyaka");
+}
 END EX
