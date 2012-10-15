@@ -25,7 +25,7 @@ namespace APIDocumentationGenerator2
 
 			EnsureDirectoryExists(ScriptApiOutputDirectory());
 	
-			File.Copy(DirectoryUtil.RootDirName+"/layout/docs.css", ScriptApiOutputDirectory()+"/docs.css");
+			File.Copy(DirectoryUtil.RootDirName+"/layout/docs.css", ScriptApiOutputDirectory()+"/docs.css", true);
 
 			foreach (var t in assemblies.Select(a=>a.MainModule).SelectMany(m=>m.Types).Where(UnityDocumentation.IsDocumentedType))
 			{
