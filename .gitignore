@@ -5,3 +5,8 @@ buildtools/APIDocumentationGenerator/obj
 *.DotSettings.user
 _Resharper.*
 *.suo
+buildtools/UnityExampleConverter/cssrc/bin
+buildtools/UnityExampleConverter/cssrc/obj
+buildtools/UnityExampleConverter/cstests/bin
+buildtools/UnityExampleConverter/cstests/obj
+*.dotCover
