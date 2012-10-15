@@ -1,0 +1,7 @@
+The number of children the Transform has.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// print the number of child objects
+	print(transform.childCount);
+END EX

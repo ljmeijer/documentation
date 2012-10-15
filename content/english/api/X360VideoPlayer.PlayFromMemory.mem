@@ -1,0 +1,2 @@
+Plays a video from memory.
+Memory buffer must be kept valid until IsPlaying no longer returns true.

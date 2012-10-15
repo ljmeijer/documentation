@@ -1,0 +1,2 @@
+Callback activated when storage device list changes (i.e. memory card is inserted)
+Check the user storage status using /GetUserStorageStatus/ in case the active storage device was lost.

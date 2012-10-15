@@ -1,0 +1,7 @@
+The radius of the sphere, measured in the object's local space.
+The capsule's radius will be scaled by the transform's scale.
+CONVERTEXAMPLE
+BEGIN EX
+
+	collider.radius = 1;
+END EX

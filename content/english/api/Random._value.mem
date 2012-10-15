@@ -1,0 +1,9 @@
+Returns a random number between 0.0 [inclusive] and 1.0 [inclusive] (RO).
+Both 0.0 and 1.0 may be returned by this function.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints something between 0 and 1
+
+	print(Random.value);
+END EX

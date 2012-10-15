@@ -1,0 +1,4 @@
+The name of the Transition
+If the transision does not have a specific name, the returned name 
+will have a "CURRENT_STATE -> NEXT_STATE" format
+The hash is generated using Animator::StringToHash

@@ -1,0 +1,3 @@
+Enable or disable the processing of network messages.
+If this is disabled no [[RPC]] call execution or network view synchronization takes place.
+The [[wiki:net-NetworkLevelLoad|Network level loading]] page has an example of how to use this function.

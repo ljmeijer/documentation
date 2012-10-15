@@ -1,0 +1,13 @@
+Returns all components of Type /type/ in the GameObject.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Disable the spring on all HingeJoints 
+	// in this game object
+
+	var hingeJoints : HingeJoint[];
+	hingeJoints = gameObject.GetComponents.<HingeJoint>();
+	for (var joint : HingeJoint in hingeJoints) {
+		joint.useSpring = false;
+	}
+END EX

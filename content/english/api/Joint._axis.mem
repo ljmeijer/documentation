@@ -1,0 +1,7 @@
+The Direction of the axis around which the body is constrained.
+The Axis is defined in local space.
+CONVERTEXAMPLE
+BEGIN EX
+
+	hingeJoint.axis = Vector3.up;
+END EX

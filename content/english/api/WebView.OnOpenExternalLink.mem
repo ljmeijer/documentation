@@ -1,0 +1,5 @@
+CSNONE
+Called when opening an URL that would have resulted in opening a new window in a normal browser.
+If this handler is not implemented, the default behaviour is to open the URL using the default web application.
+@param url the URL that needs to be opened.
+@param source the reason a new window has been requested.

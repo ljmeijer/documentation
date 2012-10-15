@@ -1,0 +1,5 @@
+Updates the video.
+If the PS3VideoPlayer.Init was called with a valid RenderTexture then update should be called in Camera.OnPostRender
+If the PS3VideoPlayer.Init was not called, then you can call it in either Camera.OnPreRender or Camera.OnPostRender
+Please note that Camera.OnPreRender is executed before the camera clear.
+SA: [[RenderTexture]], Camera.OnPreRender, Camera.OnPostRender, PS3VideoPlayer.Init

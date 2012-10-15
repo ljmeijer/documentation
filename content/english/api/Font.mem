@@ -1,0 +1,5 @@
+Script interface for [[wiki:class-Font|font assets]].
+
+You can use this class to dynamically switch fonts on GUI texts or Text Meshes.
+
+SA: [[GUIText]] and [[TextMesh]].

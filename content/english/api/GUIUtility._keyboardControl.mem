@@ -1,0 +1,12 @@
+The controlID of the control that has keyboard focus.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Click on the text field to see the id of the control.
+	
+	private var str : String = "A String!";
+	function OnGUI() {
+		str = GUILayout.TextField(str,10);
+		Debug.Log("id: " + GUIUtility.keyboardControl);
+	}
+END EX

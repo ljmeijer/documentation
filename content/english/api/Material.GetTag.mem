@@ -1,0 +1,26 @@
+Get the value of material's shader tag.
+If the material's shader does not define the tag, /defaultValue/ is returned.
+
+If /searchFallbacks/ is /true/ then this function will look for tag in all subshaders
+and all fallbacks. If /seachFallbacks/ is /false/ then only the currently used subshader
+will be queried for the tag.
+
+Using /GetTag/ without searching through fallbacks makes it possible to detect which
+subshader is currently being used: add a custom tag to each subshader with different value,
+and query the value at run time. For example, Unity Pro's water uses this function to
+detect when the shader falls back to non-reflective one, and turns off reflection camera
+in that case.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Attach this to a gameObject that has a renderer.
+
+	var materialTag = "RenderType";
+	function Start() {
+		var result : String = renderer.material.GetTag(materialTag, true, "Nothing");
+		if (result == "Nothing")
+			Debug.LogError(materialTag + " not found in " + renderer.material.shader.name);
+		else
+			Debug.Log("Tag found!, its value: " + result);
+	}
+END EX

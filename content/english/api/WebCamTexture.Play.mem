@@ -1,0 +1,13 @@
+Starts the camera
+Note that if you want to use WebCamTextures in the web player, you need to get the user's
+permission to do so. Call [[Application.RequestUserAuthorization]] before creating a
+WebCamTexture.
+BEGIN EX
+
+	// Starts the default camera and assigns the texture to the current renderer
+	function Start () {
+		var webcamTexture : WebCamTexture = WebCamTexture();
+		renderer.material.mainTexture = webcamTexture;
+		webcamTexture.Play();			
+	}
+END EX

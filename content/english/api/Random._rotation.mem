@@ -1,0 +1,9 @@
+Returns a random rotation (RO).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Instantiates a prefab with a random rotation at the world-origin
+
+	var prefab : GameObject;
+	Instantiate(prefab, Vector3.zero, Random.rotation);
+END EX

@@ -1,0 +1,4 @@
+Property indicating whether keypresses are eaten by a textinput if it has focus (default true).
+This will avoid keypresses seeping through to the underlying gameview.
+This property must be set to false for anyKey or GetKey to work while a textfield has focus.
+IME input in the Mac OS X web plugin is disabled when this is set to false.

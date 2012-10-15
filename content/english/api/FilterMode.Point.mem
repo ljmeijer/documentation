@@ -1,0 +1,7 @@
+Point filtering - texture pixels become blocky up close.
+SA: Texture.filterMode, [[wiki:class-Texture2D|texture assets]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	renderer.material.mainTexture.filterMode = FilterMode.Point;
+END EX

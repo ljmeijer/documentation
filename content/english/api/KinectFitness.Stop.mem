@@ -1,0 +1,3 @@
+Ends fitness tracking for a specified user and stores the calculated
+fitness tracking data into the user profile
+@param trackingID This value must be the ID of a valid currently tracked skeleton.

@@ -1,0 +1,1 @@
+No automatic positioning. Use @@ADBannerView.position@@ to set the position of the banner manually. This is the default value.

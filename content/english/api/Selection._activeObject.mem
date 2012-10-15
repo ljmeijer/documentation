@@ -1,0 +1,2 @@
+Returns the actual object selection. Includes prefabs, non-modifyable objects.
+When working with objects that are primarily in a scene, it is strongly recommended to use Selection.activeTransform instead.

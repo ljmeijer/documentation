@@ -1,0 +1,3 @@
+Instruct to calculate point on the screen that the user actually points too, (0,0) being the center of the screen. SA: ::ref::DisableAimingMode.
+For more information, please refer to KPADEnableAimingMode function documentation in RVL SDK.
+@param	chan	Remote index. Valid values 0...3.

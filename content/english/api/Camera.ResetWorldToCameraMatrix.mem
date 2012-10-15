@@ -1,0 +1,8 @@
+Make the rendering position reflect the camera's position in the scene.
+
+Call this to end the effect of setting ::ref::worldToCameraMatrix.
+CONVERTEXAMPLE
+BEGIN EX
+
+	camera.ResetWorldToCameraMatrix();
+END EX

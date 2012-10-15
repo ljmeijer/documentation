@@ -1,0 +1,11 @@
+Returns a matrix with all elements set to zero (RO).
+
+The matrix looks like this:
+BEGIN EX
+NOCHECK
+	0  0  0  0
+	0  0  0  0
+	0  0  0  0
+	0  0  0  0
+END EX
+SA: ::ref::identity variable.

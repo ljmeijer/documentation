@@ -1,0 +1,27 @@
+The rotation of the transform in world space stored as a [[Quaternion]].
+
+Unity stores rotations as Quaternions internally. To rotate an object, use Transform.Rotate.
+Use Transform.eulerAngles for setting the rotation as euler angles.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Reset the world rotation
+	transform.rotation = Quaternion.identity;
+END EX
+
+Another Example
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Smoothly tilts a transform towards a target rotation.
+	var smooth = 2.0;
+	var tiltAngle = 30.0;
+	function Update () {
+		var tiltAroundZ = Input.GetAxis("Horizontal") * tiltAngle;
+		var tiltAroundX = Input.GetAxis("Vertical") * tiltAngle;
+		var target = Quaternion.Euler (tiltAroundX, 0, tiltAroundZ);
+		// Dampen towards the target rotation
+		transform.rotation = Quaternion.Slerp(transform.rotation, target,
+		                               Time.deltaTime * smooth);;
+	}
+END EX

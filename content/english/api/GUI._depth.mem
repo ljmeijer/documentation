@@ -1,0 +1,44 @@
+The sorting depth of the currently executing GUI behaviour.
+Set this to determine ordering when you have different scripts running simultaneously.
+GUI elements drawn with lower depth values will appear on top of elements with higher values (ie, you can think of the depth as "distance" from the camera).
+
+__Note:__To see this example working, you will need to create 2
+scripts. Remember to name the scripts with the same name as the class
+names, else it will not work.
+
+{img GUIDepth.png}\\
+''One Button behind the other.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Makes this button go back in depth over the example2 class one.
+
+	class example1 extends MonoBehaviour {
+		static var guiDepth : int = 0;
+		function OnGUI() {
+			GUI.depth = guiDepth;
+			if(GUI.RepeatButton(Rect(0,0,100,100), "GoBack")) {
+				guiDepth = 1;
+				example2.guiDepth = 0;
+			}
+		}
+	}
+END EX
+
+And copy this other example to another script:
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Makes this button go back in depth over the example1 class one.
+
+	class example2 extends MonoBehaviour { 
+		static var guiDepth : int = 1;
+		function OnGUI() {
+			GUI.depth = guiDepth;
+			if(GUI.RepeatButton(Rect(50,50,100,100), "GoBack")) {
+				guiDepth = 1;
+				example1.guiDepth = 0;
+			}
+		}
+	}
+END EX

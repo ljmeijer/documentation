@@ -1,0 +1,12 @@
+Radius of the Spherical Wind Zone (only active if the WindZoneMode is set to Spherical).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Creates a Spherical Wind Zone and sets its radius to 10.
+	
+	function Start() {
+	//	var wind : WindZone = gameObject.AddComponent(WindZone);
+	//	wind.mode = WindZoneMode.Spherical;
+	//	wind.radius = 10;
+	}
+END EX

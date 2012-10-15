@@ -1,0 +1,14 @@
+Xbox 360 storage
+
+Storage (saving and loading) works by mounting files on physical media (HDD and memory card) as virtual drives.
+Calling /X360Storage.CreateSaveGame/ or /X360SaveGame.Open/ will mount the saved file as a drive at "mountName:"
+i.e. on success X360SaveGame.Open("save", onComplete) you will be able to access files inside the save via "save:\"
+Mounts should be unmounted using /X360Storage.Unmount/ once they are not required anymore.
+
+Game load/save checklist:
+1. Set up a valid project title id
+2. Sign-in a user using /X360Core.RequestSignIn/
+2. Have that user select a storage device using /X360Storage.SelectSaveGameStorageDeviceForUser/
+3. Create and open a save game file using /X360Storage.CreateSaveGame/
+4. Write to the save game file using either /X360Storage.WriteBuffer/ or /X360Storage.WritePlayerPrefs/
+5. Close the save game file using X360Storage.Unmount.

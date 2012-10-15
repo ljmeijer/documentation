@@ -1,0 +1,8 @@
+In the Dashboard widget on Mac OS X.
+SA: Platform dependent Compilation.
+CONVERTEXAMPLE
+BEGIN EX
+
+	if (Application.platform == RuntimePlatform.OSXDashboardPlayer)
+		Debug.Log("Do something special here!");
+END EX

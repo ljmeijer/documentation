@@ -1,0 +1,65 @@
+Assigns the curve to animate a specific property.
+
+If /curve/ is null the curve will be removed. If a curve already exists
+for that property, it will be replaced.
+
+Common names are: @@"localPosition.x"@@, @@"localPosition.y"@@, @@"localPosition.z"@@,
+@@"localRotation.x"@@, @@"localRotation.y"@@, @@"localRotation.z"@@, @@"localRotation.w"@@
+@@"localScale.x"@@, @@"localScale.y"@@, @@"localScale.z"@@.
+
+For performance reasons [[Transform]] position, rotation and scale can only be animated as one property.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Animates the x coordinate of a transform position
+
+	function Start () {
+		// Create the curve
+		var curve : AnimationCurve = AnimationCurve.Linear(0, 1, 2, 3);
+
+		// Create the clip with the curve
+		var clip : AnimationClip = new AnimationClip();
+		clip.SetCurve("", Transform, "localPosition.x", curve);
+		
+		// Add and play the clip
+		animation.AddClip(clip, "test");
+		animation.Play("test");
+	}
+	@script RequireComponent(Animation)
+END EX
+
+[[Material]] properties can be animated using the property name exported in the shader.
+Common property names are: @@"_MainTex"@@, @@"_BumpMap"@@, @@"_Color"@@, @@"_SpecColor"@@, @@"_Emission"@@.
+How to animate different material property types:
+<ul>
+<li>Float properties: @@"PropertyName"@@</li>
+<li>[[Vector4]] properties: @@"PropertyName.x"@@, @@"PropertyName.y"@@, @@"PropertyName.z"@@, @@"PropertyName.w"@@</li>
+<li>[[Color]] properties @@"PropertyName.r@@", @@"PropertyName.g"@@, @@"PropertyName.b"@@, @@"PropertyName.a"@@</li>
+<li>UV Rotation properties @@"PropertyName.rotation"@@</li>
+<li>UV Offset and scale @@"PropertyName.offset.x"@@, @@"PropertyName.offset.y"@@, @@"PropertyName.scale.x"@@, @@"PropertyName.scale.y"@@</li>
+<li>To index into multiple materials on the same renderer you can prefix the attribute like this: @@"[1]._MainTex.offset.y"@@</li>
+</ul>
+SA: ::ref::ClearCurves function, [[AnimationCurve]] class.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Animate color's alpha and main texture's horizontal offset.
+
+	function Start () {
+		var clip = new AnimationClip ();
+		clip.SetCurve ("", Material, "_Color.a",
+			AnimationCurve (Keyframe(0, 0, 0, 0), Keyframe(1, 1, 0, 0)));
+		clip.SetCurve ("", Material, "_MainTex.offset.x",
+			AnimationCurve.Linear(0, 1, 2, 3));
+		animation.AddClip (clip, clip.name);
+		animation.Play(clip.name);
+	}
+	@script RequireComponent(Animation)
+END EX
+
+@param relativePath
+The path to the game object this curve applies to. /relativePath/ is formatted similar to a pathname, e.g. "root/spine/leftArm".
+If /relativePath/ is empty it refers to the game object the animation clip is attached to.
+@param type				The class type of the component that is animated
+@param propertyName		The name or path to the property being animated
+@param curve			The animation curve

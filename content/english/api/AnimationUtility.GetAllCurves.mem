@@ -1,0 +1,4 @@
+Retrieves all curves from a specific animation clip.
+
+If /includeCurveData/ is false, all animation curves in returned results will be null. Use this when
+you only want to get the list of curves, their types and names.

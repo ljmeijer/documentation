@@ -1,0 +1,2 @@
+The next [[OffMeshLinkData]] on the current path.
+In the case that the current path does not contain an OffMeshLink the [[OffMeshLinkData]] is marked as invalid.

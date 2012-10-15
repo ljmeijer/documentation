@@ -1,0 +1,4 @@
+PlayerPrefs hook: reads PlayerPrefs from "mountName:\player.prefs".
+Returns false if a storage operation is already active by checking /IsStorageOpActive/ or if player.prefs does not exist.
+/IsStorageOpActive/ will return true and PlayerPrefs will be inaccessible during the operation.
+/onComplete/ is never called if this function returns false.

@@ -1,0 +1,2 @@
+Blends the animation named /animation/ towards /targetWeight/ over the next /time/ seconds.
+Playback of other animations will not be affected.

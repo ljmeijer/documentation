@@ -1,0 +1,37 @@
+Create a snapshot of /objects/ in a temporary buffer.
+This can later be pushed to the undo buffer by calling SaveSnapshot, or any the changes to the objects can be undo by calling RestoreSnapshot
+Perform an Undo operation.
+This is similar to the user selecting Undo from the Edit menu.
+
+SA: ::ref::PerformRedo.
+
+{img PerformVariousUndo.png}\\
+''Simple Scriptable Wizard that lets you perform an undo several times.''
+BEGIN EX
+
+	using UnityEngine;
+	using UnityEditor;
+
+	//Performs an Undo the number of times specified.
+
+	public class PerformVariousUndo : ScriptableWizard {
+		public int numberOfSteps = 5;
+
+		[MenuItem ("Example/Perform Various Undo %#u")]
+		static void ExecuteMenu() {
+			ScriptableWizard.DisplayWizard(
+				"Perform various Undo at the same time",
+				typeof(PerformVariousUndo),
+				"Undo!");
+		}
+
+		void OnWizardCreate() {
+			// We have to make this in order to make the undo
+			// dont reset the value entered in the inspector
+			int savedNumberOfSteps = numberOfSteps + 1;
+			for(int i = 0; i < savedNumberOfSteps; i++) {
+				Undo.PerformUndo();
+			}
+		}
+	}
+END EX

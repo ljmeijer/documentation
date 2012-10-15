@@ -1,0 +1,18 @@
+Interpolates between /from/ and /to/ by /t/ and normalizes the result afterwards.
+This is faster than Slerp but looks worse if the rotations are far apart.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Interpolates rotation between the rotations
+	// of from and to.
+	// (Choose from and to not to be the same as 
+	// the object you attach this script to)
+
+	var from : Transform;
+	var to : Transform;
+	var speed = 0.1;
+	function Update () {
+		transform.rotation =
+		  Quaternion.Lerp (from.rotation, to.rotation, Time.time * speed);
+	}
+END EX

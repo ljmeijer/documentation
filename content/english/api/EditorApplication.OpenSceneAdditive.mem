@@ -1,0 +1,19 @@
+Opens the scene at /path/ additively.
+All paths are relative to the project folder. Like: "Assets/MyScenes/MyScene.unity"
+BEGIN EX
+
+	// Simple script that lets you load the contents of a selected scene 
+	// to your current scene.
+	
+	@MenuItem("Example/Load Scene Additive") 
+	static function Apply () { 
+	    var strScenePath : String = AssetDatabase.GetAssetPath(Selection.activeObject); 
+	    if (strScenePath == null || !strScenePath.Contains(".unity"))  {
+	        EditorUtility.DisplayDialog("Select Scene", "You Must Select a Scene!", "Ok");
+	        EditorApplication.Beep(); 
+	        return; 
+	    } 
+	    Debug.Log("Opening " + strScenePath + " additively"); 
+	    EditorApplication.OpenSceneAdditive(strScenePath); 
+	}
+END EX

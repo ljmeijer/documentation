@@ -1,0 +1,2 @@
+Status flag indicating that the most recent calibration was not ideal because the sphere was not held steady during part of the calibration.
+SA: PS3SystemUtility.SystemNotificationDelegate /status/

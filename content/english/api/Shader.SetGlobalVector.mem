@@ -1,0 +1,12 @@
+Sets a global vector property for all shaders.
+
+Global properties are used if a shader needs them but the material does
+not have them defined (for example, if the shader does not expose them
+in /Properties/ block).
+
+Usually this is used if you have a set of custom shaders that all use
+the same "global" vector (for example, wind direction). Then you can
+set the global property from script and don't have to setup the same vector
+in all materials.
+
+SA: ::ref::SetGlobalFloat, ::ref::SetGlobalColor, ::ref::SetGlobalTexture; [[Material]] class, [[wiki:Shaders|ShaderLab documentation]].

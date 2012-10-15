@@ -1,0 +1,6 @@
+Sample the NavMesh closest to the point specified.
+@param sourcePosition The origin of the sample query.
+@param hit Holds the properties of the resulting location.
+@param maxDistance Sample within this distance from sourcePosition.
+@param allowedMask A mask specifying which NavMesh layers are allowed when finding the nearest point.
+@returns True if a nearest point is found.

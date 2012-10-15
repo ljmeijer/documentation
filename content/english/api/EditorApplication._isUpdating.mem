@@ -1,0 +1,14 @@
+Is editor currently updating? (RO)
+BEGIN EX
+
+	// Simple editor Script that lets you create a new scene if editor is nmot updating.
+	
+	import UnityEditor;
+	
+	@MenuItem("Example/New Scene while not updating")
+	static function EditorPlaying() {
+		if(!EditorApplication.isUpdating) {
+			EditorApplication.NewScene();
+		}
+	}
+END EX

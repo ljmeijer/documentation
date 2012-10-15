@@ -1,0 +1,36 @@
+Gradually changes an angle given in degrees towards a desired goal angle over time.
+The value is smoothed by some spring-damper like function. The function can be used to smooth any kind of value, positions, colors, scalars.
+The most common use is for smoothing a follow camera.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// A simple smooth follow camera,
+	// that follows the targets forward direction
+
+	var target : Transform;
+	var smooth = 0.3;
+	var distance = 5.0;
+	private var yVelocity = 0.0;
+	
+	function Update () {
+		// Damp angle from current y-angle towards target y-angle
+		var yAngle : float = Mathf.SmoothDampAngle(transform.eulerAngles.y,
+		                            target.eulerAngles.y, yVelocity, smooth);
+		// Position at the target
+		var position : Vector3 = target.position;
+		// Then offset by distance behind the new angle
+		position += Quaternion.Euler(0, yAngle, 0) * Vector3 (0, 0, -distance);
+		// Apply the position
+		transform.position = position;
+
+		// Look at the target
+		transform.LookAt(target);
+	}
+END EX
+
+@param current           The current position.
+@param target            The position we are trying to reach.
+@param currentVelocity   The current velocity, this value is modified by the function every time you call it.
+@param smoothTime        Approximately the time it will take to reach the target. A smaller value will reach the target faster.
+@param maxSpeed          Optionally allows you to clamp the maximum speed.
+@param deltaTime         The time since the last call to this function. By default Time.deltaTime.

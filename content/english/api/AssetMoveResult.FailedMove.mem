@@ -1,0 +1,2 @@
+Tells the internal implementation that the script could not move the assets, and Unity should not attempt to move the asset
+nor should Unity update its internal representation of the assets position on disk.

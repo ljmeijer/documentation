@@ -1,0 +1,13 @@
+Activates/Deactivates the GameObject.
+
+Note that a GameObject may be inactive because a parent is not active. In that case,
+calling SetActive() will not activate it, but only set the local state of the GameObject, which
+can be checked using [[GameObject.activeSelf]]. This state will then be used once all parents are
+active.
+SA: [[GameObject.activeSelf]], [[GameObject.activeInHierarchy]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Deactivates the game object.
+	gameObject.SetActive (false);
+END EX

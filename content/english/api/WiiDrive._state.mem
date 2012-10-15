@@ -1,0 +1,2 @@
+Current state (read-only) of the DVD drive.
+On WiiWare this always returns State.End.

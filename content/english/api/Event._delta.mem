@@ -1,0 +1,16 @@
+The relative movement of the mouse compared to last event.
+Used in EventType.MouseMove, EventType.MouseDrag, EventType.ScrollWheel events.
+
+SA: Event.mousePosition.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Move the scroll wheel to determine
+	// the X & Y scrolling amount.
+	function OnGUI() {
+		var e : Event = Event.current;
+		if (e.isMouse) {
+			Debug.Log(e.delta);
+		}
+	}
+END EX

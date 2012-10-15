@@ -1,0 +1,2 @@
+The secondary axis around which the joint can rotate
+CharacterJoint.swing1Limit are the limits of the rotation allowed around this axis

@@ -1,0 +1,22 @@
+Stops all coroutines named /methodName/ running on this behaviour.
+Please note that only MonoBehaviour::pref::StartCoroutine using a string method name can be stopped using
+StopCoroutine.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// In this example we show how to invoke a coroutine using a string name and stop it
+
+	function Start () {
+		StartCoroutine("DoSomething", 2.0);
+		yield WaitForSeconds(1);
+		StopCoroutine("DoSomething");
+	}
+
+	function DoSomething (someParameter : float) {
+		while (true) {
+			print("DoSomething Loop");
+			// Yield execution of this coroutine and return to the main loop until next frame
+			yield;
+		}
+	}
+END EX

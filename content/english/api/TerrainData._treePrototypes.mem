@@ -1,0 +1,2 @@
+The list of tree prototypes this are the ones available in the inspector.
+if you change any value here, you should call TerrainData.RefreshPrototypes so the changes take effect.

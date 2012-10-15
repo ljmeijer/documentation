@@ -1,0 +1,10 @@
+Heightmap patches beyond basemap distance will use a precomputed low res basemap.
+This improves performance for far away patches. Close up Unity renders the heightmap using splat maps by blending between
+any amount of provided terrain textures.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		Terrain.activeTerrain.basemapDistance = 100;
+	}
+END EX

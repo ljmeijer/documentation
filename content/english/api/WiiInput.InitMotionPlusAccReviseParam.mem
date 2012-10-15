@@ -1,0 +1,2 @@
+Initializes the level of acceleration correction for the specified channel's Wii MotionPlus.
+@param	chan	Remote index, in range 0...3.

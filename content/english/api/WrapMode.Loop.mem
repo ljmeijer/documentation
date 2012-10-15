@@ -1,0 +1,5 @@
+When time reaches the end of the animation clip, time will continue at the beginning.
+When playing backwards it will do the opposite - it will jump to the end of the clip and continue from there.
+The animation will never automatically stop playing.
+
+SA: AnimationState::ref::wrapMode, AnimationState::ref::time, AnimationState::ref::speed properties.

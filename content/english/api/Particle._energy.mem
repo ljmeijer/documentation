@@ -1,0 +1,10 @@
+The energy of the particle.
+
+This is the time in seconds for how long this particle will remain alive.
+When the energy drops below zero the the Particle will be killed.
+
+The energy is also used for UV animation: \\
+If /energy/ equals Particle.startEnergy the first tile will be used. \\
+If /energy/ equals 0 the last tile will be used.
+
+SA: [[wiki:comp-ParticlesLegacy|Particles documentation]].

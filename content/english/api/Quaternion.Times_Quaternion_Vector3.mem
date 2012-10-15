@@ -1,0 +1,14 @@
+Rotates the point /point/ with /rotation/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Moves the object along relativeDirection
+	// Usually you would use transform.Translate for this
+
+	var relativeDirection = Vector3.forward;
+
+	function Update () {
+		var absoluteDirection = transform.rotation * relativeDirection;
+		transform.position += absoluteDirection * Time.deltaTime;
+	}
+END EX

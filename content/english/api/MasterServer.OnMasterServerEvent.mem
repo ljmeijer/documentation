@@ -1,0 +1,22 @@
+CSNONE
+Called on clients or servers when reporting events from the MasterServer.
+Like, for example, when a host list has been received or host registration succeeded.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		Network.InitializeServer(32, 25000);
+	}
+		
+	function OnServerInitialized() {
+		MasterServer.RegisterHost( "MyGameVer1.0.0_42"
+			, "My Game Instance"
+			, "This is a comment and place to store data");
+	}
+		
+	function OnMasterServerEvent(msEvent: MasterServerEvent) {
+		if (msEvent == MasterServerEvent.RegistrationSucceeded) {
+			Debug.Log("Server registered");
+		}
+	}
+END EX

@@ -1,0 +1,14 @@
+Callback activated when system state has changed.
+SA: [[PS3SystemConstants]]
+@param subsystem	Subsystem that sent the notification. 
+Can be one of the following
+<ul>
+<li>[[PS3SystemConstants.System]]</li>
+<li>[[PS3SystemConstants.Pad]]</li>
+<li>[[PS3SystemConstants.PS3Move]]</li>
+<li>[[PS3SystemConstants.Camera]]</li>
+</ul> 				
+@param index	the index of the subsystem that sent the notification. 
+Used by [[PS3SystemConstants.Pad]] or [[PS3SystemConstants.PS3Move]] to specify the index of the device sending the notification.
+@param notification		The notification ID. 
+@param status			The status of the notification.

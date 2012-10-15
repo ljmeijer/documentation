@@ -1,0 +1,16 @@
+Create a keyboard event.
+This is useful when you need to check if a certain key has been pressed - possibly with modifiers. The syntax for the key string is a key name
+(same as in the Input Manager), optionally prefixed by any number of modifiers: \\
+& = Alternate, ^ = Control, % = Command/Windows key, # = Shift \\
+Examples: &f12 = Alternate + F12,    "^[0]" = Control + keypad0 \\
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI () {
+		GUILayout.Label ("Press Enter To Start Game");
+		if (Event.current.Equals (Event.KeyboardEvent ("[enter]")))
+			Application.LoadLevel (1);	
+		if (Event.current.Equals (Event.KeyboardEvent ("return")))
+			print ("I said enter, not return - try the keypad");
+	}
+END EX

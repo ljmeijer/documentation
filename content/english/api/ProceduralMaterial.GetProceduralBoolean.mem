@@ -1,0 +1,4 @@
+Get a named Procedural boolean property.
+Used for Procedural properties of type Boolean.
+
+SA: ::ref::GetProceduralPropertyDescriptions, ::ref::SetProceduralBoolean.

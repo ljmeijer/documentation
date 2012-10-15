@@ -1,0 +1,12 @@
+Get the value of a field in an object (non-static).
+The generic parameter determines the field type.
+BEGIN EX
+
+	// Create a android.os.Message object, and retrieve the default value of the field 'what'.
+	function Start() {
+		var jo = new AndroidJavaObject("android.os.Message");
+		var valueString = jo.Get.<int>("what");
+	}
+END EX
+
+@param fieldName The name of the field (e.g. ''int counter;'' would have fieldName = "counter")

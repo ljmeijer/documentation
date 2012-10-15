@@ -1,0 +1,1 @@
+Only return the topmost selected transform. A selected child of another selected transform will be filtered out.

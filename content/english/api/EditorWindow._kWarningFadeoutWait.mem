@@ -1,0 +1,3 @@
+Overlay a notification message over the window.
+@param message the message to display.
+SA: ::ref::RemoveNotification

@@ -1,0 +1,11 @@
+Finds a child by /name/ and returns it.
+If no child with /name/ can be found, null is returned.
+If /name/ contains a '/' character it will traverse the hierarchy like a path name.
+BEGIN EX
+
+	// The magical rotating finger
+	function Update() {
+		aFinger = transform.Find("LeftShoulder/Arm/Hand/Finger");
+		aFinger.Rotate(Time.deltaTime*20, 0, 0);
+	}
+END EX

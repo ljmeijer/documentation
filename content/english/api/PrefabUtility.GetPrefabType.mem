@@ -1,0 +1,3 @@
+Given an object, returns its prefab type (None, if it's not a prefab)
+
+SA: The PrefabType enumeration for information on the possible return values.

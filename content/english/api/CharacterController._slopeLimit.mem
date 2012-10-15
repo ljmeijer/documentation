@@ -1,0 +1,9 @@
+The character controllers slope limit in degrees
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the controller slope limit to 45.0 degrees
+	var controller : CharacterController;
+	controller = GetComponent(CharacterController);
+	controller.slopeLimit = 45.0;
+END EX

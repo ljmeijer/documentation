@@ -1,0 +1,9 @@
+Are we running inside a web player? (RO)
+Returns true if the game is being run from the Unity web player.
+CONVERTEXAMPLE
+BEGIN EX
+
+	if (Application.isWebPlayer) {
+		print("We are running this from inside of the web player!");
+	}
+END EX

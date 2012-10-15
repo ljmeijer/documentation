@@ -1,0 +1,2 @@
+Used to cancel asynchronous generation of static occlusion culling data.
+SA: StaticOcclusionCulling.GenerateInBackground, ::ref::isRunning

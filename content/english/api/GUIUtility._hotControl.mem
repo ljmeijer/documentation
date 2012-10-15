@@ -1,0 +1,14 @@
+The controlID of the current hot control.
+The hot control is one that is temporarily active. When the user mousedown's on a button, it becomes hot. \\
+No other controls are allowed to respond to mouse events while some other control is hot.\\
+once the user mouseup's, the control sets /hotControl/ to 0 in order to indicate that other controls can now respond to user input.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Click on the button to see the id	
+
+	function OnGUI() {
+		GUILayout.Button("Press Me!");
+		Debug.Log("id: " + GUIUtility.hotControl);
+	}
+END EX

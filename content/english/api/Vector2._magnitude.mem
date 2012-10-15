@@ -1,0 +1,8 @@
+Returns the length of this vector (RO).
+
+The length of the vector is square root of @@(x*x+y*y)@@.
+
+If you only need to compare magnitudes of some vectors, you can compare squared magnitudes of them
+using ::ref::sqrMagnitude (computing squared magnitudes is faster).
+
+SA: ::ref::sqrMagnitude.

@@ -1,0 +1,9 @@
+Shorthand for empty content.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws a button without any text.
+	function OnGUI () {
+		GUI.Button (Rect (0, 0, 100, 20), GUIContent.none);
+	}
+END EX

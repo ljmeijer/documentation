@@ -1,0 +1,3 @@
+Resets the properties of all objects in the prefab, including child game objects and components that were added to the prefab instance
+All overrides will be cleared. However the transform.position and rotation of a root game object in a prefab instance 
+will never be cleared.

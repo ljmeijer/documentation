@@ -1,0 +1,16 @@
+Load an arbitrary matrix to the current projection matrix.
+
+This function overrides current camera's projection parameters, so most often you want
+to save and restore projection matrix using GL.PushMatrix and GL.PopMatrix.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var projMtrx : Matrix4x4 = Matrix4x4.identity;
+
+	function OnPostRender() {
+		GL.PushMatrix();
+		GL.LoadProjectionMatrix(projMtrx);
+		// Do your drawing here...
+		GL.PopMatrix();
+	}
+END EX

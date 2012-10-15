@@ -1,0 +1,12 @@
+Quaternions are used to represent rotations.
+They are compact, don't suffer from gimbal lock and can easily be interpolated.
+Unity internally uses Quaternions to represent all rotations.
+
+However, they are based on complex numbers and are not easy to understand intuitively.
+Thus you almost never access or modify individual Quaternion components (x,y,z,w);
+most often you would just take existing rotations (e.g. from the [[Transform]]) and use them
+to construct new rotations (e.g. to smoothly interpolate between two rotations).
+The Quaternion functions that you use 99% of the time (The other functions are only for exoctic uses)
+Quaternion.LookRotation, Quaternion.Angle, Quaternion.Euler, Quaternion.Slerp, Quaternion.FromToRotation, Quaternion.identity
+
+You can use Quaternion.operator * to rotate one rotation by another, or to rotate a vector by a rotation.

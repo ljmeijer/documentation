@@ -1,0 +1,17 @@
+Instantiates the given prefab.
+This is similar to Instantiate but creates a prefab connection to the prefab.
+BEGIN EX
+
+	@MenuItem("Examples/Instantiate Selected")
+	static function CreatePrefab() {	
+		var clone : GameObject = PrefabUtility.InstantiatePrefab(Selection.activeObject as GameObject) as GameObject; 
+	}
+	@MenuItem("Examples/Instantiate Selected", true)
+	static function ValidateCreatePrefab() {
+		GameObject go = Selection.activeObject as  GameObject;
+		if (go == null)
+			return false;
+	
+		return PrefabUtility.GetPrefabType(go) == PrefabType.Prefab || PrefabUtility.GetPrefabType(go) == PrefabType.ModelPrefab;
+	}
+END EX

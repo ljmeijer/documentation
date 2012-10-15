@@ -1,0 +1,19 @@
+<signature>
+LoadLevel_int
+LoadLevel_string
+</signature>
+Loads the level by its name or index.
+
+Before you can load a level you have to add it to the list of levels used in the game.
+Use @@File->Build Settings...@@ in Unity and add the levels you need to the level list there.
+MonoBehaviour.OnLevelWasLoaded is called on all active game object's after the level has been loaded.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Load the level named "HighScore".
+
+	Application.LoadLevel ("HighScore");
+END EX
+When loading a new level all game objects that have been loaded before are destroyed.
+If you want to let an object survive when loading a new level, use Object.DontDestroyOnLoad.
+SA: Application.LoadLevelAsync, Application.LoadLevelAdditive, Application.LoadLevelAdditiveAsync.

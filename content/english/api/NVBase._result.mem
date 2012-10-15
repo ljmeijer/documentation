@@ -1,0 +1,5 @@
+The result code of the async command issue call.
+BEGIN EX
+
+	Debug.Log ("Result: " + file.result);
+END EX

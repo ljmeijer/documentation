@@ -1,0 +1,73 @@
+A class that allows creating or modifying meshes from scripts.
+
+Meshes contain vertices and multiple triangle arrays.
+See the <a href="http://unity3d.com/support/resources/example-projects/procedural-examples.html">Procedural example project</a>
+for examples of using the mesh interface.
+
+The triangle arrays are simply indices into the vertex arrays; three indices for each triangle.
+
+For every vertex there can be a normal, two texture coordinates, color and tangent.
+These are optional though and can be removed at will. All vertex information is stored in separate
+arrays of the same size, so if your mesh has 10 vertices, you would also have 10-size arrays
+for normals and other attributes.
+
+There are probably 3 things you might want to use the modifyable mesh interface for:
+
+__1. Building a mesh from scratch__:
+should always be done in the following order: 1) assign ::ref::vertices 2) assign ::ref::triangles
+CONVERTEXAMPLE
+BEGIN EX
+
+var newVertices : Vector3[];
+var newUV : Vector2[];
+var newTriangles : int[];
+
+function Start () {
+	var mesh : Mesh = new Mesh ();
+	GetComponent(MeshFilter).mesh = mesh;
+	mesh.vertices = newVertices;
+	mesh.uv = newUV;
+	mesh.triangles = newTriangles;
+}
+END EX
+
+__2. Modifying vertex attributes every frame__:
+1) get vertices, 2) modify them, 3) assign them back to the mesh.
+CONVERTEXAMPLE
+BEGIN EX
+
+function Update () {
+	var mesh : Mesh = GetComponent(MeshFilter).mesh;
+	var vertices : Vector3[] = mesh.vertices;
+	var normals : Vector3[] = mesh.normals;
+
+	for (var i = 0; i < vertices.Length; i++)
+		vertices[i] += normals[i] * Mathf.Sin(Time.time);
+
+	mesh.vertices = vertices;
+}
+END EX
+
+__3. Continously changing the mesh triangles and vertices__:
+1) call ::ref::Clear to start fresh, 2) assign vertices and other attributes, 3) assign triangle indices.
+
+It is important to call Clear before assigning new vertices or triangles.
+Unity always checks the supplied triangle indices whether they don't reference out of bounds vertices.
+Calling Clear then assigning vertices then triangles makes sure you never have out of bounds data.
+CONVERTEXAMPLE
+BEGIN EX
+
+var newVertices : Vector3[];
+var newUV : Vector2[];
+var newTriangles : int[];
+
+function Update () {
+	var mesh : Mesh = GetComponent(MeshFilter).mesh;
+
+	mesh.Clear();
+	// Do some calculations...
+	mesh.vertices = newVertices;
+	mesh.uv = newUV;
+	mesh.triangles = newTriangles;
+}
+END EX

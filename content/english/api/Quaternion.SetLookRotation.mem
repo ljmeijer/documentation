@@ -1,0 +1,2 @@
+Creates a rotation that looks along /forward/ with the the head upwards along /upwards/
+Logs an error if the forward direction is zero.

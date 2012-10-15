@@ -1,0 +1,4 @@
+Get standard acceleration for dragging values (RO).
+Normal acceleration is 1.0. When Shift is pressed, it is 4.0; when Alt is pressed, acceleration is 0.25.
+
+SA: ::ref::niceMouseDelta.

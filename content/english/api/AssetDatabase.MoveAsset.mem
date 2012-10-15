@@ -1,0 +1,5 @@
+Move an asset file from one folder to another.
+@param oldPath the path where the asset currently resides
+@param newPath the path which the asset should be moved to
+@returns an empty string, if the asset has been successfully moved, and an error string otherwise.
+All paths are relative to the project folder. Like: "Assets/MyTextures/hello.png"

@@ -1,0 +1,11 @@
+Clear the current render buffer.
+
+This clears the screen or the active [[RenderTexture]] you are drawing into.
+In most other situations, some camera is drawing something somewhere, and probably
+is clearing already with the background color of the skybox.
+
+SA: [[GL.ClearWithSkybox]].
+
+@param clearDepth Should the depth buffer be cleared?
+@param clearColor Should the color buffer be cleared?
+@param backgroundColor The color to clear with, used only if /clearColor/ is /true/.

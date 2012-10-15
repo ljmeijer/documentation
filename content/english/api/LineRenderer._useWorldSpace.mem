@@ -1,0 +1,16 @@
+If enabled, the lines are defined in world space.
+
+This means the object's position is ignored, and the lines are rendered around world origin.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Creates a line renderer at the origin with 2 colors.
+
+	function Start() {
+		var lineRenderer : LineRenderer;
+		lineRenderer = gameObject.AddComponent(LineRenderer);
+		lineRenderer.useWorldSpace = false;
+		lineRenderer.material = new Material (Shader.Find("Particles/Additive"));
+		lineRenderer.SetColors(Color.red, Color.yellow);
+	}
+END EX

@@ -1,0 +1,53 @@
+Lets you manage cross-references and dependencies between different asset bundles and player builds.
+
+If a asset bundle has dependencies to other asset bundles, it is your responsibility to make sure the dependent asset bundles are loaded through the [[WWW]] class.
+
+When you push asset dependencies it will share all resources on that layer, pushing recursively always inherits the previous dependencies.
+::ref::PushAssetDependencies and ::ref::PopAssetDependencies must even each other out.
+BEGIN EX
+
+	@MenuItem("Assets/Auto Build Asset Bundles")
+	static function ExportResource () {
+
+		// Enable cross-references for all following asset bundles files until
+		// we call PopAssetDependencies
+		BuildPipeline.PushAssetDependencies();
+
+		var options =
+			BuildAssetBundleOptions.CollectDependencies |
+			BuildAssetBundleOptions.CompleteAssets;
+
+		// All subsequent resources share assets in this asset bundles
+		// It is up to you to ensure that the shared asset bundle is
+		// loaded prior to loading other resources
+		BuildPipeline.BuildAssetBundle(
+			AssetDatabase.LoadMainAssetAtPath("assets/artwork/lerpzuv.tif"),
+			null, "Shared.unity3d", options);
+
+		// By pushing and popping around the asset bundle, this file
+		// will share resources but later asset bundles will not share assets in this resource
+		BuildPipeline.PushAssetDependencies();
+		BuildPipeline.BuildAssetBundle(
+			AssetDatabase.LoadMainAssetAtPath("Assets/Artwork/Lerpz.fbx"),
+			null, "Lerpz.unity3d", options);
+		BuildPipeline.PopAssetDependencies();
+
+		// By pushing and popping around the asset bundle, this file
+		// will share resources but later asset bundles will not share assets in this resource
+		BuildPipeline.PushAssetDependencies();
+		BuildPipeline.BuildAssetBundle(
+			AssetDatabase.LoadMainAssetAtPath("Assets/Artwork/explosive guitex.prefab"),
+			null, "explosive.unity3d", options);
+		BuildPipeline.PopAssetDependencies();
+
+		// By pushing and popping around the asset bundle, this file
+		// will share resources but later asset bundles will not share assets in this resource
+		BuildPipeline.PushAssetDependencies();
+		BuildPipeline.BuildStreamedSceneAssetBundle(
+			["Assets/AdditiveScene.unity"], "AdditiveScene.unity3d", BuildTarget.WebPlayer);	
+		BuildPipeline.PopAssetDependencies();
+		
+		BuildPipeline.PopAssetDependencies();
+	}
+END EX
+SA: ::ref::PushAssetDependencies, ::ref::BuildAssetBundle.

@@ -1,0 +1,29 @@
+Close a group started with BeginHorizontal
+
+SA: EditorGUILayout.BeginHorizontal
+
+
+{img BeginEndHorizontalExample.png}\\
+''Horizontal Compound group.''
+BEGIN EX
+
+	// Create a Horizontal Compound Button
+	
+	class BeginEndHorizontalExample extends EditorWindow {
+	
+		@MenuItem("Examples/Begin-End Horizontal usage")
+		static function Init() {
+			var window = GetWindow(BeginEndHorizontalExample);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			var r : Rect = EditorGUILayout.BeginHorizontal("Button");
+				if (GUI.Button(r, GUIContent.none))
+					Debug.Log("I Got Pressed!");
+				GUILayout.Label("I'm inside the button");
+				GUILayout.Label("So am I");	
+			EditorGUILayout.EndHorizontal();
+		}
+	}
+END EX

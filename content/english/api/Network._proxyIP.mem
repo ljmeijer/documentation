@@ -1,0 +1,9 @@
+The IP address of the proxy server.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Awake() {
+		Network.proxyIP = "1.1.1.1";
+		Network.proxyPort = 1111;
+	}
+END EX

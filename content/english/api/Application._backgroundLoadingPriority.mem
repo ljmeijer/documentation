@@ -1,0 +1,16 @@
+Priority of background loading thread.
+
+Lets you control how long it takes to load data asynchronously vs.
+performance impact on the game while loading in the background.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Load as much data as possible, as a result frame rate will drop.
+	// Good for fast loading when showing progress bars.
+	Application.backgroundLoadingPriority = ThreadPriority.High;
+
+	// Load data very slowly and try not to affect performance of the game.
+	// Good for loading in the background while the game is playing.
+	Application.backgroundLoadingPriority = ThreadPriority.Low;
+END EX
+SA: [[ThreadPriority]] enum.

@@ -1,0 +1,69 @@
+<signature>
+IntSlider_int_int_int_GUILayoutOptionArray
+IntSlider_string_int_int_int_GUILayoutOptionArray
+IntSlider_GUIContent_int_int_int_GUILayoutOptionArray
+</signature>
+Make a slider the user can drag to change an integer value between a min and a max.
+
+{img EditorGUILayoutIntSlider.png}\\
+''Create a grid of cloned Objects.''
+BEGIN EX
+
+	// Simple editor script that lets you clone your object in a grid
+	
+	class EditorGUILayoutIntSlider extends EditorWindow {
+		
+		var cloneTimesX : int = 1;
+		var cloneTimesY : int = 1;
+		var cloneTimesZ : int = 1;
+		var spacing : int = 2;
+		@MenuItem("Examples/Editor GUILayout IntSlider usage")
+		static function Init() {
+			var window = GetWindow(EditorGUILayoutIntSlider);
+			window.Show();
+		}
+		function OnGUI() {
+			cloneTimesX = EditorGUILayout.IntSlider(cloneTimesX, 1, 10);
+			cloneTimesY = EditorGUILayout.IntSlider(cloneTimesY, 1, 10);
+			cloneTimesZ = EditorGUILayout.IntSlider(cloneTimesZ, 1, 10);
+			
+			if(GUILayout.Button("Duplicate object"))
+				CloneSelected();
+		}
+		function CloneSelected() {
+			if(!Selection.activeGameObject) {
+				Debug.LogError("Select a GameObject first");
+				return;
+			}
+			for(var i = 0; i < cloneTimesX; i++)
+				for(var j = 0; j < cloneTimesY; j++)
+					for(var k = 0; k < cloneTimesZ; k++)
+						Instantiate(Selection.activeGameObject, 
+							Vector3(i,j,k)*spacing, 
+							Selection.activeGameObject.transform.rotation);
+				
+		}
+	}
+END EX
+
+@param label Optional label in front of the slider.
+@param value The value the slider shows. This determines the position of the draggable thumb.
+@param leftValue The value at the left end of the slider.
+@param rightValue The value at the right end of the slider.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The value that has been set by the user.
+<signature>
+IntSlider_SerializedProperty_int_int_GUILayoutOptionArray
+IntSlider_SerializedProperty_int_int_string_GUILayoutOptionArray
+IntSlider_SerializedProperty_int_int_GUIContent_GUILayoutOptionArray
+</signature>
+Make a slider the user can drag to change an integer value between a min and a max.
+@param label Optional label in front of the slider.
+@param property The value the slider shows. This determines the position of the draggable thumb.
+@param leftValue The value at the left end of the slider.
+@param rightValue The value at the right end of the slider.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight

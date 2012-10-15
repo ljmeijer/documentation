@@ -1,0 +1,10 @@
+The network group number of this network view.
+All network messages and [[RPC]] calls go through this group number.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Awake() {
+		// Send everything from this network view through group 1
+		networkView.group = 1;
+	}
+END EX

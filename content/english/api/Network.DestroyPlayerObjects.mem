@@ -1,0 +1,12 @@
+Destroy all the objects based on view IDs belonging to this player.
+This should only be called when running as a server. It is, for example, meant to to clean up networked objects left by
+a disconnected player.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnPlayerDisconnected(player: NetworkPlayer) {
+		Debug.Log("Clean up after player " +  player);
+		Network.RemoveRPCs(player);
+		Network.DestroyPlayerObjects(player);
+	}
+END EX

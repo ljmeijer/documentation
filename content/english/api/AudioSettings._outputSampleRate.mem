@@ -1,0 +1,2 @@
+Get and set the mixer's current output rate.
+Note that setting a new samplerate will reset the audio system (all audio will stop).

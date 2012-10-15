@@ -1,0 +1,46 @@
+Displays the "save file" dialog and returns the selected path name.
+
+SA: ::ref::OpenFilePanel function.
+
+{img EditorUtilitySaveFilePanel.png}\\
+''Save File Panel.''
+BEGIN EX
+
+	// Opens a file selection dialog for a PNG file and saves a selected texture to the file.
+
+	import System.IO;
+
+	class EditorUtilitySaveFilePanel {
+
+		@MenuItem("Examples/Save Texture to file")
+		static function Apply () {
+
+			var texture : Texture2D = Selection.activeObject as Texture2D;
+			if (texture == null) {
+				EditorUtility.DisplayDialog(
+					"Select Texture",
+					"You Must Select a Texture first!",
+					"Ok");
+				return;
+			}
+
+			var path = EditorUtility.SaveFilePanel(
+					"Save texture as PNG",
+					"",
+					texture.name + ".png",
+					"png");
+
+			if(path.Length != 0) {
+				// Convert the texture to a format compatible with EncodeToPNG
+				if(texture.format != TextureFormat.ARGB32 && texture.format != TextureFormat.RGB24){
+					var newTexture = Texture2D(texture.width, texture.height);
+					newTexture.SetPixels(texture.GetPixels(0),0);
+					texture = newTexture;
+				}
+				var pngData = texture.EncodeToPNG();
+				if (pngData != null)
+					File.WriteAllBytes(path, pngData);
+			}
+		}
+	}
+END EX

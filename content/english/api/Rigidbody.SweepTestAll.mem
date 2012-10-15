@@ -1,0 +1,3 @@
+Like [[Rigidbody.SweepTest]], but returns all hits.
+Note that this function may return multiple hits against the same collider, 
+if more then one of the rigidbody's attached collider would hit it in the sweep.

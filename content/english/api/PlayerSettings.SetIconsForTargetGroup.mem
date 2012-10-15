@@ -1,0 +1,5 @@
+Assign a list of icons for the specified platform.
+
+Most platforms support viewing icons in multiple sizes so Unity lets you specify multiple icon textures for each platform.
+The list will only be assigned if it has the same length as the list of icon sizes returned by GetIconSizesForTargetGroup
+and if the specified platform is supported in this editor.

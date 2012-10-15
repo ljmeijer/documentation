@@ -1,0 +1,9 @@
+How the camera clears the background.
+
+Can be CameraClearFlags.Skybox, CameraClearFlags.SolidColor, CameraClearFlags.Depth or CameraClearFlags.Nothing.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Clear with background color (ignore any skyboxes)
+	camera.clearFlags = CameraClearFlags.SolidColor;
+END EX

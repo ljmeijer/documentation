@@ -1,0 +1,7 @@
+The local active state of this GameObject.
+This returns the local active state of this GameObject, which is set using [[GameObject.SetActive()]].
+Note that a GameObject may be inactive because a parent is not active, even if this returns true. This 
+state will then be used once all parents are active. Use
+[[GameObject.activeInHierarchy]] if you want to check if the GameObject is actually treated as
+active in the scene.
+SA: [[GameObject.SetActive()]], [[GameObject.activeInHierarchy]]

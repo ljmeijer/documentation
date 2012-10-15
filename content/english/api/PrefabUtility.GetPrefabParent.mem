@@ -1,0 +1,2 @@
+Returns the GameObject parent of /source/, or null if it can't be found.
+This also returns the prefab parent if the prefab has become disconnected, which can then be used to reconnect the prefab.

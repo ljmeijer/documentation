@@ -1,0 +1,6 @@
+Returns the arc-cosine of /f/ - the angle in radians whose cosine is /f/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	print (Mathf.Acos(0.5));
+END EX

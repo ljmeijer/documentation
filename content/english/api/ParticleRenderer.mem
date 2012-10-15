@@ -1,0 +1,2 @@
+(Legacy Particles) Renders particles on to the screen.
+This class is a script interface for a [[wiki:class-ParticleRenderer|particle renderer]] component.

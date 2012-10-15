@@ -1,0 +1,2 @@
+Wii Remote's status info.
+SA: [[WiiInput.IsAsyncCommandFinished]], [[WiiInput.GetAsyncCommandResult]]. For more information, please refer to WPADGetInfoAsync function documentation in RVL SDK.

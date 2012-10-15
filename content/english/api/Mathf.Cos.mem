@@ -1,0 +1,6 @@
+Returns the cosine of angle /f/ in radians.
+CONVERTEXAMPLE
+BEGIN EX
+
+	print (Mathf.Cos(3));
+END EX

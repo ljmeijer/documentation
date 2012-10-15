@@ -1,0 +1,42 @@
+<signature>
+FloatField_float_GUILayoutOptionArray
+FloatField_float_GUIStyle_GUILayoutOptionArray
+FloatField_string_float_GUILayoutOptionArray
+FloatField_string_float_GUIStyle_GUILayoutOptionArray
+FloatField_GUIContent_float_GUILayoutOptionArray
+FloatField_GUIContent_float_GUIStyle_GUILayoutOptionArray
+</signature>
+Make a text field for entering float values.
+
+{img EditorGUILayoutFloatField.png}\\
+''Multiply the scale of the selected GameObject.''
+BEGIN EX
+
+	// Editor Script that multiplies the scale of the current selected GameObject 
+	
+	class EditorGUILayoutFloatField extends EditorWindow {
+	
+		var sizeMultiplier : float = 1;
+		
+		@MenuItem("Examples/Scale selected Object")
+		static function Init() {
+			var window = GetWindow(EditorGUILayoutFloatField);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			sizeMultiplier = EditorGUILayout.FloatField("Increase scale by:", sizeMultiplier);
+			if(GUILayout.Button("Scale"))
+				Selection.activeTransform.localScale = 
+					Selection.activeTransform.localScale * sizeMultiplier;
+		}
+	}
+END EX
+
+@param label Optional label to display in front of the float field.
+@param value The value to edit.
+@param style Optional [[GUIStyle]].
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The value entered by the user.

@@ -1,0 +1,2 @@
+Resets dimming count.
+Set dimming counter to initial value. Refer to VIResetDimmingCount function documentation in RVL SDK for more information.

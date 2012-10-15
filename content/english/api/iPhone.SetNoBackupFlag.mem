@@ -1,0 +1,2 @@
+Set file flag to be excluded from iCloud/iTunes backup.
+As a side-effect, if it was located in Caches folder, it won't be deleted by OS.

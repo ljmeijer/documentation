@@ -1,0 +1,4 @@
+Number of rays used in the final gather integrator.
+Since lower number of rays leads to creating points of higher variance
+(so a higher contrast difference), you will probably need a higher setting
+for ::ref::finalGatherContrastThreshold to prevent points from clumping together.

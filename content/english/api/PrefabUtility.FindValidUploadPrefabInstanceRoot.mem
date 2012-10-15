@@ -1,0 +1,1 @@
+Returns root game object of the prefab instance if that root prefab instance is a parent of the prefab.

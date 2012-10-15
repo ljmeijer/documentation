@@ -1,0 +1,7 @@
+The clip that is being played by this animation state.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints the frame rate of the animation clip to the console
+	print(animation["walk"].clip.frameRate);
+END EX

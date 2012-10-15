@@ -1,0 +1,24 @@
+Register to receive remote notifications of the specified types from a provider via Apple Push Service.
+
+After an application registers for the specified remote notification types, 
+the device token is received from Apple Push Service and is available via @@NotificationServices.deviceToken@@.
+BEGIN EX
+
+	function Start() {
+		NotificationServices.RegisterForRemoteNotificationTypes(RemoteNotificationType.Alert | 
+									RemoteNotificationType.Badge | 
+									RemoteNotificationType.Sound);
+	}
+
+	function Update () {
+		if (!tokenSent) {
+			var token : byte[] = NotificationServices.deviceToken;
+			if (token != null) {
+				// send token to a provider
+				var hexToken : String = "%" + System.BitConverter.ToString(token).Replace('-', '%');
+				new WWW("http://"+address+"/?token="+hexToken);
+				tokenSent = true;
+			}
+		}
+	}
+END EX

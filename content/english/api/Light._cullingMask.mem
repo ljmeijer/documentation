@@ -1,0 +1,11 @@
+This is used to lights parts of the scene selectively.
+
+If the [[GameObject]]'s /layerMask/ AND the light's /cullingMask/ is zero then the object will not be lit by this light.
+See [[wiki:Layers|Layers]] for more information.
+SA: [[wiki:class-Light|Light component]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Only light objects in the first layer (Default layer)
+	light.cullingMask = 1 << 0;
+END EX

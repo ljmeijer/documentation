@@ -1,0 +1,16 @@
+Returns the angle in degrees between /from/ and /to/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// prints "close" if the z-axis of this transform looks
+	// almost towards the target
+
+	var target : Transform;
+	function Update () {
+		var targetDir = target.position - transform.position;
+		var forward = transform.forward;
+		var angle = Vector3.Angle(targetDir, forward);
+		if (angle < 5.0)
+			print("close");
+	}
+END EX

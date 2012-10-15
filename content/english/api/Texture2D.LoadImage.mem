@@ -1,0 +1,24 @@
+Loads an image from a byte array.
+
+This function loads a JPG or PNG image from raw byte[] array.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Load a .jpg or .png file by adding .txt extensions to the file
+	// and dragging it on the imageTextAsset
+
+	var imageTextAsset : TextAsset;
+	function Start () {
+		var tex = new Texture2D (4, 4);
+		tex.LoadImage(imageTextAsset.bytes);
+		renderer.material.mainTexture = tex;
+	}
+END EX
+
+This function replaces texture contents with new image data. After LoadImage, texture
+size and format might change. JPG files are loaded into TextureFormat::pref::RGB24 format,
+PNG files are loaded into TextureFormat::pref::ARGB32 format. If texture format before
+calling LoadImage is TextureFormat::pref::DXT1 or TextureFormat::pref::DXT5,
+then the loaded image will be DXT-compressed (into DXT1 for JPG images and DXT5 for PNG images).
+
+SA: ::ref::EncodeToPNG function.

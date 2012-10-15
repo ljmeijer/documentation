@@ -1,0 +1,12 @@
+Returns the euler angle representation of the rotation.
+A rotation that rotates euler.z degrees around the z axis, euler.x degrees around the x axis, and euler.y degrees around the y axis (in that order).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Create a rotation
+	var rotation = Quaternion.identity;
+	// Assign a rotation 30 degrees around the y axis
+	rotation.eulerAngles = Vector3(0, 30, 0);
+	// print the rotation around the y-axis
+	print(rotation.eulerAngles.y);
+END EX

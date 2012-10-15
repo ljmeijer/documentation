@@ -1,0 +1,2 @@
+Pause DVD drive's request processing. DVD will not advance to the next command until Resume is called.
+This does nothing on WiiWare.

@@ -1,0 +1,16 @@
+Tinting color for all text rendered by the GUI.
+This gets multiplied by ::ref::color.
+
+SA: ::ref::backgroundColor, ::ref::color.
+
+{img GUIContentColor.png}\\
+''Yellow content color (font) in a button.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Tints with yellow the letters of the button.
+	function OnGUI() {
+		GUI.contentColor = Color.yellow;
+		GUI.Button(Rect(10,10,70,30), "A button");
+	}
+END EX

@@ -1,0 +1,12 @@
+Enable receipt validation for the Mac App Store.
+
+This enables receipt validation for the Mac App Store. If this is enabled, your game will
+only run when it contains a valid receipt from the Mac App Store. Use this when submitting
+games to Apple for publishing on the App Store. This prevents people from running the game
+on any computer then the one it was purchased on.
+
+Note that this feature does not implement any strong copy protection. In particular, any potential
+crack against one Unity game would work against any other Unity content. For this reason, it is
+recommended that you implement your own receipt validation code on top of this using Unity's
+plugin feature. However, since Apple requires plugin validation to initially happen before showing
+the screen setup dialog, you should still enable this check, or Apple might reject your submission.

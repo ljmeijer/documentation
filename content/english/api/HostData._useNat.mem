@@ -1,0 +1,14 @@
+Does this server require NAT punchthrough?
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Requests info from the master server and prints if each host
+	// uses NAT punchthrough.
+
+	function Start() {
+		var hostData : HostData[] = MasterServer.PollHostList();
+		for(var element : HostData in hostData) {
+			Debug.Log(element.gameName + " Uses NAT: " + element.useNat);
+		}
+	}
+END EX

@@ -1,0 +1,39 @@
+<signature>
+RadiusHandle_Quaternion_Vector3_float_bool
+RadiusHandle_Quaternion_Vector3_float
+</signature>
+Make a Scene view radius handle
+
+{img RadiusHandle.png}\\
+''RadiusHandle on the Scene View.''
+BEGIN EX
+
+	// Simple script that draws and controls a float var on any Game Object that has the 
+	// ColliderRadius.js script attached.
+	
+	@CustomEditor (ColliderRadius)
+	class RadiusHandleJS extends Editor {
+		function OnSceneGUI () {
+	        target.areaOfEffect = Handles.RadiusHandle (Quaternion.identity, 
+	        						target.transform.position, 
+	        						target.areaOfEffect);
+	        if (GUI.changed)
+	            EditorUtility.SetDirty (target);
+	    }
+	}
+END EX
+
+And the Script attached to this handle:
+BEGIN EX
+
+	// Place this script where you want to see the RadiusHandler working on.
+	
+	var areaOfEffect : float = 1;
+END EX
+
+@param rotation Orientation of the handle
+@param position Center of the handle in 3D space
+@param radius Radius to modify
+@return the modified radius
+
+__Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.

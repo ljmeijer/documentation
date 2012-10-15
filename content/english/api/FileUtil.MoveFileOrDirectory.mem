@@ -1,0 +1,16 @@
+Moves a file or a directory from a given path to another path.
+
+This function's path is relative to the project root folder but it can also accept absolute paths.
+
+All file separators should be forward ones "/".
+
+Make sure to include the name of the files or directories at the end of the ''"to"'' argument
+BEGIN EX
+
+	// creates a menu entry to move a file or a directory.
+	@MenuItem ("Example/Move Something")
+	static function MoveAFile () {
+		// moves the file "YourFileOrFolder" from "path/" to "move/path/"
+		FileUtil.MoveFileOrDirectory("path/YourFileOrFolder", "move/path/YourFileOrFolder");
+	}
+END EX

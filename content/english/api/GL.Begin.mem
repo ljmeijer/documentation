@@ -1,0 +1,50 @@
+Begin drawing 3D primitives.
+
+In OpenGL this matches @@glBegin@@; on other graphics APIs the same
+functionality is emulated. Between GL.Begin and GL.End it is valid to
+call GL.Vertex, GL.Color, GL.TexCoord and other immediate mode drawing
+functions.
+
+You should be careful about culling when drawing primitives yourself. The culling rules
+may be different depending on which graphics API the game is running. In most cases the
+safest way is to use @@Cull Off@@ command in the shader.
+
+SA: GL.End.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws a Triangle, a Quad and a line
+	// with different colors
+
+	var mat : Material;
+	function OnPostRender() {
+		if (!mat) {
+			Debug.LogError("Please Assign a material on the inspector");
+			return;
+		}
+		GL.PushMatrix();
+		mat.SetPass(0);
+		GL.LoadOrtho();
+		GL.Begin(GL.TRIANGLES); // Triangle
+		GL.Color(Color(1,1,1,1));
+		GL.Vertex3(0.50,0.25,0);
+		GL.Vertex3(0.25,0.25,0);
+		GL.Vertex3(0.375,0.5,0);
+		GL.End();
+		GL.Begin(GL.QUADS); // Quad
+		GL.Color(Color(0.5,0.5,0.5,1));
+		GL.Vertex3(0.5,0.5,0);
+		GL.Vertex3(0.5,0.75,0);
+		GL.Vertex3(0.75,0.75,0);
+		GL.Vertex3(0.75,0.5,0);
+		GL.End();
+		GL.Begin(GL.LINES); // Line
+		GL.Color(Color(0,0,0,1));
+		GL.Vertex3(0,0,0);
+		GL.Vertex3(0.75,0.75,0);
+		GL.End();
+		GL.PopMatrix();
+	}
+END EX
+
+@param mode Primitives to draw: can be ::ref::TRIANGLES, ::ref::TRIANGLE_STRIP, ::ref::QUADS or ::ref::LINES.

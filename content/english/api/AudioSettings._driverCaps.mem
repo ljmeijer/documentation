@@ -1,0 +1,8 @@
+Returns the speaker mode capability of the current audio driver. (RO)
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the speaker mode to that of the system settings.
+
+	AudioSettings.speakerMode = AudioSettings.driverCaps;
+END EX

@@ -1,0 +1,5 @@
+Cubemap generation mode for [[TextureImporter]].
+
+[[Cubemap]] textures can be generated from square textures using one of these modes.
+
+SA: TextureImporter.generateCubemap.

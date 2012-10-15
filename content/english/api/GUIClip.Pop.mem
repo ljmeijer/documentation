@@ -1,0 +1,1 @@
+Removes the topmost clipping rectangle, undoing the effect of the latest GUIClip.Push

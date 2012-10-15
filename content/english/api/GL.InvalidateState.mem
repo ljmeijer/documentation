@@ -1,0 +1,6 @@
+Invalidate the internally cached renderstates.
+
+This invalidates any cached renderstates tied to the GL context.
+If for example a (native) plugin alters the renderstate settings
+then Unity's rendering architecture must be made aware of that to
+not assume the GL context is preserved.

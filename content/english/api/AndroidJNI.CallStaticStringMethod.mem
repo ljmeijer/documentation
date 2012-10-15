@@ -1,0 +1,4 @@
+Invokes a static method on a Java object, according to the specified <tt>methodID</tt>, optionally passing an array of arguments (<tt>args</tt>) to the method.
+This is a convenience function that calls CallStaticObjectMethod() with the same parameters, but creates a managed string from the result.
+
+SA: AndroidJNI.CallStaticObjectMethod

@@ -1,0 +1,7 @@
+Returns a point at /distance/ units along the ray.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var r : Ray;
+	print( r.GetPoint (10) ); // a point 10 units along the ray
+END EX

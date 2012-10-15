@@ -1,0 +1,54 @@
+CSNONE
+Called when the window loses keyboard focus.
+
+SA: ::ref::OnFocus.
+
+{img OrthographicPreviewer.png}\\
+''Restores normal view when you lose focus on this window.''
+BEGIN EX
+
+	// Simple script that lets you preview your main camera in Orthographic view
+	// when selected.
+	
+	class OrthographicPreviewer extends EditorWindow {
+		var renderTexture : RenderTexture;
+		var camera = Camera.main;
+		@MenuItem("Example/Camera Selector")
+		static function Init() {
+			var window = GetWindow(OrthographicPreviewer);
+			window.Show();
+		}
+		function Awake () {
+			renderTexture = 
+				new RenderTexture(position.width, position.height, RenderTextureFormat.ARGB32 );
+		}
+		function OnInspectorUpdate() {
+			this.Repaint();
+		}
+		function OnGUI() {
+			if(GUILayout.Button("Close")) {
+				camera.orthographic = false;
+				this.Close();
+			}
+			GUI.DrawTexture(Rect( 0.0f, 50.0f, position.width, position.height), renderTexture);
+		}
+		function OnFocus() {
+			Selection.activeTransform = camera.transform;
+			camera.orthographic = true;
+		}
+		function Update() {
+			if(camera != null) {
+				camera.targetTexture = renderTexture;
+				camera.Render();
+				camera.targetTexture = null;	
+			}
+			if(renderTexture.width != position.width || renderTexture.height != position.height)
+				renderTexture = new RenderTexture(position.width, 
+										position.height, 
+										RenderTextureFormat.ARGB32 );
+		}
+		function OnLostFocus() {
+			camera.orthographic = false;
+		}
+	}
+END EX

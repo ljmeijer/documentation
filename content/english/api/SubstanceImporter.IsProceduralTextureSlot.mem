@@ -1,0 +1,2 @@
+Compares a texture and a property name and returns true if the texture is a ProceduralTexture locked to that property
+Note that texture slot are fixed for ProceduralMaterial only

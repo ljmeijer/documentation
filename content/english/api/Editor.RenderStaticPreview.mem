@@ -1,0 +1,2 @@
+Override this method if you want to render a static preview that shows.
+If null is returned the builtin icon for the class type is used.

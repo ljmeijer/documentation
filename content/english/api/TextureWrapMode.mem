@@ -1,0 +1,4 @@
+Wrap mode for textures. Corresponds to the settings in a [[wiki:class-Texture2D|texture inspector]].
+You can either Tile the texture (Repeat) or map a single texture on the object (Clamp)
+
+SA: Texture.wrapMode, [[wiki:class-Texture2D|texture assets]].

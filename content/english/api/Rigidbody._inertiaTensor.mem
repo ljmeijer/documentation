@@ -1,0 +1,10 @@
+The diagonal inertia tensor of mass relative to the center of mass.
+The inertia tensor is rotated by the inertiaTensorRotation.
+If you don't set intertia tensor from a script it will be calculated automatically from all colliders attached to the rigidbody.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// The inertia tensor of a long brick
+
+	rigidbody.inertiaTensor = Vector3(5, 1, 1);
+END EX

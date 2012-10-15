@@ -1,0 +1,14 @@
+Style used by default for GUI::ref::TextField controls.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Modifies only the textField style of the current GUISkin
+
+	var style : GUIStyle;
+	private var str : String = "A string...";
+
+	function OnGUI() {
+		GUI.skin.textField = style;
+		str = GUILayout.TextField(str);
+	}
+END EX

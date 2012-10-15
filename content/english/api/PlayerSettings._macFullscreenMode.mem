@@ -1,0 +1,4 @@
+Define how to handle fullscreen mode in Mac OS X standalones
+
+Set this to change how fullscreen mode is handled in Mac OS X standalone games. See MacFullscreenMode
+for description on the possible modes.

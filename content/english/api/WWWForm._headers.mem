@@ -1,0 +1,24 @@
+(RO) Returns the correct request headers for posting the form using the [[WWW]] class.
+
+This field only contains one header, /"Content-Type"/,
+which is set to the correct mime type for the form: "@@application/x-www-form-urlencoded@@" for normal
+forms and "@@multipart/form-data@@" for forms containing data added using ::ref::AddBinaryData.
+CONVERTEXAMPLE
+BEGIN EX
+
+var form = new WWWForm();
+form.AddField("name","value");
+var headers = form.headers;
+var rawData = form.data;
+var url = "www.myurl.com";
+
+// Add a custom header to the request.
+// In this case a basic authentication to access a password protected resource.
+headers["Authorization"]="Basic " + System.Convert.ToBase64String(
+	System.Text.Encoding.ASCII.GetBytes("username:password"));
+
+// Post a request to an URL
+var www = new WWW(url, rawData, headers);
+yield www;
+//.. process results from WWW request here...
+END EX

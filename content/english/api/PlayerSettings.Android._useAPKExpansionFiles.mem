@@ -1,0 +1,4 @@
+Use APK Expansion Files
+
+When enabled the player executable and data will be split up, with a generated .apk consisting only of the executable (Java and Native) code (~10MB), and the data for the first scene.
+The application data will be serialized separately to an APK Expansion File (.obb).

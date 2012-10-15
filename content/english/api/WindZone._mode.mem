@@ -1,0 +1,11 @@
+Defines the type of wind zone to be used (Spherical or Directional).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Creates a Directional Wind Zone.
+	
+	function Start() {
+	//	var wind : WindZone = gameObject.AddComponent(WindZone);
+	//	wind.mode = WindZoneMode.Directional;
+	}
+END EX

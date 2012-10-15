@@ -1,0 +1,6 @@
+How lines of text are aligned (Left, Right, Center)
+CONVERTEXAMPLE
+BEGIN EX
+
+	GetComponent(TextMesh).alignment = TextAlignment.Left;
+END EX

@@ -1,0 +1,7 @@
+Destroys the object /obj/ immediately. It is strongly recommended to use Destroy instead.
+
+This function should only be used when writing editor code since the delayed destruction
+will never be invoked in edit mode.
+In game code it is recommended to use Object.Destroy instead. Destroy is always delayed (but
+executed within the same frame)
+Use this function with care since it can destroy assets permanently!

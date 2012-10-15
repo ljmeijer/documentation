@@ -1,0 +1,2 @@
+A class you can derive from if you want to create objects that don't need to be attached to game objects.
+This is most useful for assets which are only meant to store data.

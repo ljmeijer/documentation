@@ -1,0 +1,7 @@
+Color32 can be implicitly converted to and from [[Color]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Convert a Color32 to a Color
+	var color : Color = Color32(128, 255, 128, 255);
+END EX

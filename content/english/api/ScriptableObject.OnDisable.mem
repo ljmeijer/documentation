@@ -1,0 +1,12 @@
+CSNONE
+This function is called when the scriptable object goes out of scope
+This is also called when the object is destroyed and can be used for any cleanup code.
+When scripts are reloaded after compilation has finished, OnDisable will be called, followed by an OnEnable after the script has been loaded.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnDisable () {
+		print("script was removed");
+	}
+END EX
+OnDisable cannot be a co-routine.

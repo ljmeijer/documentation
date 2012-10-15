@@ -1,0 +1,9 @@
+The impact point in world space.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// print the point we impacted
+	function OnControllerColliderHit(hit : ControllerColliderHit) {
+		Debug.Log("I impacted at: " + hit.point);
+	}
+END EX

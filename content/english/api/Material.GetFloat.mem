@@ -1,0 +1,11 @@
+Get a named float value.
+
+SA: ::ref::SetFloat, [[wiki:Materials]], [[wiki:Shaders|ShaderLab documentation]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start() {
+		renderer.material.shader = Shader.Find("Specular");
+		print(renderer.material.GetFloat("_Shininess"));
+	}
+END EX

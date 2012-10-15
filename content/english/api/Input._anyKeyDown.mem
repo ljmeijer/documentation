@@ -1,0 +1,13 @@
+Returns true the first frame the user hits any key or mouse button. (RO)
+You should be polling this variable from the MonoBehaviour::pref::Update function, since the state gets reset each frame.
+It will not return true until the user has released all keys / buttons and pressed any key / buttons again.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Detects if any key has been pressed down.
+
+	function Update() {
+		if(Input.anyKeyDown)
+			Debug.Log("A key or mouse click has been detected");
+	}
+END EX

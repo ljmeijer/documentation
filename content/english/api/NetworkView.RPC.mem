@@ -1,0 +1,39 @@
+Call a [[RPC]] function on all connected peers.
+The called function must have the @RPC tag set ([RPC] for C Sharp code).
+A NetworkView must be attached to the [[GameObject]] where the RPC function is being called. It doesn't matter if the NetworkView is being used for something else or just for the RPC function. If it is just for the RPC function, state synchronization should be turned off and the observed property can be set to none.
+RPC function names should be unique accross the scene, if two RPC functions in different scripts 
+have the same name only one of them is called when RPC is invoked.
+RPC calls are always guaranteed to be executed in the same order as they are sent.
+The communication group set for the network view, with NetworkView.group, is used for the RPC call.
+To get information on the RPC itelf, you can add a NetworkMessageInfo parameter to the function declaration
+which will automatically contain the information. You don't need to change the way you call the RPC
+function when you do this. For more information see the RPC section of the [[wiki:net-RPCDetails|manual]].
+Valid RPC parameters are int, float, string, [[NetworkPlayer]], [[NetworkViewID]], [[Vector3]] and [[Quaternion]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	var cubePrefab : Transform;
+	function OnGUI () {
+		if (GUILayout.Button("SpawnBox")) {
+			var viewID : NetworkViewID= Network.AllocateViewID();
+			networkView.RPC("SpawnBox", 
+							RPCMode.AllBuffered, 
+							viewID, 
+							transform.position);	
+		}
+	}
+
+	@RPC
+	function SpawnBox (viewID : NetworkViewID, location : Vector3) {
+		// Instantate the prefab locally
+		var clone : Transform;
+		clone = Instantiate(cubePrefab, location, Quaternion.identity) as Transform;
+		var nView : NetworkView;
+		nView = clone.GetComponent(NetworkView);
+		nView.viewID = viewID;
+	}
+END EX<signature>
+RPC_string_RPCMode_objectArray
+RPC_string_NetworkPlayer_objectArray
+</signature>
+Call a RPC function on a specific player

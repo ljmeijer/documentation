@@ -1,0 +1,6 @@
+The [[ParticleSystem]] attached to this [[GameObject]] (null if there is none attached).
+CONVERTEXAMPLE
+BEGIN EX
+
+	particleSystem.Emit(5);
+END EX

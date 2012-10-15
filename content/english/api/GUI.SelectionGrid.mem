@@ -1,0 +1,28 @@
+<signature>
+SelectionGrid_Rect_int_stringArray_int
+SelectionGrid_Rect_int_TextureArray_int
+SelectionGrid_Rect_int_GUIContentArray_int
+SelectionGrid_Rect_int_stringArray_int_GUIStyle
+SelectionGrid_Rect_int_TextureArray_int_GUIStyle
+SelectionGrid_Rect_int_GUIContentArray_int_GUIStyle
+</signature>
+Make a grid of buttons.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var selGridInt : int = 0;
+	var selStrings : String[] = ["Grid 1", "Grid 2", "Grid 3", "Grid 4"];
+	
+	function OnGUI () {
+		selGridInt = GUI.SelectionGrid (Rect (25, 25, 100, 30), selGridInt, selStrings, 2);
+	}
+END EX
+
+@param position			Rectangle on the screen to use for the grid.
+@param selected				The index of the selected grid button
+@param texts					An array of strings to show on the grid buttons.
+@param images				An array of textures on the grid buttons.
+@param contents				An array of text, image and tooltips for the grid button.
+@param xCount				How many elements to fit in the horizontal direction. The controls will be scaled to fit unless the style defines a fixedWidth to use.
+@param style					The style to use. If left out, the /button/ style from the current [[GUISkin]] is used.
+@returns The index of the selected button.

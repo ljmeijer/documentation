@@ -1,0 +1,41 @@
+<signature>
+Toggle_bool_GUILayoutOptionArray
+Toggle_string_bool_GUILayoutOptionArray
+Toggle_GUIContent_bool_GUILayoutOptionArray
+Toggle_bool_GUIStyle_GUILayoutOptionArray
+Toggle_string_bool_GUIStyle_GUILayoutOptionArray
+Toggle_GUIContent_bool_GUIStyle_GUILayoutOptionArray
+</signature>
+Make a toggle.
+
+{img EditorGUILayoutToggle.png}\\
+''Show a button if the toggle control is selected.''
+BEGIN EX
+
+	// Show a button if the toggle control is selected.
+	
+	class EditorGUILayoutToggle extends EditorWindow {
+		
+		var showBtn : boolean = true;
+		
+		@MenuItem("Examples/Editor GUILayout Toggle Usage")
+		static function Init() {
+			var window = GetWindow(EditorGUILayoutToggle);
+			window.Show();
+		}
+		function OnGUI() {
+			showBtn = EditorGUILayout.Toggle("Show Button", showBtn);
+			if(showBtn)
+				if(GUILayout.Button("Close"))
+					this.Close();
+		}
+	}
+END EX
+
+@param label Optional label in front of the toggle.
+@param value The shown state of the toggle.
+@param style Optional [[GUIStyle]].
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The selected state of the toggle.

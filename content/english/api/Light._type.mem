@@ -1,0 +1,9 @@
+The type of the light.
+Can be LightType.Spot, LightType.Directional, LightType.Point.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Make the light a spot light
+	light.type = LightType.Spot;
+END EX
+SA: [[wiki:class-Light|Light component]]

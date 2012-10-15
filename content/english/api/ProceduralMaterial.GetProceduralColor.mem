@@ -1,0 +1,4 @@
+Get a named Procedural color property.
+Used for Procedural properties of types Color3 and Color4.
+
+SA: ::ref::GetProceduralPropertyDescriptions, ::ref::GetProceduralColor.

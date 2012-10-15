@@ -1,0 +1,13 @@
+Style used by default for GUI::ref::Box controls.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Modifies only the box style of the current GUISkin
+
+	var style : GUIStyle;
+
+	function OnGUI() {
+		GUI.skin.box = style;
+		GUILayout.Box("This is a box.");
+	}
+END EX

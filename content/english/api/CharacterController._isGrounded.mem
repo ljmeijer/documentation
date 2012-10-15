@@ -1,0 +1,10 @@
+Was the CharacterController touching the ground during the last move?
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update () {
+		var controller : CharacterController = GetComponent(CharacterController);
+		if (controller.isGrounded)
+			print("We are grounded");
+	}
+END EX

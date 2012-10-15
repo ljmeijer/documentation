@@ -1,0 +1,6 @@
+The size of each character (This scales the whole text)
+CONVERTEXAMPLE
+BEGIN EX
+
+	GetComponent(TextMesh).characterSize = 10;
+END EX

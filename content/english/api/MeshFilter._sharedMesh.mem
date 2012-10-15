@@ -1,0 +1,24 @@
+Returns the shared mesh of the mesh filter.
+
+It is recommended to use this function only for __reading mesh data__
+and not for writing, since you might modify imported assets and all objects
+that use this mesh will be affected.
+Also, be aware that is not possible to undo the changes done to this mesh.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Scales PERMANENTLY the size of the mesh by a factor.
+
+	var scaleFactor : float = 2;
+
+	function Start () {
+		var mesh : Mesh = GetComponent(MeshFilter).sharedMesh;
+
+		var vertices : Vector3[] = mesh.vertices;
+		for (var p : int = 0; p < vertices.Length; p++) {
+			vertices[p] *= scaleFactor;
+		}
+		mesh.vertices = vertices;
+		mesh.RecalculateNormals();
+	}
+END EX

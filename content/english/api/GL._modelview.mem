@@ -1,0 +1,9 @@
+The current modelview matrix.
+
+Assigning to this variable is equivalent to @@glLoadMatrix(mat)@@ in OpenGL; in other
+graphics APIs the corresponding functionality is emulated.
+
+Changing modelview matrix overrides current camera's view parameters, so most
+often you want to save and restore matrix using GL.PushMatrix and GL.PopMatrix.
+
+Reading this variable returns the current modelview matrix.

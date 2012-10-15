@@ -1,0 +1,3 @@
+X360Stats delegate type.
+/totalRows/ - total number of rows in the view.
+/rows/ - retrieved rows.

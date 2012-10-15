@@ -1,0 +1,6 @@
+The intensity of all flares in the scene.
+BEGIN EX
+
+	RenderSettings.flareStrength = 0.2;
+END EX
+SA: [[wiki:class-RenderSettings|Render Settings manager]], [[wiki:class-LensFlare|LensFlare component]]

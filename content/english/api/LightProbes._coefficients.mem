@@ -1,0 +1,91 @@
+Coefficients of the baked light probes. The coefficients represent a 3-band RGB spherical harmonics probe, with a total of 27 floats per light probe, laid out: rgbrgbrgb...
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Create a copy of the LightProbes object, otherwise writing to coefficients would permanently change the asset itself.
+	LightmapSettings.lightProbes = Instantiate(LightmapSettings.lightProbes) as LightProbes;
+END EX
+CONVERTEXAMPLE
+BEGIN EX
+
+	var ambient:Color;
+	var lights:Light[];
+
+	// On start, this script will add the contribution of the ambient light and all lights assigned to the array to all baked probes.
+	function Start () {
+		// Create a copy of the LightProbes object, otherwise writing to coefficients would permanently change the asset itself.
+		LightmapSettings.lightProbes = Instantiate(LightmapSettings.lightProbes) as LightProbes;
+	    
+		var coefficients = LightmapSettings.lightProbes.coefficients;
+		var coefficientsPerProbe = 27;
+		var probeCount = LightmapSettings.lightProbes.count;
+		var probePositions = LightmapSettings.lightProbes.positions;
+		var i = 0;
+	    
+		// Add ambient light to all the probes
+		for (i = 0; i < probeCount; i++)
+			AddSHAmbientLight(ambient, coefficients, i * coefficientsPerProbe);
+	    	
+		// Add directional and point lights' contribution to all the probes
+		for (var l:Light in lights) {
+			if (l.type == LightType.Directional){
+				for (i = 0; i < probeCount; i++)
+					AddSHDirectionalLight(l.color, -l.transform.forward, l.intensity, coefficients, i * coefficientsPerProbe);
+			}
+			else if (l.type == LightType.Point){
+				for (i = 0; i < probeCount; i++)
+					AddSHPointLight(l.color, l.transform.position, l.range, l.intensity, coefficients, i * coefficientsPerProbe, probePositions[i]);
+			}
+		}
+
+		LightmapSettings.lightProbes.coefficients = coefficients;
+	}
+
+	function AddSHAmbientLight (color : Color, coefficients : float[], index : int) {
+		var k2SqrtPI = 3.54490770181103205459633496668229f; // 2*sqrt(kPI)
+		coefficients[index + 0] += color.r * k2SqrtPI;
+		coefficients[index + 1] += color.g * k2SqrtPI;
+		coefficients[index + 2] += color.b * k2SqrtPI;
+	}
+
+	function AddSHDirectionalLight (color : Color, direction : Vector3, intensity : float, coefficients : float[], index : int) {
+		// Read more about Spherical Harmonics in Peter Sloan's "Stupid Spherical Harmonics Tricks"
+		var kInv2SqrtPI = 0.28209479177387814347403972578039f; // 1 / (2*sqrt(kPI))
+		var kSqrt3Div2SqrtPI = 0.48860251190291992158638462283835f; // sqrt(3) / (2*sqrt(kPI))
+		var kSqrt15Div2SqrtPI = 1.0925484305920790705433857058027f; // sqrt(15) / (2*sqrt(kPI))
+		var k3Sqrt5Div4SqrtPI = 0.94617469575756001809268107088713f; // 3 * sqrtf(5) / (4*sqrt(kPI))
+		var kSqrt15Div4SqrtPI = 0.54627421529603953527169285290135f; // sqrt(15) / (4*sqrt(kPI))
+		var kOneThird = 0.3333333333333333333333f; // 1.0/3.0
+		var dirFactors = new float[9];
+		dirFactors[0] = kInv2SqrtPI;
+		dirFactors[1] = -direction.y * kSqrt3Div2SqrtPI;
+		dirFactors[2] = direction.z * kSqrt3Div2SqrtPI;
+		dirFactors[3] = -direction.x * kSqrt3Div2SqrtPI;
+		dirFactors[4] = direction.x * direction.y * kSqrt15Div2SqrtPI;
+		dirFactors[5] = -direction.y * direction.z * kSqrt15Div2SqrtPI;
+		dirFactors[6] = (direction.z * direction.z - kOneThird) * k3Sqrt5Div4SqrtPI;
+		dirFactors[7] = -direction.x * direction.z * kSqrt15Div2SqrtPI;
+		dirFactors[8] = (direction.x * direction.x - direction.y * direction.y) * kSqrt15Div4SqrtPI;
+
+		var kNormalization = 2.9567930857315701067858823529412f; // 16*kPI/17
+		// Unity doubles the light intensity internally
+		intensity *= 2.0f;
+		var rscale = color.r * intensity * kNormalization;
+		var gscale = color.g * intensity * kNormalization;
+		var bscale = color.b * intensity * kNormalization;
+		for (var i = 0; i < 9; ++i) {
+			var c = dirFactors[i];
+			coefficients[index + 3*i + 0] += c * rscale;
+			coefficients[index + 3*i + 1] += c * gscale;
+			coefficients[index + 3*i + 2] += c * bscale;
+		}
+	}
+
+	function AddSHPointLight (color : Color, position : Vector3, range : float, intensity : float, coefficients : float[], index : int, probePosition : Vector3) {
+		// From a point of view of a SH probe, point light looks no different than a directional light,
+		// just attenuated and coming from the right direction
+		var probeToLight = position - probePosition;
+		var attenuation = 1.0f / (1.0f + (25.0f * probeToLight.sqrMagnitude / (range * range)));
+		AddSHDirectionalLight(color, probeToLight.normalized, intensity*attenuation, coefficients, index);
+	}
+END EX

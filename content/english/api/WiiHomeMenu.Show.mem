@@ -1,0 +1,16 @@
+Presents a Home Button Menu overlay to the user. Game is paused while the menu is shown.
+If @@Leaving Home Menu Message@@ in the ''Player Settings'' is set to Default, the parameter will not affect the confirmation;
+alternatively if you set other value in the settings, @@Default@@ is not allowed as a parameter and in case you pass it, @@ExcludeAll@@ will be substituted.
+For the Home Button Menu, which is brought up automatically, eg. during the disk error screen (DVD titles only) the value of @@Leaving Home Menu Message@@ from the ''Player Settings'' will be passed automatically.
+<br><br>For example, if you want @@Default@@ behaviour specify it in the ''Player Settings'' and pass it also to Show. In case you want to disable the confirmation messages in some cases, specify other than @@Default@@, which will be used in ''Disk Error Screen'' and specify any enumeration except @@Default@@ when calling Show depending on the circumstances. So, use @@ExcludeAll@@ in the setting and as a parameter if you do not want any confirmations.
+BEGIN EX
+
+	function OnUpdate () {
+		if (WiiInput.GetRemote(0).GetButtonDown (WiiButton.ButtonHome)) {
+			var result:WiiHomeMenu.Select = WiiHomeMenu.Show ();
+			Debug.Log ("HomeMenu.Select: " + result);
+		}
+	}
+END EX
+@param exclude Specifies when to ask user about showing warning message that data might be lost.
+@return Result of user interaction with Home Menu.

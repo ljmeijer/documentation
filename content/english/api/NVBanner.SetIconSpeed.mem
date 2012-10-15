@@ -1,0 +1,10 @@
+Change the icon speed and manipulate the end marker of the animated icon.
+BEGIN EX
+
+	var banner: NVBanner;
+	function MarkAnimationEnd (icon_index:int) {
+		banner.SetIconSpeed (icon_index, Speed.End);
+	}
+END EX
+@param	icon_idex	Icon index to set Speed property to.
+@param	speed		One of Speed enumeration values.

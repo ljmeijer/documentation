@@ -1,0 +1,4 @@
+CSNONE
+This is called by Unity when it is about to write serialized assets or scene files to disk.
+If it is implemented, it allows you to override which files are written by returning an array
+containing a subset of the pathnames which have been passed by Unity.

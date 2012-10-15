@@ -1,0 +1,5 @@
+Specifies if text input field above the keyboard will be hidden when
+the keyboard is on screen. This property is applicable for single line
+text fields that have assigned keyboard with alphanumeric keys.
+Number-only keyboards will show text input field no matter if this
+flag is set to true or false.

@@ -1,0 +1,10 @@
+The upper limit of the joint. When the joint angle or position is above it,
+the joint will excert forces to constrain it.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the minimum hinge angle to be 20 degrees
+	var limits = hingeJoint.limits;
+	limits.max = 40;
+	hingeJoint.limits = limits;
+END EX

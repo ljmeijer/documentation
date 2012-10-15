@@ -1,0 +1,5 @@
+Removes the keyframe at /index/ and inserts key.
+If a keyframe already exists at /key.time/ the time of the old keyframe's position
+/key[index].time/ will be used instead.
+This is the desired behaviour for dragging keyframes in a curve editor.
+Returns the index of the keyframe after moving it.

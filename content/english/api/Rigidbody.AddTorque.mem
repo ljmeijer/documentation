@@ -1,0 +1,26 @@
+Adds a torque to the rigidbody.
+As a result the rigidbody will start spinning around the /torque/ axis.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Spins the rigidbody around the global y-axis
+
+	function FixedUpdate () {
+		rigidbody.AddTorque (Vector3.up * 10);
+	}
+END EX
+
+If you want to apply a force over several frames you should apply it inside FixedUpdate instead of Update.<signature>
+AddTorque_Vector3_ForceMode
+AddTorque_float_float_float_ForceMode
+</signature>
+Adds a torque to the rigidbody.
+As a result the rigidbody will start spinning around the /torque/ axis.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Spins the rigidbody around the global y-axis
+	function FixedUpdate () {
+		rigidbody.AddTorque (0, 10, 0);
+	}
+END EX

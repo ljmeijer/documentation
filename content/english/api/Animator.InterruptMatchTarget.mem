@@ -1,0 +1,2 @@
+Interrupts the automatic target matching
+completeMatch will make the gameobject match the target completely at the next frame

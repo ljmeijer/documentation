@@ -1,0 +1,110 @@
+Base class to derive custom Editors from. Use this to create your own custom inspectors and editors for your objects.
+
+Consider a script MyPlayer with variables for armor, damage, and a reference to a gun GameObject:
+BEGIN EX
+
+// MyPlayer.js
+// This is not an editor script.
+
+var armor : int = 75;
+var damage : int = 25;
+var gun : GameObject;
+
+function Update () {
+	// Update logic here...
+}
+END EX
+
+Using a custom Editor, the apperance of the script in the Inspector can be changed, for example to look like this:
+
+{img CustomEditor.png}\\
+''Custom editor in the Inspector.''
+
+You can attach the Editor to a custom component by using the [[CustomEditor]] attribute.
+
+There are multiple ways to design custom Editors.
+If you want the Editor to support multi-object editing, you can use the [[CanEditMultipleObjects]] attribute.
+Instead of modifying script variables directly, it's advantageous to use the [[SerializedObject]] and [[SerializedProperty]]
+system to edit them, since this automatically handles multi-object editing, undo, and prefab overrides.
+BEGIN EX
+
+// Custom Editor using SerializedProperties.
+// Automatic handling of multi-object editing, undo, and prefab overrides.
+#pragma strict
+@CustomEditor(MyPlayer)
+@CanEditMultipleObjects
+class MyPlayerEditor extends Editor {
+	var damageProp : SerializedProperty;
+	var armorProp : SerializedProperty;
+	var gunProp : SerializedProperty;
+
+	function OnEnable () {
+		// Setup the SerializedProperties
+		damageProp = serializedObject.FindProperty ("damage");
+		armorProp = serializedObject.FindProperty ("armor");
+		gunProp = serializedObject.FindProperty ("gun");
+	}
+
+	function OnInspectorGUI() {
+		// Update the serializedProperty - always do this in the beginning of OnInspectorGUI.
+		serializedObject.Update ();
+
+		// Show the custom GUI controls
+
+		EditorGUILayout.IntSlider (damageProp, 0, 100, new GUIContent ("Damage"));
+		// Only show the damage progress bar if all the objects have the same damage value:
+		if (!damageProp.hasMultipleDifferentValues)
+			ProgressBar (damageProp.intValue / 100.0, "Damage");
+
+		EditorGUILayout.IntSlider (armorProp, 0, 100, new GUIContent ("Armor"));
+		// Only show the armor progress bar if all the objects have the same armor value:
+		if (!armorProp.hasMultipleDifferentValues)
+			ProgressBar (armorProp.intValue / 100.0, "Armor");
+
+		EditorGUILayout.PropertyField (gunProp, new GUIContent ("Gun Object"));
+
+		// Apply changes to the serializedProperty - always do this in the end of OnInspectorGUI.
+		serializedObject.ApplyModifiedProperties ();
+	}
+
+	// Custom GUILayout progress bar.
+	function ProgressBar (value : float, label : String) {
+		// Get a rect for the progress bar using the same margins as a textfield:
+		var rect : Rect = GUILayoutUtility.GetRect (18, 18, "TextField");
+		EditorGUI.ProgressBar (rect, value, label);
+		EditorGUILayout.Space ();
+	}
+}
+END EX
+
+Alternatively, if automatic handling of multi-object editing, undo,
+and prefab overrides is not needed, the script variables can be
+modified directly by the editor without using the [[SerializedObject]]
+and [[SerializedProperty]] system, as in the example below.
+BEGIN EX
+
+// Custom Editor the "old" way by modifying the script variables directly.
+// No handling of multi-object editing, undo, and prefab overrides!
+@CustomEditor (MyPlayer)
+class MyPlayerEditor extends Editor {
+
+	function OnInspectorGUI () {
+		target.damage = EditorGUILayout.IntSlider ("Damage", target.damage, 0, 100);
+		ProgressBar (target.damage / 100.0, "Damage");
+
+		target.armor = EditorGUILayout.IntSlider ("Armor", target.armor, 0, 100);
+		ProgressBar (target.armor / 100.0, "Armor");
+
+		var allowSceneObjects : boolean = !EditorUtility.IsPersistent (target);
+		target.gun = EditorGUILayout.ObjectField ("Gun Object", target.gun, GameObject, allowSceneObjects);
+	}
+
+	// Custom GUILayout progress bar.
+	function ProgressBar (value : float, label : String) {
+		// Get a rect for the progress bar using the same margins as a textfield:
+		var rect : Rect = GUILayoutUtility.GetRect (18, 18, "TextField");
+		EditorGUI.ProgressBar (rect, value, label);
+		EditorGUILayout.Space ();
+	}
+}
+END EX

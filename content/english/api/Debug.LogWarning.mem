@@ -1,0 +1,17 @@
+A variant of Debug.Log that logs a warning message to the console.
+CONVERTEXAMPLE
+BEGIN EX
+
+	Debug.LogWarning("Watch out!, this is a warning!");
+END EX<signature>
+LogWarning_object
+LogWarning_object_object
+</signature>
+A variant of Debug.Log that logs a warning message to the console.
+When you select the message in the console a connection to the context object will be drawn.
+This is very useful if you want know on which object a warning occurs.
+CONVERTEXAMPLE
+BEGIN EX
+
+	Debug.LogWarning("A warning assigned to this transform!", transform);
+END EX

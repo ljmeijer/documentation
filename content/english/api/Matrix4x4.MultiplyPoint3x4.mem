@@ -1,0 +1,8 @@
+Transforms a position by this matrix (fast).
+
+Returns a position /v/ transformed by the current transformation matrix.
+This function is a faster version of ::ref::MultiplyPoint; but it can only
+handle regular 3D transformations. /MultiplyPoint/ is slower, but can handle
+projective transformations as well.
+
+SA: ::ref::MultiplyPoint, ::ref::MultiplyVector.

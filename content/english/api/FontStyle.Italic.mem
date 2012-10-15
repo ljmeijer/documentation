@@ -1,0 +1,6 @@
+Italic style applied to your texts.
+CONVERTEXAMPLE
+BEGIN EX
+
+	guiText.fontStyle = FontStyle.Italic;
+END EX

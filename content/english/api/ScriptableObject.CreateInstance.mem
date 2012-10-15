@@ -1,0 +1,5 @@
+Creates an instance of a scriptable object with /className/.<signature>
+CreateInstance_string
+CreateInstance_Type
+</signature>
+Creates an instance of a scriptable object with /type/.

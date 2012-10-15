@@ -1,0 +1,6 @@
+If /freeSpin/ is enabled the motor will only accelerate but never slow down.
+CONVERTEXAMPLE
+BEGIN EX
+
+	hingeJoint.motor.freeSpin = false;
+END EX

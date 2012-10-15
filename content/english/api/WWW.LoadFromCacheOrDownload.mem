@@ -1,0 +1,32 @@
+Loads an AssetBundle with the specified version number from the cache. If the AssetBundle is not currently cached, it will automatically be downloaded and stored in the cache for future retrieval from local storage.
+LoadFromCacheOrDownload() must be used in place of "new WWW (url)" in order to utilize caching functionality.
+Cached AssetBundles are uniquely identified solely by the filename and version number; all domain and path information in /url/ is ignored by Caching. Since cached AssetBundles are identified by filename instead of the full URL, you can change the directory from where the asset bundle is downloaded at any time. This is useful for pushing out new versions of the game and ensuring that files are not cached incorrectly by the browser or by a CDN. For WebPlayer applications that use the shared cache, Caching adds unique identifying information to identically-named AssetBundles in order to prevent name collisions between applications.
+If the cache folder does not have any space for caching additional files, LoadFromCacheOrDownload will iteratively delete the least-recently-used AssetBundles from the Cache until sufficient space is available to store the new AssetBundle. If making space is not possible (because the hard disk is full, or all files in the cache are currently in use), LoadFromCacheOrDownload() will bypass Caching and stream the file into memory like a normal "new WWW()" call.
+This function can only be used to access AssetBundles. No other types or content are cacheable.
+SA: BuildPipeline.BuildAssetBundle, BuildPipeline.BuildStreamedSceneAssetBundle.
+BEGIN EX
+
+	function Start ()
+	{
+		var www = WWW.LoadFromCacheOrDownload ("http://myserver.com/myassetBundle.unity3d", 5);
+
+		yield www;
+
+		if (www.error != null)
+		{
+			Debug.Log (www.error);
+			return;
+		}
+		var myLoadedAssetBundle = www.assetBundle;
+
+		var asset = myLoadedAssetBundle.mainAsset;
+	}
+END EX
+@param string url The URL to download the AssetBundle from, if it is not present in the cache.
+@param integer Version of the AssetBundle. The file will only be loaded from the disk cache if it has previously been downloaded with the same /version/ parameter. By incrementing the version number requested by your application, you can force Caching to download a new copy of the AssetBunlde from /url/.
+@param uint crc An optional CRC-32 Checksum of the uncompressed contents. If this is non-zero, then the content will
+be compared against the checksum before loading it, and give an error if it does not match. You can use this to 
+avoid data corruption from bad downloads or users tampering with the cached files on disk. If the CRC does not match,
+Unity will try to redownload the data, and if the CRC on the server does not match it will fail with an error. Look
+at the error string returned to see the correct CRC value to use for an AssetBundle.
+@returns a WWW instance, which can be used to access the data once the load/download operation is completed.

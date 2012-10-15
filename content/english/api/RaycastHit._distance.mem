@@ -1,0 +1,2 @@
+The distance from the ray's origin to the impact point.
+SA: Physics.Raycast, Physics.Linecast, Physics.RaycastAll.

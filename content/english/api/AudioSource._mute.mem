@@ -1,0 +1,15 @@
+Un- / Mutes the AudioSource. Mute sets the volume=0, Un-Mute restore the original volume.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Mutes-Unmutes the sound of this transfor each time the user presses space.	
+
+	function Update() {
+		 if(Input.GetKeyDown(KeyCode.Space)) {
+		 	if(audio.mute)
+				audio.mute = false;
+			else
+				audio.mute = true;
+		} 
+	}
+END EX

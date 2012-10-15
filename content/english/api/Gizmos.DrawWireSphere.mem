@@ -1,0 +1,11 @@
+Draws a wireframe sphere with /center/ and /radius/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var explosionRadius = 5.0;
+	function OnDrawGizmosSelected () {
+		// Display the explosion radius when selected
+		Gizmos.color = Color.white;
+		Gizmos.DrawWireSphere (transform.position, explosionRadius);
+	}
+END EX

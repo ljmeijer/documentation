@@ -1,0 +1,7 @@
+Resets all input. After ResetInputAxes all axes return to 0 and all buttons return to 0 for one frame.
+This can be useful when respawning the player and you don't want any input from keys that might still be held down.
+CONVERTEXAMPLE
+BEGIN EX
+
+	Input.ResetInputAxes();
+END EX

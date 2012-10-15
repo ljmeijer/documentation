@@ -1,0 +1,12 @@
+How many consecutive mouse clicks have we received.
+Used in EventType.MouseDown event; use this to differentiate between a single and double clicks.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI() {
+		var e : Event = Event.current;
+		if (e.isMouse) {
+			Debug.Log("Mouse clicks: " + e.clickCount);
+		}
+	}
+END EX

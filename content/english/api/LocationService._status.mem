@@ -1,0 +1,3 @@
+Returns location service status.
+For the details about the return value please refer to documentation of
+@@LocationServiceStatus@@ enumeration.

@@ -1,0 +1,3 @@
+The first enabled camera tagged "MainCamera" (RO).
+
+Returns /null/ if there is no such camera in the scene.

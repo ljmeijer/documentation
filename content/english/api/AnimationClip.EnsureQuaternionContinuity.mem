@@ -1,0 +1,4 @@
+*undocumented*
+Call this function after you are finished setting animation curves.
+Since Quaternions can represent 720 degrees of freedom, it is possible to create rotations which wrap around 360 degrees.
+Which is usually unwanted. This function makes sure that this wrap around effect doesn't happen.

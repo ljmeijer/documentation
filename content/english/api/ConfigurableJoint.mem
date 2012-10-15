@@ -1,0 +1,3 @@
+The configurable joint is an extremely flexible joint giving you complete control over rotation and linear motion.
+You can build all other joints with it and much more but it is also more complicated to setup.
+It gives you control over motors, drives and joint limits for each rotation axis and and linear degree of freedom.

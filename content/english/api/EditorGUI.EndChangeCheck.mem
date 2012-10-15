@@ -1,0 +1,4 @@
+Ends a change check started with BeginChangeCheck ().
+SA: ::ref::BeginChangeCheck
+
+@returns	True if GUI.changed was set to true, otherwise false.

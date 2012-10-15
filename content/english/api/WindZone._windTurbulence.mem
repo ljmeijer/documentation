@@ -1,0 +1,17 @@
+The turbulence wind force.
+Produces a rapidly changing wind pressure.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Creates a wind zone to produce a softly changing general wind
+	// Just place this into an empty game object
+	
+	function Start() {
+	//	var wind : WindZone = gameObject.AddComponent(WindZone);
+	//	wind.mode = WindZoneMode.Directional;
+	//	wind.windMain = 0.70;
+	//	wind.windTurbulence = 0.1;
+	//	wind.windPulseMagnitude = 2.0;
+	//	wind.windPulseFrequency = 0.25;
+	}
+END EX

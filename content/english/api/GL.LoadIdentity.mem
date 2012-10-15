@@ -1,0 +1,4 @@
+Load the identity matrix to the current modelview matrix.
+
+This function overrides current camera's view parameters, so most often you want
+to save and restore matrix using GL.PushMatrix and GL.PopMatrix.

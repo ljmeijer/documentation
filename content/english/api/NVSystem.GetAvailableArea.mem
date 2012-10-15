@@ -1,0 +1,10 @@
+Request information about amount of space and i-node that can be used by this specific application (under the home directory). Upon successful request completion, information will be available through ::ref::availableBlocks and ::ref::availableNodes properties.
+BEGIN EX
+
+	var sys: NVSystem = new NVSystem ();
+	yield sys.GetAvailableArea ();
+	if (sys.success)
+		Debug.Log ("Available blocks: " + sys.availableBlocks + ", nodes: " + sys.availableNodes);
+	else
+		Debug.Log ("Failed to successfully complete request, asyncResult: " + sys.asyncResult);
+END EX

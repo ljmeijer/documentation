@@ -1,0 +1,21 @@
+Compares if two objects refer to the same
+CONVERTEXAMPLE
+BEGIN EX
+
+	var target : Collider;
+	function OnTriggerEnter (trigger : Collider) {
+		if (trigger == target)
+			print("We hit the target trigger");
+	}
+END EX
+Get early out if there is no target.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var target : Transform;
+	function Update () {
+		// Early out if the target is gone
+		if (target == null)
+			return;
+	}
+END EX

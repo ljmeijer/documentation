@@ -1,0 +1,23 @@
+<signature>
+VerticalSlider_Rect_float_float_float
+VerticalSlider_Rect_float_float_float_GUIStyle_GUIStyle
+</signature>
+A vertical slider the user can drag to change a value between a min and a max.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws a vertical slider control that goes from  10 (top) to 0 (bottom)
+	var vSliderValue : float = 0.0;
+
+	function OnGUI () {
+		vSliderValue = GUI.VerticalSlider (Rect (25, 25, 100, 30), vSliderValue, 10.0, 0.0);
+	}
+END EX
+
+@param position 			Rectangle on the screen to use for the slider.
+@param value					The value the slider shows. This determines the position of the draggable thumb.
+@param topValue				The value at the top end of the slider
+@param bottomValue			The value at the bottom end of the slider
+@param slider					The [[GUIStyle]] to use for displaying the dragging area. If left out, the /horizontalSlider/ style from the current [[GUISkin]] is used.
+@param thumb				The [[GUIStyle]] to use for displaying draggable thumb. If left out, the /horizontalSliderThumb/ style from the current [[GUISkin]] is used.
+@returns The value that has been set by the user.

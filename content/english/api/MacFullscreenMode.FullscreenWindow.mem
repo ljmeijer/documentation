@@ -1,0 +1,5 @@
+Fullscreen window.
+In this mode, Unity will create a window which is covering the whole screen. It will always run at desktop
+resolution, and other requested resolutions will be scaled up. OS UI will correctly show on top of the fullscreen
+window (such as IME input windows, GameCenter or Mac App Store UI, Battery warnings, etc). On OS X 10.7 and newer,
+it is possible to switch to other Applications using trackpad swipes or Cmd-Tab.

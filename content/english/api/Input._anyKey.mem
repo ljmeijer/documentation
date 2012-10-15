@@ -1,0 +1,11 @@
+Is any key or mouse button currently held down? (RO)
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Detects if any key has been pressed.
+
+	function Update() {
+		if(Input.anyKey)
+			Debug.Log("A key or mouse click has been detected");
+	}
+END EX

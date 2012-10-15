@@ -1,0 +1,4 @@
+Sets the rotation of an IK goal
+The matrix must be local to the GameObject		
+@param goal The AvatarIKGoal that is set
+@param goalRotation The rotation  in world space

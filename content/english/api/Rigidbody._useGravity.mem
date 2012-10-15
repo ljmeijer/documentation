@@ -1,0 +1,14 @@
+Controls whether gravity affects this rigidbody.
+If set to false the rigidbody will behave as in outer space.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Disables gravity on all rigid bodies entering this collider.
+	function OnTriggerEnter (other : Collider) {
+		if (other.attachedRigidbody) {
+			other.attachedRigidbody.useGravity = false;
+		}
+	}
+	// Turn this collider into a trigger on startup
+	collider.isTrigger = true;
+END EX

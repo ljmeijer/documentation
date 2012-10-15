@@ -1,0 +1,28 @@
+*undocumented
+Read data from file to a memory buffer. Memory buffer address has to be aligned to 32 bytes. Number of bytes read is available through ::ref::readWriteBytes property.
+BEGIN EX
+
+	var file: File = new File ();
+	
+	yield file.Open ("/tmp/test", WiiNand.Access.Read);
+	if (file.success) {
+
+		yield file.GetLength ();
+		if (file.success && file.length > 0) {
+
+			var size: int = (file.length - 1 | 0x1f) + 1;
+			var buffer: AlignedBuffer = new AlignedBuffer (size, AlignedBuffer.Memory.Mem1, 32);
+	
+			yield file.Read (buffer, size);
+			if (file.success) {
+				// use buffer
+			}
+		}
+		yield file.Close ();
+		if (!file.success) {
+			Debug.Log ("Failed to close the file");
+		}
+	}
+END EX
+@param	buffer	Buffer read data into.
+@param	size	Number of bytes to read. Must be multiple of 32.

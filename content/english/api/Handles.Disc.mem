@@ -1,0 +1,48 @@
+Make a 3D disc that can be dragged with the mouse
+
+{img DiscHandle.png}\\
+''Disc Handle on the Scene View.''
+BEGIN EX
+
+	// Create a handle to rotate an object over 45 degrees on X and Y axis
+	
+	@CustomEditor (DiscValueModifier)
+	class DiscHandle extends Editor {
+		function OnSceneGUI () {
+	        target.rot = 
+	        	Handles.Disc(target.rot,
+	        			target.transform.position,
+	        			Vector3(1,1,0),
+	        			5,
+	        			false,
+	        			1);
+	        							
+	        if (GUI.changed)
+	            EditorUtility.SetDirty (target);
+	    }
+	}
+END EX
+
+And the script attached to this Handle:
+BEGIN EX
+
+	// Usage: Place this script on the Game Object you want to modify
+	// the handle's rot with the disc
+	
+	@script ExecuteInEditMode()
+	
+	var rot : Quaternion = Quaternion.identity;
+	
+	function Update() {
+		transform.rotation = rot;
+	}
+END EX
+
+@param rotation the rotation of the disc
+@param position the center of the disc	
+@param axis the axis to rotate around
+@param size the size of the disc in world space SA:HandleUtility.GetHandleSize
+@param cutoffPlane if true, only the front-facing half of the circle is draw / draggable. This is useful when you have many overlapping rotation axes (like in the default rotate tool) to avoid clutter.
+@param snap the new value after the user has modified it.
+
+__Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.

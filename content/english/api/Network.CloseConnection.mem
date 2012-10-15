@@ -1,0 +1,27 @@
+Close the connection to another system.
+/target/ defines which system to close the connection to. If we are a client the only possible
+connection to close is the server connection, if we are a server the target player will be kicked off.
+/sendDisconnectionNotification/, enables or disables notifications being sent to the other end. If disabled the connection is dropped, if not a disconnect notification is reliably sent to the remote party and there after the connection is dropped.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI() {
+		if (GUILayout.Button ("Disconnect from server")) {
+			if (Network.connections.Length == 1) {
+				Debug.Log("Disconnecting: "+
+					Network.connections[0].ipAddress+":"+Network.connections[0].port);
+				Network.CloseConnection(Network.connections[0], true);
+			} else if (Network.connections.Length == 0)
+				Debug.Log("No one is connected");
+			else if (Network.connections.Length > 1)
+				Debug.Log("Too many connections. Are we running a server?");
+		}
+		if (GUILayout.Button ("Disconnect first player")) {
+			if (Network.connections.Length > 0) {
+				Debug.Log("Disconnecting: "+
+					Network.connections[0].ipAddress+":"+Network.connections[0].port);
+				Network.CloseConnection(Network.connections[0], true);
+			} 
+		}	
+	}
+END EX

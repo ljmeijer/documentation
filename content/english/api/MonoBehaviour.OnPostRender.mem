@@ -1,0 +1,47 @@
+CSNONE
+OnPostRender is called after a camera finished rendering the scene.
+This function is called only if the script is attached to the camera and is enabled.
+OnPostRender can be a co-routine, simply use the yield statement in the function.
+
+OnPostRender is called after the camera renders all its objects. If you want to
+do something after all cameras and GUI is rendered, use [[WaitForEndOfFrame]] coroutine.
+
+SA: ::ref::OnPreRender, [[WaitForEndOfFrame]].
+BEGIN EX
+
+	// When attached to a camera, will clear alpha channel
+	// of camera's render texture to pure white.
+	// Useful if you have camera rendering into a texture and later
+	// want to display it in GUI.
+
+	private var mat : Material;
+
+	function OnPostRender() {
+		// Create a shader that renders white only to alpha channel
+		if(!mat) {
+			mat = new Material( "Shader \"Hidden/SetAlpha\" {" +
+				"SubShader {" +
+				"	Pass {" +
+				"		ZTest Always Cull Off ZWrite Off" +
+				"		ColorMask A" +
+				"		Color (1,1,1,1)" +
+				"	}" +
+				"}" +
+				"}"
+			);
+		}
+		// Draw a quad over the whole screen with the above shader
+		GL.PushMatrix ();
+		GL.LoadOrtho ();
+		for (var i = 0; i < mat.passCount; ++i) {
+			mat.SetPass (i);
+			GL.Begin( GL.QUADS );
+			GL.Vertex3( 0, 0, 0.1 );
+			GL.Vertex3( 1, 0, 0.1 );
+			GL.Vertex3( 1, 1, 0.1 );
+			GL.Vertex3( 0, 1, 0.1 );
+			GL.End();
+		}
+		GL.PopMatrix ();	
+	}
+END EX

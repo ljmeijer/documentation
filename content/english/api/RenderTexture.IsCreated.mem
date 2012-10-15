@@ -1,0 +1,8 @@
+Is the render texture actually created?
+
+RenderTexture constructor does not actually create the hardware texture;
+by default the texture is created the first time it is set ::ref::active.
+@@IsCreated@@ returns /true/ if the hardware resources for this render
+are created.
+
+SA: ::ref::Create, ::ref::Release functions.

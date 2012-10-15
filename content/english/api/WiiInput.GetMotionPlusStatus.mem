@@ -1,0 +1,3 @@
+Wii MotionPlus status.
+@param	chan	Remote index, in range 0...3.
+@return Returns Wii MotionPlus status.

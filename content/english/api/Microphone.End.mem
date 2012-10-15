@@ -1,0 +1,2 @@
+Stops recording
+@param deviceName the name of the device. Passing null or an empty string will pick the default device. Get device names with [[Microphone.devices|Microphone.devices]]

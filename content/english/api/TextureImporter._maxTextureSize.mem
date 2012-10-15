@@ -1,0 +1,2 @@
+Maximum texture size.
+Larger textures will be scaled down to this size at import time.

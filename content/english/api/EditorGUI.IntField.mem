@@ -1,0 +1,39 @@
+<signature>
+IntField_Rect_int_GUIStyle
+IntField_Rect_string_int_GUIStyle
+IntField_Rect_GUIContent_int_GUIStyle
+</signature>
+Make a text field for entering integers.
+
+{img EditorGUIIntField.png}\\
+''Int Field in an Editor Window.''
+BEGIN EX
+
+	// Editor Script that clones the selected GameObject a number of times.
+	
+	class EditorGUIIntField extends EditorWindow {
+	
+		var clones : int = 1;
+		
+		@MenuItem("Examples/Clone Object")
+		static function Init() {
+			var window = GetWindow(EditorGUIIntField);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			sizeMultiplier = EditorGUI.IntField(Rect(0,35,position.width,15),
+						"Number of clones:", 
+						clones);
+			if(GUI.Button(Rect(0,10,position.width, 20), "Clone!"))
+				for(var i = 0; i < clones; i++)
+					Instantiate(Selection.activeGameObject, Vector3.zero, Quaternion.identity);
+		}
+	}
+END EX
+
+@param position Rectangle on the screen to use for the int field.
+@param label Optional label to display in front of the int field.
+@param value The value to edit.
+@param style Optional [[GUIStyle]].
+@returns The value entered by the user.

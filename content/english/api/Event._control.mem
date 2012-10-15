@@ -1,0 +1,13 @@
+Is Control key held down? (RO)
+Returns true if any Control key is held down.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Detects if the control key was pressed
+	function OnGUI() {
+		var e : Event = Event.current;
+		if (e.control) {
+			Debug.Log("Control was pressed.");
+		}
+	}
+END EX

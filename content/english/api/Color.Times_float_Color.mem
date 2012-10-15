@@ -1,0 +1,7 @@
+Multiplies color /a/ by the float /b/. Each color component is scaled separately.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// 2 * gray = White
+	var whiteColor: Color = 2 * Color.gray;
+END EX

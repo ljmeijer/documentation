@@ -1,0 +1,15 @@
+Reflects the vector along the normal.
+
+The returned value is /inDirection/ reflected from a surface with a normal /inNormal/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var originalObject : Transform;
+	var reflectedObject : Transform;
+
+	function Update () {
+		// Makes the reflected object appear opposite of the original object,
+		// mirrored along the z-axis of the world
+		reflectedObject.position = Vector3.Reflect (originalObject.position, Vector3.right);
+	}
+END EX

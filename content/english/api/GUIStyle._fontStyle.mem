@@ -1,0 +1,4 @@
+The font style to use (for dynamic fonts)
+
+If this is set to a value other then normal, the font style set in the font importer is overriden with a custom style.
+This is only supported for fonts set to use dynamic font rendering. Other fonts will always render in normal style.

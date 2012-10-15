@@ -1,0 +1,52 @@
+Close the editor window.
+This will destroy the editor window
+
+{img ShowPopupEx.png}\\
+''Simple window that lets you delete components from the selected Game Objects.''
+BEGIN EX
+
+	// Create a simple popup window that lets you delete a specific 
+	// Component from the GameObjects you have selected
+	//
+	// Warning: There is no undo in this action.
+	
+	class ShowPopupEx extends EditorWindow {
+		var className = "Rigidbody";
+		@MenuItem("Example/Delete Components in Selection")
+		static function Init() {
+			var window = new ShowPopupEx();
+			window.position = Rect(Screen.width/2,Screen.height/2, 250, 50);
+			window.ShowPopup();
+		}
+		
+		// Disable the menu if we dont have anything selected
+		@MenuItem("Example/Delete Components in Selection", true)
+		static function ValidateDeleteComponentsInSelectionOfType() {
+			return Selection.GetFiltered(
+				GameObject, 
+				SelectionMode.Editable | SelectionMode.Deep) != null;
+		}
+		
+		function OnGUI() {
+			className = EditorGUILayout.TextField("Component:",className);
+			if(GUILayout.Button("Delete!")) {
+				var destroyedCount = 0;
+			
+				for (var obj in Selection.GetFiltered(
+				GameObject, 
+				SelectionMode.Editable | SelectionMode.Deep)) {
+					var component = obj.GetComponent(className);
+					if (component) {
+						DestroyImmediate(component);
+						destroyedCount++;
+					}
+				}
+				this.Close();
+				EditorUtility.DisplayDialog("Deletion Report", 
+					String.Format("Deleted {0} components of type \"{1}\"", destroyedCount, className), 
+					"Close");	
+			}
+		}
+		
+	}
+END EX

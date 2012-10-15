@@ -1,0 +1,9 @@
+The height of the character's capsule
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the controller height to 2.0
+	var controller : CharacterController;
+	controller = GetComponent(CharacterController);
+	controller.height = 2.0;
+END EX

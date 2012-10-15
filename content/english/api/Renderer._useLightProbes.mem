@@ -1,0 +1,4 @@
+If enabled and baked light probes are present in the scene, an interpolated light probe
+will be calculated for this object and set as built-in shader uniform variables.
+Surface shaders use this information automatically. To add light probe contribution to
+your custom non-surface shaders, use ShadeSH9(worldSpaceNormal) in your vertex or pixel shader.

@@ -1,0 +1,5 @@
+Show the editor window.
+/displayImmediately / will display the window immediately.
+This is useful when you open a window from a menu command and want to make sure the menu stays highlighted until the window is actually visible.
+Turning it off is useful when you are calling it from OnGUI and don't want to call GUIUtility.ExitGUI
+because UnityGUI is not recursive and a repaint of other views happens from inside Show when displayImmediately is turned on

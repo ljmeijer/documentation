@@ -1,0 +1,38 @@
+Make an unconstrained rotation handle.
+The handle can rotate freely on all axes.
+
+{img FreeRotateHandle.png}\\
+''FreeRotate handle seen in the Scene View.''
+BEGIN EX
+
+	// Create a simple rotate handle (half scale) on the 
+	// target object that lets you freely rotate
+	// the Object Without having to select the "Rotate" button
+	
+	@CustomEditor (FreeRotate)
+	class FreeRotateHandleJS extends Editor {
+		function OnSceneGUI () {
+	        target.rot = Handles.FreeRotateHandle(target.rot, target.transform.position, 0.5);
+	        if (GUI.changed)
+	            EditorUtility.SetDirty (target);
+	    }
+	}
+END EX
+
+And the script attached to this Handle:
+BEGIN EX
+
+	@script ExecuteInEditMode()
+	
+	var rot : Quaternion = Quaternion.identity;
+	
+	function Update () {
+		transform.rotation = rot;
+	}
+END EX
+
+@param rotation Orientation of the handle.
+@param position Center of the handle in 3D space.
+@param size The size of the handle.
+
+__Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.

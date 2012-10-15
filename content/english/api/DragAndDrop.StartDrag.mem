@@ -1,0 +1,24 @@
+Start a drag operation.
+
+Initiates a drag operation with the current drag object state. Use ::ref::paths and/or ::ref::objectReferences to setup
+drag state.
+
+SA: ::ref::PrepareStartDrag, ::ref::paths, ::ref::objectReferences.
+BEGIN EX
+
+	function OnGUI () {
+		if (Event.current.type == EventType.MouseDrag) {
+			// Clear out drag data
+			DragAndDrop.PrepareStartDrag ();
+
+			// Set up what we want to drag
+			DragAndDrop.paths = [ "/Users/joe/myPath.txt" ];
+
+			// Start the actual drag
+			DragAndDrop.StartDrag ("Dragging title");
+
+			// Make sure no one uses the event after us
+			Event.current.Use();
+		}
+	}
+END EX

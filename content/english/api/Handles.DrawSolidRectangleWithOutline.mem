@@ -1,0 +1,40 @@
+Draw a solid outlined rectangle in 3D space.
+
+{img DrawSolidRectangle.png}\\
+''Solid rectangle with a black outline in the Scene View.''
+BEGIN EX
+
+	// Create a semi transparent rectangle that lets you modify 
+	// the "range" var that resides in "SolidRectangleExample.js"
+	
+	@CustomEditor (SolidRectangleExample)
+	class DrawSolidRectangle extends Editor {
+	    function OnSceneGUI () {
+	    	var pos : Vector3 = target.transform.position;
+	 
+			var verts : Vector3[] = [Vector3(pos.x - target.range,pos.y,pos.z-target.range), 
+						Vector3(pos.x-target.range,pos.y,pos.z + target.range), 
+						Vector3(pos.x+target.range,pos.y,pos.z + target.range), 
+						Vector3(pos.x+target.range,pos.y,pos.z-target.range)];
+	        Handles.DrawSolidRectangleWithOutline(verts, Color(1,1,1,0.2), Color(0,0,0,1));
+	        
+	        for(var posCube : Vector3 in verts)
+	        	target.range = Handles.ScaleValueHandle(target.range,
+        							posCube,
+        							Quaternion.identity,
+        							1,
+        							Handles.CubeCap,
+        							1);
+	    }
+	}
+END EX
+
+And the script attached to this Handle:
+BEGIN EX
+
+	//SolidRectangleExample.js
+	
+	var range : float = 5;
+END EX
+
+@param verts the 4 vertices of the rectangle in world coordinates

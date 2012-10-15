@@ -1,0 +1,35 @@
+Make a progress bar.
+
+Value goes from 0 to 1, where 0 means 0% of the bar filled and 1
+means the bar is at 100%  fully filled
+
+{img EditorGUIProgressBar.png}\\
+''Progress bar in an Editor Window.''
+BEGIN EX
+
+	// Draw the damage and the armor with bars in an Editor Window
+	
+	class EditorGUIProgressBar extends EditorWindow {
+	
+		var armor : int = 20;
+		var damage : int = 80;
+	
+		@MenuItem("Examples/Display Info")
+		static function Init() {
+			var window = GetWindow(EditorGUIProgressBar);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			armor = EditorGUI.IntSlider(Rect(3,3,position.width-6,15), "Armor:", armor, 0, 100);
+			damage = EditorGUI.IntSlider(Rect(3,25,position.width-6,15), "Damage:", damage, 0, 100);
+			
+			EditorGUI.ProgressBar(Rect(3,45,position.width-6,20),armor/100.0, "Armor");
+			EditorGUI.ProgressBar(Rect(3,70,position.width-6,20),damage/100.0, "Damage");
+			
+		}
+	}
+END EX
+
+@param totalPosition Rectangle on the screen to use in total for both the control.
+@param value Value that is shown.

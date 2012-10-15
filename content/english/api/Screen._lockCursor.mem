@@ -1,0 +1,60 @@
+Should the cursor be locked?
+The cursor will automatically be hidden, centered on view and made to never leave the view.
+
+In the web player, the cursor may only be locked after the user has clicked on the content and the user has not left the content view with the cursor.
+After the user presses escape or switches to another application the cursor will be automatically unlocked.
+The cursor lock will also be lost when exiting full screen mode.
+You can query if the cursor is currently locked by checking the lockCursor state.
+To provide a good user experience it is recommended to only lock the cursor as a result of pressing a button.
+Also you should check if the cursor got unlocked, in order to e.g. pause the game or bring up a game menu.
+In the Web Player and Editor the cursor will automatically be unlocked when you press escape.
+In the Standalone Player you have full control over mouse locking thus it won't automatically lose mouse lock unless you switch applications.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Called when the cursor is actually being locked
+
+	function DidLockCursor () {
+		Debug.Log("Locking cursor");
+
+		// Disable the button
+		guiTexture.enabled = false;
+	}
+
+	// Called when the cursor is being unlocked
+	// or by a script calling Screen.lockCursor = false;
+	function DidUnlockCursor () {
+		Debug.Log("Unlocking cursor");
+
+		// Show the button again
+		guiTexture.enabled = true;
+	}
+
+	function OnMouseDown () {
+		// Lock the cursor
+		Screen.lockCursor = true;
+	}
+
+	private var wasLocked = false;
+
+	function Update () {
+		// In standalone player we have to provide our own key
+		// input for unlocking the cursor
+		if (Input.GetKeyDown ("escape"))
+			Screen.lockCursor = false;
+
+		// Did we lose cursor locking?
+		// eg. because the user pressed escape
+		// or because he switched to another application
+		// or because some script set Screen.lockCursor = false;
+		if (!Screen.lockCursor && wasLocked) {
+			wasLocked = false;
+			DidUnlockCursor();
+		}
+		// Did we gain cursor locking?
+		else if (Screen.lockCursor && !wasLocked) {
+			wasLocked = true;
+			DidLockCursor ();
+		}
+	}
+END EX

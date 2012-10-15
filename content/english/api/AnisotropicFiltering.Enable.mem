@@ -1,0 +1,2 @@
+Enable anisotropic filtering, as set for each texture.
+SA: QualitySettings.anisotropicFiltering.

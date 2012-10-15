@@ -1,0 +1,34 @@
+Perform an Redo operation.
+This is similar to the user selecting Redo from the Edit menu.
+
+SA: ::ref::PerformUndo.
+
+{img PerformVariousRedo.png}\\
+''Simple Scriptable Wizard that lets you perform a redo several times.''
+BEGIN EX
+
+	using UnityEngine;
+	using UnityEditor;
+
+	//Performs a Redo the number of times specified.
+
+	public class PerformVariousRedo : ScriptableWizard {
+		public int numberOfSteps = 5;
+
+
+		[MenuItem ("Example/Perform Various Redo %#r")]
+		static void ExecuteMenu() {
+			ScriptableWizard.DisplayWizard(
+				"Perform various Redo at the same time",
+				typeof(PerformVariousUndo),
+				"Redo!");
+		}
+
+		void OnWizardCreate() {
+			int savedNumberOfSteps = numberOfSteps;
+			for(int i = 0; i < savedNumberOfSteps; i++) {
+				Undo.PerformRedo();
+			}
+		}
+	}
+END EX

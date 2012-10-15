@@ -1,0 +1,14 @@
+CSNONE
+OnGUI is called for rendering and handling GUI events.
+
+This means that your OnGUI implementation might be called several times per frame (one call per event). For more information on GUI events see the [[Event]] reference.
+If the MonoBehaviour's enabled property is set to false, OnGUI() will not be called.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI () {
+		if (GUI.Button (Rect (10,10,150,100), "I am a button"))
+			print ("You clicked the button!");
+	}
+END EX
+For more information, see the [[wiki:GUI Scripting Guide|GUI Scripting Guide]]

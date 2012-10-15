@@ -1,0 +1,9 @@
+Pixel inset used for pixel adjustments for size and position.
+You can set the transform.localScale to Vector3.zero in order to make the GUI texture always the same pixel size.
+CONVERTEXAMPLE
+BEGIN EX
+
+	transform.position = Vector3.zero;
+	transform.localScale = Vector3.zero;
+	guiTexture.pixelInset = Rect (50, 50, 100, 100);
+END EX

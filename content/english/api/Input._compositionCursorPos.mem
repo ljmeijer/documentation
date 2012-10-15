@@ -1,0 +1,8 @@
+The current text input position used by IMEs to open windows.
+Some language IMEs such as Japanese will open windows while the user is typing text, to aid the user
+in picking the correct input strings. These windows are expected to pop up at the current cursor position,
+so the IME needs to know where input is displayed. When using Unity's built in GUI system for text input,
+Unity will take care of setting the cursor position for the IME. However, if you wish to implement your 
+own GUI for text input, you need to set this to the current text input position for IME windows to 
+show up correctly.
+SA: [[Input.imeCompositionMode]], [[Input.compositionString]]

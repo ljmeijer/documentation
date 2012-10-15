@@ -1,0 +1,5 @@
+Strip normals/tangents.
+
+If normals/tangents are not needed by all shaders, this can be a simple 
+way to reduce build size a little.
+SA: ModelImporter.normalImportMode, ModelImporter.tangentImportMode.

@@ -1,0 +1,17 @@
+The rotation as Euler angles in degrees relative to the parent transform's rotation.
+
+The x, y, and z angles represent a rotation z degrees around the z axis, x degrees around the x axis, and y degrees around the y axis (in that order).
+
+Only use this variable to read and set the angles to absolute values. Don't increment them, as it will fail when the angle exceeds 360 degrees.
+Use Transform.Rotate instead.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Print the rotation around the parent's X Axis
+	print (transform.localEulerAngles.x);
+	// Print the rotation around the parent's Y Axis
+	print (transform.localEulerAngles.y);
+	// Print the rotation around the parent's Z Axis
+	print (transform.localEulerAngles.z);
+END EX
+Unity automatically converts the angles to and from the rotation stored in Transform.localRotation

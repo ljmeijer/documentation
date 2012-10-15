@@ -1,0 +1,10 @@
+Detail objects will be displayed up to this distance.
+
+SA: ::ref::detailObjectDensity.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		Terrain.activeTerrain.detailObjectDistance = 40;
+	}
+END EX

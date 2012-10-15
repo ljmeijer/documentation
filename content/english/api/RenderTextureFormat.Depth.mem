@@ -1,0 +1,12 @@
+A depth render texture format.
+
+Depth format is used to render high precision "depth" value into a render texture. Which format
+is actually used depends on the platform. On OpenGL it is the native "depth component" format
+(usually 24 or 16 bits), on Direct3D9 it is the 32 bit floating point ("R32F") format. When writing
+shaders that use or render into a depth texture, care must be taken to ensure that they work both
+on OpenGL and on Direct3D, see [[wiki:SL-DepthTextures|depth textures documentation]].
+
+Note that not all graphics cards support depth textures. Use SystemInfo.SupportsRenderTextureFormat
+to check for support.
+
+SA: RenderTexture.format, [[RenderTexture]] class, SystemInfo.SupportsRenderTextureFormat.

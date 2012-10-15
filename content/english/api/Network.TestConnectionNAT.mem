@@ -1,0 +1,3 @@
+Test the connecction specifically for NAT punchthrough connectivity.
+This is like Network.TestConnection except that a NAT punchthrough test is forced, even through the
+machine does not have a NAT address (private IP address) but a public address. See Network.TestConnection example code.

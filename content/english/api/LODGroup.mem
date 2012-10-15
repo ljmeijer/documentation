@@ -1,0 +1,2 @@
+LODGroup lets you group multiple Renderers into LOD levels.
+This can be used to switch between different LOD levels at runtime based on size on screen.

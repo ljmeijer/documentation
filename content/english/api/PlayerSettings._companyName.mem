@@ -1,0 +1,75 @@
+The name of your company.
+
+This is used to locate the preferences file.
+
+{img PlayerSettingsCustomSettings.png}\\
+''Custom player settings.''
+BEGIN EX
+
+	// Simple Script that saves and loads custom
+	// Stand-alone/Web player screen settings among
+	// Unity Projects
+
+	class CustomSettings extends EditorWindow {
+
+		var compName : String = "";
+		var prodName : String = "";
+		var screenWidth : int = 640;
+		var screenHeight : int = 480;
+		var webScreenWidth : int = 640;
+		var webScreenHeight : int = 480;
+		var fullScreen : boolean = false;
+
+		@MenuItem("Examples/Custom Settings")
+		static function Init() {
+			var window = GetWindow(CustomSettings);
+			window.Show();
+		}
+
+		function OnGUI() {
+			compName = EditorGUILayout.TextField("Company Name:", compName);
+			prodName = EditorGUILayout.TextField("Product Name:", prodName);
+			EditorGUILayout.BeginHorizontal();
+				screenWidth = EditorGUILayout.IntField("Width:", screenWidth);
+				screenHeight = EditorGUILayout.IntField("Web Height:", screenHeight);
+			EditorGUILayout.EndHorizontal();
+			EditorGUILayout.Space();
+			EditorGUILayout.BeginHorizontal();
+				webScreenWidth = EditorGUILayout.IntField("Web Width:", webScreenWidth);
+				webScreenHeight = EditorGUILayout.IntField("Web Height:", webScreenHeight);
+			EditorGUILayout.EndHorizontal();
+			fullScreen = EditorGUILayout.Toggle("Full Screen:",fullScreen);
+			EditorGUILayout.BeginHorizontal();
+				if(GUILayout.Button("Save Values"))
+					SaveSettings();
+				if(GUILayout.Button("Load Values"))
+					LoadSettings();
+			EditorGUILayout.EndHorizontal();
+		}
+
+		function SaveSettings() {
+			PlayerSettings.companyName = compName;
+			PlayerSettings.productName = prodName;
+			PlayerSettings.defaultScreenWidth =  screenWidth;
+			PlayerSettings.defaultScreenHeight = screenHeight;
+			PlayerSettings.defaultWebScreenWidth = webScreenWidth;
+			PlayerSettings.defaultWebScreenHeight = webScreenHeight;
+			PlayerSettings.defaultIsFullScreen = fullScreen;
+
+			EditorPrefs.SetString("CompName", compName);
+			EditorPrefs.SetString("ProdName", prodName);
+			EditorPrefs.SetInt("ScreenWidth", screenWidth);
+			EditorPrefs.SetInt("ScreenHeight", screenHeight);
+			EditorPrefs.SetInt("WebScreenWidth", webScreenWidth);
+			EditorPrefs.SetInt("WebScreenHeight", webScreenHeight);
+		}
+		function LoadSettings() {
+			compName = EditorPrefs.GetString("CompName","");
+			prodName = EditorPrefs.GetString("ProdName","");
+			screenWidth = EditorPrefs.GetInt("ScreenWidth", 640);
+			screenHeight = EditorPrefs.GetInt("ScreenHeight",480);
+			webScreenWidth = EditorPrefs.GetInt("WebScreenWidth",640);
+			webScreenHeight = EditorPrefs.GetInt("WebScreenHeiht",480);
+		}
+	}
+END EX

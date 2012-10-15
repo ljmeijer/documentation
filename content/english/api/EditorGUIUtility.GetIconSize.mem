@@ -1,0 +1,4 @@
+Get the size that has been set using ::ref::SetIconSize.
+The default size is Vector2.zero where the size is determined by the available space.
+
+SA: ::ref::SetIconSize.

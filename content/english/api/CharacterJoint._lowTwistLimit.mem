@@ -1,0 +1,2 @@
+The lower limit around the primary axis of the character joint.
+The limit is relative to the angle the two rigidbodies started the simulation out with.

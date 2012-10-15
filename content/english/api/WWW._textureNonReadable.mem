@@ -1,0 +1,22 @@
+Returns a non-readable [[Texture2D]] generated from the downloaded data (RO).
+
+Same as ::ref::texture, but marks texture as non-readable, effectively freeing system memory.
+
+SA TextureImporter.isReadable
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Get the latest webcam shot from outside "Friday's" in Times Square
+
+	var url = "http://images.earthcam.com/ec_metros/ourcams/fridays.jpg";
+	function Start () {
+		 // Start a download of the given URL
+		var www : WWW = new WWW (url);
+
+		// Wait for download to complete
+		yield www;
+
+		// assign texture
+		renderer.material.mainTexture = www.textureNonReadable;
+	}
+END EX

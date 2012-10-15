@@ -1,0 +1,1 @@
+This exception is thrown by the [[PlayerPrefs]] class in the Web player if the preference file would exceed the allotted storage space when setting a value.

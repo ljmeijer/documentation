@@ -1,0 +1,4 @@
+Returns the main asset object at /assetPath/.
+All paths are relative to the project folder. Like: "Assets/MyTextures/hello.png"
+
+SA: AssetDatabase.LoadAssetAtPath, AssetDatabase.LoadAllAssetsAtPath

@@ -1,0 +1,2 @@
+Returns a boolean value that indicates whether a gyroscope is available
+on the device.

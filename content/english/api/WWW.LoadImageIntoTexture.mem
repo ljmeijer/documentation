@@ -1,0 +1,42 @@
+Replaces the contents of an existing [[Texture2D]] with an image from the downloaded data.
+
+The data must be an image in JPG or PNG format. If the data is not a valid
+image, the generated texture will be a small image of a question mark.
+It is recommended to use power-of-two size for each dimension of the image;
+arbitrary sizes will also work but can load slightly slower and take up
+a bit more memory.
+
+For PNG files, gamma correction is applied to the texture if PNG file contains
+gamma information. Display gamma for correction is assumed to be 2.0. If file
+does not contain gamma information, no color correction will be performed.
+
+This function replaces texture contents with downloaded image data, so texture
+size and format might change. JPG files are loaded into TextureFormat::pref::RGB24 format,
+PNG files are loaded into TextureFormat::pref::ARGB32 format. If texture format before
+calling LoadImage is TextureFormat::pref::DXT1 or TextureFormat::pref::DXT5,
+then the loaded image will be DXT-compressed (into DXT1 for JPG images and DXT5 for PNG images).
+
+If the data has not finished downloading the texture will be left untouched.
+Use ::ref::isDone or /yield/ to see if the data is available.
+BEGIN EX
+
+	// Continuously get the latest webcam shot from outside "Friday's" in Times Square
+	// and DXT compress them at runtime
+	var url = "http://images.earthcam.com/ec_metros/ourcams/fridays.jpg";
+
+	function Start () {
+		// Create a texture in DXT1 format
+		renderer.material.mainTexture = new Texture2D(4, 4, TextureFormat.DXT1, false);
+		while(true) {
+			// Start a download of the given URL
+			var www = new WWW(url);
+
+			// wait until the download is done
+			yield www;
+
+			// assign the downloaded image to the main texture of the object
+			www.LoadImageIntoTexture(renderer.material.mainTexture);
+		}
+	}
+END EX
+@param tex An existing texture object to be overwritten with the image data.

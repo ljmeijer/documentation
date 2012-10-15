@@ -1,0 +1,3 @@
+This makes the audio source not take into account the volume of the audio listener.
+Enable this when playing back music.
+When playing back music you want a separate setting which is unaffected by the normal sound effects volume.

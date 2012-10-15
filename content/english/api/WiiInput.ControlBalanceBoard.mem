@@ -1,0 +1,4 @@
+Send an async command to the Balance Board. Command's success code can be accessed through GetAsyncResult.
+@param	chan	Remote index, in range 0...3.
+@param	command	A command id to send to the Balance Board.
+@return result of issuing the command to the balance board. You can obtain the result code of the command itself using GetAsyncCommandResult.

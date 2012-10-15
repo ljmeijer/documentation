@@ -1,0 +1,32 @@
+The actual unfiltered selection from the Scene.
+Only objects from the Scene or Hierarchy will be returned, not from the Project View. You can also assign objects to the selection.
+
+SA: Selection.instanceIDs.
+
+{img SelectAllOfTag.png}\\
+''Scriptable Wizard that lets you select GameObjects by their tag.''
+BEGIN EX
+
+	// C# Example
+	// Select objects based on their tags
+
+	using UnityEngine;
+	using UnityEditor;
+
+	public class SelectAllOfTag : ScriptableWizard {
+		public string tagName = "ExampleTag";
+
+		[MenuItem ("Example/Select All of Tag...")]
+		public static void SelectAllOfTagWizard() {
+			ScriptableWizard.DisplayWizard(
+				"Select All of Tag...",
+				typeof(SelectAllOfTag),
+				"Make Selection");
+		}
+
+		void OnWizardCreate() {
+			GameObject[] gos = GameObject.FindGameObjectsWithTag(tagName);
+			Selection.objects = gos;
+		}
+	}
+END EX

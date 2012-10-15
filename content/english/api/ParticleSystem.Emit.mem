@@ -1,0 +1,11 @@
+Emit a single particle with given parameters.
+
+@param position	The position of the particle.
+@param velocity	The velocity of the particle.
+@param size		The size of the particle.
+@param lifetime	The remaining lifetime of the particle.
+@param color	The color of the particle.<signature>
+Emit_Vector3_Vector3_float_float_Color32
+Emit_ParticleParticle
+</signature>
+Emit a single particle.

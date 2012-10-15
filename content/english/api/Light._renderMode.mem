@@ -1,0 +1,13 @@
+How to render the light.
+
+This can be LightRenderMode.Auto, LightRenderMode.ForceVertex or LightRenderMode.ForcePixel.
+
+Pixel lights render slower but look better, especially on not very highly tesselated geometry.
+Some effects (e.g. bumpmapping) are only displayed for pixel lights.
+SA: [[wiki:class-Light|Light component]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Make the light only render with vertex lighting
+	light.renderMode = LightRenderMode.ForceVertex;
+END EX

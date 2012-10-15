@@ -1,0 +1,11 @@
+Checks if an AssetBundle is cached.
+When using the default shared cache, the URL of the WebPlayer application bundle is automatically prepended to the /url/ parameter; this prevents filename collisions with identically-named AssetBundles used by other developers' WebPlayer applications. WebPlayer applications that use a dedicated cache do not experience this behavior.
+This function can be utilized to enable AssetBundle preloading. First, call Caching.IsVersionCached() to see if the current version of an AssetBundle is already cached. If the AssetBundle is not cached, it can be preloaded in the background so that it is immediately available for loading into memory when requested.
+@param string url The filename of the AssetBundle. Domain and path information are stripped from this string automatically.
+@param int version The version number of the AssetBundle to check for. Negative values are not allowed.
+@returns true if an AssetBundle matching the /url/ and /version/ parameters has previously been loaded using WWW.LoadFromCacheOrDownload() and is currently stored in the cache. Returns false if the AssetBundle is not in cache, either because it has been flushed from the cache or was never loaded using the Caching API.
+BEGIN EX
+
+if (Caching.IsVersionCached("http://myserver.com/bla.unity3d", 3))
+    GUILayout.Button("Load Level");
+END EX

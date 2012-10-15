@@ -1,0 +1,4 @@
+Allocate a temporary render texture.
+This function is optimized for when you need a quick RenderTexture to do some temporary calculations.
+Release it using ::ref::ReleaseTemporary as soon as you're done with it, so another call can
+start reusing it if needed.

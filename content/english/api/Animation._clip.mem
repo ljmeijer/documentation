@@ -1,0 +1,8 @@
+The default animation.
+CONVERTEXAMPLE
+BEGIN EX
+
+	animation.Play(animation.clip.name);
+	// Wait for the animation to have finished
+	yield WaitForSeconds (animation.clip.length);
+END EX

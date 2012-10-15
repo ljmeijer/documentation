@@ -1,0 +1,4 @@
+The Audio Echo Filter repeats a sound after a given Delay, attenuating
+the repetitions based on the Decay Ratio.
+
+__Note:__ This filter is only available on the PRO version.

@@ -1,0 +1,10 @@
+Are we playing any animations?
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Plays an animation only if we are not playing it already.
+	function OnMouseEnter() {
+		if (!animation.isPlaying)
+			animation.Play();
+	}
+END EX

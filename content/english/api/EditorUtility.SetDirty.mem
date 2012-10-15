@@ -1,0 +1,26 @@
+Marks /target/ object as dirty.
+
+Unity internally uses the dirty flag to find out when assets have changed and need to be saved to disk.
+
+E.g. if you modify a prefab's [[MonoBehaviour]] or [[ScriptableObject]] variables, you must tell Unity that the value has changed.
+Unity builtin components internally call SetDirty whenever a property changes.
+[[MonoBehaviour]] or [[ScriptableObject]] don't do this automatically so if you want your value to be saved you need to call SetDirty.
+BEGIN EX
+
+	#pragma strict
+	// This example shows a custom inspector for an
+	// object "MyPlayerEditor", which has two variables, speed and ammo.
+	@CustomEditor(MyPlayer)
+	class MyPlayerEditor extends Editor {
+		function OnInspectorGUI()
+		{
+			var targetPlayer = target as MyPlayer;
+			EditorGUILayout.LabelField ("Some help", "Some other text");
+
+			GUI.changed = false;
+			targetPlayer.speed = EditorGUILayout.Slider ("Speed", targetPlayer.speed, 0, 100);
+			if (GUI.changed)
+				EditorUtility.SetDirty(targetPlayer);
+		}
+	}
+END EX

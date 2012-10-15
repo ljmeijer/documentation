@@ -1,0 +1,2 @@
+Changes the Auto Error Message mode.
+@return True if Auto Error Message mode is enabled and false if it is disabled.

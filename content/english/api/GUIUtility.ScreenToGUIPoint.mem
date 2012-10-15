@@ -1,0 +1,23 @@
+Convert a point from screen space to GUI position.
+
+Used for reconverting values calculated from ::ref::GUIToScreenPoint
+
+__Note:__ In Unity the screen space __y__ coordinate varies from zero at the top
+edge of the window to a maximum at the bottom edge of the window. This is
+different from what you might expect.
+
+SA: GUIUtility.GUIToScreenPoint.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Check the difference between the mouse position (Screen) and
+	// the converted GUI positions because of the group.
+
+	function OnGUI () {
+		var screenPos : Vector2 = Event.current.mousePosition;
+		GUI.BeginGroup (Rect (10,10,100,100));
+		var convertedGUIPos : Vector2 = GUIUtility.ScreenToGUIPoint(screenPos);
+		GUI.EndGroup ();
+		Debug.Log("Screen: " + screenPos + " GUI: " + convertedGUIPos);
+	}
+END EX

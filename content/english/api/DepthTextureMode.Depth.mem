@@ -1,0 +1,7 @@
+Generate a depth texture.
+
+Will generate a screen-space depth texture as seen from this camera.
+Texture will be in RenderTextureFormat.Depth format and will be set as @@_CameraDepthTexture@@
+global shader property.
+
+SA: Camera.depthTextureMode.

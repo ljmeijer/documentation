@@ -1,0 +1,11 @@
+<signature>
+SelectableLabel_string_GUILayoutOptionArray
+SelectableLabel_string_GUIStyle_GUILayoutOptionArray
+</signature>
+Make a selectable label field. (Useful for showing read-only info that can be copy-pasted.)
+
+@param text The text to show.
+@param style Optional [[GUIStyle]].
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight

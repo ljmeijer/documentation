@@ -1,0 +1,2 @@
+The Fixed joint groups together 2 rigidbodies, making them stick together in their bound position.
+SA: [[CharacterJoint]], [[HingeJoint]], [[SpringJoint]], [[ConfigurableJoint]].

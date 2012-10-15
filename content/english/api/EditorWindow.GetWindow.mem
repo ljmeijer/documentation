@@ -1,0 +1,22 @@
+Returns the first EditorWindow of type /t/ which is currently on the screen.
+If there is none, creates and shows new window and returns the instance of it.
+
+{img GetWindowEx.png}\\
+''Simple Empty non-dockable window.''
+BEGIN EX
+
+	// Simple script that creates a new non-dockable window
+	
+	import UnityEditor;
+	
+	class GetWindowEx extends EditorWindow {	
+		@MenuItem("Example/Display simple Window")
+		static function Initialize() {
+			var window : GetWindowEx = EditorWindow.GetWindow(GetWindowEx, true, "My Empty Window");
+		}
+	}
+END EX
+
+@param t the type of the window. Must derive from EditorWindow.
+@param utility set this to true, to create a floating utility window, false to create a normal window.
+@param title if GetWindow creates a new window, it will get this title. If this value is null, use the class name as title.

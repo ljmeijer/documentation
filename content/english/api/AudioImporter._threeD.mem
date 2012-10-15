@@ -1,0 +1,12 @@
+Is this clip a 2D or 3D sound?
+BEGIN EX
+
+	// C#: Prints a warning if the imported audio is a 2D sound.
+	class Warning2D extends AssetPostprocessor {
+		function OnPreprocessAudio () {
+			var audioImporter : AudioImporter = assetImporter;
+			if(!audioImporter.threeD)
+				Debug.LogWarning(assetPath + " is not a 3D audio.");
+		}
+	}
+END EX

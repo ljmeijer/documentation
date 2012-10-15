@@ -1,0 +1,14 @@
+Option passed to a control to give it an absolute height.
+
+__Note:__ This option will override the Automatic height Layout parameter
+
+{img GUILayoutHeight.png}\\
+''Fixed Height for a GUI Control.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws a  button with a  fixed height
+	function OnGUI() {
+		GUILayout.Button("A Button with fixed height", GUILayout.Height(300));
+	}
+END EX

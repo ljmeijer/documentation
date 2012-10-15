@@ -1,0 +1,18 @@
+*undocumented
+Set current file pointer position.
+BEGIN EX
+
+	var file: NVFile = new NVFile ();
+	yield file.Open ("/tmp/test", WiiNand.Access.Read);
+	if (file.success) {
+		// seek back 64 bytes from the end of file
+		yield file.Seek (-64, WiiNand.SeekMode.End);
+		if (file.success)
+			Debug.Log ("File pointer position is: " + file.position);
+		else
+			Debug.Log ("Failed to seek file pointer");
+		yield file.Close();
+	}
+END EX
+@param	offset	Offset from start of file, current position or end of file, depending on WiiNand.SeekMode specified.
+@param	mode	WiiNand.SeekMode.

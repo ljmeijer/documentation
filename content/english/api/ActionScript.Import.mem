@@ -1,0 +1,8 @@
+Causes an import directive to be emitted in the ActionScript code generated for the current type.
+CONVERTEXAMPLE
+BEGIN EX
+
+	import UnityEngine.Flash;
+	
+	ActionScript.Import("flash.utils.Dictionary");
+END EX

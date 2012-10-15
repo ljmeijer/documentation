@@ -1,0 +1,71 @@
+<signature>
+AddFloat_string_float
+AddFloat_int_float
+</signature>
+Add a float material property.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws 3 meshes with the same material but with different Shininess levels
+
+	var aMesh : Mesh;
+	var aMaterial : Material = new Material(Shader.Find("VertexLit"));
+
+	function Update() {
+		var materialProperty : MaterialPropertyBlock = new MaterialPropertyBlock();
+
+
+		// Not shiny
+		materialProperty.Clear();
+		materialProperty.AddFloat("_Shininess", 1.0);
+		Graphics.DrawMesh(aMesh, Vector3(0,0,0), Quaternion.identity,
+				  aMaterial, 0, null, 0, materialProperty);
+
+		// More or less shiny
+		materialProperty.Clear();
+		materialProperty.AddFloat("_Shininess", 0.5);
+		Graphics.DrawMesh(aMesh, Vector3(5,0,0), Quaternion.identity,
+				  aMaterial, 0, null, 0, materialProperty);
+
+		// Shiny
+		materialProperty.Clear();
+		materialProperty.AddFloat("_Shininess", 0.0);
+		Graphics.DrawMesh(aMesh, Vector3(-5,0,0), Quaternion.identity,
+				  aMaterial, 0, null, 0, materialProperty);
+	}
+END EX
+
+Function variant that takes /nameID/ is faster. If you are adding properties with the same name repeatedly,
+use Shader.PropertyToID to get unique identifier for the name, and pass the identifier to AddFloat.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws 3 meshes with the same material but with different Shininess levels
+	// Using the material tag ID.
+
+	var aMesh : Mesh;
+	var aMaterial : Material = new Material(Shader.Find("VertexLit"));
+
+	function Update() {
+		var materialProperty : MaterialPropertyBlock = new MaterialPropertyBlock();
+		var tagID : int = Shader.PropertyToID("_Shininess");
+
+		// Not shiny
+		materialProperty.Clear();
+		materialProperty.AddFloat(tagID, 1.0);
+		Graphics.DrawMesh(aMesh, Vector3(0,0,0), Quaternion.identity,
+				  aMaterial, 0, null, 0, materialProperty);
+
+		// More or less shiny
+		materialProperty.Clear();
+		materialProperty.AddFloat(tagID, 0.5);
+		Graphics.DrawMesh(aMesh, Vector3(5,0,0), Quaternion.identity,
+				  aMaterial, 0, null, 0, materialProperty);
+
+		// Shiny
+		materialProperty.Clear();
+		materialProperty.AddFloat(tagID, 0.0);
+		Graphics.DrawMesh(aMesh, Vector3(-5,0,0), Quaternion.identity,
+				  aMaterial, 0, null, 0, materialProperty);
+	}
+END EX

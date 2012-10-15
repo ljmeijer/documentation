@@ -1,0 +1,8 @@
+Value describing current configuration for Sensor Bar position.
+BEGIN EX
+
+	function OnGui () {
+		GUI.Label (Rect(10,10,500,200), "Sensor bar position: " + WiiInput.GetSensorBarPosition());
+	}
+END EX
+@return	Sensor Bar position.

@@ -1,0 +1,15 @@
+Replaces a file.
+Replaces the file located at __dst__ with the file located at __src__.
+if __dst__ doesnt exists it just copies the file. If __dst__ exists
+then it deletes it and copies the file at __src__ to __dst__
+SA: FileUtil.ReplaceDirectory
+BEGIN EX
+
+	// creates a menu entry that replaces a file.
+
+	@MenuItem ("Example/Replace Some file")
+	static function ReplaceAfile () {		
+		// Replaces  the directory  at "File" with  "ReplacedFile"
+		FileUtil.ReplaceFile("path/To/Your/File", "path/To/Your/ReplacedFile");
+	}
+END EX

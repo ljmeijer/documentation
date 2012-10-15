@@ -1,0 +1,11 @@
+Returns a block of the listener (master)'s spectrum data
+Number of values (numSamples) must be a power of 2. (ie 128/256/512 etc). Min = 64. Max = 8192.
+Use [[FFTWindow|window]] to reduce leakage between frequency bins/bands. 
+Note, the more complex window type, the better the quality, but reduced speed.<signature>
+GetSpectrumData_int_int_FFTWindow
+GetSpectrumData_floatArray_int_FFTWindow
+</signature>
+Returns a block of the listener (master)'s spectrum data
+Number of values (numSamples) must be a power of 2. (ie 128/256/512 etc). Min = 64. Max = 8192.
+Use [[FFTWindow|window]] to reduce leakage between frequency bins/bands. 
+Note, the more complex window type, the better the quality, but reduced speed.

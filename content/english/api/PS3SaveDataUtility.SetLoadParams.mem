@@ -1,0 +1,3 @@
+Sets the Load parameters.
+SA: PS3SaveDataUtility.DoAutoLoad
+@param	saveSlot			Savegame slot. Value between 0 and Save Game Slots. Save game directory is calculated as <TITLEID>-SAVEDATA<SLOT>

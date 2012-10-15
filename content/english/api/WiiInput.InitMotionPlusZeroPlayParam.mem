@@ -1,0 +1,2 @@
+Initializes the zero-point tolerance for the specified channel's Wii MotionPlus.
+@param	chan	Remote index, in range 0...3.

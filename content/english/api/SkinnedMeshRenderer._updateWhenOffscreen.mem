@@ -1,0 +1,2 @@
+If enabled, the Skinned Mesh will be updated when offscreen. If disabled, this also disables updating animations.
+SA: [[wiki:class-SkinnedMeshRenderer|Skinned Mesh Renderer component]].

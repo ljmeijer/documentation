@@ -1,0 +1,2 @@
+Returns true if the vectors are equal.
+This will also return true for vectors that are really close to being equal.

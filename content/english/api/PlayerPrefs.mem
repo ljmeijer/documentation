@@ -1,0 +1,24 @@
+Stores and accesses player preferences between game sessions.
+
+__Editor/Standalone__
+
+On Mac OS X PlayerPrefs are stored in @@~/Library/Preferences@@ folder,
+in a file named @@unity.[company name].[product name].plist@@, where company and product names are the names set up in Project Settings.
+The same .plist file is used for both Projects run in the Editor and 
+standalone players.
+
+On Windows, PlayerPrefs are stored in the registry under
+@@HKCU\Software\[company name]\[product name]@@ key, where company and product names are
+the names set up in Project Settings.
+
+__WebPlayer__
+
+On Web players, PlayerPrefs are stored in binary files in the following locations: 
+
+__Mac OS X:__ @@~/Library/Preferences/Unity/WebPlayerPrefs@@
+
+__Windows:__ @@%APPDATA%\Unity\WebPlayerPrefs@@ 
+
+There is one preference file per Web player URL
+and the file size is limited to 1 megabyte. If this limit is exceeded, SetInt, SetFloat and SetString 
+will not store the value and throw a [[PlayerPrefsException]].

@@ -1,0 +1,32 @@
+Interpolate properties between two materials.
+
+Makes all color and float values of a material be interpolated from /start/ to /end/,
+based on /t/.\\
+When /t/ is 0, all values are taken from /start/.\\
+When /t/ is 1, all values are taken from /end/.
+
+Most often you want the materials that are interpolated between to be the same
+(use the same shaders and textures) except for colors and floats. Then you use
+/Lerp/ to blend between them.
+
+SA: [[wiki:Materials]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Blends between two materials
+
+	var material1 : Material;
+	var material2 : Material;
+	var duration = 2.0;
+
+	function Start () {
+		// At start, use the first material
+		renderer.material = material1;
+	}
+
+	function Update () {
+		// ping-pong between the materials over the duration
+		var lerp : float = Mathf.PingPong (Time.time, duration) / duration;
+		renderer.material.Lerp (material1, material2, lerp);
+	}
+END EX

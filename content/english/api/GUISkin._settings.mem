@@ -1,0 +1,13 @@
+Generic settings for how controls should behave with this skin.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Sets the selection color to cyan
+
+	var str : String = "This is a string with\ntwo lines of text";
+
+	function OnGUI() { 
+		GUI.skin.settings.selectionColor = Color.cyan;
+		str = GUILayout.TextArea(str);
+	}
+END EX

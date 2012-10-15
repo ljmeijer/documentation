@@ -1,0 +1,5 @@
+Depth texture generation mode for [[Camera]].
+
+The flags can be combined, so you can set a Camera to generate both a Depth and Depth+Normals texture if needed.
+
+SA: Camera.depthTextureMode.

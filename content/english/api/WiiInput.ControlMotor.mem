@@ -1,0 +1,34 @@
+Control whether the rumble is started and running, or is it disabled for a specified remote.
+BEGIN EX
+
+	function DoShake (chan:int, length:float) {
+	if (length <= 0)
+		return;
+
+	var begin:float = Time.time;
+		if (length <= 0)
+			return;
+	
+		var begin:float = Time.time;
+		var slicetime:float = Mathf.Max (1/100, length/30);
+	
+		while (1) {
+			var s:float = (Time.time - begin) / length;
+			if (s >= 1)
+				break;
+				
+			var c:float = Mathf.Cos (s * Mathf.PI / 2);
+				
+			var ontime:float = slicetime * c;
+			var offtime:float = slicetime - ontime;
+
+			WiiInput.ControlMotor (chan, true);
+			yield new WaitForSeconds (ontime);
+
+			WiiInput.ControlMotor (chan, false);
+			yield new WaitForSeconds (offtime);
+		}
+	}
+END EX
+@param	chan	Remote index, in range 0...3.
+@param	enabled	Boolean value specifying whether motor should be enabled.

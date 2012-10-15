@@ -1,0 +1,5 @@
+Reads player stats from a /viewId/.<signature>
+ReadPlayerStats_uint_ushortArray_X360PlayerId_BasicDelegateView
+ReadPlayerStats_uint_ushortArray_X360PlayerIdArray_BasicDelegateView
+</signature>
+Reads multiple players stats from a /viewId/.

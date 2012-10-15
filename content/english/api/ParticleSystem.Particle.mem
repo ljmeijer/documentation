@@ -1,0 +1,2 @@
+Script interface for a Particle
+SA: ParticleSystem, ParticleSystem.GetParticles, ParticleSystem.SetParticles

@@ -1,0 +1,13 @@
+Maximum number of frames queued up by graphics driver.
+
+Graphics drivers can queue up frames to be rendered. When CPU has much less work to do than the graphics card,
+is it possible for this queue to become quite large. In those cases, user's input will "lag behind"
+what is on the screen.
+
+Use QualitySettings.maxQueuedFrames to limit maximum number of frames that are queued. The default value is -1,
+which does not limit the queue.
+
+Note that using a low maxQueuedFrames value can lower your FPS count, because CPU will be waiting until the graphics card
+will finish rendering previous frames. But you will get lower input latency.
+
+Currently maxQueuedFrames is only implemented in Direct3D renderer; it will be ignored in OpenGL.

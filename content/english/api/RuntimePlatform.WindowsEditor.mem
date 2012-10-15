@@ -1,0 +1,8 @@
+In the Unity editor on Windows.
+SA: Platform dependent Compilation.
+CONVERTEXAMPLE
+BEGIN EX
+
+	if (Application.platform == RuntimePlatform.WindowsEditor)
+		Debug.Log("Do something special here!");
+END EX

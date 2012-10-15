@@ -1,0 +1,6 @@
+The [[Renderer]] attached to this [[GameObject]] (null if there is none attached).
+CONVERTEXAMPLE
+BEGIN EX
+
+	renderer.material.color = Color.red;
+END EX

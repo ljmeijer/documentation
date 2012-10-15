@@ -1,0 +1,6 @@
+No special style is applied.
+CONVERTEXAMPLE
+BEGIN EX
+
+	guiText.fontStyle = FontStyle.Normal;
+END EX

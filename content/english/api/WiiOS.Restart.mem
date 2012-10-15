@@ -1,0 +1,2 @@
+Restarts the application.
+@param	code Integer to be passed [[WiiOS.resetCode|back]] to application after a restart.

@@ -1,0 +1,39 @@
+Make an X & Y field for entering a [[Vector2]].
+
+{img EditorGUILayoutVector2Field.png}\\
+''Measure the distance between 2 points.''
+BEGIN EX
+
+	// Simple Script that measures the distance between 2 points
+	
+	class EditorGUILayoutVector2Field extends EditorWindow {
+		
+		var distance : float = 0;
+		var p1 : Vector2;
+		var p2 : Vector2;
+	
+		@MenuItem("Examples/Measure Distance")
+		static function Init() {
+			var window = GetWindow(EditorGUILayoutVector2Field);
+			window.Show();
+		}
+		function OnGUI() {
+			p1 = EditorGUILayout.Vector2Field("Point 1:", p1);
+			p2 = EditorGUILayout.Vector2Field("Point 2:", p2);
+			EditorGUILayout.LabelField("Distance:", distance.ToString());
+			if(GUILayout.Button("Close"))
+				this.Close();		
+		}
+		function OnInspectorUpdate() {
+			distance = Vector2.Distance(p1,p2);
+			this.Repaint();
+		}
+	}
+END EX
+
+@param label Label to display above the field.
+@param value The value to edit.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The value entered by the user.

@@ -1,0 +1,2 @@
+Like ExecuteMenuItem, but applies action to specified GameObjects if the menu action supports it.
+Note that this version does not perform validation, nor does it trigger a callback.

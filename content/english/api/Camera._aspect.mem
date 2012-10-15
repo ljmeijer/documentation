@@ -1,0 +1,14 @@
+The aspect ratio (width divided by height).
+
+By default the aspect ratio is automatically calculated from the screen's aspect ratio, even if the camera
+is not rendering to full area.
+If you modify the /aspect/ ratio of the camera, the value will stay until you call camera.ResetAspect(); which resets the aspect to the screen's aspect ratio.
+SA: [[wiki:class-Camera|camera component]], [[Screen]] class.
+CONVERTEXAMPLE
+BEGIN EX
+
+	if (camera.aspect > 1.0)
+		print ("Screen is more wide than tall!");
+	else
+		print ("Screen is more tall than wide!");
+END EX

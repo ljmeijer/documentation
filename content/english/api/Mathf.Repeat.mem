@@ -1,0 +1,11 @@
+Loops the value t, so that it is never larger than length and never smaller than 0.
+This is similar to the modulo operator but it works with floating point numbers.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update () {
+		// Set the x position to loop between 0 and 3
+		transform.position = Vector3(
+				     Mathf.Repeat(Time.time, 3), transform.position.y, transform.position.z);
+	}
+END EX

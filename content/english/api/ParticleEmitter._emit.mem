@@ -1,0 +1,10 @@
+Should particles be automatically emitted each frame?
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Emit particles for 3 seconds
+	particleEmitter.emit = true;
+	yield WaitForSeconds(3);
+	// Then stop
+	particleEmitter.emit = false;
+END EX

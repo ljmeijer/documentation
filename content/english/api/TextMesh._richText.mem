@@ -1,0 +1,15 @@
+Enable HTML-style tags for Text Formatting Markup.
+
+Supported tags are:
+<color="htmlcolor">colored text</color>, where "htmlcolor" is a html color string, like "#ff0000" or "red".
+<b>bold text</b>
+<i>italic text</i>
+<size=20>sized text</size>
+<material=1>render using custom material index</material>
+<quad material=1 size=20 x=0.1 y=0.1 width=0.5 height=0.5/>, to render a single quad using the given material and UVs, used for embedding images in text.
+These are only supported for fonts set to use dynamic font rendering, except for the 'color', 'material' and 'quad' tags.
+CONVERTEXAMPLE
+BEGIN EX
+
+	GetComponent(TextMesh).richText = true;
+END EX

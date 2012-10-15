@@ -1,0 +1,16 @@
+Degrees-to-radians conversion constant (RO).
+This is equal to ''(PI * 2) / 360''.
+
+SA: ::ref::Rad2Deg constant.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// convert 30 degrees to radians
+
+	var deg : float = 30.0;
+
+	function Start() {
+		var rad : float = deg * Mathf.Deg2Rad;
+		Debug.Log(deg + "degrees are equal to " + rad + " radians.");
+	}
+END EX

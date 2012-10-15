@@ -1,0 +1,11 @@
+Sets the vibration of controller specified by ''controllerID''
+BEGIN EX
+
+		function OnGUI() {
+			PS3Pad.SetVibration (0, true, 0.2);
+		}
+END EX
+@param controllerID Controller index
+@param smallMotor true to enable the small motor and false to disable it
+@param bigMotor 0.0 - 1.0 where 0.0 is motor off and 1.0 is motor at maximum
+@return @@true@@ if the enable to change the motor settings otherwise @@false@@ This might occur if controller doesn't support vibration

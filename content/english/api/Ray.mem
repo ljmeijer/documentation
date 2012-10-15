@@ -1,0 +1,2 @@
+Representation of rays.
+A ray is an infinite line starting at ::ref::origin and going in some ::ref::direction.

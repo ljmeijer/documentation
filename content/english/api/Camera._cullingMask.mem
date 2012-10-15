@@ -1,0 +1,12 @@
+This is used to render parts of the scene selectively.
+
+If the [[GameObject]]'s /layerMask/ AND the camera's /cullingMask/ is zero then the game object will be invisible from this camera.
+See [[wiki:Layers|Layers]] for more information.
+SA: [[wiki:class-Camera|camera component]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Only render objects in the first layer (Default layer)
+
+	camera.cullingMask = 1 << 0;
+END EX

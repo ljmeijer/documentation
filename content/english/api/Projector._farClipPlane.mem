@@ -1,0 +1,11 @@
+The far clipping plane distance.
+The projector will not affect anything that is further than this distance.
+SA: [[wiki:class-Projector|projector component]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start() {
+		var proj : Projector = GetComponent(Projector);
+		proj.farClipPlane = 20.0;
+	}
+END EX

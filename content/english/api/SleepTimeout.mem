@@ -1,0 +1,3 @@
+Constants for special values of [[Screen.sleepTimeout]]. Use them to
+specify something other than a fixed amount of seconds before dimming the
+screen.

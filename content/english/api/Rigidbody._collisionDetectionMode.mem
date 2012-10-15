@@ -1,0 +1,15 @@
+The Rigidbody's collision detection mode.
+Use this to set up a Rigidbody's for continuous collision detection, which is used to prevent fast moving objects
+from passing through other objects without detecting collisions. For best results, set this value to [[CollisionDetectionMode.ContinuousDynamic]] for
+fast moving objects, and for other objects which these need to collide with, set it to [[CollisionDetectionMode.Continuous]].
+This has a big impact on physics performance, so just leave it set to the default value of 
+[[CollisionDetectionMode.Discrete]], if you don't have any issues with collisions of fast objects.
+Continuous Collision Detection is only supported for Rigidbodies with Sphere-, Capusle- or BoxColliders.
+SA: [[CollisionDetectionMode]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the collision detection mode of the rigidbody to ContinuousDynamic
+
+	rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+END EX

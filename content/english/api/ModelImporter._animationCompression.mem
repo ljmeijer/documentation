@@ -1,0 +1,6 @@
+Animation compression setting.
+
+Compressing animations saves space in the built game, but more compression
+introduces more artifacts in the animation data.
+
+SA: [[ModelImporterAnimationCompression]].

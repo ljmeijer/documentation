@@ -1,0 +1,19 @@
+CSNONE
+OnMouseDown is called when the user has pressed the mouse button while over the [[GUIElement]] or [[Collider]].
+This event is sent to all scripts of the [[Collider]] or [[GUIElement]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Loads the level named "SomeLevel" as a response
+	// to the user clicking on the object
+
+	function OnMouseDown () {
+		Application.LoadLevel ("SomeLevel");
+	}
+END EX
+This function is not called on objects that belong to Ignore Raycast layer.
+
+OnMouseDown can be a co-routine, simply use the yield statement in the function.
+This event is sent to all scripts attached to the [[Collider]] or [[GUIElement]].
+
+__IMPORTANT:__ This function has no effect on iPhone.

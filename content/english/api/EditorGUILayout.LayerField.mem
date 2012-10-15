@@ -1,0 +1,49 @@
+<signature>
+LayerField_int_GUILayoutOptionArray
+LayerField_int_GUIStyle_GUILayoutOptionArray
+LayerField_string_int_GUILayoutOptionArray
+LayerField_string_int_GUIStyle_GUILayoutOptionArray
+LayerField_GUIContent_int_GUILayoutOptionArray
+LayerField_GUIContent_int_GUIStyle_GUILayoutOptionArray
+</signature>
+Make a layer selection field.
+
+{img EditorGUILayoutLayerField.png}\\
+''Set the layer of the selected GameObjects.''
+BEGIN EX
+
+	// Simple editor script that lets you set the layer for the selected GameObjects.
+	
+	class EditorGUILayoutLayerField extends EditorWindow {
+	
+		var selectedLayer : int = 0;
+		@MenuItem("Examples/Set Layer For Selection")
+		static function Init() {
+			var window = GetWindow(EditorGUILayoutLayerField);
+			window.Show();
+		}
+		//Disable menu if we dont have at least 1 gameobject selected
+		@MenuItem("Examples/Set Layer For Selection", true)
+		static function ValidateSelection() {
+			return	Selection.activeGameObject != null;
+		}
+		
+		function OnGUI() {
+			selectedLayer = EditorGUILayout.LayerField("Layer for Objects:",selectedLayer);
+			if(GUILayout.Button("Set Layer!"))
+				SetLayer();
+		}
+		function SetLayer() {
+			for(var go : GameObject in Selection.gameObjects)
+				go.layer = selectedLayer;
+		}
+	}
+END EX
+
+@param label Optional label in front of the field.
+@param layer The layer shown in the field.
+@param style Optional [[GUIStyle]].
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The layer selected by the user.

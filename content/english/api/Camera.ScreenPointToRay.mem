@@ -1,0 +1,16 @@
+Returns a ray going from camera through a screen point.
+
+Resulting ray is in world space, starting on the near plane of the camera and going through
+position's (x,y) pixel coordinates on the screen (position.z is ignored).
+
+Screenspace is defined in pixels. The bottom-left of the screen is (0,0); the right-top is (::ref::pixelWidth,::ref::pixelHeight).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws a line in the scene view going through a point 200 pixels
+	// from the lower-left corner of the screen
+	function Update () {
+		var ray : Ray = camera.ScreenPointToRay (Vector3(200,200,0));
+		Debug.DrawRay (ray.origin, ray.direction * 10, Color.yellow);
+	}
+END EX

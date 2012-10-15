@@ -1,0 +1,3 @@
+Is the character flipped?
+Unity may flip the U and V coordinates of characters in font textures it generates
+to make more efficient use of texture space.

@@ -1,0 +1,10 @@
+Automatically choose the render mode.
+This chooses whether to render the [[Light]] as a pixel or vertex light (recommended and default).
+SA: [[wiki:class-Light|light component]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set light's render mode to automatic
+
+	light.renderMode = LightRenderMode.Auto;
+END EX

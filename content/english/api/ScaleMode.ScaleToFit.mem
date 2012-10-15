@@ -1,0 +1,1 @@
+Scales the texture, maintaining aspect ratio, so it completely fits withing the /position/ rectangle passed to GUI.DrawTexture.

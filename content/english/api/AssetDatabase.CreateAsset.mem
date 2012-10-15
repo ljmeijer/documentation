@@ -1,0 +1,20 @@
+Creates a new asset at path.
+
+You must ensure that the path uses a supported extension ('.mat' for materials, '.cubemap' for cubemaps,
+'.GUISkin' for skins, '.anim' for animations and '.asset' for arbitrary other assets.)
+
+You can add more assets to the file using AssetDatabase.AddObjectToAsset after the asset has been created.
+If an asset already exists at /path/ it will be deleted prior to creating a new asset.
+All paths are relative to the project folder. Like: "Assets/MyTextures/hello.png"
+BEGIN EX
+
+	@MenuItem("GameObject/Create Material")
+	static function CreateMaterial () {
+		// Create a simple material asset
+		var material = new Material (Shader.Find("Specular"));
+		AssetDatabase.CreateAsset(material, "Assets/MyMaterial.mat");
+
+		// Print the path of the created asset
+		Debug.Log(AssetDatabase.GetAssetPath(material));
+	}
+END EX

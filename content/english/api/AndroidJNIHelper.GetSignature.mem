@@ -1,0 +1,9 @@
+Creates the JNI signature string for particular object type
+
+@param obj Object for which a signature is to be produced.<signature>
+GetSignature_object
+GetSignature_objectArray
+</signature>
+Creates the JNI signature string for an object parameter list.
+
+@param args Array of object for which a signature is to be produced.

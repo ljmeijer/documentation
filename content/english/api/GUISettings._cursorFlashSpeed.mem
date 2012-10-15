@@ -1,0 +1,12 @@
+The speed of text field cursor flashes.
+This is how many flashes / second. If you set it to 0, flashing will be disabled. If you set it to -1, the flashing speed will match the system default of the end user.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var str : String = "This is a string with \n two lines of text";
+	
+	function OnGUI() { 
+		GUI.skin.settings.cursorFlashSpeed = 3;
+		str = GUILayout.TextArea(str);
+	}
+END EX

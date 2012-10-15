@@ -1,0 +1,14 @@
+Which object layers are ignored by the projector.
+See [[wiki:Layers|layer mask]].
+
+By default this is zero - i.e. no layers are ignored. Each set bit
+in /ignoreLayers/ will make this layer not affected by the projector.
+BEGIN EX
+
+	function Start() {
+		var proj : Projector = GetComponent (Projector);
+		// Make the projector ignore Default (0) layer
+		proj.ignoreLayers = (1<<0);
+	}
+END EX
+SA: [[wiki:class-Projector|projector component]], [[wiki:Layers|Layers]].

@@ -1,0 +1,45 @@
+Make a window draggable.
+Insert a call to this function inside your window code to make a window draggable.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var windowRect : Rect = Rect (20, 20, 120, 50);
+
+	function OnGUI () {
+		// Register the window.
+		windowRect = GUI.Window (0, windowRect, DoMyWindow, "My Window");
+	}
+
+	// Make the contents of the window
+	function DoMyWindow (windowID : int) {
+		// Make a very long rect that is 20 pixels tall. 
+		// This will make the window be resizable by the top
+		// title bar - no matter how wide it gets.
+		GUI.DragWindow (Rect (0,0, 10000, 20));
+	}
+END EX
+@param position the part of the window that can be dragged. This is clipped to the actual window.<signature>
+DragWindow_Rect
+DragWindow
+</signature>
+If you want to have the entire window background to act as a drag area, use the version of DragWindow that takes no parameters and put it at the end of the window function.
+This will mean that any other controls will get precedence and the dragging will only be activated if nothing else has mouse focus.
+SA: ::ref::DragWindow, ::ref::BringWindowToFront, ::ref::BringWindowToBack
+CONVERTEXAMPLE
+BEGIN EX
+
+	var windowRect : Rect = Rect (20, 20, 120, 50);
+
+	function OnGUI () {
+		windowRect = GUI.Window (0, windowRect, DoMyWindow, "My Window");
+	}
+
+	// Make the contents of the window
+	function DoMyWindow (windowID : int) {
+		GUI.Button (Rect (10,20,100,20), "Can't drag me");
+		// Insert a huge dragging area at the end.
+		// This gets clipped to the window (like all other controls) so you can never
+		//  drag the window from outside it.
+		GUI.DragWindow ();
+	}
+END EX

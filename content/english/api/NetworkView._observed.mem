@@ -1,0 +1,14 @@
+The component the network view is observing.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Print the names of the objects which have the view IDs given in the array
+
+	function PrintNames(viewIDs : NetworkViewID[]) {
+		for (var ID : NetworkViewID in viewIDs) {
+			Debug.Log("Finding " + ID);
+			var view : NetworkView = NetworkView.Find(ID);
+			Debug.Log(view.observed.name);
+		}
+	}
+END EX

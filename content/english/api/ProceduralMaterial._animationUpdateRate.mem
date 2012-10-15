@@ -1,0 +1,2 @@
+Set & get the update rate in millisecond of the animated substance
+An animated substance is a Procedural Material containing a $time input which is automatically generated.

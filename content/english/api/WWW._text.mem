@@ -1,0 +1,10 @@
+Returns the contents of the fetched web page as a string (RO).
+
+If the object has not finished downloading the data, it will return an empty string.
+Use ::ref::isDone or /yield/ to see if the data is available.
+
+This function expects the web page contents in UTF-8 or ASCII character set. The returned
+string might be not correct for other characters or binary data. Use ::ref::bytes property to
+get raw byte array in these cases.
+
+SA: ::ref::bytes property.

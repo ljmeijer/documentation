@@ -1,0 +1,4 @@
+Is GPU draw call instancing supported? (RO)
+
+Currently only Graphics.DrawProcedural and Graphics.DrawProceduralIndirect
+use instancing.

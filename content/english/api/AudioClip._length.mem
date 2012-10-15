@@ -1,0 +1,8 @@
+The length of the audio clip in seconds (RO)
+CONVERTEXAMPLE
+BEGIN EX
+
+	audio.Play();
+	// Wait for the audio to have finished
+	yield WaitForSeconds (audio.clip.length);
+END EX

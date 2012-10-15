@@ -1,0 +1,4 @@
+Starts animation mode, as used by the animation editor.
+An array of objects are supplied whose state will stored. Once the animation mode is stopped, the given objects will be reverted to the state they had before starting the animation mode.
+
+SA: ::ref::StopAnimationMode, ::ref::InAnimationMode.

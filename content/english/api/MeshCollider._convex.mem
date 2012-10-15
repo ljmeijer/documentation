@@ -1,0 +1,10 @@
+Use a convex collider from the mesh.
+This means that if you have this set to true, your mesh collider wont have Holes or entrances.
+Convex meshes can collide with other convex colliders and non-convex meshes.
+Thus convex mesh colliders are suitable on rigidibodies,
+if you really need more detailed colliders than what the primitive colliders provide you with.
+CONVERTEXAMPLE
+BEGIN EX
+
+	transform.collider.convex = true;
+END EX

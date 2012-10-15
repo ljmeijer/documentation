@@ -1,0 +1,7 @@
+Releases the RenderTexture.
+
+This function releases the hardware resources used by the render texture.
+The texture itself is not destroyed, and will be automatically
+created again when being used.
+
+SA: ::ref::Create, ::ref::IsCreated functions.

@@ -1,0 +1,4 @@
+Tells an Editor class which run-time type it's an editor for.
+When you make a custom editor for a component, you need put this attribute on the editor class.
+
+SA: [[Editor]] class.

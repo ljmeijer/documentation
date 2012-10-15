@@ -1,0 +1,27 @@
+ADBannerView is a wrapper around the ADBannerView class found in the Apple iAd framework and is only available on iPhone/iPad/iPod Touch.
+
+It provides a view that displays banner advertisements to the user.
+BEGIN EX
+
+private var banner : ADBannerView = null;
+	
+function ShowBanner() {
+    while (!banner.loaded && banner.error == null)
+        yield;
+        
+    if (banner.error == null)
+        banner.Show();
+    else banner = null;
+}
+
+function OnGUI() {
+    GUI.enabled = (banner == null ? true : false);
+    
+    if (GUILayout.Button("Show Banner")) {
+        banner = new ADBannerView();
+        banner.autoSize = true;
+        banner.autoPosition = ADPosition.Bottom;
+        StartCoroutine(ShowBanner());
+    }
+}
+END EX

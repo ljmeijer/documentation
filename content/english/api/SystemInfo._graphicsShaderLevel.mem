@@ -1,0 +1,25 @@
+Graphics device shader capability level (RO).
+
+This is approximate "shader capability" level of the graphics device, expressed in DirectX shader model terms.
+Possible values are:
+<table>
+<tr><th>50</th><td>Shader Model 5.0 (DX11.0)</td></tr>
+<tr><th>41</th><td>Shader Model 4.1 (DX10.1)</td></tr>
+<tr><th>40</th><td>Shader Model 4.0 (DX10.0)</td></tr>
+<tr><th>30</th><td>Shader Model 3.0</td></tr>
+<tr><th>20</th><td>Shader Model 2.x</td></tr>
+<tr><th>10</th><td>Shader Model 1.x</td></tr>
+<tr><th>7</th><td>Fixed function, roughly DirectX 7 features (cubemaps, dot3)</td></tr>
+<tr><th>6</th><td>Fixed function, roughly DirectX 6 features (basic multitexture)</td></tr>
+<tr><th>5</th><td>Fixed function, roughly DirectX 5 features</td></tr>
+</table>
+
+SA: SystemInfo.graphicsPixelFillrate.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Check for shader model 2.0 or better support
+
+	if (SystemInfo.graphicsShaderLevel >= 20)
+		print ("Woohoo, decent shaders supported!");
+END EX

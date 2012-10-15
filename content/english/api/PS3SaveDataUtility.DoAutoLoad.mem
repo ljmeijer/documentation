@@ -1,0 +1,4 @@
+Performs auto-load.
+__Note:__ This operation is performed asynchronously. Use [[PS3SaveDataUtility.HasCompleted]] to wait for completion.
+<br> SA: PS3SaveDataUtility.SetLoadParams, PS3SaveDataUtility.HasCompleted, PS3SaveDataUtility.Init
+@param	dataFilename	Filename of your savegame.

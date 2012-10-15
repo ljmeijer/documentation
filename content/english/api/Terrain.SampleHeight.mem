@@ -1,0 +1,8 @@
+Samples the height at the given position defined in world space, relative to the terrain space.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function LateUpdate () {
+		transform.position.y = Terrain.activeTerrain.SampleHeight(transform.position);
+	}
+END EX

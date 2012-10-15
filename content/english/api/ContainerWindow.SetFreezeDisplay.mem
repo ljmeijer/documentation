@@ -1,0 +1,2 @@
+Disables any repaints until freeze is set to false again.
+Before enabling repaints it forces all views in the window to repaint and only then flushes the results to the screen.

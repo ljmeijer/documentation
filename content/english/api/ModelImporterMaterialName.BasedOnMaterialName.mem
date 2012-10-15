@@ -1,0 +1,4 @@
+<materialName>.mat material name.
+
+Name materials <materialName>.mat when searching for existing or creating new materials.
+SA: ModelImporter.materialName

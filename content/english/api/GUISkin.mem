@@ -1,0 +1,5 @@
+Defines how GUI looks and behaves.
+
+GUISkin contains GUI settings and a collection of [[GUIStyle]] objects that together specify GUI skin.
+
+Active GUI skin is get and set through GUI::ref::skin.

@@ -1,0 +1,64 @@
+Make an X & Y field for entering a [[Vector2]].
+
+{img EditorGUIVector2Field.png}\\
+''Vector2 field in an Editor Window.''
+BEGIN EX
+
+	// Editor window that shows the detailed rotation (X,Y,Z and W components), 
+	// the position in 3D space and position in Screen space of the selected 
+	// transform.
+	
+	class CustomTransformInspector extends EditorWindow {	
+		var showing : boolean = true;
+		var rotationComp : Vector4;
+	
+		@MenuItem("Examples/GameObject detailed inspector")
+		static function Init() {
+			var window = GetWindow(CustomTransformInspector);
+			window.Show();
+		}
+		
+		function OnInspectorUpdate() {
+			Repaint();
+		}
+		function OnGUI() {
+			var currObj = Selection.activeTransform;
+			showing = EditorGUI.InspectorTitlebar(Rect(0,0,position.width, 20), showing, currObj);
+			if(showing) {
+				if(currObj) {
+					currObj.position = EditorGUI.Vector3Field(Rect(3,15,position.width-6,20),
+							"Position in 3D Space:",
+							currObj.position);
+					
+					EditorGUI.Vector2Field(Rect(3,50,position.width-6,20),
+							"Position in Screen Space:",
+							Camera.main.WorldToScreenPoint(currObj.position));
+					
+					rotationComp = EditorGUI.Vector4Field(Rect(3, 85, position.width-6, 20),
+									"Detailed Rotation:",
+									QuaternionToVector4(currObj.localRotation));
+					currObj.localRotation = ConvertToQuaternion(rotationComp);
+									
+					currObj.localScale = EditorGUI.Vector3Field(Rect(3,120,position.width-6,20),
+									"Scale:",
+									currObj.localScale);
+					
+				} else {
+					EditorGUI.DropShadowLabel(Rect(3,15,position.width,20),"Select an Object to inspect");
+				}		
+			}
+		}
+		
+		function ConvertToQuaternion(v4 : Vector4) {
+			return Quaternion(v4.x, v4.y, v4.z, v4.w);
+		}
+		function QuaternionToVector4(q : Quaternion) {
+			return Vector4(q.x, q.y, q.z, q.w);
+		}	
+	}
+END EX
+
+@param position Rectangle on the screen to use for the field.
+@param label Label to display above the field.
+@param value The value to edit.
+@returns The value entered by the user.

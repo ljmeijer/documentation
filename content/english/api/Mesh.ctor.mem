@@ -1,0 +1,10 @@
+Creates an empty mesh
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Create a new mesh and assign it to the mesh filter
+	function Start () {
+		var mesh : Mesh = new Mesh ();
+		GetComponent(MeshFilter).mesh = mesh;
+	}
+END EX

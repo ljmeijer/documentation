@@ -1,0 +1,10 @@
+Converts a rotation to angle-axis representation.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Extracts the angle - axis rotation from the transform rotation
+
+	var angle = 0.0;
+	var axis = Vector3.zero;
+	transform.rotation.ToAngleAxis(angle, axis);
+END EX

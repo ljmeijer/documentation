@@ -1,0 +1,19 @@
+Set the approximate color to of the controller's sphere specified by ''controllerID'' to ''sphereColor''.
+SA: PS3SystemConstants.SupportedMoveControllers
+BEGIN EX
+
+		var setColor : boolean = false;
+		function OnGUI() {
+			if(PS3Move.IsReady(0)) {
+				if(!setColor){
+					setColor = true;
+					PS3Move.SetSphereApproxColor(0, Color.red);
+				}
+				GUILayout.Label("PS3Move Controller 0 is Ready! Color = " + PS3Move.GetSphereApproxColor(0));
+			}else{
+				GUILayout.Label("PS3Move Controller 0 is not Ready!");
+			}
+		}
+END EX
+@param controllerID Controller index
+@param sphereColor Approximate color of the controller's sphere

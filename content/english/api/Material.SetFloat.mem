@@ -1,0 +1,17 @@
+Set a named float value.
+
+SA: ::ref::GetFloat, [[wiki:Materials]], [[wiki:Shaders|ShaderLab documentation]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		// Use the Specular shader on the material
+		renderer.material.shader = Shader.Find("Specular");
+	}
+
+	function Update () {
+		// Animate the Shininess value
+		var shininess : float = Mathf.PingPong (Time.time, 1.0);
+		renderer.material.SetFloat( "_Shininess", shininess );
+	}
+END EX

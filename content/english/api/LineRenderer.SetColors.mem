@@ -1,0 +1,16 @@
+Set the line color at the start and at the end.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Adds a lineRenderer to this transform and
+	// makes the line renderer to fade at the end.
+
+	var c1 : Color = Color.white;
+	var c2 : Color = Color(1,1,1,0);
+
+	function Start() {
+		var lineRenderer : LineRenderer = gameObject.AddComponent(LineRenderer);
+		lineRenderer.material = new Material (Shader.Find("Particles/Additive"));
+		lineRenderer.SetColors(c1, c2);
+	}
+END EX

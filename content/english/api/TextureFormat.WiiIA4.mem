@@ -1,0 +1,2 @@
+Wii texture format. Intensity + Alpha 8 bit (4 + 4).
+SA: Texture2D.format, [[wiki:class-Texture2D|texture assets]].

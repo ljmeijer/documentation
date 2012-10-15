@@ -1,0 +1,29 @@
+Saves both projection and modelview matrices to the matrix stack.
+
+Changing modelview or projection matrices overrides current camera's parameters.
+These matrices can be saved and restored using GL.PushMatrix and GL.PopMatrix.
+
+SA: ::ref::PopMatrix function.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draw a yellow line from the botton left to the
+	// top right of the screen
+	var mat : Material;
+
+	function OnPostRender() {
+		if (!mat) {
+			Debug.LogError("Please Assign a material on the inspector");
+			return;
+		}
+		GL.PushMatrix(); // Save the current state
+		mat.SetPass(0);
+		GL.LoadPixelMatrix();
+		GL.Color(Color.yellow);
+		GL.Begin(GL.LINES);
+		GL.Vertex3(0,0,0);
+		GL.Vertex3(Screen.width, Screen.height,0);
+		GL.End();
+		GL.PopMatrix(); // Pop changes.
+	}
+END EX

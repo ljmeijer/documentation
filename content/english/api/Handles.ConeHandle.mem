@@ -1,0 +1,8 @@
+Make a Scene View cone handle
+
+@param rotation Orientation of the handle
+@param position Center of the handle in 3D space
+@param angleAndRange Vector2 containing angle in .x and range in .y
+@param angleScale Scale value for angle value (if you want the cone angle to be displayed scaled relative to the real angle)
+@param rangeScale Scale value for range value (if you want the cone range to be displayed scaled relative to the real range)
+@param handlesOnly Determines whether a cone will be drawn as well as the handles

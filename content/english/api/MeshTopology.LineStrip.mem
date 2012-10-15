@@ -1,0 +1,5 @@
+Mesh is a line strip.
+First two indices form a line, and then each new index connects a new
+vertex to the existing line strip.
+
+SA: Mesh.SetIndices function.

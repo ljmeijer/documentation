@@ -1,0 +1,48 @@
+Select whether to invert the backface culling (true) or not (false).
+
+Unlike most other calls, this is not only related to stuff you draw via GL class.
+It changes culling of triangles globally.
+__Major use case:__ rendering reflections for mirrors, water etc. Since virtual camera for
+rendering the reflection is mirrored, the culling order has to be inverted. You can see
+that the Water script in Pro Standard Assets does that.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws 2 yellow triangles and makes them appear/dissapear
+	// depending on the vertex draw order
+	// Notice that everything on the scene will suffer from the revert
+	// backfacing as well
+	var mat : Material;
+
+	var swap : boolean = false;
+	function Update() {
+		if(Input.GetKeyDown(KeyCode.Space)) {
+			if(swap) {
+				swap = false;
+			} else {
+				swap = true;
+			}
+		}
+	}
+
+	function OnPostRender() {
+		if (!mat) {
+			Debug.LogError("Please Assign a material on the inspector");
+			return;
+		}
+		GL.PushMatrix();
+		mat.SetPass(0);
+		GL.LoadOrtho();
+		GL.Color(Color.yellow);
+		GL.Begin(GL.TRIANGLES);
+		GL.SetRevertBackfacing(swap);
+		GL.Vertex3(0,0,0);
+		GL.Vertex3(1,1,0);
+		GL.Vertex3(0,1,0);
+		GL.Vertex3(0,0,0);
+		GL.Vertex3(1,1,0);
+		GL.Vertex3(1,0,0);
+		GL.End();
+		GL.PopMatrix();
+	}
+END EX

@@ -1,0 +1,3 @@
+Setup Gradient with an array of color keys and alpha keys
+@param colorKeys color keys of the gradient (maximum 8 color keys)
+@param alphaKeys alpha keys of the gradient (maximum 8 alpha keys)

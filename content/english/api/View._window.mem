@@ -1,0 +1,1 @@
+Which window we're inside. don't set this directly, but change use AddChild, RemoveChild instead.

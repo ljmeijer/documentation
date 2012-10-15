@@ -1,0 +1,12 @@
+The format of the pixel data in the texture (RO).
+Use this to determine the format of the texture.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Print the format of a given cubemap.
+	var c : Cubemap;
+	if (c != null)
+		Debug.Log(c.format);
+	else
+		Debug.Log("No cubemap was assigned, please assing one on the inspector.");
+END EX

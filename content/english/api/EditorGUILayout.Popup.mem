@@ -1,0 +1,63 @@
+<signature>
+Popup_int_stringArray_GUILayoutOptionArray
+Popup_int_stringArray_GUIStyle_GUILayoutOptionArray
+Popup_int_GUIContentArray_GUILayoutOptionArray
+Popup_int_GUIContentArray_GUIStyle_GUILayoutOptionArray
+Popup_string_int_stringArray_GUILayoutOptionArray
+Popup_string_int_stringArray_GUIStyle_GUILayoutOptionArray
+Popup_GUIContent_int_GUIContentArray_GUILayoutOptionArray
+Popup_GUIContent_int_GUIContentArray_GUIStyle_GUILayoutOptionArray
+</signature>
+Make a generic popup selection field.
+Takes the currently selected index as a parameter and returns the index selected by the user.
+
+{img EditorGUILayoutPopup.png}\\
+''Create a primitive depending on the option selected.''
+BEGIN EX
+
+	// Creates an instance of a primitive depending on the option selected by the user.
+	
+	class EditorGUILayoutPopup extends EditorWindow {
+		var options : String[] = ["Cube", "Sphere", "Plane"];
+		var index : int = 0;
+		
+		@MenuItem("Examples/Editor GUILayout Popup usage")
+		static function Init() {
+			var window = GetWindow(EditorGUILayoutPopup);
+			window.Show();
+		}
+		function OnGUI() {
+			index = EditorGUILayout.Popup(index, options);
+			if(GUILayout.Button("Create"))
+				InstantiatePrimitive();
+		}
+		function InstantiatePrimitive() {
+			switch (index) {
+				case 0:
+					var cube : GameObject  = GameObject.CreatePrimitive(PrimitiveType.Cube);
+	   				cube.transform.position = Vector3.zero;
+	   				break;
+				case 1:
+					 var sphere : GameObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+					sphere.transform.position = Vector3.zero;
+					break;
+				case 2:
+					var plane : GameObject = GameObject.CreatePrimitive(PrimitiveType.Plane);
+					plane.transform.position = Vector3.zero;
+					break;
+				default:
+					Debug.LogError("Unrecognized Option");
+					break;
+			}
+		}
+	}
+END EX
+
+@param label Optional label in front of the field.
+@param selectedIndex The index of the option the field shows.
+@param displayedOptions An array with the options shown in the popup.
+@param style Optional [[GUIStyle]].
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The index of the option that has been selected by the user.

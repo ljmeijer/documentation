@@ -1,0 +1,3 @@
+Lets you setup the connection between neighboring Terrains.
+This ensures LOD matches up on neighboring terrains.
+Note that it is not enough to call this function on one Terrain, you need to set the neighbors of each terrain

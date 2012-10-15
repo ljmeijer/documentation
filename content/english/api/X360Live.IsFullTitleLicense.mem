@@ -1,0 +1,2 @@
+Returns true if a full license is or was available during this session.
+Game should not be downgraded if the owner of the full license signs out.

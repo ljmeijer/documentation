@@ -1,0 +1,7 @@
+Sets a global matrix property for all shaders.
+
+Global properties are used if a shader needs them but the material does
+not have them defined (for example, if the shader does not expose them
+in /Properties/ block).
+
+SA: ::ref::SetGlobalColor, ::ref::SetGlobalFloat; [[Material]] class, [[wiki:Shaders|ShaderLab documentation]].

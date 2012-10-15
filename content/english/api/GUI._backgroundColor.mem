@@ -1,0 +1,15 @@
+Global tinting color for all background elements rendered by the GUI.
+This gets multiplied by ::ref::color.
+
+SA: ::ref::contentColor, ::ref::color.
+
+{img GUIBackgroundColor.png}\\
+''Yellow Background color applied to a button.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI() {
+		GUI.backgroundColor = Color.yellow;
+		GUI.Button(Rect(10,10,70,30), "A button");
+	}
+END EX

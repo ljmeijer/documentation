@@ -1,0 +1,15 @@
+Create a new empty cubemap texture.
+The texture will be /size/ on each side and with or without mipmaps.
+
+Usually you will want to set the colors of the texture after creating it, using
+::ref::SetPixel and ::ref::Apply functions.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		// Create a new texture and assign it to the renderer's material
+		var texture : Cubemap = new Cubemap (128, TextureFormat.ARGB32, false);
+		renderer.material.mainTexture = texture;
+	}
+END EX
+SA: ::ref::SetPixel, ::ref::Apply functions.

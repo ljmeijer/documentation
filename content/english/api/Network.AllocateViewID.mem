@@ -1,0 +1,31 @@
+Query for the next available network view ID number and allocate it (reserve).
+This number can then be assigned to the network view of an instantiated object. The example below demonstrates a simple
+method to do this. Note that for this to work there must be a [[NetworkView]] attached to the object which has this script
+and it must have the script as its observed property. There must be a Cube prefab present also with a [[NetworkView]] which
+watches something (like the [[Transform]] of the Cube). The cubePrefab variable in the script must be set to that cube prefab. This 
+is the simplest method of using AllocateViewID intelligently.
+This get more complicated if there were more than one [[NetworkView]] attached to the Cube which is to be instantiated.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var cubePrefab : Transform;
+	function OnGUI () {
+		if (GUILayout.Button("SpawnBox")) {
+			var viewID = Network.AllocateViewID();
+			networkView.RPC("SpawnBox", 
+							RPCMode.AllBuffered, 
+							viewID, 
+							transform.position);	
+		}
+	}
+
+	@RPC
+	function SpawnBox (viewID : NetworkViewID, location : Vector3) {
+		// Instantate the prefab locally
+		var clone : Transform;
+		clone = Instantiate(cubePrefab, location, Quaternion.identity) as Transform;
+		var nView : NetworkView;
+		nView = clone.GetComponent(NetworkView);
+		nView.viewID = viewID;
+	}
+END EX

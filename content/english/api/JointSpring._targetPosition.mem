@@ -1,0 +1,7 @@
+The target position the joint attempts to reach.
+In the case of a [[HingeJoint]] the target position is the target angle in degrees.
+CONVERTEXAMPLE
+BEGIN EX
+
+	hingeJoint.spring.targetPosition = 70;
+END EX

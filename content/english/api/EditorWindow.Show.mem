@@ -1,0 +1,16 @@
+Show the EditorWindow.
+
+{img EditorWindowPosition.png}\\
+''Empty editor window.''
+BEGIN EX
+
+	// Create an empty editor window and show it
+	
+	class EditorWindowPosition extends EditorWindow {
+	    @MenuItem ("Example/Window position usage")
+	    static function Init () {
+	        var window = EditorWindow.GetWindow(EditorWindowPosition);
+		window.Show();
+	    }
+	}
+END EX

@@ -1,0 +1,6 @@
+The [[Light]] attached to this [[GameObject]] (null if there is none attached).
+CONVERTEXAMPLE
+BEGIN EX
+
+	light.range = 10;
+END EX

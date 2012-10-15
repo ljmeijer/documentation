@@ -1,0 +1,8 @@
+Import all assets synchronously.
+
+By default some assets can be imported asynchronously (e.g. scripts can be compiled in the background).
+In some cases all importing needs to be synchronous; use this flag then. For example, when importing
+a scripts + prefabs, scripts have to be fully compiled before prefab is serialized, otherwise
+it might get old variables.
+
+SA: AssetDatabase.ImportAsset, AssetDatabase.Refresh.

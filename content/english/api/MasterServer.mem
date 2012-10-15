@@ -1,0 +1,5 @@
+The Master Server is used to make matchmaking between servers and clients easy.
+You can advertise game hosts or fetch host lists for you game type. The functions
+here are used to communicate with the Master Server itself which resides on a 
+separate server. If necessary the server itself can be customized. For an overview
+of the Master Server as well as a technical description see the [[wiki:net-MasterServer|Master Server manual page]].

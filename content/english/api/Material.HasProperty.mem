@@ -1,0 +1,11 @@
+Checks if material's shader has a property of a given name.
+
+SA: [[wiki:Materials]], [[wiki:Shaders|ShaderLab documentation]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Attach this to a gameObject that has a renderer.
+
+	if(renderer.material.HasProperty("_Color"))
+		renderer.material.SetColor("_Color",Color.red);
+END EX

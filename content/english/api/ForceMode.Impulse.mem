@@ -1,0 +1,4 @@
+Add an instant force impulse to the rigidbody, using its mass.
+Apply the impulse force instantly with a single function call. This mode depends on the mass of rigidbody so more force must be applied to push or twist higher-mass objects the same amount as lower-mass objects.
+This mode is useful for applying forces that happen instantly, such as forces from explosions or collisions.
+In this mode, the unit of the force parameter is applied to the rigidbody as mass*distance/time

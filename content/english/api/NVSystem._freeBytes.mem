@@ -1,0 +1,5 @@
+Result of GetFreeBlocks, holds free bytes available on the whole NAND file system.
+BEGIN EX
+
+	Debug.Log ("Free bytes: " + sys.freeBytes);
+END EX

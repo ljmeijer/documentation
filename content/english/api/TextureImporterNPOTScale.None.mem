@@ -1,0 +1,2 @@
+Keep non power of two textures as is.
+SA: TextureImporter.npotScale.

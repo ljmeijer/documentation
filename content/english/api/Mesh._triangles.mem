@@ -1,0 +1,24 @@
+An array containing all triangles in the mesh.
+The array is a list of triangles that contains indices into the vertex array. The size of the triangle array must always be a multiple of 3.
+Vertices can be shared by simply indexing into the same vertex.
+If the mesh contains multiple sub meshes (materials) the triangle list will contain all triangles of all submeshes.
+When you assign triangle array, ::ref::subMeshCount is set to 1. If you want to have multiple sub meshes, use ::ref::subMeshCount
+and ::ref::SetTriangles.
+
+It is recommended to assign a the triangle array after assigning the vertex array in order to avoid out of bounds errors.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Builds a mesh containing a single triangle with uv's.
+
+	function Start () {
+		gameObject.AddComponent("MeshFilter");
+		gameObject.AddComponent("MeshRenderer");
+		var mesh : Mesh = GetComponent(MeshFilter).mesh;
+
+		mesh.Clear();
+		mesh.vertices = [Vector3(0,0,0), Vector3(0,1,0), Vector3(1, 1, 0)];
+		mesh.uv = [Vector2 (0, 0), Vector2 (0, 1), Vector2 (1, 1)];
+		mesh.triangles = [0, 1, 2];
+	}
+END EX

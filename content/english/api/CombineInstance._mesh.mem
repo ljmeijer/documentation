@@ -1,0 +1,2 @@
+[[Mesh]] to combine
+SA: Mesh.CombineMeshes, ::ref::subMeshIndex, ::ref::transform.

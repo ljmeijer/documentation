@@ -1,0 +1,19 @@
+Set banner icon.
+BEGIN EX
+
+	var bannerTexture: Texture2D;
+	var bannerIcons: Texture2D[4];
+	function CreateBanner () : NVBanner {
+		var banner: NVBanner = new NVBanner ();
+		banner.SetBanner (bannerTexture);
+		for (var icon: int = 0; i<bannerIcons.length; ++i) {
+			banner.SetIcon (icon, bannerIcons [icon]);
+			banner.SetIconSpeed (icon, Speed.Normal);
+		}
+		if (bannerIcons.length < 8)
+			banner.SetIconSpeed (bannerIcons.length, Speed.End);
+		return banner;
+	}
+END EX
+@param	icon_index	Index of icon to set.
+@param	texture	Banner texture. It's size ''must'' be 48x48 and format must be RGB5A3 otherwise SetBanner will fail.

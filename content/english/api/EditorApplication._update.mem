@@ -1,0 +1,4 @@
+Delegate for generic updates.
+Add your functions to this delegate to get an update callback at approximately 100 times per second.
+
+SA: EditorApplication.CallbackFunction.

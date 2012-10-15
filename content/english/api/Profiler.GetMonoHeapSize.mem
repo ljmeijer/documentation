@@ -1,0 +1,11 @@
+Returns the size of the mono heap
+This is the reserved system memory that Mono is using for allocations
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update() { 
+		#if ENABLE_PROFILER
+			Debug.Log("Allocated Mono heap size" + Profiler.GetMonoHeapSize() + "Bytes");
+		#endif
+	}
+END EX

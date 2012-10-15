@@ -1,0 +1,4 @@
+Set the requested width of the camera device.
+
+It will use a closest resolution to the one requested which is supported by the camera.
+The requested values only have an effect when set while the camera is not running.

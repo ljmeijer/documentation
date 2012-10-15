@@ -1,0 +1,11 @@
+Normal of the contact point.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Print how many points are colliding this transform 
+	// And print the first point normal that is colliding.
+	function OnCollisionEnter(other : Collision) {
+	 	print("Points colliding: " + other.contacts.Length);
+		print("First normal of the point that collide: " + other.contacts[0].normal);
+	}
+END EX

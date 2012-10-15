@@ -1,0 +1,6 @@
+Trace a ray between two points on the NavMesh.
+@param sourcePosition The origin of the ray.
+@param targetPosition The end of the ray.
+@param hit Holds the properties of the ray cast resulting location.
+@param passableMask A mask specifying which NavMesh layers can be passed when tracing the ray.
+@returns True if the ray is terminated before reaching target position. Otherwise returns false.

@@ -1,0 +1,3 @@
+Format of a [[Texture2D|texture]]. Used when creating textures from scripts.
+
+SA: Texture2D.Texture2D, [[wiki:class-Texture2D|texture assets]].

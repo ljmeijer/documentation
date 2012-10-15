@@ -1,0 +1,5 @@
+The starting distance of linear fog.
+
+Fog start and end distances are used by FogMode::pref::Linear fog mode.
+
+SA: RenderSettings.fogEndDistance, RenderSettings.fogMode, [[wiki:class-RenderSettings|Render Settings manager]]

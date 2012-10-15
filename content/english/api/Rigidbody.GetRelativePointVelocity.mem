@@ -1,0 +1,14 @@
+The velocity relative to the rigidbody at the point /relativePoint/.
+GetRelativePointVelocity will take the angularVelocity of the rigidbody into account when calculating the velocity.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints the velocity of the wheel
+
+	var point : Vector3;
+	var velocity : Vector3;
+	
+	point = transform.InverseTransformPoint(Vector3(0, -.2, 0));
+	velocity = rigidbody.GetPointVelocity(point);
+	print(velocity.magnitude);
+END EX

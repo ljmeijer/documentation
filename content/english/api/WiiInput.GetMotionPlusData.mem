@@ -1,0 +1,3 @@
+Get MotionPlus data on a specified channel.
+@param	chan	Remote index, in range 0...3.
+@return A structure describing MotionPlus controllers's state.

@@ -1,0 +1,29 @@
+Allows you to set the error text of the wizard.
+SA: ScriptableWizard.OnWizardUpdate
+
+{img ErrorString.png}\\
+''Error String on a Scriptable Wizard Window.''
+BEGIN EX
+
+	// C#
+	// Creates a simple Wizard window and prints an error 
+	// string until you set the number to 5
+	
+	using UnityEngine;
+	using UnityEditor;
+	
+	public class ErrorString : ScriptableWizard {
+		public int number = 0;
+		[MenuItem ("Example/Show Error String")]
+		static void CreateWindow() {
+			ScriptableWizard.DisplayWizard("Error String example", typeof(ErrorString), "Close");	
+		}
+		void OnWizardUpdate() {
+			helpString = "Set The number to 5";
+			if(number != 5)
+				errorString = "The number has to be set to 5!";
+			else
+				errorString = "";	
+		}
+	}
+END EX

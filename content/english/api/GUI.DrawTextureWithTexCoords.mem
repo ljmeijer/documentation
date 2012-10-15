@@ -1,0 +1,7 @@
+Draw a texture within a rectangle with the given texture coordinates. Use this function for clipping or tiling the image within the given rectangle.
+SA: GUI.color, GUI.contentColor
+
+@param position		Rectangle on the screen to draw the texture within.
+@param image		[[Texture]] to display.
+@param texCoords	How to scale the image when the aspect ratio of it doesn't fit the aspect ratio to be drawn within. 
+@param alphaBlend	Whether to alpha blend the image on to the display (the default). If false, the picture is drawn on to the display.

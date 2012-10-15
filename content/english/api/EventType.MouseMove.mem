@@ -1,0 +1,5 @@
+Mouse was moved (editor views only).
+The mouse was moved without any buttons being held down. Use Event.mousePosition and Event.delta to determine mouse motion.
+
+Note that this even is only sent in the Editor, for [[EditorWindow]] windows which have EditorWindow.wantsMouseMove
+set to true. Mouse move events are never sent in the games.

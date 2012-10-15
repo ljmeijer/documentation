@@ -1,0 +1,12 @@
+Enables the Profiler.
+Can be used with Profiler.logFile to log profiling information
+in built players.
+SA: Profiler.logFile
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		Profiler.logFile = "mylog.log";
+		Profiler.enabled = true;
+	}
+END EX

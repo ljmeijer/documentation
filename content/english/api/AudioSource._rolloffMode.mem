@@ -1,0 +1,9 @@
+Sets/Gets how the AudioSource attenuates over distance
+CONVERTEXAMPLE
+BEGIN EX
+
+	
+	function Start() {
+		audio.rolloffMode = AudioRolloffMode.Linear;
+	}
+END EX

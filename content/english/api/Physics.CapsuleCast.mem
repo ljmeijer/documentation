@@ -1,0 +1,38 @@
+<signature>
+CapsuleCast_Vector3_Vector3_float_Vector3_float_int
+CapsuleCast_Vector3_Vector3_float_Vector3_RaycastHit_float_int
+</signature>
+Casts a capsule against all colliders in the scene and returns detailed information on what was hit.
+The capsule is defined by the two spheres with /radius/ around /point1/ and /point2/, which form the two ends of the capsule.
+Hits are returned for the first collider which would collide against this capsule if the capsule was moved along /direction/.
+This is useful when a Raycast does not give enough precision, because you want to find out if an object of a specific size,
+such as a character, will be able to move somewhere without colliding with anything on the way.
+__Note:__ If you move colliders from scripting or by animation, there needs to be at
+least one FixedUpdate executed so that the physics library can update it's data
+structures, before a CapsuleCast will hit the collider at it's new position.
+
+SA: [[Physics.SphereCast]], [[Physics.CapsuleCastAll]], [[Physics.Raycast]], [[Rigidbody.SweepTest]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update () {
+		var hit : RaycastHit;
+		var charContr : CharacterController = GetComponent(CharacterController);
+		var p1 : Vector3 = transform.position + charContr.center + 
+					Vector3.up * (-charContr.height*0.5);
+		var p2 : Vector3 = p1 + Vector3.up * charContr.height;
+		// Cast character controller shape 10 meters forward, to see if it is about to hit anything
+		if (Physics.CapsuleCast (p1, p2, charContr.radius, transform.forward, hit, 10)) {
+			distanceToObstacle = hit.distance;
+		}
+	}
+END EX
+@param	point1		The start of the capsule.
+@param	point2		The end of the capsule.
+@param	radius		The radius of the capsule.	
+@param  direction	The direction into which to sweep the capsule.
+@param  hitInfo		If true is returned, /hitInfo/ will contain more information about where the collider was hit (SA: [[RaycastHit]]).
+@param  distance	The length of the sweep
+@param	layerMask	A [[wiki:Layers|Layer mask]] that is used to selectively ignore colliders when casting a capsule. 
+
+@returns True when the capsule sweep intersects any collider, otherwise false.

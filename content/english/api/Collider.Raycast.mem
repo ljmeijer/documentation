@@ -1,0 +1,20 @@
+Casts a [[Ray]] that ignores all Colliders except this one.
+Same as above using /ray.origin/ and /ray.direction/ instead of /origin/ and /direction/.
+BEGIN EX
+
+	// pragma below is needed due to a UnityJS issue
+	#pragma strict
+
+	function Update(){
+	    var ray : Ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+	    var hit : RaycastHit;
+	    if (collider.Raycast (ray, hit, 100.0)) {
+	        Debug.DrawLine (ray.origin, hit.point);
+	    }
+	}
+END EX
+@param	ray			The starting point and direction of the ray.
+@param  hitInfo		If true is returned, /hitInfo/ will contain more information about where the collider was hit (SA: [[RaycastHit]]).
+@param  distance	The length of the ray
+
+@returns True when the ray intersects any collider, otherwise false.

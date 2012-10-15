@@ -1,0 +1,31 @@
+Create a Property wrapper, useful for making regular GUI controls work with [[SerializedProperty]].
+
+Most [[EditorGUI]] and [[EditorGUILayout]] GUI controls already have overloads that work with SerializedProperty.
+However, for GUI controls that don't handle SerializedProperty you can wrap them inside BeginProperty and EndProperty as shown in the example below.
+You can use this for your own custom GUI controls too.
+
+BeginProperty and EndProperty automatically handle default labels, bold font for prefab overrides, revert to prefab right click menu, and setting ::ref::showMixedValue to true if the values of the property are different when multi-object editing.
+BEGIN EX
+
+	// A slider function that takes a SerializedProperty
+	function Slider (position : Rect, property : SerializedProperty, leftValue : float, rightValue : float, label : GUIContent) {
+		label = EditorGUI.BeginProperty (position, label, property);
+		
+		EditorGUI.BeginChangeCheck ();
+		var newValue = EditorGUI.Slider (position, label, property.floatValue, leftValue, rightValue);
+		// Only assign the value back if it was actually changed by the user.
+		// Otherwise a single value will be assigned to all objects when multi-object editing,
+		// even when the user didn't touch the control.
+		if (EditorGUI.EndChangeCheck ())
+			property.floatValue = newValue;
+		
+		EditorGUI.EndProperty ();
+	}
+END EX
+
+SA: ::ref::EndProperty.
+
+@param totalPosition Rectangle on the screen to use for the control, including label if applicable.
+@param label Optional label in front of the slider. Use null to use the name from the SerializedProperty. Use GUIContent.none to not display a label.
+@param property The SerializedProperty to use for the control.
+@return The actual label to use for the control.

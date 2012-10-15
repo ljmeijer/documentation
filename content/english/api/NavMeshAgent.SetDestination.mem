@@ -1,0 +1,3 @@
+Sets or updates the destination. This triggers calculation for a new path.
+Note that the path may not become available until after a few frames later.
+While the path is being computed, ::ref::pathPending will be true.

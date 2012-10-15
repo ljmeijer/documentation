@@ -1,0 +1,4 @@
+Get the sensordata from a given controller and axis
+@param controllerID Controller index
+@param axis Axis to get the data from 
+@return a float of range -1.0 - 1.0

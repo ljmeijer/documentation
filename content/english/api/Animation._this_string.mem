@@ -1,0 +1,10 @@
+Returns the animation state named /name/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Get the walk animation state  and set its speed
+	animation["walk"].speed = 2.0;
+
+	// Get the run animation state and set its weight
+	animation["run"].weight = 0.5;
+END EX

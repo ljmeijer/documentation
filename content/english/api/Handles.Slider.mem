@@ -1,0 +1,47 @@
+<signature>
+Slider_Vector3_Vector3
+Slider_Vector3_Vector3_float_DrawCapFunction_float
+</signature>
+Make a 3D slider
+This will draw a 3D-draggable handle on the screen. The handle is constrained to sliding along a direction vector in 3D space.
+
+{img SliderHandle.png}\\
+''Slider handle in the Scene View.''
+BEGIN EX
+
+	// Simple script that creates a Magenta Slide Handle that 
+	// points to (0,0,0) nomatter where the target GameObject is located.
+	
+	@CustomEditor (Slide)
+	class SliderHandleJS extends Editor {
+		function OnSceneGUI () {
+			Handles.color = Color.magenta;
+	        target.vectorPoint = Handles.Slider (target.transform.position, 
+	      						Vector3.zero - target.transform.position);
+	        if (GUI.changed)
+	            EditorUtility.SetDirty (target);
+	    }
+	}
+END EX
+
+And the script attached to this Handle:
+BEGIN EX
+
+	// Usage: Place this script on the Game Object you want to use the
+	// editor-created slide handle.
+	
+	@script ExecuteInEditMode()
+	
+	var vectorPoint : Vector3 = Vector3(0,0,0);
+	
+	function Update() {
+		Debug.Log("Looking at: " + vectorPoint);
+	}
+END EX
+
+@param position the position of the current point.
+@param direction the direction of the sliding.
+@param float 3D size the size of the handle - HandleUtility.GetHandleSize (position);
+@param drawFunc the function to call for doing the actual drawing - by default, it's Handles.ArrowCap, but any function that has the same signature can be used.
+
+__Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.

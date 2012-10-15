@@ -1,0 +1,18 @@
+Determines how much the filter's self-resonance isdampened.
+Higher Highpass resonance Q indicates a lower rate of
+energy loss i.e. the oscillations die out more slowly.
+
+Highpass resonance Q value goes from 1.0 to 10.0. Default = 1.0.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Moves the Highpass Resonance Quality Factor from 0 to 10 following a Sinus function
+	// Attach this to an audio source with a HighPassFilter to listen it working.
+	
+	@script RequireComponent(AudioSource)
+	@script RequireComponent(AudioHighPassFilter)
+	
+	function Update() {
+		GetComponent(AudioHighPassFilter).lowpassResonaceQ = (Mathf.Sin(Time.time)*5 + 5);
+	}
+END EX

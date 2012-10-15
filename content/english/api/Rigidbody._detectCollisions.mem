@@ -1,0 +1,15 @@
+Should collision detection be enabled? (By default always enabled)
+Disabling collision detections is useful when you have a ragdoll which is setup to be kinematic and you want to avoid
+heavy collision detection calculations on that rigidbody.
+/detectCollisions/ is not serialized. This means it doesn't show up in the Inspector
+and when Instantiating the rigidbody or saving it in a scene, it will not be saved.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Let animation control the rigidbody and ignore collisions
+	rigidbody.isKinematic = true;
+	rigidbody.detectCollisions = false;
+	// Let the rigidbody take over control, detect collisions 
+	rigidbody.isKinematic = false;
+	rigidbody.detectCollisions = true;
+END EX

@@ -1,0 +1,10 @@
+Clear with the skybox.
+If a skybox is not set up, the Camera will clear with a Camera::pref::backgroundColor.
+SA: Camera.clearFlags property, [[wiki:class-Camera|camera component]], [[wiki:class-RenderSettings|Render Settings]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Clear with a skybox
+
+	camera.clearFlags = CameraClearFlags.Skybox;
+END EX

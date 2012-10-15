@@ -1,0 +1,3 @@
+When turned on, Unity might stop animating if it thinks that the results of the animation won't be visible to the user.
+This could save you some performance if you have things animating outside of the viewport, whose animation is only important
+when the user can actually see the thing that is being animated.

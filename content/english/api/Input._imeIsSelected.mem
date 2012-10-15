@@ -1,0 +1,4 @@
+Does the user have an IME keyboard input source selected?
+This returns true if the users keyboard is currently configured for IME input, and false otherwise.
+Since users of asian languages can typically turn IME conversion on or off using a keystroke, it is useful
+to provide some visual indication of IME being enabled. This can be done by checking Input.imeIsSelected.

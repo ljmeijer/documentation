@@ -1,0 +1,4 @@
+Make a help box with a message to the user.
+@param position Rectangle on the screen to draw the help box within.
+@param message The message text.
+@param type The type of message.

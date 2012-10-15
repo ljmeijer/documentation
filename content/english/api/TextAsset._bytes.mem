@@ -1,0 +1,18 @@
+The raw bytes of the text asset. (RO)
+
+If you're using the text asset to contain binary data, you should make sure the file has the .bytes extension. For any other of the
+extentions the TextImporter will try to strip nonascii characters if it is unable to parse the file as an utf8 string.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Load a .jpg or .png file by adding .bytes extensions to the file 
+	// and dragging it on the imageTextAsset
+
+	var imageTextAsset : TextAsset;
+
+	function Start () {
+		var tex = new Texture2D (4, 4);
+		tex.LoadImage(imageTextAsset.bytes);
+		renderer.material.mainTexture = tex;
+	}
+END EX

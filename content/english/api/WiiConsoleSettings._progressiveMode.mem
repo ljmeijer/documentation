@@ -1,0 +1,3 @@
+Progressive mode setting as chosen by the user in Wii Menu.
+For more information, please refer to SCGetProgressiveMode function documentation in RVL SDK.
+@return Current progressive mode setting.

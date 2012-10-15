@@ -1,0 +1,8 @@
+Topology of [[Mesh]] faces.
+
+Normally meshes are composed of triangles (three vertex indices per face), but
+in some cases you might want to render complex things that are made up from lines
+or points. Creating a [[Mesh]] with that topology and using it to render is usually the
+most efficient way.
+
+SA: Mesh.SetIndices function.

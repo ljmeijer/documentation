@@ -1,0 +1,10 @@
+Defines type of the filesystem node, which is either file or directory.
+BEGIN EX
+
+	var sys: NVSystem = new NVSystem ();
+	yield sys.GetType (NVDirectory.home);
+	if (sys.success)
+		Debug.Log ("Type of '" + NVDirectory.home + "' is: " + sys.type);
+	else
+		Debug.Log ("Failed to get the type, asyncResult: " + sys.asyncResult);
+END EX

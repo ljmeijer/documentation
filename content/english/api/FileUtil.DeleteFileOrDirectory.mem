@@ -1,0 +1,13 @@
+Deletes a file or a directory given a path.
+This function's path is relative to the project root folder but it can also accept absolute paths.
+
+All file separators should be forward ones "/" (Unix style).
+BEGIN EX
+
+	// creates a menu entry to remove a file or a directory.
+	@MenuItem ("Example/Remove Something")
+	static function RemoveAFile () {
+		//removes the file
+		FileUtil.DeleteFileOrDirectory("your/path/to/the/folder/or/file");
+	}
+END EX

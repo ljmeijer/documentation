@@ -1,0 +1,31 @@
+The scale at which the time is passing. This can be used for slow motion effects.
+
+When /timeScale/ is 1.0 the time is passing as fast as realtime.
+When /timeScale/ is 0.5 the time is passing 2x slower than realtime.
+
+When /timeScale/ is set to zero the game is basically paused if all your functions are
+frame rate independent.
+
+Except for ::ref::realtimeSinceStartup, /timeScale/ affects all the time and delta time measuring variables of the [[Time]] class.
+
+If you lower /timeScale/ it is recommended to also lower Time.fixedDeltaTime by the same amount.
+
+MonoBehaviour::pref::FixedUpdate functions will not be called when /timeScale/ is set to zero.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Toggles the time scale between 1 and 0.7
+	// whenever the user hits the Fire1 button.
+
+	function Update () {
+		if (Input.GetButtonDown ("Fire1")) {
+			if (Time.timeScale == 1.0)
+				Time.timeScale = 0.7;
+			else
+				Time.timeScale = 1.0;
+			// Adjust fixed delta time according to timescale
+			// The fixed delta time will now be 0.02 frames per real-time second
+			Time.fixedDeltaTime = 0.02 * Time.timeScale;
+		}
+	}
+END EX

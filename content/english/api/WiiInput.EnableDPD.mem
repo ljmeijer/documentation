@@ -1,0 +1,3 @@
+Enable Wii Remote Pointer.
+For more information, please refer to KPADEnableDPD function documentation in RVL SDK.
+@param	chan	Remote index. Valid values 0...3.

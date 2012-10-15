@@ -1,0 +1,6 @@
+Enables the joint's limits.
+CONVERTEXAMPLE
+BEGIN EX
+
+	hingeJoint.useLimits = true;
+END EX

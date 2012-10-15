@@ -1,0 +1,9 @@
+Does this object receive shadows?
+CONVERTEXAMPLE
+BEGIN EX
+
+	// make the object not receive shadows
+
+	renderer.receiveShadows = false;
+END EX
+SA: ::ref::castShadows

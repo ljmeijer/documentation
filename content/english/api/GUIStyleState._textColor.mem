@@ -1,0 +1,11 @@
+The text color used by GUI elements in this state.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Sets the text color to yellow of customStyles[0] when an
+	// element is turned on and pressed down
+	function OnGUI() {
+		if(GUI.skin.customStyles.Length > 0)
+			GUI.skin.customStyles[0].onActive.textColor = Color.yellow;
+	}
+END EX

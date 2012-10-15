@@ -1,0 +1,6 @@
+The anchor of the text.
+CONVERTEXAMPLE
+BEGIN EX
+
+	guiText.anchor = TextAnchor.MiddleCenter;
+END EX

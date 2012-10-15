@@ -1,0 +1,10 @@
+The connection port of the master server.
+By default this is a server run by Unity Technologies.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function ResetIP() {
+		MasterServer.ipAddress = "127.0.0.1";
+		MasterServer.port = 10002;
+	}
+END EX

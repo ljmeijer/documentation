@@ -1,0 +1,2 @@
+Callback activated when system UI is shown or hidden.
+Use ::ref::IsSystemUIVisible to determine the state of system UI.

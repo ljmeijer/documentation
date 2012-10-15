@@ -1,0 +1,1 @@
+WBCRead result. Returs 1 if a person weighting weighing approximately 15.4 pounds or more is on top of the Wii Balance Board, otherwise WiiErrorStatus code.

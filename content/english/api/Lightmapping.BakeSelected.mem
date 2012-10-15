@@ -1,0 +1,2 @@
+Stars a synchronous bake job for the selected objects.
+Returns when the lightmapping has finished.

@@ -1,0 +1,3 @@
+Does the [[GameObject]] of this trail renderer auto destructs?
+
+When set to /true/, the [[GameObject]] will be destroyed when it is not moving anymore.

@@ -1,0 +1,18 @@
+Rendering settings for when the control is pressed down.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Assigns a texture to customStyles[0] for when the control
+	// is pressed down
+
+	var aTexture : Texture2D;
+
+	function OnGUI() {
+	 	if(!aTexture) {
+			Debug.LogError("Assign a texture on the editor first");
+			return;
+		}
+		if(GUI.skin.customStyles.Length > 0)
+			GUI.skin.customStyles[0].active.background = aTexture;		
+	}
+END EX

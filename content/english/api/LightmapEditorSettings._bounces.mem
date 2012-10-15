@@ -1,0 +1,1 @@
+Number of light bounces in the global illumination computation (with 0 meaning direct light only).

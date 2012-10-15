@@ -1,0 +1,13 @@
+Should triple-clicking select whole text in text fields.
+Bu default is set to true.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Disables line selecting with triple click on the text area
+	var str : String = "This is a string with \n two lines of text";
+
+	function OnGUI() { 
+		GUI.skin.settings.tripleClickSelectsLine = false;
+		str = GUILayout.TextArea(str);
+	}
+END EX

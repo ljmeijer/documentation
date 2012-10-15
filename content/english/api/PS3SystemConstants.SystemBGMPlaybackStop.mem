@@ -1,0 +1,2 @@
+Music playback is stopped by the system BGM feature.
+SA: PS3SystemUtility.SystemNotificationDelegate /notification/

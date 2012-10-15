@@ -1,0 +1,23 @@
+Playback position in PCM samples.
+
+Use this to read current playback time or to seek to a new playback time in samples,
+if you want more precise timing than what ::ref::time variable allows.
+
+SA: ::ref::time variable.
+CONVERTEXAMPLE
+BEGIN EX
+
+	@script RequireComponent(AudioSource)
+	
+	// Prints the elapsed time in samples the audio
+	// source has been playing.
+	// Press "Return" to start the song and see how the 
+	// time sample gets restarted.. 
+	function Update() {
+		if(Input.GetKeyDown(KeyCode.Return)) {
+			audio.Stop();
+			audio.Play();
+		}
+		Debug.Log(audio.timeSamples);	
+	}
+END EX

@@ -1,0 +1,10 @@
+Returns bounding rectangle of [[GUIElement]] in screen coordinates.
+If no /camera/ is given a camera filling the entire game window will be assumed.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		var r : Rect = guiTexture.GetScreenRect ();
+		Debug.Log ("This gui element is " + r.width + " pixel wide.");
+	}
+END EX

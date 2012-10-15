@@ -1,0 +1,3 @@
+Mounts the save game. Remember to call /X360Storage.Unmount/.
+Returns false if a storage operation is already active by checking /X360Storage.IsStorageOpActive/ or an error happens.
+/onComplete/ is never called if this function returns false.

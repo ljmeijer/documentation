@@ -1,0 +1,6 @@
+The total number of bytes that can potentially be allocated for caching.
+This value can be set to a smaller number in order to limit the amount of disk space used by cached AssetBundles.
+The WebPlayer shared cache allows up to 50 MiB of cached AssetBundles. PC/Mac Standalone applications and iOS/Android applications have a limit of 4 GiB.
+WebPlayer applications that make use of a dedicated cache are limited to the number of bytes specified in the Caching license agreement.
+This property does not account for total available disk space. If a user's computer has less available disk space on the drive where the cache is located than maximumAvailableDiskSpace, the full amount of maximumAvailableDiskSpace will not be usable.
+Cache storage is allocated on an as-needed basis in order to minimize disk space usage.

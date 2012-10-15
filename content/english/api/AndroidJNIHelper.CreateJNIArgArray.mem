@@ -1,0 +1,3 @@
+Creates the parameter array to be used as argument list when invoking Java code through CallMethod() in AndroidJNI.
+
+@params args An array of objects that should be converted to Call parameters.

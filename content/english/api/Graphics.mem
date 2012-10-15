@@ -1,0 +1,3 @@
+Raw interface to Unity's drawing functions.
+
+This is the high-level shortcut into the optimized mesh drawing functionality of Unity.

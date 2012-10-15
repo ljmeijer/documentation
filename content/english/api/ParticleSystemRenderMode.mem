@@ -1,0 +1,2 @@
+The rendering mode for particle systems (Shuriken).
+This is used by the [[ParticleSystemRenderer]] to determine how to render the particles.

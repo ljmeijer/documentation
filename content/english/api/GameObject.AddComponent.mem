@@ -1,0 +1,29 @@
+Adds a component class named /className/ to the game object.
+Use this function to change behaviour of objects on the fly.
+You can also add script to game objects by passing in the name of the script class.
+
+Some components require other components to exist in the same game object as well.
+This function automatically adds any required components as well eg.
+if you add a [[HingeJoint]] this will automatically add a [[Rigidbody]] as well.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Adds the script named FoobarScript to the game object
+	gameObject.AddComponent ("FoobarScript");
+
+	// Adds the sphere collider to the game object
+	var sc : SphereCollider;
+	sc = gameObject.AddComponent ("SphereCollider");
+END EX<signature>
+AddComponent_string
+AddComponent_Type
+</signature>
+Adds a component class of type /componentType/ to the game object. C# Users can use a generic version
+CONVERTEXAMPLE
+BEGIN EX
+
+	var fbs : FoobarScript;
+	fbs = gameObject.AddComponent(FoobarScript);
+END EX
+Note that there is no RemoveComponent(), to remove a component, use
+Object.Destroy.

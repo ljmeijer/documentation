@@ -1,0 +1,30 @@
+Returns a block of the currently playing source's spectrum data
+Number of values (numSamples) must be a power of 2. (ie 128/256/512 etc). Min = 64. Max = 8192.
+Use [[FFTWindow|window]] to reduce leakage between frequency bins/bands. 
+Note, the more complex window type, the better the quality, but reduced speed.<signature>
+GetSpectrumData_int_int_FFTWindow
+GetSpectrumData_floatArray_int_FFTWindow
+</signature>
+Returns a block of the currently playing source's spectrum data
+Number of values (numSamples) must be a power of 2. (ie 128/256/512 etc). Min = 64. Max = 8192.
+Use [[FFTWindow|window]] to reduce leakage between frequency bins/bands. 
+Note, the more complex window type, the better the quality, but reduced speed.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update () {
+	    var spectrum : float[] = audio.GetSpectrumData (1024, 0, FFTWindow.BlackmanHarris);
+    
+	    for (var i = 1; i < 1023; i++) {
+	        Debug.DrawLine (new Vector3 (i - 1, spectrum[i] + 10, 0), 
+						new Vector3 (i, spectrum[i + 1] + 10, 0), Color.red);
+	        Debug.DrawLine (new Vector3 (i - 1, Mathf.Log(spectrum[i - 1]) + 10, 2), 
+						new Vector3 (i, Mathf.Log(spectrum[i]) + 10, 2), Color.cyan);
+    
+	        Debug.DrawLine (new Vector3 (Mathf.Log(i - 1), spectrum[i - 1] - 10, 1), 
+						new Vector3 (Mathf.Log(i), spectrum[i] - 10, 1), Color.green);
+	        Debug.DrawLine (new Vector3 (Mathf.Log(i - 1), Mathf.Log(spectrum[i - 1]), 3), 
+						new Vector3 (Mathf.Log(i), Mathf.Log(spectrum[i]), 3), Color.yellow);
+		}
+	}
+END EX

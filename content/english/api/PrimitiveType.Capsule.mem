@@ -1,0 +1,10 @@
+A capsule primitive
+SA: GameObject.CreatePrimitive
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Creates a capsule primitive
+	function Start () {
+		var capsule : GameObject = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+	}
+END EX

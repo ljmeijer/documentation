@@ -1,0 +1,6 @@
+A representation of negative infinity (RO).
+CONVERTEXAMPLE
+BEGIN EX
+
+	Debug.Log(Mathf.NegativeInfinity);
+END EX

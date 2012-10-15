@@ -1,0 +1,19 @@
+Draw an icon at a position in the scene view.
+
+The image filename for the icon is specified with the __name__ parameter
+while the __center__ parameter denotes the location of the icon in world space
+and the __allowScaling__ parameter determines if the icon is allowed to be scaled. 
+The image file should be placed in the __Assets/Gizmos__ folder.
+
+DrawIcon can be used to allow important objects in your game to be selected quickly.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws the Light bulb icon at position of the object.
+	// Because we draw it inside OnDrawGizmos the icon is also pickable 
+	// in the scene view.
+
+	function OnDrawGizmos () {
+		Gizmos.DrawIcon (transform.position, "Light Gizmo.tiff", true);
+	}
+END EX

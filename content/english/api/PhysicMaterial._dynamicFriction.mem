@@ -1,0 +1,7 @@
+The friction used when already moving.  This value has to be between 0 and 1.
+A value of 0 feels like ice, 1 feels like rubber.
+CONVERTEXAMPLE
+BEGIN EX
+
+	collider.dynamicFriction = 1;
+END EX

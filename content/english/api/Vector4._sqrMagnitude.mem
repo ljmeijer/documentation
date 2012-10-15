@@ -1,0 +1,5 @@
+Returns the squared length of this vector (RO).
+
+Calculating the squared magnitude instead of the ::ref::magnitude is much faster.
+
+SA: ::ref::magnitude.

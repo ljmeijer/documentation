@@ -1,0 +1,19 @@
+This can be used to profile specific parts of the editor
+It is best used
+Common gotcha: GUI throws exceptions in some cases. For accurate profiling, you should always balance the BeginFrame with an EndFrame,
+best is to catch the exception EndFrame and throw the exception.
+Enable 'Custom markers' in the profiler to view these markers
+BEGIN EX
+
+	function OnGUI () {
+		UnityEditorInternal.ProfilerDriver.BeginFrame();
+		
+		Profiler.BeginSample(GetType().Name + " - " + Event.current.type);
+		
+		// ... ExecuteComplexCode 
+		
+		Profiler.EndSample();
+		
+		UnityEditorInternal.ProfilerDriver.EndFrame();
+	}
+END EX

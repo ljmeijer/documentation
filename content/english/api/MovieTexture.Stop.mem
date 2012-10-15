@@ -1,0 +1,19 @@
+Stops playing the movie, and rewinds it to the beginning
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Assigns a movie texture to the current transform, plays it
+	// and when the user presses the *space* key, stops the video.
+
+	var movTexture : MovieTexture;
+
+	function Start () {
+		renderer.material.mainTexture = movTexture;
+		movTexture.Play();
+	}
+
+	function Update() {
+		 if(Input.GetKeyDown(KeyCode.Space))
+			movTexture.Stop();
+	}
+END EX

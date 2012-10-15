@@ -1,0 +1,6 @@
+All packets are sent reliable and ordered.
+Delta compression is used to send only the difference between the last sent state and the current state.
+For example if you synchronize a [[Transform]]. Scale x, y, z is most likely going to keep the same value.
+Unity compares the state received by the client to the new state, if it is changed 1 bit and the data will be sent.
+If it didn't change only a single bit will be sent.
+When Unity detects that nothing has changed since the last state, no data will be sent at all.

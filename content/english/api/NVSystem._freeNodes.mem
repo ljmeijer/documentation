@@ -1,0 +1,5 @@
+Result of GetFreeBlocks, holds free i-nodes available on the NAND file system.
+BEGIN EX
+
+	Debug.Log ("Free nodes: " + sys.freeNodes);
+END EX

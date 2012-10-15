@@ -1,0 +1,11 @@
+Device physical orientation as reported by OS. (RO)
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Play a sound if screen is facing downwards
+
+	function Update () {
+		if (Input.deviceOrientation == DeviceOrientation.FaceDown)
+			audio.Play();
+	}
+END EX

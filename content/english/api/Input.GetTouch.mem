@@ -1,0 +1,55 @@
+Returns object representing status of a specific touch. (Does not allocate temporary variables)
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Moves object according to finger movement on the screen
+
+	var speed : float = 0.1;
+	function Update () {
+		if (Input.touchCount > 0 && 
+		  Input.GetTouch(0).phase == TouchPhase.Moved) {
+		
+			// Get movement of the finger since last frame
+			var touchDeltaPosition:Vector2 = Input.GetTouch(0).deltaPosition;
+			
+			// Move object across XY plane
+			transform.Translate (-touchDeltaPosition.x * speed, 
+						-touchDeltaPosition.y * speed, 0);
+		}
+	}
+END EX
+
+Another Example:
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Instantiates a projectile whenever the user taps on the screen
+
+	var projectile : GameObject;
+	function Update () {
+		for (var i = 0; i < Input.touchCount; ++i) {
+			if (Input.GetTouch(i).phase == TouchPhase.Began) {
+				clone = Instantiate (projectile, transform.position, transform.rotation);
+			}
+		}
+	}
+END EX
+
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Shoot a ray whenever the user taps on the screen
+	var particle : GameObject;
+	function Update () {
+		for (var i = 0; i < Input.touchCount; ++i) {
+			if (Input.GetTouch(i).phase == TouchPhase.Began) {
+				// Construct a ray from the current touch coordinates
+				var ray = Camera.main.ScreenPointToRay (Input.GetTouch(i).position);
+				if (Physics.Raycast (ray)) {
+					// Create a particle if hit
+					Instantiate (particle, transform.position, transform.rotation);
+				}
+			}
+		}
+	}
+END EX

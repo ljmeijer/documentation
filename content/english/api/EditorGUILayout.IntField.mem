@@ -1,0 +1,42 @@
+<signature>
+IntField_int_GUILayoutOptionArray
+IntField_int_GUIStyle_GUILayoutOptionArray
+IntField_string_int_GUILayoutOptionArray
+IntField_string_int_GUIStyle_GUILayoutOptionArray
+IntField_GUIContent_int_GUILayoutOptionArray
+IntField_GUIContent_int_GUIStyle_GUILayoutOptionArray
+</signature>
+Make a text field for entering integers.
+
+{img EditorGUILayoutIntField.png}\\
+''Clone the Selected object a number of times.''
+BEGIN EX
+
+	// Editor Script that clones the selected GameObject a number of times.
+	
+	class EditorGUILayoutIntField extends EditorWindow {
+	
+		var clones : int = 1;
+		
+		@MenuItem("Examples/Clone Object")
+		static function Init() {
+			var window = GetWindow(EditorGUILayoutIntField);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			sizeMultiplier = EditorGUILayout.IntField("Number of clones:", clones);
+			if(GUILayout.Button("Clone!"))
+				for(var i = 0; i < clones; i++)
+					Instantiate(Selection.activeGameObject, Vector3.zero, Quaternion.identity);
+		}
+	}
+END EX
+
+@param label Optional label to display in front of the int field.
+@param value The value to edit.
+@param style Optional [[GUIStyle]].
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The value entered by the user.

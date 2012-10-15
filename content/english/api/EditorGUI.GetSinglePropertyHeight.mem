@@ -1,0 +1,1 @@
+Get the height needed for a [[PropertyField]] control, not including its children and not taking custom PropertyDrawers into account.

@@ -1,0 +1,5 @@
+Make a selectable label field. (Useful for showing read-only info that can be copy-pasted.)
+
+@param position Rectangle on the screen to use for the label.
+@param text The text to show.
+@param style Optional [[GUIStyle]].

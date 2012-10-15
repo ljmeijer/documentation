@@ -1,0 +1,1 @@
+The parameter is a pixel constant used to specify the color of the rim light to be used by the shader. All shader types should expect this parameter to be set, and use the given rim light value.

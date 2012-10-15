@@ -1,0 +1,39 @@
+Draw a solid flat disc in 3D space.
+
+{img DrawSolidDisc.png}\\
+''Solid Disc in the Scene View.''
+BEGIN EX
+
+	// Create a semi transparent white disc with a ScaleValueHandle attached to the disc
+	// that lets you modify the "areaOfEffect" var in the WireDiscExample.js
+	
+	@CustomEditor (SolidDiscExample)
+	class DrawSolidDisc extends Editor {
+	    function OnSceneGUI () {
+	    	Handles.color = Color(1,0,0,0.1);
+	        Handles.DrawSolidDisc(target.transform.position, Vector3.up, target.areaOfEffect);
+	        Handles.color = Color.red;
+	        target.areaOfEffect = 
+			Handles.ScaleValueHandle(target.areaOfEffect,
+        					target.transform.position + Vector3(target.areaOfEffect,0,0),
+        					Quaternion.identity,
+        					2,
+        					Handles.CylinderCap,
+        					2);
+	    }
+	}
+END EX
+
+And the script attached to this Handle:
+BEGIN EX
+
+	//SolidDiscExample.js
+	
+	var areaOfEffect : float = 5;
+END EX
+
+@param center the center of the dics
+@param normal the normal of the disc	
+@param radius the radius of the dics
+
+__Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.

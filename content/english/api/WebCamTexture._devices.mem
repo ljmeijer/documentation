@@ -1,0 +1,13 @@
+Return a list of available devices.
+
+This queries the system for the list of devices connected and it can be slow.
+You should cache this value by keeping a copy of the result if you want to use it repeatedly.
+BEGIN EX
+
+	// Gets the list of devices and prints them to the console.
+	function Start () {
+		var devices : WebCamDevice[] = WebCamTexture.devices;
+		for( var i = 0 ; i < devices.length ; i++ )
+			Debug.Log(devices[i].name);
+	}
+END EX

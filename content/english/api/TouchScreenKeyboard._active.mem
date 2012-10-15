@@ -1,0 +1,21 @@
+Specifies if the keyboard is visible or is sliding into the position on
+the screen. Use this property to bring previously hidden keyboard back
+on the screen.
+BEGIN EX
+
+	// Hides the keyboard if the device is facing down
+	// and resumes input if the device is facing up.
+
+	private var keyboard : TouchScreenKeyboard;
+
+	function Update() {
+		if (keyboard && Input.deviceOrientation == DeviceOrientation.FaceDown)
+			keyboard.active = false;
+		if (keyboard && Input.deviceOrientation == DeviceOrientation.FaceUp)
+			keyboard.active = true;
+	}
+	function OnGUI() {
+		if (GUI.Button(Rect(0, 10, 200, 32), "Open keyboard"))
+			keyboard = TouchScreenKeyboard.Open("text");
+	}
+END EX

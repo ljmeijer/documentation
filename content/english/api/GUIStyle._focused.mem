@@ -1,0 +1,9 @@
+Rendering settings for when the element has keyboard focus.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI() {
+		if(GUI.skin.customStyles.Length > 0)
+			GUI.skin.customStyles[0].focused.textColor = Color.blue;
+	}
+END EX

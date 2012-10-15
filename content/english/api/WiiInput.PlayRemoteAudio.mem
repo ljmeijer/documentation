@@ -1,0 +1,29 @@
+Play a sound on Remote Controller. Function call will fail if Audio clip is not in ADPCM format. If audio clips sampling rate is not 6kHz, data will be resampled at runtime. Only the first channel will be played if stereo audio is passed. Playing back is supported on the Wii only.
+BEGIN EX
+
+	var remoteAudio: AudioClip;
+	var shortAudio: AudioClip;
+
+	function OnGUI () {
+		
+		for (var chan: int=0; chan<4; ++chan)
+		{	
+			var y: int = 20 + chan*60;
+
+			if (GUI.Button (Rect (10, y, 80, 50), "Play (" + chan + ")"))
+				WiiInput.PlayRemoteAudio (chan, remoteAudio, 10);
+
+			var stopAudio = GUI.Button (Rect (190, y, 80, 50), "Stop (" + chan + ")");
+			if (WiiInput.IsRemoteAudioPlaying (chan) && stopAudio)
+				WiiInput.StopRemoteAudio (chan);
+
+			GUI.Label (Rect (220, y,100,20), "Playing: " + WiiInput.IsRemoteAudioPlaying (chan));
+		}
+
+		GUI.Label (Rect (20,300,100,20), "Voices: " + 
+			WiiPerf.allocatedAudioVoices + " / " + WiiPerf.maxAudioVoices);
+	}
+END EX
+@param	chan	Remote index, in range 0...3.
+@param	clip	A clip to play on the Remote.
+@param	priority	Priority to assign to the voice of this sound for AX library.

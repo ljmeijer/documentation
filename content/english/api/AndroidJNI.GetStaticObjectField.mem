@@ -1,0 +1,4 @@
+This function returns the value of a static field of an object.
+The result is a reference to a <tt>java.lang.Object</tt>, or a subclass thereof.
+
+SA: <a href="http://download.oracle.com/javase/1.5.0/docs/guide/jni/spec/jniTOC.html">Java Native Interface Specification (Oracle)</a>

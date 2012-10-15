@@ -1,0 +1,11 @@
+Did the cloth tear? (RO)
+
+SA: ::ref::tearFactor variable.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update() {
+		if(transform.GetComponent(InteractiveCloth).isTeared)
+			Debug.Log("Cloth teared!");
+	}
+END EX

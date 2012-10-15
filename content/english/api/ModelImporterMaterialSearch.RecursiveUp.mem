@@ -1,0 +1,6 @@
+Recursive-up search in Materials forlders.
+
+Unity will perform a recursive-up search for the material in all Materials folders up to the Assets folder.
+For example: if model is Assets/Model/MyModel.fbx, then it will try to locate the material in these folders in this order:
+Assets/Model/Materials, Assets/Materials. 
+SA: ModelImporter.materialSearch.

@@ -1,0 +1,5 @@
+A container for audio data.
+An AudioClip stores the audio file either compressed as ogg vorbis or uncompressed.
+AudioClips are referenced and used by AudioSources to play sounds.
+
+SA: [[class-AudioClip|AudioClip component]] in the Components Reference

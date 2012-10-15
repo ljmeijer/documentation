@@ -1,0 +1,15 @@
+Initialize the server.
+
+/connections/ is the number of allowed incoming connections (note that this is generally not the same as the number of players).
+/listenPort/ is the port number we want to listen to.
+/useNat/ sets the NAT punchthrough functionality. If you want this server to be able to accept 
+connections using NAT punchthrough, using the facilitator, set this to true.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function LaunchServer () {
+		Network.incomingPassword = "HolyMoly";
+		var useNat = !Network.HavePublicAddress();
+		Network.InitializeServer(32, 25000, useNat);
+	}
+END EX

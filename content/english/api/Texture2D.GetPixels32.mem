@@ -1,0 +1,17 @@
+Get a block of pixel colors in Color32 format
+
+This function returns an array of pixel colors of the whole
+mip level of the texture.
+
+The returned array is a flattened 2D array, where pixels are laid out left to right,
+bottom to top (i.e. row after row). Array size is width by height of the mip level used.
+The default mip level is zero (the base texture) in which case the size is just the size of the texture.
+In general case, mip level size is @@mipWidth=max(1,width>>miplevel)@@
+and similarly for height.
+
+The texture must have the __Is Readable__ flag set in the import settings, otherwise this function will fail.
+
+Using /GetPixels32/ can be faster than calling ::ref::GetPixel repeatedly, especially
+for large textures. In addition, /GetPixels32/ can access individual mipmap levels.
+
+SA: ::ref::SetPixels, ::ref::mipmapCount.

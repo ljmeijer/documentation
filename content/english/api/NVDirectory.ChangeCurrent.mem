@@ -1,0 +1,10 @@
+*undocumented
+Change current directory.
+BEGIN EX
+
+	function Start () {
+		var dir: NVDirectory = new NVDirectory ();
+		yield dir.ChangeCurrent ("/tmp");
+	}
+END EX
+@param	name	New path name.

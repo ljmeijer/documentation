@@ -1,0 +1,48 @@
+<signature>
+TextArea_string_GUILayoutOptionArray
+TextArea_string_GUIStyle_GUILayoutOptionArray
+</signature>
+Make a text area.
+This works just like GUILayout.TextArea, but correctly responds to select all, copy, paste etc. in the editor.
+
+{img EditorGUILayoutTextArea.png}\\
+''Quick script editor.''
+BEGIN EX
+
+	// Simple script that lets you visualize your scripts in an editor window
+	// This can be expanded to save your scripts also in the editor window.
+	
+	class EditorGUILayoutTextArea extends EditorWindow {	
+		var text : String = "Nothing Opened...";
+		var txtAsset : TextAsset;
+		var scroll : Vector2;
+	
+		@MenuItem("Examples/Script Visualizer")
+		static function Init() {
+			var window = GetWindow(EditorGUILayoutTextArea);
+			window.Show();
+		}
+		function OnGUI() {
+			var newTxtAsset : TextAsset = EditorGUILayout.ObjectField(txtAsset, TextAsset);		
+	
+			if (newTxtAsset != txtAsset) 
+				ReadTextAsset(newTxtAsset);
+				
+			scroll = EditorGUILayout.BeginScrollView(scroll);		
+			text = EditorGUILayout.TextArea(text, GUILayout.Height(position.height - 30));		
+			EditorGUILayout.EndScrollView();
+		}
+		
+		function ReadTextAsset(txt : TextAsset) {
+			text = txt.text;
+			txtAsset = txt;
+		}
+	}
+END EX
+
+@param text The text to edit.
+@param style Optional [[GUIStyle]].
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The text entered by the user.

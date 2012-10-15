@@ -1,0 +1,29 @@
+The path to the web player data file relative to the html file (RO).
+
+Actually this is whatever path is written in the html file as a /src/ parameter to /object/ and /embed/ tags. So if it's the
+absolute URL, /srcValue/ will have the absolute path.
+
+Application.absoluteURL and Application.srcValue allow you to detect if your unityWeb data file was moved to another location
+or is being linked to. You might want to protect against both to prevent piracy of your data files.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// This detects if your data files were moved to another server
+	// or are being linked to from somewhere else.
+
+	function Start () {
+		var isPirated : boolean = false;
+
+		if (Application.isWebPlayer) {
+			if (Application.srcValue != "game.unity3d")
+				isPirated = true;
+
+			if (String.Compare (Application.absoluteURL,
+			    "http://www.website.com/Game/game.unity3d", true) != 0)
+				isPirated = true;
+
+			if (isPirated)
+				print("Pirated web player");
+		}
+	}
+END EX

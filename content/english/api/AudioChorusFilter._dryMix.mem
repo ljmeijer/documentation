@@ -1,0 +1,13 @@
+Volume of original signal to pass to output. 0.0 to 1.0. Default = 0.5.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Dont mix the original sound with the filter, only use the processed output
+
+	@script RequireComponent(AudioSource)
+	@script RequireComponent(AudioChorusFilter)
+	
+	function Start() {
+		GetComponent(AudioChorusFilter).dryMix = 0;
+	}
+END EX

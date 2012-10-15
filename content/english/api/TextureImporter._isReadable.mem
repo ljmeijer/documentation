@@ -1,0 +1,7 @@
+Is texture data readable from scripts.
+
+Texture has to be set as "readable" in order for Texture2D.GetPixel, Texture2D.GetPixels and similar functions
+to work. Textures are __not__ set as readable by default.
+
+When texture is not readable, it consumes much less memory, because a system-memory copy does not have
+to be kept around after texture is uploaded to the graphics API.

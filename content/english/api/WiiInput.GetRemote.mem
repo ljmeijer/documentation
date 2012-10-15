@@ -1,0 +1,18 @@
+Get current state of a Wii Remote controller. This function has to be called from Update. You will most likely miss some of the button status reports if you call it from FixedUpdate.
+BEGIN EX
+
+	function ControlPosition () {
+		var remote:WiiRemote = WiiInput.GetRemote (0);
+		
+		if (remote.GetButtonDown (WiiButton.ButtonUp))
+			transform.position.y += 1.0;
+			
+		if (remote.GetButtonDown (WiiButton.ButtonDown))
+			transform.position.y += 1.0;
+	}
+	
+	function Update() {
+		ControlPosition ();
+	}
+END EX
+@param index	Index of controller to get state of.

@@ -1,0 +1,2 @@
+Function call options.
+If options are set to SendMessageOptions.RequireReceiver (default), an error is printed when the message is not picked up by any component.

@@ -1,0 +1,13 @@
+The cookie texture projected by the light.
+
+If the cookie is a cube map, the light will become a LightType::pref::Point light.
+Note that cookies are only displayed for pixel lights.
+SA: [[wiki:class-Light|Light component]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Expose a reference to a texture in the inspector
+	var newCookie : Texture2D;	
+	// Assign the cookie
+	light.cookie = newCookie;
+END EX

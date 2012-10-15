@@ -1,0 +1,1 @@
+Destroys AlignBuffer object and releases associated and allocated buffer.

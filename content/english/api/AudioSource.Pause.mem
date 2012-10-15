@@ -1,0 +1,10 @@
+Pauses playing the ::ref::clip.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start()
+	{
+		audio.Pause();
+	}
+END EX
+SA: ::ref::Play, ::ref::Stop functions.

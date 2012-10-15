@@ -1,0 +1,18 @@
+Remove all [[RPC]] functions which belong to this player ID.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnPlayerDisconnected(player: NetworkPlayer) {
+		Debug.Log("Clean up after player " +  player);
+		Network.RemoveRPCs(player);
+		Network.DestroyPlayerObjects(player);
+	}
+END EX<signature>
+RemoveRPCs_NetworkPlayer
+RemoveRPCs_NetworkPlayer_int
+</signature>
+Remove all [[RPC]] functions which belong to this player ID and were sent based on the given group.
+<signature>
+RemoveRPCs_NetworkViewID
+</signature>
+Remove the [[RPC]] function calls accociated with this view ID number.

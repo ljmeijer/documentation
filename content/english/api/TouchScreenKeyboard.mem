@@ -1,0 +1,21 @@
+Interface into iPhone and Android native on screen keyboards. This
+interface allows to display different types of the keyboard: ASCII,
+Numbers, URL, Email, and others.
+
+Because the appearance of the keyboard has the potential to obscure
+portions of your user interface, it is up to you to make sure that parts
+of your user interface are not obscured when the keyboard is being
+displayed.
+
+@@TouchScreenKeyboard.visible@@ and @@TouchScreenKeyboard.area@@ should be
+used to determine if the keyboard is being shown (activated) and what
+portion of the screen is using.
+
+Apple's API does not allow to explicitly control the orientation of the
+keyboard. Instead you can define
+@@TouchScreenKeyboard.autorotateToPortrait@@,
+@@TouchScreenKeyboard.autorotateToPortraitUpsideDown@@,
+@@TouchScreenKeyboard.autorotateToLandscapeLeft@@,
+@@TouchScreenKeyboard.autorotateToLandscapeRight@@
+if the keyboard needs to be automatically rotated to match a specific
+orientation of the device.

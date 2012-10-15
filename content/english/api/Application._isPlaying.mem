@@ -1,0 +1,9 @@
+Returns true when in any kind of player (RO).
+Returns true in the Unity editor when in play mode.
+CONVERTEXAMPLE
+BEGIN EX
+
+	if (Application.isPlaying) {
+	    print("In player or playmode");
+	}
+END EX

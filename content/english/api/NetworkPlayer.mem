@@ -1,0 +1,2 @@
+The NetworkPlayer is a data structure with which you can locate another player over the network.
+With this you can, for example, send a message directly to another player.

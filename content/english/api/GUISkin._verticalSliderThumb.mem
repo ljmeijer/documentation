@@ -1,0 +1,15 @@
+Style used by default for the thumb that is dragged in GUI::ref::VerticalSlider controls.
+The padding property is used to determine the size of the thumb.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Modifies only the vertical slider thumb style of the current GUISkin
+
+	var vSliderValue : float = 0.0;
+	var style : GUIStyle;
+
+	function OnGUI () {
+		GUI.skin.verticalSliderThumb = style;
+		vSliderValue = GUILayout.VerticalSlider (vSliderValue, 10.0, 0.0);
+	}
+END EX

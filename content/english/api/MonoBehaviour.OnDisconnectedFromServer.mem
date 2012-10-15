@@ -1,0 +1,9 @@
+CSNONE
+Called on the client when the connection was lost or you disconnected from the server.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnDisconnectedFromServer (info : NetworkDisconnection) {
+		Debug.Log("Disconnected from server: " + info);
+	}
+END EX

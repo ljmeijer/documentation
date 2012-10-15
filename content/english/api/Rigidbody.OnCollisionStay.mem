@@ -1,0 +1,16 @@
+CSNONE
+OnCollisionStay is called once per frame for every collider/rigidbody that is touching rigidbody/collider.
+In contrast to OnTriggerStay, OnCollisionStay is passed the [[Collision]] class and not a Collider.
+The [[Collision]] class contains information about contact points, impact velocity etc.
+If you don't use collisionInfo in the function, leave out the collisionInfo parameter as this avoids unneccessary calculations.
+Note that collision events are only sent if one of the colliders also has a non-kinematic rigidbody attached.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnCollisionStay(collisionInfo : Collision) {
+		// Debug-draw all contact points and normals
+		for (var contact : ContactPoint in collisionInfo.contacts) {
+			Debug.DrawRay(contact.point, contact.normal, Color.white);
+		}
+	}
+END EX

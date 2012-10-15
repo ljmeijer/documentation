@@ -1,0 +1,20 @@
+The range of the light.
+SA: [[wiki:class-Light|Light component]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Pulse light's range between original range
+	// and half of the original one
+	
+	var duration : float = 3.0;
+	private var originalRange : float;
+	originalRange = light.range;
+	
+	function Update() {
+		var amplitude : float = Mathf.PingPong( Time.time, duration );
+		// transform from 0..duration to 0.5..1 range
+		amplitude = amplitude / duration * 0.5 + 0.5;
+		// set light range
+		light.range = originalRange * amplitude;
+	}
+END EX

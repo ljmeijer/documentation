@@ -1,0 +1,8 @@
+Transforms a position by this matrix (generic).
+
+Returns a position /v/ transformed by the current fully arbitrary matrix.
+If the matrix is a regular 3D transformation matrix, it is much faster to
+use ::ref::MultiplyPoint3x4 instead. /MultiplyPoint/ is slower, but can handle
+projective transformations as well.
+
+SA: ::ref::MultiplyPoint3x4, ::ref::MultiplyVector.

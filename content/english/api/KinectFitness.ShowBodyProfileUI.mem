@@ -1,0 +1,2 @@
+Show Body Profile UI - height, weight, age, gender, etc HWAG data
+@param userIndex The user index (0-3) of the user whose HWAG data is being shown.

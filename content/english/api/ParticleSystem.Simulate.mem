@@ -1,0 +1,6 @@
+Fastforwards the particle system by simulating particles over given period of time, then pauses it.
+SA: ::ref::Play, ::ref::Pause functions.
+
+@param t Time to fastforward the particle system
+@param withChildren Fastforward all child particle systems as well.	
+@param restart Restart and start from the beginning.

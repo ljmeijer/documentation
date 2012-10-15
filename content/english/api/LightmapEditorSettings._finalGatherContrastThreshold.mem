@@ -1,0 +1,5 @@
+Contrast threshold between neighbouring surface points.
+Above that value new final gather sample points will be created - it tells the algorithm
+to place points where they are really needed, so in areas where the 
+light changes quickly.
+In other words, it adaptively controls the number of points.

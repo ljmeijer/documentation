@@ -1,0 +1,3 @@
+Clamp the maximum particle size.
+Particles can become very heavy on fillrate. Use this setting to make sure they don't
+use too much perfomance when up close to the viewer.

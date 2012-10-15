@@ -1,0 +1,17 @@
+The base texture coordinates of the mesh.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Generate planar uv coordinates
+
+	function Start () {
+		var mesh : Mesh = GetComponent(MeshFilter).mesh;
+		var vertices : Vector3[]  = mesh.vertices;
+		var uvs : Vector2[] = new Vector2[vertices.Length];
+
+		for (var i = 0 ; i < uvs.Length; i++)
+			uvs[i] = Vector2 (vertices[i].x, vertices[i].z);
+
+		mesh.uv = uvs;
+	}
+END EX

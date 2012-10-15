@@ -1,0 +1,3 @@
+Projects a vector onto another vector.
+
+Returns /vector/ projected onto /onNormal/. Returns zero vector if /onNormal/ is almost zero.

@@ -1,0 +1,36 @@
+<signature>
+Label_Texture_GUILayoutOptionArray
+Label_string_GUILayoutOptionArray
+Label_GUIContent_GUILayoutOptionArray
+Label_Texture_GUIStyle_GUILayoutOptionArray
+Label_string_GUIStyle_GUILayoutOptionArray
+Label_GUIContent_GUIStyle_GUILayoutOptionArray
+</signature>
+Make an auto-layout label.
+Labels have no user interaction, do not catch mouse clicks and are always rendered in normal style. If you want to make a control that responds visually to user input, use a ::ref::Box control
+
+{img GUILayoutLabel.png}\\
+''Label in the Game View.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws a texture and a label after the Texture
+	// using GUILayout.
+	var tex : Texture;
+
+	function OnGUI() {
+		if(!tex) {
+			Debug.LogError("Missing texture, assign a texture in the inspector");
+		}
+		GUILayout.Label(tex);
+		GUILayout.Label("This is an sized label");
+	}
+END EX
+
+@param text 		Text to display on the label.
+@param image	[[Texture]] to display on the label.
+@param content	Text, image and tooltip for this label.
+@param style		The style to use. If left out, the /label/ style from the current [[GUISkin]] is used.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight

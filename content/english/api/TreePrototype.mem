@@ -1,0 +1,3 @@
+Simple class that contains a pointer to a tree prototype.
+
+This class is used by the TerrainData gameObject.

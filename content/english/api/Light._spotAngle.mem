@@ -1,0 +1,26 @@
+The angle of the light's spotlight cone in degrees.
+This is used primarily for LightType::pref::Spot lights and has no effect for LightType::pref::Point lights
+SA: [[wiki:class-Light|Light component]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Change spot angle randomly between 'minAngle' and 'maxAngle'
+	// each 'interval' seconds.
+
+	var interval : float = 0.3;
+	var minAngle : float = 10;
+	var maxAngle : float = 90;
+	private var timeLeft : float;
+	
+	timeLeft = interval;
+	light.type = LightType.Spot;
+	
+	function Update () {
+		timeLeft -= Time.deltaTime;
+		if (timeLeft < 0.0) {
+			// time to change!
+			timeLeft = interval;
+			light.spotAngle = Random.Range( minAngle, maxAngle );
+		}
+	}
+END EX

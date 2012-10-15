@@ -1,0 +1,3 @@
+Controls how much Ambient Occlusion to blend into the Final Gather solution.
+Can be used to get more contrast in your lighting.
+Set to a value greater than 0 for AO to be calculated.

@@ -1,0 +1,7 @@
+Specifies if a named Procedural property should be cached for efficient runtime tweaking.
+Set this to true for all properties that you expect to be tweaking.
+It will take effect the next time the textures are rebuild, so call ::ref::RebuildTextures after setting up these flags in order to prepare the cache.
+The fewer properties have caching enabled, the more efficient rebuilding the textures will be so consider carefully which properties are actually going to be changed.
+While modified properties are automatically cached for the next rebuild, this cache flag is persistent.
+
+SA: ::ref::IsProceduralPropertyCached, ::ref::ClearCache.

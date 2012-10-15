@@ -1,0 +1,6 @@
+Returns the sine of angle /f/ in radians.
+CONVERTEXAMPLE
+BEGIN EX
+
+	print (Mathf.Sin(3));
+END EX

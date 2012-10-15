@@ -1,0 +1,23 @@
+Read file to the buffer object passed. Memory referenced by the buffer object has to be aligned on 32 bytes. When reading (on Wii) be sure to round up size to 32 bytes.
+BEGIN EX
+
+	function ReadFile (fielName:String) : AlignedBuffer {
+		var dvdFile: WiiFile = new WiiFile (fielName);
+
+		Debug.Log ("fileSize: " + dvdFile.size);
+
+		var bufferSize = (dvdFile.size - 1 | 31) + 1;
+		var alignedBuffer = new AlignedBuffer (bufferSize, AlignedBuffer.Memory.Mem2, 32);
+		dvdFile.ReadAsync (alignedBuffer, 0, 0, bufferSize);
+		
+		while (dvdFile.state != WiiDrive.State.End) {
+			Debug.Log ("Reading file...");
+		}
+		
+		return alignedBuffer;
+	}
+END EX
+@param	buffer	Memory buffer object, memory allocated for it has to be aligned on 32 bytes boundary.
+@param	bufferOffset	Offset in the buffer where to read to. Has to be multiple of 32.
+@param	readOffset	Offset in the file where to read from. Has to be multiple of 4.
+@param	readSize	Number of bytes to read from disk. Has to be multiple of 32. Even when the size of the file is not multiple of 32, in which case ''length'' will be longer than the actual file length and junk-tail will be read. Therefore, ''buffer'' has to be big enough to be able to read the junk data, though it will be never used.

@@ -1,0 +1,4 @@
+CSNONE
+Callback for processing animation movements for modifying root motion
+This callback will be invoked at each frame after the state machines and the animations have been evaluated,
+but before ::ref::OnAvatarIK

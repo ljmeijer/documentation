@@ -1,0 +1,2 @@
+Top coordinate of the rectangle.
+Changing this value will preserve bottom side of rectangle (so ::ref::height will change as well).

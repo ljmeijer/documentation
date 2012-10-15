@@ -1,0 +1,9 @@
+An approximation of how many pixels the terrain will pop in the worst case when switching lod.
+A higher value reduces the number of polygons drawn.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		Terrain.activeTerrain.heightmapPixelError = 10;
+	}
+END EX

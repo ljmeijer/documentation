@@ -1,0 +1,17 @@
+Get the rectangle last used by GUILayout for a control.
+Note that this only works during the Repaint event.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI() {
+		GUILayout.Button( "My button" );
+		if(Event.current.type == EventType.Repaint && 
+		   GUILayoutUtility.GetLastRect().Contains(Event.current.mousePosition )) {
+			GUILayout.Label( "Mouse over!" );
+		} else {
+			GUILayout.Label( "Mouse somewhere else" );
+		}
+	}
+END EX
+
+@returns The last used rectangle.

@@ -1,0 +1,128 @@
+Helper class to generate form data to post to web servers using the [[WWW]] class.
+BEGIN EX
+
+// Grab a screen shot and upload it to a CGI script.
+// The CGI script must be able to hande form uploads.
+
+var screenShotURL= "http://www.my-server.com/cgi-bin/screenshot.pl";
+
+// Take a screen shot immediately
+function Start() {
+    UploadPNG();
+}
+
+function UploadPNG() {
+    // We should only read the screen after all rendering is complete
+    yield WaitForEndOfFrame();
+
+    // Create a texture the size of the screen, RGB24 format
+    var width = Screen.width;
+    var height = Screen.height;
+    var tex = new Texture2D( width, height, TextureFormat.RGB24, false );
+    // Read screen contents into the texture
+    tex.ReadPixels( Rect(0, 0, width, height), 0, 0 );
+    tex.Apply();
+
+    // Encode texture into PNG
+    var bytes = tex.EncodeToPNG();
+    Destroy( tex );
+
+    // Create a Web Form
+    var form = new WWWForm();
+    form.AddField("frameCount", Time.frameCount.ToString());
+    form.AddBinaryData("fileUpload", bytes, "screenShot.png", "image/png");
+
+    // Upload to a cgi script
+    var w = WWW(screenShotURL, form);
+    yield w;
+    if (w.error != null)
+        print(w.error);
+    else
+        print("Finished Uploading Screenshot");
+}
+END EX
+Here is a sample script that retrieves the high scores stored
+in a table in an SQL database.
+BEGIN EX
+
+// This example assumes that the user has entered his name into a
+// variable called /name/ and that /score/ contains the user's current
+// score.
+
+var highscore_url = "http://www.my-site.com/highscores.pl";
+var playName = "Player 1";
+var score = -1;
+
+function Start() {
+	// Create a form object for sending high score data to the server
+	var form = new WWWForm();
+	// Assuming the perl script manages high scores for different games
+	form.AddField( "game", "MyGameName" );
+	 // The name of the player submitting the scores
+	form.AddField( "playerName", playName );
+	 // The score
+	form.AddField( "score", score );
+
+	// Create a download object
+	var download = new WWW( highscore_url, form );
+
+	// Wait until the download is done
+	yield download;
+
+	if(download.error) {
+		print( "Error downloading: " + download.error );
+		return;
+	} else {
+		// show the highscores
+		Debug.Log(download.text);
+	}
+}
+END EX
+Here is a sample Perl script that processes the high scores stored
+in a table in an SQL database.
+BEGIN EX
+NOCHECK
+#!/usr/bin/perl
+# The SQL database needs to have a table called highscores
+# that looks something like this:
+#
+#   CREATE TABLE highscores (
+#     game varchar(255) NOT NULL,
+#     player varchar(255) NOT NULL,
+#     score integer NOT NULL
+#   );
+#
+use strict;
+use CGI;
+use DBI;
+
+# Read form data etc.
+my $cgi = new CGI;
+
+# The results from the high score script will be in plain text
+print $cgi->header("text/plain");
+
+my $game = $cgi->param('game');
+my $playerName = $cgi->param('playerName');
+my $score = $cgi->param('score');
+
+exit 0 unless $game; # This parameter is required
+
+# Connect to a database
+my $dbh = DBI->connect( 'DBI:mysql:databasename', 'username', 'password' )
+	|| die "Could not connect to database: $DBI::errstr";
+
+# Insert the player score if there are any
+if( $playerName && $score) {
+	$dbh->do( "insert into highscores (game, player, score) values(?,?,?)",
+		undef, $game, $playerName, $score );
+}
+
+# Fetch the high scores
+my $sth = $dbh->prepare(
+	'SELECT player, score FROM highscores WHERE game=? ORDER BY score desc LIMIT 10' );
+$sth->execute($game);
+while (my $r = $sth->fetchrow_arrayref) {
+	print join(':',@$r),"\n"
+}
+END EX

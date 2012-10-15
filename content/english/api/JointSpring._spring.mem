@@ -1,0 +1,6 @@
+The spring forces used to reach the target position
+CONVERTEXAMPLE
+BEGIN EX
+
+	hingeJoint.spring.spring = 10;
+END EX

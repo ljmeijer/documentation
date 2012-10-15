@@ -1,0 +1,12 @@
+A texture size limit applied to all textures.
+Setting this to one uses the first mipmap of each texture (so all textures are half size),
+setting this to two uses the second mipmap of each texture (so all textures are quarter size), etc..
+This can be used to decrease video memory requirements on low-end computers.
+The default value is zero.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Use half-size textures.
+
+	QualitySettings.masterTextureLimit = 1;
+END EX

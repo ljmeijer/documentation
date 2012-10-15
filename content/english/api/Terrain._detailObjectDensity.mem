@@ -1,0 +1,13 @@
+Density of detail objects.
+
+This number goes from 0.0 to 1.0, with 1.0 being the original density, and lower numbers
+resulting in less detail objects being rendered.
+
+SA: ::ref::detailObjectDistance.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		Terrain.activeTerrain.detailObjectDensity = 0.5;
+	}
+END EX

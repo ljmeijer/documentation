@@ -1,0 +1,7 @@
+Representation of RGBA colors.
+This structure is used throughout Unity to pass colors around. 
+Each color component is a floating point value with a range from 0 to 1.
+
+Components (::ref::r,::ref::g,::ref::b) define a color in RGB color space. Alpha component (::ref::a)
+defines transparency - alpha of one is completely opaque, alpha of zero is completely
+transparent.

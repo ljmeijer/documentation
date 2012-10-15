@@ -1,0 +1,9 @@
+Global anisotropic filtering mode.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Disable all anisotropic filtering
+
+	QualitySettings.anisotropicFiltering = AnisotropicFiltering.Disable;
+END EX
+SA: [[AnisotropicFiltering]].

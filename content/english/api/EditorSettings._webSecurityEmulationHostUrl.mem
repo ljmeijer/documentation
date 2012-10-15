@@ -1,0 +1,9 @@
+The url the web security emulation feature will pretend your game is hosted at.
+
+The web security emulation feature will pretend that your game is hosted somewhere.
+The location of the hosted file matters, because that indicates wether or not certain WWW requests need to be authorized trough a crossdomain.xml file or not.
+See TODO:Juan insert link plz,  for a complete overview of the webplayer's security model.
+BEGIN EX
+
+	EditorSettings.webSecurityEmulationHostUrl = "http://somedomain.com/games/somegame.unity3d";
+END EX

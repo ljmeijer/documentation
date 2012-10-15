@@ -1,0 +1,13 @@
+Mip map bias of the texture.
+
+A positive bias makes a texture appear extra blurry, while a negative bias sharpens
+the texture. Note that using large negative bias can reduce performance, so it's not
+recommended to use more than -0.5 negative bias. In most cases better sharpening of the texture
+can be achieved by using anisotropic filtering.
+
+SA: Texture.anisoLevel, [[wiki:class-Texture2D|texture assets]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	renderer.material.mainTexture.mipMapBias = 0.5;
+END EX

@@ -1,0 +1,13 @@
+Interpolates between colors /a/ and /b/ by /t/.
+/t/ is clamped between 0 and 1. When /t/ is 0 returns /a/. When /t/ is 1 returns /b/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Converts a white color to a black one trough time.
+	var colorWhite : Color32 = Color.white;
+	var colorBlack : Color32 = Color.black;
+	var lerpedColor : Color32 = colorWhite;
+	function Update() {
+		lerpedColor = Color32.Lerp(colorWhite, colorBlack, Time.time);
+	}
+END EX

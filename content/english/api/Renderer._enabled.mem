@@ -1,0 +1,24 @@
+Makes the rendered 3D object visible if enabled.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// make the object invisible
+	renderer.enabled = false;
+END EX
+another example:
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Toggle the Object's visibility each second.
+
+	// make the object visible
+	renderer.enabled = true;
+
+	function Update () {
+		// Find out whether current second is odd or even
+		var seconds : int = Time.time;
+		var oddeven = (seconds % 2) == 0;
+		// Enable renderer accordingly
+		renderer.enabled = oddeven;
+	}
+END EX

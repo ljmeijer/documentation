@@ -1,0 +1,47 @@
+Creates a wizard.
+
+When the user hits the Create button ::ref::OnWizardCreate function will be called.
+DisplayWizard will only show one wizard for every wizard class.
+
+{img ScriptableWizardDisplayWizard.png}\\
+''Simple Wizard Window that copies a GameObject several times.''
+BEGIN EX
+
+	// C#
+	// Simple Wizard that clones an object.
+	
+	using UnityEngine;
+	using UnityEditor;
+	using System.Collections;
+	
+	public class ScriptableWizardDisplayWizard : ScriptableWizard {
+		
+		public GameObject ObjectToCopy = null;
+		public int numberOfCopies = 2;
+		[MenuItem ("Example/Show DisplayWizard usage")]
+		static void CreateWindow() {
+			// Creates the wizard for display
+			ScriptableWizard.DisplayWizard("Copy an object.", 
+				typeof(ScriptableWizardDisplayWizard), 
+				"Copy!");
+		}
+		void OnWizardUpdate() {
+			helpString = "Clones an object a number of times";
+			if(!ObjectToCopy) {
+				errorString = "Please assign an object";
+				isValid = false;
+			} else {
+				errorString = "";
+				isValid = true;	
+			}
+		}
+		void OnWizardCreate () {
+			for(int i = 0; i < numberOfCopies; i++)
+				Instantiate(ObjectToCopy, Vector3.zero, Quaternion.identity);
+		}
+	}
+END EX
+
+@param T The class implementing the wizard. It has to derive from [[ScriptableWizard]].
+@param title The title shown at the top of the wizard window.
+@returns The wizard.

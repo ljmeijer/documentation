@@ -1,0 +1,18 @@
+Draws a camera inside a rectangle.
+This function alse sets Camera.current to /camera/. It sets the camera's pixelRect to /position/.
+
+__Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.
+@param position The area to draw the camera within in GUI coordinates.
+@param camera the camera to draw.
+@param drawMode How the camera is drawn (textured, wireframe, etc).
+@param gridParam Parameters of grid drawing (can be omitted).<signature>
+DrawCamera_Rect_Camera_DrawCameraMode_DrawGridParameters
+DrawCamera_Rect_Camera_DrawCameraMode
+</signature>
+Draws a camera inside a rectangle.
+This function alse sets Camera.current to /camera/. It sets the camera's pixelRect to /position/.
+
+__Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.
+@param position The area to draw the camera within in GUI coordinates.
+@param camera The camera to draw.
+@param drawMode How the camera is drawn (textured, wireframe, etc.).

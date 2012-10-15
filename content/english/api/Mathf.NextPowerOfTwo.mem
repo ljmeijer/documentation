@@ -1,0 +1,10 @@
+Returns the next power of two value
+CONVERTEXAMPLE
+BEGIN EX
+
+	// prints 8
+	Debug.Log(Mathf.NextPowerOfTwo(7));
+	
+	// prints 256
+	Debug.Log(Mathf.NextPowerOfTwo(139));
+END EX

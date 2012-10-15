@@ -1,0 +1,55 @@
+Casts a sphere against all colliders in the scene and returns detailed information on what was hit.
+This is useful when a Raycast does not give enough precision, because you want to find out if an object of a specific size,
+such as a character, will be able to move somewhere without colliding with anything on the way.
+Think of the sphere cast like a thick raycast.
+
+__Note:__ The sphere cast does not work against colliders configured as triggers.
+If you move colliders from scripting or by animation, there needs to be at
+least one FixedUpdate executed so that the physics library can update it's data
+structures, before a SphereCast will hit the collider at it's new position.
+
+SA: [[Physics.SphereCastAll]], [[Physics.CapsuleCast]], [[Physics.Raycast]], [[Rigidbody.SweepTest]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update () {
+		var hit : RaycastHit;
+		var charCtrl : CharacterController = GetComponent(CharacterController);
+		var p1 : Vector3 = transform.position + charCtrl.center;
+		// Cast a sphere wrapping character controller 10 meters forward, to see if it is about to hit anything
+		if (Physics.SphereCast (p1, charCtrl.height / 2, transform.forward, hit, 10)) {
+			distanceToObstacle = hit.distance;
+		}
+	}
+END EX
+@param	origin		The center of the sphere at the start of the sweep.
+@param	radius		The radius of the sphere.	
+@param  direction	The direction into which to sweep the sphere.
+@param  hitInfo		If true is returned, /hitInfo/ will contain more information about where the collider was hit (SA: [[RaycastHit]]).
+@param  distance	The length of the sweep
+@param	layerMask	A [[wiki:Layers|Layer mask]] that is used to selectively ignore colliders when casting a capsule. 
+
+@returns True when the capsule sweep intersects any collider, otherwise false.<signature>
+SphereCast_Vector3_float_Vector3_RaycastHit_float_int
+SphereCast_Ray_float_float_int
+SphereCast_Ray_float_RaycastHit_float_int
+</signature>
+Casts a sphere against all colliders in the scene and returns detailed information on what was hit.
+This is useful when a Raycast does not give enough precision, because you want to find out if an object of a specific size,
+such as a character, will be able to move somewhere without colliding with anything on the way.
+Think of the sphere cast like a thick raycast.
+
+__Note:__ The sphere cast does not work against colliders configured as triggers.
+If you move colliders from scripting or by animation, there needs to be at
+least one FixedUpdate executed so that the physics library can update it's data
+structures, before a SphereCast will hit the collider at it's new position.
+
+SA: [[Physics.SphereCastAll]], [[Physics.CapsuleCast]], [[Physics.Raycast]], [[Rigidbody.SweepTest]]
+@param	ray		The starting point and direction of the ray into which the sphere sweep is cast.
+@param	radius		The radius of the sphere.	
+@param  direction	The direction into which to sweep the sphere.
+@param  hitInfo		If true is returned, /hitInfo/ will contain more information about where the collider was hit (SA: [[RaycastHit]]).
+@param  distance	The length of the sweep
+@param	layerMask	A [[wiki:Layers|Layer mask]] that is used to selectively ignore colliders when casting a capsule. 
+
+@returns True when the capsule sweep intersects any collider, otherwise false.

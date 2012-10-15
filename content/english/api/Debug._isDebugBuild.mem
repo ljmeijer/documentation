@@ -1,0 +1,13 @@
+In the Build Settings dialog there is a check box called "Development Build".
+If it is checked isDebugBuild will be true.
+In the editor /isDebugBuild/ always returns true.
+It is recommended to remove all calls to Debug.Log when deploying a game, this way you can
+easily deploy beta builds with debug prints and final builds without.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Log some debug information only if this is a debug build
+	if (Debug.isDebugBuild) {
+		Debug.Log ("This is a debug build!");
+	}
+END EX

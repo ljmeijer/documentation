@@ -1,0 +1,8 @@
+Deletes all lightmap assets and makes all lights behave as if they weren't baked yet.
+Only those assets are deleted that are in the folder with the same name as the scene name
+AND their name follows the pattern LightmapFar-#.exr or LightmapNear-#.exr.
+
+If LightmapEditorSettings.lockAtlas is disabled, it will also clear the lightmaps array and
+clear lightmap indices on all objects.
+
+Baked light probes are cleared as well.

@@ -1,0 +1,4 @@
+Animation is disabled when Animation::ref::localBounds are not visible.
+Animation::ref::localBounds can be set by user, when culling is set to BasedOnUserBounds.
+This culling method works better than BasedOnRenderers, because animation can push itself into the camera frustum.
+SA: ::ref::BasedOnClipBounds, Animation::ref::localBounds property

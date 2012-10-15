@@ -1,0 +1,34 @@
+Calculates frustum planes.
+
+This function takes given camera's view frustum and returns six planes
+that form it.
+
+SA: [[Plane]], GeometryUtility.TestPlanesAABB.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Creates 6 planes that represent the camera frustrum.
+
+	private var cam : Camera;
+	private var planes : Plane[];
+
+	function Start() {
+		cam = Camera.main;
+		planes = GeometryUtility.CalculateFrustumPlanes(cam);
+
+		for(var i : int = 0; i < planes.Length; i++) {
+			var p : GameObject = GameObject.CreatePrimitive(PrimitiveType.Plane);
+			p.name = "Plane " + i.ToString();
+			p.transform.position = -planes[i].normal * planes[i].distance;
+			p.transform.rotation = Quaternion.FromToRotation(Vector3.up, planes[i].normal);
+		}
+	}
+END EX<signature>
+CalculateFrustumPlanes_Camera
+CalculateFrustumPlanes_Matrix4x4
+</signature>
+Calculates frustum planes.
+
+This function returns six planes of a frustum defined by given view & projection matrix.
+
+SA: [[Plane]], GeometryUtility.TestPlanesAABB.

@@ -1,0 +1,5 @@
+Memory Label
+
+This enum is used while setting specific memory area for various engine allocators.
+
+SA: PlayerSettings.Wii.SetMemoryArea, WiiMemoryArea.

@@ -1,0 +1,10 @@
+Processor name (RO).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints something like "Intel(R) Core(TM)2 Quad CPU Q6600 @ 2.40GHz"
+
+	print (SystemInfo.processorType);
+END EX
+
+SA: SystemInfo.processorCount.

@@ -1,0 +1,6 @@
+Representation of RGBA colors in 32 bit format
+Each color component is a byte value with a range from 0 to 255.
+
+Components (::ref::r,::ref::g,::ref::b) define a color in RGB color space. Alpha component (::ref::a)
+defines transparency - alpha of 255 is completely opaque, alpha of zero is completely
+transparent.

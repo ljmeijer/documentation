@@ -1,0 +1,10 @@
+Set The AA Filtering option.
+The AntiAliazing filter can be set to either 0,2,4 or 8. This coresponds to the number of multisamples used per pixel
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set AntiAliasing to use 2x Multisampling
+
+	QualitySettings.antiAliasing = 2;
+END EX
+SA: [[wiki:class-QualitySettings|Quality Settings]].

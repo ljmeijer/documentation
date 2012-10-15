@@ -1,0 +1,1 @@
+Helper function to ensure that inspectors are reloaded (caches are cleared etc.)

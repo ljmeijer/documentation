@@ -1,0 +1,6 @@
+[[Rigidbody]] interpolation mode.
+
+For the main characters or vehicles that are followed by the camera it is recommended to
+use interpolation. For any other rigidbodies it is recommended not to use interpolation.
+
+SA: Rigidbody.interpolation variable.

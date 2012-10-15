@@ -1,0 +1,10 @@
+Word wrap the text?
+This will cause any text contrained to be wordwrapped to fit within the width of a control.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI() {
+		if(GUI.skin.customStyles.Length > 0)
+			GUI.skin.customStyles[0].wordWrap = true;
+	}
+END EX

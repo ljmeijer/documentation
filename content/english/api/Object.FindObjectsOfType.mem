@@ -1,0 +1,18 @@
+Returns a list of all active loaded objects of Type /type/.
+It will return no assets (meshes, textures, prefabs, ...) or inactive objects.
+
+Please note that this function is very slow. It is not recommended to use this function every frame.
+In most cases you can use the singleton pattern instead.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// When clicking on the object, it will disable all springs on all 
+	// hinges in the scene.
+
+	function OnMouseDown () {
+		var hinges : HingeJoint[] = FindObjectsOfType(HingeJoint) as HingeJoint[];
+		for (var hinge : HingeJoint in hinges) {
+			hinge.useSpring = false;
+		}
+	}
+END EX

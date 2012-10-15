@@ -1,0 +1,21 @@
+Get a block of pixel colors.
+
+This function returns an array of pixel colors of the whole
+mip level of the texture.
+
+The returned array is a flattened 2D array, where pixels are laid out left to right,
+top to bottom (i.e. row after row). Array size is width by height of the mip level used.
+The default mip level is zero (the base texture) in which case the size is just the size of the texture.
+In general case, mip level size is @@mipWidth=max(1,width>>miplevel)@@
+and similarly for height.
+
+Using /GetPixels/ can be faster than calling ::ref::GetPixel repeatedly, especially
+for large textures. In addition, /GetPixels/ can access individual mipmap levels.<signature>
+GetPixels
+GetPixels_int_int_int_int
+</signature>
+Get a block of pixel colors.
+
+This function is an extended version of /GetPixels/ above; it does not return the whole
+mip level but only /blockWidth/ by /blockHeight/ region starting at ''x,y''.
+The block must fit into the used mip level. The returned array is ''blockWidth*blockHeight'' size.

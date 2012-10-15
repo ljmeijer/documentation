@@ -1,0 +1,43 @@
+Returns the value corresponding to /key/ in the preference file if it exists.
+If it doesn't exist, it will return /defaultValue/.
+
+{img QuickNotes.png}\\
+''Quick notes that last between Unity Sessions.''
+BEGIN EX
+
+	// Simple Editor Script that lets you create / save quick notes
+	// Between Unity Sessions.
+
+	class QuickNotes extends EditorWindow {
+
+		var note : String = "Notes:\n->\n->";
+
+		@MenuItem("Examples/QuickNotes")
+		static function Init() {
+			var window  = GetWindow(QuickNotes);
+			window.Show();
+		}
+		function OnGUI() {
+			note = EditorGUILayout.TextArea(note,
+					GUILayout.Width(position.width-5),
+					GUILayout.Height(position.height - 30));
+			EditorGUILayout.BeginHorizontal();
+			if(GUILayout.Button("Reset"))
+				note = "";
+			if(GUILayout.Button("Clear Story",GUILayout.Width(72))) {
+				note = "Notes:\n->\n->";
+			}
+			EditorGUILayout.EndHorizontal();
+		}
+		function OnFocus() {
+			if(EditorPrefs.HasKey("QuickNotes"))
+				note = EditorPrefs.GetString("QuickNotes");
+		}
+		function OnLostFocus() {
+			EditorPrefs.SetString("QuickNotes",note);
+		}
+		function OnDestroy() {
+			EditorPrefs.SetString("QuickNotes",note);
+		}
+	}
+END EX

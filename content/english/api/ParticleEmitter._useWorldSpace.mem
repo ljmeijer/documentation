@@ -1,0 +1,6 @@
+If enabled, the particles don't move when the emitter moves. If false, when you move the emitter, the particles follow it around.
+CONVERTEXAMPLE
+BEGIN EX
+
+	particleEmitter.useWorldSpace = true;
+END EX

@@ -1,0 +1,3 @@
+Replaces the prefab using name based lookup in the transform hierarchy.
+This is internally used by the model importer and is useful for relating game object hierarchy built 
+from scratch to an existing prefab without breaking connections.

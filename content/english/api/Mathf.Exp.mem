@@ -1,0 +1,6 @@
+Returns e raised to the specified power.
+CONVERTEXAMPLE
+BEGIN EX
+
+	print(Mathf.Exp(6));
+END EX

@@ -1,0 +1,4 @@
+Rotates a vector /current/ towards /target/.
+The vector will be rotated on an arc instead of being interpolated linearly.
+This is essentially the same as Vector3.Slerp but instead the function will ensure that the angular speed and change of magnitude never exceeds /maxRadiansDelta/ and /maxMagnitudeDelta/.
+Negative values of /maxRadiansDelta/ and /maxMagnitudeDelta/ pushes the vector away from /target/.

@@ -1,0 +1,12 @@
+Delete file or directory.
+BEGIN EX
+
+	function DeleteFile (name:String) {
+		var sys:NVSystem = new NVSystem ();
+		yield sys.Delete (name);
+		if (!sys.success) {
+			Debug.Log ("Failed to delete the file, asyncResult: " + sys.asyncResult);
+		}
+	}
+END EX
+@param	name	Path of the file or directory to delete.

@@ -1,0 +1,59 @@
+Moves the transform in the direction and distance of /translation/.
+If /relativeTo/ is left out or set to Space.Self the movement is applied relative to the transform's local axes. (the x, y and z axes shown when selecting the object inside the Scene View.)
+If /relativeTo/ is Space.World the movement is applied relative to the world coordinate system.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update() {
+		// Move the object forward along its z axis 1 unit/second.
+		transform.Translate(Vector3.forward * Time.deltaTime);
+
+		// Move the object upward in world space 1 unit/second.
+		transform.Translate(Vector3.up * Time.deltaTime, Space.World);
+	}
+END EX<signature>
+Translate_Vector3_Space
+Translate_float_float_float_Space
+</signature>
+Moves the transform by /x/ along the x axis, /y/ along the y axis, and /z/ along the z axis.
+If /relativeTo/ is left out or set to Space.Self the movement is applied relative to the transform's local axes. (the x, y and z axes shown when selecting the object inside the Scene View.)
+If /relativeTo/ is Space.World the movement is applied relative to the world coordinate system.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update() {
+		// Move the object forward along its z axis 1 unit/second.
+		transform.Translate(0, 0, Time.deltaTime);
+
+		// Move the object upward in world space 1 unit/second.
+		transform.Translate(0, Time.deltaTime, 0, Space.World);
+	}
+END EX
+<signature>
+Translate_Vector3_Transform
+</signature>
+Moves the transform in the direction and distance of /translation/.
+The movement is applied relative to /relativeTo/'s local coordinate system. 
+If /relativeTo/ is null, the movement is applied relative to the world coordinate system.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update() {
+		// Move the object to the right relative to the camera 1 unit/second.
+		transform.Translate(Vector3.right * Time.deltaTime, Camera.main.transform);
+	}
+END EX
+<signature>
+Translate_float_float_float_Transform
+</signature>
+Moves the transform by /x/ along the x axis, /y/ along the y axis, and /z/ along the z axis.
+The movement is applied relative to /relativeTo/'s local coordinate system.
+If /relativeTo/ is null, the movement is applied relative to the world coordinate system.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update() {
+		// Move the object to the right relative to the camera 1 unit/second.
+		transform.Translate(Time.deltaTime, 0, 0, Camera.main.transform);
+	}
+END EX

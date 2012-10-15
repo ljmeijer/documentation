@@ -1,0 +1,11 @@
+Read screen pixels into the saved texture data.
+This will copy a rectangular pixel area from the currently active [[RenderTexture]] or the view (specified by /source/) into the position defined
+by /destX/ and /destY/. Both coordinates use pixel space - (0,0) is lower left.
+
+If /recalculateMipMaps/ is set to true, the mip maps of the texture will also be updated. If /recalculateMipMaps/ is set to false, you must call ::ref::Apply to recalculate them.
+
+This function works only on /ARGB32/ and /RGB24/ texture formats.
+The texture also has to have __Is Readable__ flag set in the import settings.
+ReadPixels is unsupported on Flash.
+
+SA: ::ref::EncodeToPNG.

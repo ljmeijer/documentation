@@ -1,0 +1,33 @@
+Ends a scrollview started with a call to BeginScrollView.
+
+{img BeginEndScrollView.png}\\
+''Label inside a scroll view.''
+BEGIN EX
+
+	// Simple Editor Window that creates a scroll view with a Label inside
+	
+	class BeginEndScrollView extends EditorWindow {
+	
+		var scrollPos : Vector2;
+		var t : String = "This is a string inside a Scroll view!";
+	
+		@MenuItem("Examples/Write text on ScrollView")
+		static function Init() {
+			var window = GetWindow(BeginEndScrollView);
+			window.Show();
+		}
+	
+		function OnGUI() {
+			EditorGUILayout.BeginHorizontal();
+				scrollPos = 
+				EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width (100), GUILayout.Height (100));
+					GUILayout.Label(t);
+				EditorGUILayout.EndScrollView();
+				if(GUILayout.Button("Add More Text", GUILayout.Width (100), GUILayout.Height (100)))
+					t += " \nAnd this is more text!";
+			EditorGUILayout.EndHorizontal();
+			if(GUILayout.Button("Clear"))
+				t = "";
+		}
+	}
+END EX

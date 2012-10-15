@@ -1,0 +1,26 @@
+*undocumented
+Write buffer to a file. Memory buffer address has to be aligned to 32 bytes. Number of bytes written is available through ::ref::readWriteBytes property.
+BEGIN EX
+
+	var file: File = new File ();
+	
+	yield file.Open ("/tmp/test", WiiNand.Access.Write);
+	if (file.success) {
+	
+		var temp: byte[] = new byte[64];
+		for (var i: int in temp)
+			temp [i] = i;
+
+		var buffer: AlignedBuffer = new AlignedBuffer (64, AlignedBuffer.Memory.Mem1, 32);
+		buffer.CopyFrom (temp, 0, 0, temp.length);
+	
+		yield file.Write (buffer, buffer.length);
+		if (!file.success) {
+			Debug.Log ("Writing data to file failed, asyncResult: " + file.asyncResult);
+		}
+		yield file.Close ();
+		if (!file.success) {
+			Debug.Log ("Failed to close the file");
+		}
+	}
+END EX

@@ -1,0 +1,3 @@
+This is the data structure for holding individual host information.
+The host list retreived from a master server uses this class to represent
+individual hosts.

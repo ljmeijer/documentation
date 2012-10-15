@@ -1,0 +1,61 @@
+Sets current texture coordinate (x,y) for the actual texture /unit/.
+
+In OpenGL this matches @@glMultiTexCoord@@ for the given texture unit
+if multi-texturing is available. On other graphics APIs the same
+functionality is emulated.
+
+This function can only be called between GL.Begin and GL.End functions.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Changes between two textures assigned to a material
+	// When pressed space
+	var mat : Material;
+	private var flagTex : boolean = true;
+	function Update() {
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			if(flagTex) {
+				flagTex = false;
+			} else {
+				flagTex = true;
+			}
+		}
+	}
+
+	function OnPostRender() {
+		if (!mat) {
+			Debug.LogError("Please Assign a material on the inspector");
+			return;
+		}
+		GL.PushMatrix();
+		mat.SetPass(1);
+		GL.LoadOrtho();
+		GL.Begin(GL.QUADS);
+		if (flagTex) {
+			GL.MultiTexCoord2(0,0,0); // main texture
+		} else {
+			GL.MultiTexCoord2(1,0,0); // second texture
+		}
+		GL.Vertex3(0.25,0.25,0);
+		if (flagTex) {
+			GL.MultiTexCoord2(0,0,1);
+		} else {
+			GL.MultiTexCoord2(1,0,1);
+		}
+		GL.Vertex3(0.25,0.75,0);
+		if (flagTex) {
+			GL.MultiTexCoord2(0,1,1);
+		} else {
+			GL.MultiTexCoord2(1,1,1);
+		}
+		GL.Vertex3(0.75,0.75,0);
+		if (flagTex) {
+			GL.MultiTexCoord2(0,1,0);
+		} else {
+			GL.MultiTexCoord2(1,1,0);
+		}
+		GL.Vertex3(0.75,0.25,0);
+		GL.End();
+		GL.PopMatrix();
+	}
+END EX

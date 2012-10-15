@@ -1,0 +1,30 @@
+Can the streamed level be loaded?
+
+SA: ::ref::GetStreamProgressForLevel function.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Check if level at index 1 can be loaded.
+	// If it can be loaded then load it.
+	function Update() {
+	    if (Application.CanStreamedLevelBeLoaded(1)) {
+	      	Application.LoadLevel(1);
+	    }
+	}
+END EX<signature>
+CanStreamedLevelBeLoaded_int
+CanStreamedLevelBeLoaded_string
+</signature>
+Can the streamed level be loaded?
+
+SA: ::ref::GetStreamProgressForLevel function.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Check if "Level1" can be loaded, if it can be loaded then load it.
+	function Update() {
+	    if (Application.CanStreamedLevelBeLoaded("Level1")) {
+	      	Application.LoadLevel("Level1");
+	    }
+	}
+END EX

@@ -1,0 +1,21 @@
+Starts playing the movie.
+Note that a running MovieTexture will use a lot of CPU power, and it will continue running until it is manually stopped or a new level is loaded.
+
+Also note that MovieTextures does not behave exactly the same as for example audio clips. When you call the Play() method on a MovieTexture, it is the Asset that will start playing, and not a particular instance of the movie.
+This means that if you have for example several planes in your scene, all having the same MovieTexture set as their materials texture, when you call Play() on one of them, every instance of the Movie will start playing.
+
+MovieTextures are a pro-only feature.
+
+SA: ::ref::Stop,  ::ref::audioClip
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Assigns a movie texture to the current material and plays it.
+
+	var movTexture : MovieTexture;
+
+	function Start () {
+		renderer.material.mainTexture = movTexture;
+		movTexture.Play();
+	}
+END EX

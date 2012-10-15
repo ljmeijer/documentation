@@ -1,0 +1,6 @@
+The [[HingeJoint]] attached to this [[GameObject]] (null if there is none attached).
+CONVERTEXAMPLE
+BEGIN EX
+
+	hingeJoint.motor.targetVelocity = 5;
+END EX

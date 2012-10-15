@@ -1,0 +1,6 @@
+Attaches the current thread to a Java (Dalvik) VM.
+A thread must be attached to the VM before any other JNI calls can be made.
+
+Returns 0 on success; returns a negative number on failure.
+
+SA: <a href="http://download.oracle.com/javase/1.5.0/docs/guide/jni/spec/jniTOC.html">Java Native Interface Specification (Oracle)</a>

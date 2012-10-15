@@ -1,0 +1,47 @@
+Create a keyframe.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Make a GameObject follow a Sinus function 
+	// Over the X and Y axis.
+
+	private var anim : AnimationCurve;
+	private var ks : Keyframe[];
+
+	function Start() {
+		ks = new Keyframe[50];
+		for(var i = 0; i < ks.Length ; i++)
+			ks[i] = Keyframe(i,Mathf.Sin(i));
+
+		anim = AnimationCurve(ks);
+	}
+
+	function Update() {
+		transform.position = Vector3(Time.time,anim.Evaluate(Time.time),0);
+	}
+END EX<signature>
+ctor_float_float
+ctor_float_float_float_float
+</signature>
+Create a keyframe.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Make a GameObject follow a Sinus function 
+	// Over the X and Y axis with vertical tangents.
+
+	private var anim : AnimationCurve;
+	private var ks : Keyframe[];
+
+	function Start() {
+		ks = new Keyframe[50];
+		for(var i = 0; i < ks.Length ; i++){
+			ks[i] = Keyframe(i,Mathf.Sin(i),90,90);    
+		}
+		anim = AnimationCurve(ks);
+	}
+
+	function Update() {
+		transform.position = Vector3(Time.time,anim.Evaluate(Time.time),0);
+	}
+END EX

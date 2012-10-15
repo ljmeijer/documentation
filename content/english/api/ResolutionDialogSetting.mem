@@ -1,0 +1,5 @@
+Resolution dialog setting
+
+This enum is used when setting the behaviour of the resolution dialog in PlayerSettings.
+
+SA: PlayerSettings.displayResolutionDialog, PlayerSettings.

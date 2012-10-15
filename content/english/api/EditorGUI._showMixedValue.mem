@@ -1,0 +1,67 @@
+Makes the following controls give the appearance of editing multiple different values.
+
+This is sometimes useful when creating custom editors and you want to represent
+a value in a non-standard way in the GUI while also supporting multi-object editing.
+BEGIN EX
+
+	// This example shows a custom inspector for an object "MyVessel".
+	// MyVessel has a boolean variable isFast but we want to show it
+	// as a dropdown instead of as a toggle.
+	
+	enum SpeedOption { Slow, Fast }
+	
+	@CustomEditor (MyVessel)
+	@CanEditMultipleObjects
+	class MyVesselEditor extends Editor {
+		var isFastProp : SerializedProperty;
+		
+		function OnEnable () {
+			isFastProp = serializedObject.FindProperty ("isFast");
+		}
+		
+		function OnInspectorGUI () {
+			serializedObject.Update ();
+			
+			// Show the isFast boolean the standard way - as a toggle:
+			EditorGUILayout.PropertyField (isFastProp);
+			
+			// Show the isFast boolean as a dropdown using the SpeedOption enum defined above:
+			
+			// Check if the value was changed inside this block
+			EditorGUI.BeginChangeCheck ();
+			
+			// If the isFast property represent multiple different values, the dropdown should show that:
+			EditorGUI.showMixedValue = isFastProp.hasMultipleDifferentValues;
+			
+			// Convert the isFast boolean to an enum value
+			var speedOptionEnumValue : SpeedOption;
+			if (isFastProp.boolValue == true)
+				speedOptionEnumValue = SpeedOption.Fast;
+			else
+				speedOptionEnumValue = SpeedOption.Slow;
+			
+			// Present the enum value in a dropdown:
+			speedOptionEnumValue = EditorGUILayout.EnumPopup ("Speed", speedOptionEnumValue);
+			
+			// Set showMixedValue to false so it doesn't affect the following controls, if any:
+			EditorGUI.showMixedValue = false;
+			
+			// If the value was changed inside this block, apply the new value to all the objects:
+			if (EditorGUI.EndChangeCheck ())
+				isFastProp.boolValue = (speedOptionEnumValue == SpeedOption.Fast ? true : false);
+			
+			serializedObject.ApplyModifiedProperties ();
+		}
+	}
+END EX
+
+BEGIN EX
+
+	// This is the MyVessel script used above
+	
+	var isFast : boolean = false;
+	
+	function Update () {
+		// Update logic here...
+	}
+END EX

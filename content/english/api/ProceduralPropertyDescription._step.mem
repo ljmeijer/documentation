@@ -1,0 +1,2 @@
+Specifies the step size of this Float or Vector property. Zero is no step.
+For Vector types this applies to all the vector components.

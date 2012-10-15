@@ -1,0 +1,11 @@
+Number of acceleration measurements which occurred during last frame.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Check if we got any acceleration measurements during last frame
+
+	function Update () {
+		if (Input.accelerationEventCount > 0)
+			print ("We got new acceleration measurements");
+	}
+END EX

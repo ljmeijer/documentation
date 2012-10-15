@@ -1,0 +1,8 @@
+Pixel distance from mouse pointer to camera facing circle.
+
+Calculates the screen space distance from the mouse pointer to the circle at given world
+space /position/ with the given /radius/. The circle is assumed to be facing the camera.
+
+Uses the current camera to determine the distance.
+
+SA: ::ref::DistanceToDisc.

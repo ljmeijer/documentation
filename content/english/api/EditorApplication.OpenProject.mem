@@ -1,0 +1,4 @@
+Open another project.
+Note that this function will not exit immediately. It will open another project after executing function returns.
+@param projectPath The path of a project to open.
+@param args Arguments to pass to command line.

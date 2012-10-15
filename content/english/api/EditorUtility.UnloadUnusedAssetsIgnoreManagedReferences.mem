@@ -1,0 +1,5 @@
+Unloads assets that are not used, including the ones that are referenced only from scripts.
+Similarly to UnloadUnusedAssets it will unload unused assets, but additionally it will also unload assets that are
+referenced only by the script properties or static variables. The unloaded assets will be loaded again on the first use.
+
+SA: [[Resources.UnloadUnusedAssets]].

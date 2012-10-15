@@ -1,0 +1,9 @@
+Sets the cpu processor affinity for the current thread
+This function will not operate on MainTread
+/cpus/ 
+0 is Core 0 Hardware Thread 0
+1 is Core 0 Hardware Thread 1
+2 is Core 1 Hardware Thread 0
+3 is Core 1 Hardware Thread 1
+4 is Core 2 Hardware Thread 0
+5 is Core 2 Hardware Thread 1

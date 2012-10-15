@@ -1,0 +1,10 @@
+MonoBehaviour is the base class every script derives from.
+
+Using Javascript every script automatically derives from MonoBehaviour.
+When using C# or Boo you have to explicitly derive from MonoBehaviour.
+
+__Note:__ The checkbox for disabling a MonoBehavior (on the editor) will only 
+prevent Start(), Awake(), Update(), FixedUpdate(), and OnGUI() from executing. 
+If none of these functions are present, the checkbox is not displayed.
+
+SA: The [[wiki:Scripting|chapter on scripting]] in the manual.

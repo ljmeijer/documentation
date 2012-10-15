@@ -1,0 +1,8 @@
+How much world-space acceleration of the character will affect cloth vertices.
+The higher this value is, the more the cloth will move as a reaction to world space acceleration of the GameObject.
+If the cloth appears lifeless, try increasing this value. If it appears to get unstable when the character accelerates, try decreasing the value.
+CONVERTEXAMPLE
+BEGIN EX
+
+	GetComponent(SkinnedCloth).worldAccelerationScale = 1.0;
+END EX

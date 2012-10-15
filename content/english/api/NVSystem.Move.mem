@@ -1,0 +1,13 @@
+Move file or directory.
+BEGIN EX
+
+	function DoMove (src:String, dst:String) {
+		var sys:NVSystem = new NVSystem ();
+		yield sys.Move (src, dst);
+		if (!sys.success) {
+			Debug.Log ("Failed to move file/directory");
+		}
+	}
+END EX
+@param	source	Path of the file or directory to move.
+@param	destination_dir Directory path where to move the source to.

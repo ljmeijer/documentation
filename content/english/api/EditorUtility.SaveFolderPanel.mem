@@ -1,0 +1,42 @@
+Displays the "save folder" dialog and returns the selected path name.
+
+SA: ::ref::SaveFilePanel, ::ref::OpenFilePanel functions.
+
+{img EditorUtilitySaveFolderPanel.png}\\
+''Save Folder Panel.''
+BEGIN EX
+
+	// Opens a directory selection dialog for saving PNG files
+	// and saves all selected textures to the file.
+
+	import System.IO;
+
+	@MenuItem("Examples/Save Textures to directory")
+	static function Apply () {
+
+		var textures = Selection.GetFiltered( Texture2D, SelectionMode.Unfiltered);
+		if (textures.Length == 0) {
+			EditorUtility.DisplayDialog("Select Textures",
+						    "The selection must contain at least one texture!", "Ok");
+			return;
+		}
+
+		var path = EditorUtility.SaveFolderPanel("Save textures to directory", "", "");
+
+		if (path.Length != 0) {
+			for( var texture : Texture2D in textures) {
+				// Convert the texture to a format compatible with EncodeToPNG
+				if (texture.format != TextureFormat.ARGB32 && texture.format != TextureFormat.RGB24) {
+					var newTexture = Texture2D(texture.width, texture.height);
+					newTexture.SetPixels(texture.GetPixels(0),0);
+					texture = newTexture;
+				}
+				var pngData = texture.EncodeToPNG();
+				if (pngData != null )
+					File.WriteAllBytes(path + "/" + texture.name + ".png", pngData);
+				else
+					Debug.Log("Could not convert " + texture.name + " to png. Skipping saving texture");
+			}
+		}
+	}
+END EX

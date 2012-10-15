@@ -1,0 +1,6 @@
+How bouncy is the surface? A value of 0 will not bounce. A value of 1 will bounce without any loss of energy.
+CONVERTEXAMPLE
+BEGIN EX
+
+	collider.bounciness = 1;
+END EX

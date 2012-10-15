@@ -1,0 +1,2 @@
+Invert a matrix and return the success code.
+Used by GUI.matrix, as feeding in a non-inversible matrix leads to mouse not working and fckd bugreports.

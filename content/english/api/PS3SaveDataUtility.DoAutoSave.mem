@@ -1,0 +1,5 @@
+Performs auto-save.
+__Note:__ This operation is performed asynchronously. Use [[PS3SaveDataUtility.HasCompleted]] to wait for completion.
+<br> SA: PS3SaveDataUtility.SetSaveParams, PS3SaveDataUtility.HasCompleted, PS3SaveDataUtility.Init
+@param	dataFilename	Filename of your savegame.
+@param	dataContent		Data you're attempting to save.

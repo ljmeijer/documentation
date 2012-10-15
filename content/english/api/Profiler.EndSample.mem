@@ -1,0 +1,10 @@
+End profiling a piece of code with a custom label.
+This will show up in the Profiler hierarchy.
+CONVERTEXAMPLE
+BEGIN EX
+
+	Profiler.BeginSample ("MyPieceOfCode");
+	// do something that takes a lot of time
+	Profiler.EndSample ();
+END EX
+SA: Profiler.BeginSample, [[wiki:Profiler]].

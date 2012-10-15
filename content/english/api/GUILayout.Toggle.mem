@@ -1,0 +1,40 @@
+<signature>
+Toggle_bool_Texture_GUILayoutOptionArray
+Toggle_bool_string_GUILayoutOptionArray
+Toggle_bool_GUIContent_GUILayoutOptionArray
+Toggle_bool_Texture_GUIStyle_GUILayoutOptionArray
+Toggle_bool_string_GUIStyle_GUILayoutOptionArray
+Toggle_bool_GUIContent_GUIStyle_GUILayoutOptionArray
+</signature>
+Make an on/off toggle button.
+
+{img GUILayoutToggle.png}\\
+''Toggle button in the Game View.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws 2 toggle controls, one with a text, the other with an image.
+	var aTexture : Texture;
+
+	private var toggleTxt : boolean = false;
+	private var toggleImg : boolean = false;
+
+	function OnGUI () {
+		if(!aTexture) {
+        		Debug.LogError("Please assign a texture in the inspector.");
+        		return;
+		}
+		toggleTxt = GUILayout.Toggle(toggleTxt, "A Toggle text");
+		toggleImg = GUILayout.Toggle(toggleImg, aTexture);
+	}
+END EX
+
+@param value			Is the button on or off?
+@param text			Text to display on the button.
+@param image		[[Texture]] to display on the button.
+@param content		Text, image and tooltip for this button.
+@param style			The style to use. If left out, the /button/ style from the current [[GUISkin]] is used.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The new value of the button.

@@ -1,0 +1,70 @@
+<signature>
+AddColor_string_Color
+AddColor_int_Color
+</signature>
+Add a color material property.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws 3 meshes with the same material but with different colors.
+
+	var aMesh : Mesh;
+	var aMaterial : Material = new Material(Shader.Find("VertexLit"));
+
+	function Update() {
+		var materialProperty : MaterialPropertyBlock = new MaterialPropertyBlock();
+
+		// red mesh
+		materialProperty.Clear();
+		materialProperty.AddColor("_Color",Color.red);
+		Graphics.DrawMesh(aMesh, Vector3(0,0,0), Quaternion.identity,
+				  aMaterial, 0, null, 0, materialProperty);
+
+		// green mesh
+		materialProperty.Clear();
+		materialProperty.AddColor("_Color",Color.green);
+		Graphics.DrawMesh(aMesh, Vector3(5,0,0), Quaternion.identity,
+				  aMaterial, 0, null, 0, materialProperty);
+
+		// blue mes
+		materialProperty.Clear();
+		materialProperty.AddColor("_Color",Color.blue);
+		Graphics.DrawMesh(aMesh, Vector3(-5,0,0), Quaternion.identity,
+				  aMaterial, 0, null, 0, materialProperty);
+	}
+END EX
+
+Function variant that takes /nameID/ is faster. If you are adding properties with the same name repeatedly,
+use Shader.PropertyToID to get unique identifier for the name, and pass the identifier to AddColor.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws 3 meshes with the same material but with different colors.
+	// Using the material tag ID.
+
+	var aMesh : Mesh;
+	var aMaterial : Material = new Material(Shader.Find("VertexLit"));
+
+	function Update() {
+		var materialProperty : MaterialPropertyBlock = new MaterialPropertyBlock();
+		var tagID : int = Shader.PropertyToID("_Color");
+
+		// red mesh
+		materialProperty.Clear();
+		materialProperty.AddVector(tagID,Color.red);
+		Graphics.DrawMesh(aMesh, Vector3(0,0,0), Quaternion.identity,
+				  aMaterial, 0, null, 0, materialProperty);
+
+		// green mesh
+		materialProperty.Clear();
+		materialProperty.AddVector(tagID,Color.green);
+		Graphics.DrawMesh(aMesh, Vector3(5,0,0), Quaternion.identity,
+				  aMaterial, 0, null, 0, materialProperty);
+
+		// blue mesh
+		materialProperty.Clear();
+		materialProperty.AddVector(tagID, Color.blue);
+		Graphics.DrawMesh(aMesh, Vector3(-5,0,0), Quaternion.identity,
+				  aMaterial, 0, null, 0, materialProperty);
+	}
+END EX

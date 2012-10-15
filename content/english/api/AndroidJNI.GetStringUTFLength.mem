@@ -1,0 +1,3 @@
+Returns the length in bytes of the modified UTF-8 representation of a string.
+
+SA: <a href="http://download.oracle.com/javase/1.5.0/docs/guide/jni/spec/jniTOC.html">Java Native Interface Specification (Oracle)</a>

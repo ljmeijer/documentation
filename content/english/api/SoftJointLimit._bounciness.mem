@@ -1,0 +1,3 @@
+When the joint hits the limit, it can be made to bounce off it.
+bounciness determines how much to bounce off an limit.
+range { 0, 1 }

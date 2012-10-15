@@ -1,0 +1,20 @@
+Mouse emulation.
+Coordinates reported by Wii Pointer can be read using Input.mousePosition. SetMouseSensitivity allows you to set the sensitivity coefficients used to calculate this position from the pointer values.
+The exact formula used for calculating Input::ref::mousePosition is as follows:
+X<sub>mouse</sub> = (0.5&#8729;X<sub>sensor</sub>&#8729;X<sub>sensitivity</sub>&#8729;768 / 1024 + 0.5)&#8729;Width<sub>screen</sub>
+Y<sub>mouse</sub> = (-0.5&#8729;Y<sub>sensor</sub>&#8729;Y<sub>sensitivity</sub> + 0.5)&#8729;Height<sub>screen</sub>
+BEGIN EX
+
+	var cursor: GUITexture;
+	function Start () {
+		// Make mouse pointer twice as fast and make button 'B' act as mouse LMB.
+		WiiInput.mouseSensitivity = Vector2(2.0, 2.0);
+		WiiInput.SetMouseButtonMapping (0, WiiButton.ButtonB);
+	}
+	
+	function Update () {
+		cursor.transform.position.x = Input.mousePosition.x;
+		cursor.transform.position.y = Input.mousePosition.y;
+	}
+END EX
+Mouse pointer sensitivity multiplier, Vector2 for x and y coordinate respectively.

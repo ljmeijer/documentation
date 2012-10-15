@@ -1,0 +1,25 @@
+The RequireComponent attribute lets automatically add required component as a dependency.
+When you add a script which uses RequireComponent, the required component will automatically be added to the game object.
+This is useful to avoid setup errors.
+For example a script might require that a rigid body is always added to the same game object.
+Using RequireComponent this will be done automatically, thus you can never get the setup wrong.
+BEGIN EX
+NOCHECK
+// Mark the PlayerScript as requiring a rigidbody in the game object.
+@script RequireComponent(Rigidbody)
+
+function FixedUpdate() {
+	rigidbody.AddForce(Vector3.up);
+}
+END EX
+C# Example:
+BEGIN EX
+NOCHECK
+
+[RequireComponent (typeof (Rigidbody))]
+public class PlayerScript : MonoBehaviour {
+	void FixedUpdate()  {
+		rigidbody.AddForce(Vector3.up);
+	}
+}
+END EX

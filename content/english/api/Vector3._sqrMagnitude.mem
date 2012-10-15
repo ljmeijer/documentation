@@ -1,0 +1,25 @@
+Returns the squared length of this vector (RO).
+
+Calculating the squared magnitude instead of the ::ref::magnitude is much faster.
+Often if you are comparing magnitudes of two vectors you can just compare
+their squared magnitudes.
+
+SA: ::ref::magnitude.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// detects when the other transform is closer than closeDistance
+	// this is faster than using Vector3.magnitude
+
+	var other : Transform;
+	var closeDistance = 5.0;
+	
+	function Update() {
+		if (other) {
+			var sqrLen = (other.position - transform.position).sqrMagnitude;
+			// square the distance we compare with
+			if( sqrLen < closeDistance*closeDistance )
+				print ("The other transform is close to me!");
+		}
+	}
+END EX

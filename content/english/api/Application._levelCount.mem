@@ -1,0 +1,8 @@
+The total number of levels available (RO).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Loads a random level
+
+	Application.LoadLevel (Random.Range(0, Application.levelCount-1));
+END EX

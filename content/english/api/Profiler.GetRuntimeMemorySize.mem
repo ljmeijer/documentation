@@ -1,0 +1,17 @@
+Returns the runtime memory usage of the resource.
+This has been implemented for the following resource types:
+Mesh, Texture, Audio, Animation and Materials
+Only available in development players and editor
+BEGIN EX
+
+	// Search for any object of Type Texture
+	// if found print its name and memory usaage, else print a message
+	// that says that it was not found.
+	function Update() { 
+		#if ENABLE_PROFILER
+		var textures = Resources.FindObjectsOfTypeAll(typeof(Texture));
+		foreach(Texture t in textures)
+			Debug.Log("Texture object " + t.name + " using: " + Profiler.GetRuntimeMemorySize(t) + "Bytes");
+		#endif
+	}
+END EX

@@ -1,0 +1,13 @@
+Samples animations at the current state.
+This is useful when you explicitly want to set up some animation state, and sample it once.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set up some state;
+	animation["MyClip"].time = 2.0;
+	animation["MyClip"].enabled = true;
+	// Sample animations now.
+	animation.Sample();
+
+	animation["MyClip"].enabled = false;
+END EX

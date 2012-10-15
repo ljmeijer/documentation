@@ -1,0 +1,33 @@
+<signature>
+Button_Rect_string
+Button_Rect_Texture
+Button_Rect_GUIContent
+Button_Rect_string_GUIStyle
+Button_Rect_Texture_GUIStyle
+Button_Rect_GUIContent_GUIStyle
+</signature>
+Make a single press button. The user clicks them and something happens immediately.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws 2 buttons, one with an image, and other with a text
+	// And print a message when they got clicked.
+	var btnTexture : Texture;
+	function OnGUI() {
+		if (!btnTexture) {
+			Debug.LogError("Please assign a texture on the inspector");
+			return;
+		}
+		if (GUI.Button(Rect(10,10,50,50),btnTexture))
+			Debug.Log("Clicked the button with an image");
+		if (GUI.Button(Rect(10,70,50,30),"Click"))
+			Debug.Log("Clicked the button with text");
+	}
+END EX
+
+@param position	Rectangle on the screen to use for the button.
+@param text			Text to display on the button.
+@param image		[[Texture]] to display on the button.
+@param content		Text, image and tooltip for this button.
+@param style			The style to use. If left out, the /button/ style from the current [[GUISkin]] is used.
+@returns /true/ when the users clicks the button

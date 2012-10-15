@@ -1,0 +1,11 @@
+Plays the clip at position. Automatically cleans up the audio source after it has finished playing.
+CONVERTEXAMPLE
+BEGIN EX
+
+	@script RequireComponent(AudioSource)
+	// Plays the clip at position
+	public var clip : AudioClip; //make sure you assign an actual clip here in the inspector
+	function Start(){		
+		audio.PlayClipAtPoint(clip, Vector3 (5, 1, 2)); 
+	}
+END EX

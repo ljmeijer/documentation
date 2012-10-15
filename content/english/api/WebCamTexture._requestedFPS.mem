@@ -1,0 +1,4 @@
+Set the requested frame rate of the camera device (in frames per second).
+
+It will use a closest frame rate to the one requested which is supported by the camera.
+The requested values only have an effect when set while the camera is not running.

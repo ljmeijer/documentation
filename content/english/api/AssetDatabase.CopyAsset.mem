@@ -1,0 +1,2 @@
+Duplicates the asset at /path/ and stores it at /newPath/
+All paths are relative to the project folder. Like: "Assets/MyTextures/hello.png"

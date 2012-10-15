@@ -1,0 +1,42 @@
+<signature>
+TextField_string_GUILayoutOptionArray
+TextField_string_GUIStyle_GUILayoutOptionArray
+TextField_string_string_GUILayoutOptionArray
+TextField_string_string_GUIStyle_GUILayoutOptionArray
+TextField_GUIContent_string_GUILayoutOptionArray
+TextField_GUIContent_string_GUIStyle_GUILayoutOptionArray
+</signature>
+Make a text field.
+This works just like GUILayout.TextField, but correctly responds to select all, copy, paste etc. in the editor,
+and it can have an optional label in front.
+
+{img EditorGUILayoutTextField.png}\\
+''Changes the name of the selected GameObject.''
+BEGIN EX
+
+	// Automatically change the name of the selected object via a text field
+	
+	class EditorGUILayoutTextField extends EditorWindow {	
+		var objectName : String = "";
+		@MenuItem("Examples/GUILayout TextField")
+		static function Init() {
+			var window = GetWindow(EditorGUILayoutTextField);
+			window.Show();
+		}
+		function OnGUI() {
+			GUILayout.Label("Select an object in the hierarchy view");
+			if(Selection.activeGameObject)
+				Selection.activeGameObject.name = 
+					EditorGUILayout.TextField("Object Name: ", Selection.activeGameObject.name);
+			this.Repaint();
+		}
+	}
+END EX
+
+@param label Optional label to display in front of the text field.
+@param text The text to edit.
+@param style Optional [[GUIStyle]].
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The text entered by the user.

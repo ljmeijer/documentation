@@ -1,0 +1,54 @@
+Starts location service updates.  Last location coordinates could be
+retrieved via @@Input.location.lastData@@.
+Service does not start to send location data immediately. Code should
+check @@Input.location.status@@ for current service status.
+desiredAccuracyInMeters - desired service accuracy in meters. Using
+higher value like 500 usually does not require to turn GPS chip on and
+thus saves battery power. Values like 5-10 could be used for getting
+best accuracy. Default value is 10 meters.
+updateDistanceInMeters - the minimum distance (measured in meters) a
+device must move laterally before @@Input.location@@ property is
+updated. Higher values like 500 imply less overhead. Default is 10
+meters.
+BEGIN EX
+
+	function Start () {
+		// First, check if user has location service enabled
+		if (!Input.location.isEnabledByUser)
+			return;
+
+		// Start service before querying location
+		Input.location.Start ();
+
+		// Wait until service initializes
+		var maxWait : int = 20;
+		while (Input.location.status
+		       == LocationServiceStatus.Initializing && maxWait > 0) {
+			yield WaitForSeconds (1);
+			maxWait--;
+		}
+
+		// Service didn't initialize in 20 seconds
+		if (maxWait < 1) {
+			print ("Timed out");
+			return;
+		}
+
+		// Connection has failed
+		if (Input.location.status == LocationServiceStatus.Failed) {
+			print ("Unable to determine device location");
+			return;
+		}
+		// Access granted and location value could be retrieved
+		else {
+			print ("Location: " + Input.location.latitude + " " +
+			       Input.location.longitude + " " +
+			       Input.location.altitude + " " +
+			       Input.location.horizontalAccuracy + " " +
+			       Input.location.timestamp);
+		}
+
+		// Stop service if there is no need to query location updates continuously
+		Input.location.Stop ();
+	}
+END EX

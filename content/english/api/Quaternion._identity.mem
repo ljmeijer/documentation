@@ -1,0 +1,7 @@
+The identity rotation (RO). This quaternion corresponds to "no rotation": the object
+is perfectly aligned with the world or parent axes.
+CONVERTEXAMPLE
+BEGIN EX
+
+	transform.rotation = Quaternion.identity;
+END EX

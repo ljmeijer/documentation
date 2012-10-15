@@ -1,0 +1,4 @@
+Which platform to emulate.
+Used by GUISettings to determine which platform's behaviour match for keyboard focus rules.
+SA: GUISettings.keyboardFocus.
+*undocumented

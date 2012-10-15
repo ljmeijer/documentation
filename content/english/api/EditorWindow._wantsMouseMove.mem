@@ -1,0 +1,28 @@
+Does the GUI in this editor window want MouseMove events?
+If set to true, the window recieves an OnGUI call whenever the mouse is moved over the window.
+
+__Note:__ This function does not trigger Repaint() Automatically.
+
+{img WantsMouseMoveEx.png}\\
+''Editor Window that detects mouse moves when the toggle button is activated and the mouse is over the window.''
+BEGIN EX
+
+	// Editor Script that shows how mouse movement events 
+	// get caught in the editor window
+	
+	class WantsMouseMoveEx extends EditorWindow {
+		@MenuItem("Example/wantsMouseMove example")
+		static function InitWindow() {
+			var window : WantsMouseMoveEx = GetWindowWithRect(WantsMouseMoveEx, Rect(0, 0, 300, 300));
+		}
+		
+		function OnGUI() {
+			wantsMouseMove = EditorGUILayout.Toggle ("Receive Movement: ", wantsMouseMove);
+			EditorGUILayout.LabelField ("Mouse Position: ", Event.current.mousePosition.ToString ());
+			
+			// Repaint the window as wantsMouseMove doesnt trigger a repaint automatically
+			if (Event.current.type == EventType.MouseMove)
+				Repaint ();
+		}
+	}
+END EX

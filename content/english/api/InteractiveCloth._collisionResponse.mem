@@ -1,0 +1,11 @@
+How much force will be applied to colliding rigidbodies?
+If this is greater then zero, interaction of the cloth with colliding rigidbodies is enabled.
+The higher this value is, the greater the forces applied to rigidbodies are. 
+It is recommended to start out with small values (like 0.2) for best results.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Make the cloth apply forces on what it touches.
+
+	transform.GetComponent(InteractiveCloth).collisionResponse = 0.2;
+END EX

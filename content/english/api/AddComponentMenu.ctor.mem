@@ -1,0 +1,4 @@
+The script will be placed in the component menu according to /menuName/. /menuName/ is the path to the component
+"Rendering/DoSomething"
+if /menuName/ is "" the component will be hidden from the menu.
+if /menuName/ is "" the component will be hidden from the menu.

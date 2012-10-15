@@ -1,0 +1,10 @@
+Clear the current render buffer with camera's skybox.
+
+This draws skybox into the screen or the active [[RenderTexture]].
+If the passed camera does not have custom [[Skybox]] component,
+the global skybox from [[RenderSettings]] will be used.
+
+SA: [[GL.Clear]].
+
+@param clearDepth Should the depth buffer be cleared?
+@param camera Camera to get projection parameters and skybox from.

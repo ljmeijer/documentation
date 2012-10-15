@@ -1,0 +1,12 @@
+Use this mode when you want a real-world rolloff.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Sets the rolloff of the audio source attached to
+	// this script to Logarithmic.
+	
+	@script RequireComponent(AudioSource)
+	function Start() {
+		audio.rolloffMode = AudioRolloffMode.Logarithmic;
+	}
+END EX

@@ -1,0 +1,21 @@
+Instructs game to try to render at a specified frame rate.
+
+Setting /targetFrameRate/ to -1 (the default) makes standalone games render
+as fast as they can, and web player games to render at 50-60 frames/second depending on the platform.
+
+Note that setting /targetFrameRate/ does not guarantee that frame rate. There can be fluctuations
+due to platform specifics, or the game might not achieve the frame rate because the computer is too slow.
+
+If vsync is set in quality setting, the target framerate is ignored, and the vblank interval is used instead.
+The /vBlankCount/ property on qualitysettings can be used to limit the framerate to half of the screens
+refresh rate (60 fps screen can be limited to 30 fps by setting vBlankCount to 2)
+
+/targetFrameRate/ is ignored in the editor.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Awake () {
+		// Make the game run as fast as possible in the web player
+		Application.targetFrameRate = 300;
+	}
+END EX

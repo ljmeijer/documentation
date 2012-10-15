@@ -1,0 +1,54 @@
+The real time in seconds since the game started (RO).
+In almost all cases you can and should use Time.time instead.
+
+/realtimeSinceStartup/ returns the time since startup, not affected by Time.timeScale.
+/realtimeSinceStartup/ also keeps increasing while the player is paused (in the background).
+Using /realtimeSinceStartup/ is useful when you want to pause the game by setting Time.timeScale to zero,
+but still want to be able to measure time somehow.
+
+Note that /realtimeSinceStartup/ returns time as reported by system timer. Depending on
+the platform and the hardware, it may report the same time even in several consecutive
+frames. If you're dividing something by time difference, take this into account
+(time difference may become zero!).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints the real time since start up.
+
+	print(Time.realtimeSinceStartup);
+END EX
+
+Another Example:
+CONVERTEXAMPLE
+BEGIN EX
+
+	// A FPS counter.
+	// It calculates frames/second over each updateInterval,
+	// so the display does not keep changing wildly.
+	 
+	var updateInterval = 0.5;
+	private var lastInterval : double; // Last interval end time
+	private var frames = 0; // Frames over current interval
+	private var fps : float; // Current FPS
+
+	function Start() {
+		lastInterval = Time.realtimeSinceStartup;
+		frames = 0;
+	}
+
+	function OnGUI () {
+		// Display label with two fractional digits
+		GUILayout.Label("" + fps.ToString("f2"));
+	} 
+
+	function Update() {
+		++frames;
+		var timeNow = Time.realtimeSinceStartup;
+		if( timeNow > lastInterval + updateInterval )
+		{
+			fps = frames / (timeNow - lastInterval);
+			frames = 0;
+			lastInterval = timeNow;
+		}
+	}
+END EX

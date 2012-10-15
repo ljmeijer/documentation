@@ -1,0 +1,6 @@
+Returns the thumbnail for the type.<signature>
+GetMiniTypeThumbnail_Type
+GetMiniTypeThumbnail_object
+</signature>
+Returns the thumbnail for the object's type.
+Use this instead of ::ref::GetMiniThumbnail if you don't want preview thumbnails (e.g. thumbnails for textures).

@@ -1,0 +1,10 @@
+Add a simple field to the form.
+
+Adds field /fieldName/ with a given string value.<signature>
+AddField_string_string_Encoding
+AddField_string_int
+</signature>
+Adds a simple field to the form.
+
+Adds field /fieldName/ with a given integer value. A conveinience for calling
+AddField(fieldName, i.ToString)

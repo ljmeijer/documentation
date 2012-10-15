@@ -1,0 +1,43 @@
+Encodes string into an URL-friendly format.
+
+Replaces illegal characters in /s/ with the correct URL escaped code.
+Useful when building web page parameters.
+
+SA: WWW.UnEscapeURL.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// This will print the string "Testing%201%2C2%2C3" to the console
+	print(WWW.EscapeURL("Testing 1,2,3"));
+END EX
+@param s A string to be escaped.
+@param e The encoding to use when converting characters to a character code.
+@returns A new string with all illegal characters replaced with @@%xx@@ where @@xx@@
+is the hexadecimal code for the character code.
+Decodes string from an URL-friendly format.
+
+The inverse of WWW.EscapeURL.
+
+SA: WWW.EscapeURL.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// This will print the string "Testing 1,2,3" to the console
+	print(WWW.UnEscapeURL("Testing%201%2C2%2C3"));
+END EX
+@param s An url escaped string to be converted.
+@param e The encoding to use when converting the bytes to a character.
+@returns A new string with all occurrences of @@%xx@@ replaced with the corresponding character.
+The headers from the HTTP response.
+Returns a Dictionary containing the HTTP response headers and their values.
+BEGIN EX
+
+	function Start () {
+		var www : WWW = new WWW ("http://unity3d.com");
+
+		// Wait for download to complete
+		yield www;
+
+		Debug.Log (www.responseHeaders["Content-Type"]);
+	}
+END EX

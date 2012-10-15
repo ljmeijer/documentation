@@ -1,0 +1,3 @@
+The total size of the box. This is always twice as large as the ::ref::extents.
+
+''size.x'' is the width, ''size.y'' is the height and ''size.z'' is the depth of the box.

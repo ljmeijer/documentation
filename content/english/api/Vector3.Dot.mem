@@ -1,0 +1,24 @@
+Dot Product of two vectors.
+Returns /lhs/ @@.@@ /rhs/.
+
+For ::ref::normalized vectors Dot returns 1 if they point in exactly the same direction;
+-1 if they point in completely opposite directions; and a number in between for other
+cases (e.g. Dot returns zero if vectors are perpendicular).
+
+For vectors of arbitrary length the Dot return values are similar: they get larger when the angle between vectors
+decreases.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// detects if other transform is behind this object
+
+	var other : Transform;
+	function Update() {
+		if (other) {
+			var forward = transform.TransformDirection(Vector3.forward);
+			var toOther = other.position - transform.position;
+			if (Vector3.Dot(forward,toOther) < 0)
+				print ("The other transform is behind me!");
+		}
+	}
+END EX

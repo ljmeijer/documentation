@@ -1,0 +1,5 @@
+Holds the number of bytes that were read or written, after ::ref::Read or ::ref::Write have completed, respectively.
+BEGIN EX
+
+	Debug.Log ("Bytes read/written: " + file.readWriteBytes);
+END EX

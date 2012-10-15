@@ -1,0 +1,20 @@
+Check if any control was changed inside a block of code.
+
+When needing to check if GUI.changed is set to true inside a block of code,
+wrap the code inside BeginChangeCheck () and EndChangeCheck () like this:
+BEGIN EX
+
+	EditorGUI.BeginChangeCheck ();
+	
+	// Block of code with controls
+	// that may set GUI.changed to true.
+	
+	if (EditorGUI.EndChangeCheck ()) {
+		// Code to execute if GUI.changed
+		// was set to true inside the block of code above.
+	}
+END EX
+
+EndChangeCheck will only return true if GUI.changed was set to true
+inside the block, but GUI.changed will be true afterwards both if it
+was set to true inside and if it was already true to begin with.

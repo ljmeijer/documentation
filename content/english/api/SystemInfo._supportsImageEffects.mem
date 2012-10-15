@@ -1,0 +1,5 @@
+Are image effects supported? (RO)
+
+Returns /true/ if graphics card supports image postprocessing effects.
+
+SA: [[wiki:comp-ImageEffects|Image Effects]].

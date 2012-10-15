@@ -1,0 +1,5 @@
+Controls how the irradiance gradient is used in the interpolation.
+Each point stores it�s irradiance gradient which can be used to improve the interpolation.
+However in some situations using the gradient can result in white �halos� and other artifacts.
+
+Setting the threshold to a lower value can be used to reduce those artifacts.

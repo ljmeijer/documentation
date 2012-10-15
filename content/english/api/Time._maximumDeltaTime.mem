@@ -1,0 +1,9 @@
+The maximum time a frame can take. Physics and other fixed frame rate updates (like MonoBehaviour's MonoBehaviour::pref::FixedUpdate)
+will be performed only for this duration of time per frame.
+
+Use this function to avoid low frame rate spikes occurring due to combination of GarbageCollector and expensive physics or other fixed frame rate updates.
+
+If frame will take longer than specified value, then less physics and other fixed frame rate updates will be performed. That will temporarily 
+slow down the gameplay, but will allow frame rate to catchup avoiding nasty stuttering.
+
+It is advisable to keep maximum time for frame between 1/10th and 1/3th of a second.

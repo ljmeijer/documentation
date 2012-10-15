@@ -1,0 +1,6 @@
+Enables the joint's spring.
+CONVERTEXAMPLE
+BEGIN EX
+
+	hingeJoint.useSpring = true;
+END EX

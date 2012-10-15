@@ -1,0 +1,3 @@
+Sets the zero-point drift correction mode of the specified channel's Wii MotionPlus.
+@param	chan	Remote index, in range 0...3.
+@param  mode	Zero-point drift correction mode.

@@ -1,0 +1,19 @@
+Should rendering be done in wireframe?
+
+Turning on wireframe mode will affect all objects rendered after the call, until you turn
+wireframe back off. In the Unity editor, wireframe mode is always turned off
+before repainting any window.
+
+Note that some platforms, for example mobile (OpenGL ES) and Flash (Stage3D) do not support
+wireframe rendering.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Attach this script to a camera, this will make it render in wireframe
+	function OnPreRender() {
+		GL.wireframe = true;
+	}
+	function OnPostRender() {
+		GL.wireframe = false;
+	}
+END EX

@@ -1,0 +1,2 @@
+Mouse was dragged.
+The mouse was moved with a button held down - a mouse drag. Use Event.mousePosition and Event.delta to determine mouse motion.

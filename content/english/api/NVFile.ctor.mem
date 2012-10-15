@@ -1,0 +1,5 @@
+Constructor.
+BEGIN EX
+
+	var file: NVFile = new NFile();
+END EX

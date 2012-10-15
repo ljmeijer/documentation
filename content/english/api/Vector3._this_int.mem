@@ -1,0 +1,7 @@
+Access the x, y, z components using [0], [1], [2] respectively.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var p : Vector3;
+	p[1] = 5; // the same as p.y = 5
+END EX

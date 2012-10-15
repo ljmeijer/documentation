@@ -1,0 +1,2 @@
+Describes how physic materials of colliding objects are combined.
+SA: PhysicMaterial.frictionCombine, PhysicMaterial.bounceCombine.

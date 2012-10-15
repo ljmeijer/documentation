@@ -1,0 +1,3 @@
+Get the state of a classic controller on a specified channel (extension needs to be attached).
+@param index	Index of the controller to get state of.
+@return A structure describing classic controllers's state.

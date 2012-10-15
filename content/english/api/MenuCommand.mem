@@ -1,0 +1,12 @@
+Used to extract the context for a [[MenuItem]]. MenuCommand objects are passed to custom menu item functions defined using the [[MenuItem]] attribute.
+BEGIN EX
+
+// Add context menu named "Something" to context menu
+@MenuItem ("CONTEXT/Rigidbody/Do Something")
+static function Something (command : MenuCommand) {
+	var body : Rigidbody = command.context;
+	body.mass = 5;
+	Debug.Log ("Changed Rigidbody's Mass to " + body.mass + " from Context Menu...");
+}
+END EX
+SA: [[MenuItem]]

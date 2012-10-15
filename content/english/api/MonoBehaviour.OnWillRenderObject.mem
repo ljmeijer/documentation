@@ -1,0 +1,10 @@
+CSNONE
+OnWillRenderObject is called once for each camera if the object is visible.
+
+The function is not called if the MonoBehaviour is disabled.
+
+The function is called during the culling process just before rendering each culled object.
+
+For usage in a proper context, see the script /Water.cs/ in ''Assets->Import Package->Water(Pro Only)''
+
+Note that Camera.current will be set to the camera that will render the object.

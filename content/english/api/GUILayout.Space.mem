@@ -1,0 +1,34 @@
+Insert a space in the current layout group.
+The direction of the space is dependent on the layout group you're currently in when issuing the command. If in a vertical group, the space will be vertical:
+__Note:__ This will override the GUILayout.ExpandWidth and GUILayout.ExpandHeight
+
+{img GUILayoutSpace.png}\\
+''Space of 20px between two buttons.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI () {
+		GUILayout.Button ("I'm the first button");
+
+		// Insert 20 pixels of space between the 2 buttons.
+		GUILayout.Space (20);
+			
+		GUILayout.Button ("I'm a bit further down");
+	}
+END EX
+
+In horizontal groups, the /pixels/ are measured horizontally:
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI () {
+		GUILayout.BeginHorizontal();
+			GUILayout.Button ("I'm the first button");
+
+			// Insert 20 pixels of space between the 2 buttons.
+			GUILayout.Space (20);
+			
+			GUILayout.Button ("I'm the second button");
+		GUILayout.EndHorizontal();
+	}
+END EX

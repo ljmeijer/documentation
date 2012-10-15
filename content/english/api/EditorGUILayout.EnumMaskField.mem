@@ -1,0 +1,33 @@
+<signature>
+EnumMaskField_GUIContent_Enum_GUIStyle_GUILayoutOptionArray
+EnumMaskField_string_Enum_GUIStyle_GUILayoutOptionArray
+EnumMaskField_GUIContent_Enum_GUILayoutOptionArray
+EnumMaskField_string_Enum_GUILayoutOptionArray
+EnumMaskField_Enum_GUIStyle_GUILayoutOptionArray
+EnumMaskField_Enum_GUILayoutOptionArray
+</signature>
+Make a field for enum based masks.
+
+{img MaskField.png}\\
+''Simple window that shows the enum mask field.''
+BEGIN EX
+
+	class SimpleEnumMaskUsage extends EditorWindow {
+		@MenuItem("Examples/Mask Field Usage")
+		static function Init() {
+			var window = GetWindow(SimpleEnumMaskUsage);
+			window.Show();
+		}
+		
+		var staticFlagMask : StaticEditorFlags = 0;
+		function OnGUI() {
+			staticFlagMask = EditorGUILayout.EnumMaskField ( "Static Flags", staticFlagMask );
+		}
+	}
+END EX
+@param label Prefix label for this field.
+@param enumValue Enum to use for the flags.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The value modified by the user.

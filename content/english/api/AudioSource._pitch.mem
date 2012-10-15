@@ -1,0 +1,18 @@
+The pitch of the audio source.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Decreases the pitch in the given seconds
+
+	var startingPitch = 4;
+	var timeToDecrease = 5;
+	@script RequireComponent(AudioSource)
+	function Start() {
+		audio.pitch = startingPitch;
+	}
+	
+	function Update() {
+		if(audio.pitch > 0)
+			audio.pitch -= ((Time.deltaTime * startingPitch) / timeToDecrease);
+	}
+END EX

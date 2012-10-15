@@ -1,0 +1,21 @@
+Helper function to scale the GUI around a point.
+
+Modifies GUI.matrix to rotate all GUI elements /angle/ degrees around /pivotPoint/.
+
+SA: GUI.matrix, ::ref::RotateAroundPivot
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Scale a button by 1.5 times each time is pressed.
+
+	private var scale : Vector2 = Vector2(1,1);
+	private var pivotPoint : Vector2;
+
+	function OnGUI () {   
+		pivotPoint = Vector2(Screen.width/2,Screen.height/2);
+		GUIUtility.ScaleAroundPivot (scale, pivotPoint); 
+		if(GUI.Button(Rect(Screen.width/2-25, Screen.height/2-25, 50, 50),"Big!")){
+			scale += Vector2(0.5,0.5);
+		}		
+	}
+END EX

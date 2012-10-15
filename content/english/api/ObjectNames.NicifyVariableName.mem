@@ -1,0 +1,13 @@
+Make a displayable name for a variable.
+
+This function will insert spaces before capital letters and remove optional @@m_@@, @@_@@
+or @@k@@ followed by uppercase letter in front of the name.
+BEGIN EX
+
+	// prints "My Variable"
+	print (ObjectNames.NicifyVariableName ("MyVariable"));
+	// prints "The Other Variable"
+	print (ObjectNames.NicifyVariableName ("m_TheOtherVariable"));
+	// prints "Some Constant"
+	print (ObjectNames.NicifyVariableName ("kSomeConstant"));
+END EX

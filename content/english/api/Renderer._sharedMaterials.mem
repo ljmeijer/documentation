@@ -1,0 +1,21 @@
+All the shared materials of this object.
+This is an array of all materials used by the renderer. Unity supports a single object
+using multiple materials; in this case /sharedMaterials/ contains all the materials.
+::ref::sharedMaterial and ::ref::material properties return the first used material if
+there is more than one.
+
+Modifying any material in /sharedMaterials/ will change the appearance of all objects
+using this material, and change material settings that are stored in the project too.
+
+It is not recommended to modify materials returned by sharedMaterials.
+If you want to modify the material of a renderer use ::ref::material instead.
+
+Note that like all arrays returned by Unity, this returns a copy of materials
+array. If you want to change some materials in it, get the value, change an entry and
+set materials back.
+CONVERTEXAMPLE
+BEGIN EX
+
+	print ("I'm using " + renderer.sharedMaterials.Length + " material(s)");
+END EX
+SA: ::ref::material, ::ref::sharedMaterial properties.

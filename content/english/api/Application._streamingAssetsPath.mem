@@ -1,0 +1,25 @@
+Contains the path to the StreamingAssets folder (RO).
+
+If you have a "StreamingAssets" folder in the Assets folder of your project, it will be
+copied to your player builds and be present in the path given by
+Application.streamingAssetsPath.
+
+Note that on some platforms it is not possible to directly access the StreamingAssets folder
+because there is no file system access in the web platforms, and because it is compressed
+into the .apk file on Android. On those platforms, a url will be returned, which can be used
+using the WWW class.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// print the path to the streaming assets folder
+	var filePath = System.IO.Path.Combine(Application.streamingAssetsPath, "MyFile");
+	var result = "";
+	if (filePath.Contains("://"))
+	{
+		var www = new WWW (filePath);
+		yield www;
+		result = www.text;
+	}
+	else
+		result = System.IO.File.ReadAllText(filePath);
+END EX

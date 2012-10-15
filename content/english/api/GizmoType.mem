@@ -1,0 +1,3 @@
+Determines how a gizmo is drawn or picked in the Unity editor.
+The types can be combined together with an OR operator.
+SA: [[DrawGizmo]].

@@ -1,0 +1,11 @@
+Converts a Vector4 to a [[Vector2]].
+Vector4s can be implicitly converted to [[Vector2]] (z and w is discarded).
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		// Shader vectors are always Vector4s.
+		// But the value here is converted to a Vector2.
+		var value : Vector2 = renderer.material.GetVector("_SomeVariable");
+	}
+END EX

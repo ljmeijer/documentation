@@ -1,0 +1,6 @@
+The [[Camera]] attached to this [[GameObject]] (null if there is none attached).
+CONVERTEXAMPLE
+BEGIN EX
+
+	camera.fieldOfView = 40;
+END EX

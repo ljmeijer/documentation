@@ -1,0 +1,15 @@
+<signature>
+DrawRay_Ray
+DrawRay_Vector3_Vector3
+</signature>
+Draws a ray starting at /from/ to /from/ + /direction/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnDrawGizmosSelected () {
+		// Draws a 5 meter long red line in front of the object
+		Gizmos.color = Color.red;
+		var direction : Vector3 = transform.TransformDirection (Vector3.forward) * 5;
+		Gizmos.DrawRay (transform.position, direction);
+	}
+END EX

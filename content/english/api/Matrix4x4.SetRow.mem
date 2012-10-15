@@ -1,0 +1,5 @@
+Sets a row of the matrix.
+
+The i-th row is set from /v/. /i/ must be from 0 to 3 inclusive.
+
+SA: ::ref::GetRow.

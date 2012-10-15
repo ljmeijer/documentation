@@ -1,0 +1,6 @@
+If enabled, the particles will be spawned with random rotations.
+CONVERTEXAMPLE
+BEGIN EX
+
+	particleEmitter.rndRotation = true;
+END EX

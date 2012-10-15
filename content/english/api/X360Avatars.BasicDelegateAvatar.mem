@@ -1,0 +1,1 @@
+/assets/ is a pointer to XAVATAR_ASSETS for use in custom plugins. Valid inside the callback only.

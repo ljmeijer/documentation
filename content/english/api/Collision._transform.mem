@@ -1,0 +1,4 @@
+The [[Transform]] of the object we hit (RO).
+
+If we collided against a collider with a [[Rigidbody]], the transform will be the transform attached to the rigidbody.
+If we collided against a collider without a rigidbody, the transform will be the transform attached to the collider.

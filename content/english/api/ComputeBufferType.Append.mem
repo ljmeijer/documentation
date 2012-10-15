@@ -1,0 +1,2 @@
+Append-consume [[ComputeBuffer]] type.
+Allows a buffer to be treated like a stack in compute shaders.

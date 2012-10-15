@@ -1,0 +1,44 @@
+<signature>
+ColorField_Rect_Color
+ColorField_Rect_Color_bool_bool
+ColorField_Rect_string_Color
+ColorField_Rect_GUIContent_Color
+</signature>
+Make a field for selecting a [[Color]].
+
+{img EditorGUIColorField.png}\\
+''Color field in an Editor Window.''
+BEGIN EX
+
+	// Change The color of the selected Game Objects
+	
+	class EditorGUIColorField extends EditorWindow {
+	 
+		var matColor : Color = Color.white;
+		@MenuItem("Examples/Massive Color Change")
+		static function Init() {
+			var window = GetWindow(EditorGUIColorField);
+			window.position = Rect(0,0,170,60);
+			window.Show();
+		}
+		function OnGUI() {
+			matColor = EditorGUI.ColorField(Rect(3,3,position.width - 6, 15),
+					"New Color:", 
+					matColor); 
+			if(GUI.Button(Rect(3,25,position.width-6, 30),"Change!"))
+				ChangeColors();
+		}
+	  
+		function ChangeColors() {
+			if(Selection.activeGameObject)
+				for(var t in Selection.gameObjects)
+					if(t.renderer)
+						t.renderer.sharedMaterial.color = matColor;
+		}
+	}
+END EX
+
+@param position Rectangle on the screen to use for the field.
+@param label Optional label to display in front of the field.
+@param value The color to edit.
+@returns The color selected by the user.

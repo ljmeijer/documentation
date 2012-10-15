@@ -1,0 +1,18 @@
+Compress texture into DXT format.
+
+Use this to compress textures generated at runtime. Compressed textures use less
+graphics memory and are faster to render.
+
+After compression, texture will be in TextureFormat::pref::DXT1 format if the original texture
+had no alpha channel, and in TextureFormat::pref::DXT5 format if it had alpha channel.
+
+Passing /true/ for /highQuality/ parameter will dither the source texture during compression,
+which helps to reduce compression artifacts but is slightly slower.
+
+If the graphics card does not support compression or the texture is already in compressed format,
+then Compress will do nothing.
+
+In the Editor scripts, you probably want to use EditorUtility.CompressTexture, which will
+compress using slower, but higher quality DXT compression.
+
+SA: ::ref::SetPixels function, EditorUtility.CompressTexture.

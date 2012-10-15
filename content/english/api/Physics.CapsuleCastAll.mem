@@ -1,0 +1,46 @@
+Like [[Physics.CapsuleCast]], but this function will return all hits the capsule sweep intersects.
+
+Casts a capsule against all colliders in the scene and returns detailed information on each collider which was hit.
+The capsule is defined by the two spheres with /radius/ around /point1/ and /point2/, which form the two ends of the capsule.
+Hits are returned all colliders which would collide against this capsule if the capsule was moved along /direction/.
+This is useful when a Raycast does not give enough precision, because you want to find out if an object of a specific size,
+such as a character, will be able to move somewhere without colliding with anything on the way.
+
+__Notes:__ The capsule cast does not work against colliders configured as triggers.
+If you move colliders from scripting or by animation, there needs to be at
+least one FixedUpdate executed so that the physics library can update it's data
+structures, before a capsule cast will hit the collider at it's new position.
+
+SA: [[Physics.SphereCast]], [[Physics.CapsuleCast]], [[Physics.Raycast]], [[Rigidbody.SweepTest]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update () {
+		var hits : RaycastHit[];
+		var charCtrl : CharacterController = GetComponent(CharacterController);
+		var p1 : Vector3 = transform.position + charCtrl.center + 
+					Vector3.up * (-charCtrl.height*0.5);
+		var p2 : Vector3 = p1 + Vector3.up * charCtrl.height;
+		// Cast character controller shape 10 meters forward, to see if it is about to hit anything
+		hits = Physics.CapsuleCastAll (p1, p2, charCtrl.radius, transform.forward, 10);
+
+		// Change the material of all hit colliders
+		// to use a transparent Shader
+		for (var i = 0;i < hits.Length;i++) {
+			var hit : RaycastHit = hits[i];
+			var renderer =  hit.collider.renderer;
+			if (renderer) {
+				renderer.material.shader = Shader.Find("Transparent/Diffuse");
+				renderer.material.color.a = 0.3;
+			}
+		}		
+	}
+END EX
+@param	point1		The start of the capsule.
+@param	point2		The end of the capsule.
+@param	radius		The radius of the capsule.	
+@param  direction	The direction into which to sweep the capsule.
+@param  distance	The length of the sweep
+@param	layerMask	A [[wiki:Layers|Layer mask]] that is used to selectively ignore colliders when casting a capsule. 
+
+@returns an array of all colliders hit in the sweep.

@@ -1,0 +1,19 @@
+Initializes security layer.
+You need to call this function on the server before calling Network.InitializeServer. Don't call this function on the client.
+
+Once your online game reaches a certain popularity people will try to cheat. You will need to account for this both at the game layer and at the network layer.
+Unity handles the network layer by providing secure connections if you wish to use them.
+* Uses AES encryption. Prevents unauthorized reads and blocks replay attacks
+* Adds CRCs so that data tampering can be detected.
+* Uses randomized, encrypted SYNCookies to prevent unauthorized logins.
+* Uses RSA encryption to protect the AES key.
+Most games will want to use secure connections.
+However, they add up to 15 bytes per packet and take time to compute so you may wish to limit usage to deployed games only.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		Network.InitializeSecurity();
+		Network.InitializeServer(32, 25000);
+	}
+END EX

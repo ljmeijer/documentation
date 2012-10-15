@@ -1,0 +1,5 @@
+Loads object with /name/ from the bundle.<signature>
+Load_string
+Load_string_Type
+</signature>
+Loads object with /name/ of a given /type/ from the bundle.

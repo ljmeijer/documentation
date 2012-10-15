@@ -1,0 +1,30 @@
+Inline ActionScript support.
+When targetting the Flash Player, it is often convenient to be able to execute some manually written ActionScript.
+Examples of this would be: talking to some flash API (think networking, sockets), running some existing ActionScript code, or integrating with some 3rd party ActionScript library. You can call "handwritten" ActionScript methods, and get return values from them most easily like this:
+CONVERTEXAMPLE
+BEGIN EX
+
+	import UnityEngine.Flash;
+	
+	function Start()
+	{
+		ActionScript.Import("com.mycompany.mytool");
+		var name = "Lerpz";
+		var protocolversion = ActionScript.Expression.<int>("com.mycompany.mytool.GetProtocolVersionFromServer({0})", name);
+	}
+END EX
+You then also have to provide the ActionScript file that contains the com.mycompany.mytool actionscript class. You can do this by creating a folder called "ActionScript" anywhere in your Project Folder, and adding the ActionScript class file in there, respecting ActionScripts requirements that the path needs to match the class namespace. In this example, you would place this ActionScript file:
+BEGIN EX
+NOCHECK
+	package com.mycompany 
+	{
+		public final class mytool
+		{
+			public static function GetProtocolVersionFromServer(name: String): int
+			{
+				//talk the the flash api here.
+				return 18;
+			}
+		}
+	}
+END EX

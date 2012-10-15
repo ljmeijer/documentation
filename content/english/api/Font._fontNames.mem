@@ -1,0 +1,3 @@
+*undocumented*
+An array of font names.
+When the font is set to dynamic character rendering, then the first font in the array available on the OS will be used.

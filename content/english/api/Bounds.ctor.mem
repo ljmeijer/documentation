@@ -1,0 +1,8 @@
+Creates new Bounds with a given /center/ and total /size/. Bound ::ref::extents will be half the given size.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Create pillar bounding box centered at the origin
+
+	var bounds = Bounds (Vector3.zero, Vector3 (1, 2, 1));
+END EX

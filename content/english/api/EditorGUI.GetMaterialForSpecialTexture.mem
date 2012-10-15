@@ -1,0 +1,4 @@
+Gets a material for a special texture type: RGBM or doubleLDR lightmap or a normal map.
+Returns null if the texture is not a special type.
+SA: ::ref::DrawPreviewTexture
+@param t	Texture that is checked against being a special type.

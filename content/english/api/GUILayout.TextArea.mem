@@ -1,0 +1,28 @@
+<signature>
+TextArea_string_GUILayoutOptionArray
+TextArea_string_int_GUILayoutOptionArray
+TextArea_string_GUIStyle_GUILayoutOptionArray
+TextArea_string_int_GUIStyle_GUILayoutOptionArray
+</signature>
+Make a multi-line text field where the user can edit a string.
+
+{img GUILayoutTextArea.png}\\
+''Text area in the Game View.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	var stringToEdit : String = "Hello World\nI've got 2 lines...";
+
+	function OnGUI () {
+		// Make a multiline text area that modifies stringToEdit.
+		stringToEdit = GUILayout.TextArea (stringToEdit, 200);
+	}
+END EX
+
+@param text 			Text to edit. The return value of this function should be assigned back to the string as shown in the example.
+@param maxLength		The maximum length of the string. If left out, the user can type for ever and ever.
+@param style			The style to use. If left out, the /textField/ style from the current [[GUISkin]] is used.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@return the edited string.

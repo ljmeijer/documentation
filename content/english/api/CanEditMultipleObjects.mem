@@ -1,0 +1,6 @@
+Attribute used to make a custom editor support multi-object editing.
+
+When multiple objects are selected, Editors that don't have this attribute will show the message "Multi-object editing not supported".
+See the [[Editor]] class documentation on how to make an Editor support multi-object editing.
+
+SA: [[Editor]] class

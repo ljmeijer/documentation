@@ -1,0 +1,12 @@
+A standard 4x4 transformation matrix.
+
+A transformation matrix can perform arbitrary linear 3D transformations (i.e. translation, rotation, scale, shear etc.)
+and perspective transformations using homogenous coordinates. You rarely use matrices in scripts; most
+often using [[Vector3]]s, [[Quaternion]]s and functionality of [[Transform]] class is more straightforward. Plain matrices are used in special cases
+like setting up nonstandard camera projection.
+
+Consult any graphics textbook for in depth explanation of transformation matrices.
+
+In Unity, Matrix4x4 is used by several [[Transform]], [[Camera]], [[Material]] and [[GL]] functions.
+
+Matrices in unity are column major. Data is accessed as: row + (column*4)

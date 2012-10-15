@@ -1,0 +1,7 @@
+Stores light probes for the scene.
+
+The baked data includes: probe positions, SH coefficients and the tetrahedral tesselation.
+You can modify the coefficients at runtime. You can also swap the entire LightProbes object to
+a different pre-baked one using [[LightmapSettings.lightProbes]].
+
+SA: [[LightmapSettings]] class, Renderer.useLightProbes property.

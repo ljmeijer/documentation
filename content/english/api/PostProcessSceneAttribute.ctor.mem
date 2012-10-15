@@ -1,0 +1,9 @@
+Add this attribute to a method to get a notification just before building the scene (default order).<signature>
+ctor
+ctor_int
+</signature>
+Add this attribute to a method to get a notification just before building the scene with order.
+
+You can sort in which order postprocessors are executed.
+Smaller priorities will be imported first.
+Unity's own postprocessing will have order 0

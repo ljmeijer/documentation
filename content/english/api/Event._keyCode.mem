@@ -1,0 +1,17 @@
+The raw key code for keyboard events.
+Used in EventType.KeyDown and EventType.KeyUp events; this returns [[KeyCode]] value
+that matches the physical keyboard key. Use this for handling cursor keys,
+function keys etc.
+
+SA: Event.character.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Detects keys pressed and prints their keycode
+	function OnGUI() {
+		var e : Event = Event.current;
+		if (e.isKey) {
+			Debug.Log("Detected key code: " + e.keyCode);
+		}
+	}
+END EX

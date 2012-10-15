@@ -1,0 +1,9 @@
+Query this property inside Update() or OnInspectorUpdate() to ensure that any changes in the web view are updated on-screen.
+Returns true if the web view contents have changed.
+BEGIN EX
+
+	function Update() {
+		if ( webView && webView.needsRepaint )
+			Repaint();
+	}
+END EX

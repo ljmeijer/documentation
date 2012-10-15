@@ -1,0 +1,3 @@
+Raises a fatal error and does not expect the VM to recover. This function does not return.
+
+SA: <a href="http://download.oracle.com/javase/1.5.0/docs/guide/jni/spec/jniTOC.html">Java Native Interface Specification (Oracle)</a>

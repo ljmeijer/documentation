@@ -1,0 +1,35 @@
+Actually apply all previous ::ref::SetPixel and ::ref::SetPixels changes.
+
+If /updateMipmaps/ is /true/, the mipmap levels are recalculated as well, using
+the base level as a source. Usually you want to use /true/ in all cases except when
+you've modified the mip levels yourself using ::ref::SetPixels.
+By default /updateMipmaps/ is set to /true/.
+
+If /makeNoLongerReadable/ is /true/, texture will be marked as no longer readable
+and memory will be freed after uploading to GPU.
+By default /makeNoLongerReadable/ is set to /false/.
+
+This is a potentially expensive operation, so you'll want to change as many pixels
+as possible between /Apply/ calls.
+
+The texture has to have __Is Readable__ flag set in the import settings.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		// Create a new texture and assign it to the renderer's material
+		var texture = new Texture2D(128, 128);
+		renderer.material.mainTexture = texture;
+
+		// Fill the texture with Sierpinski's fractal pattern!
+		for (var y : int = 0; y < texture.height; ++y) {
+			for (var x : int = 0; x < texture.width; ++x) {
+				var color = (x&y) ? Color.white : Color.gray;
+				texture.SetPixel (x, y, color);
+			}
+		}
+		// Apply all SetPixel calls
+		texture.Apply();
+	}
+END EX
+SA: ::ref::SetPixel, ::ref::SetPixels functions.

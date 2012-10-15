@@ -1,0 +1,26 @@
+Fades the animation with name /animation/ in over a period of /time/ seconds and fades other animations out.
+
+if mode is PlayMode.StopSameLayer, animations in the same layer as /animation/ will be faded out while /animation/ is faded in.
+if mode is PlayMode.StopAll, all animations will be faded out while /animation/ is faded in.
+
+If the animation is not set to be looping it will be stopped and rewinded after playing.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Fade the walk cycle in and fade all other animations in the same layer out.
+	// Complete the fade within 0.2 seconds.
+	animation.CrossFade("Walk", 0.2);
+END EX
+Another example.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Makes a character contains a Run and Idle animation 
+	// fade between them when the player wants to move
+	function Update () {
+		if (Mathf.Abs(Input.GetAxis("Vertical")) > 0.1)
+			animation.CrossFade("Run");
+		else
+			animation.CrossFade("Idle");
+	}
+END EX

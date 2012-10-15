@@ -1,0 +1,29 @@
+Get the GUI element at a specific screen position.
+
+Returns the [[GUIElement]] at a specific point on screen. If /screenPosition/ is inside some [[GUIElement]],
+that element is returned. Returns /null/ if the position is not inside any GUI element.
+GUI elements that belong to Ignore Raycast layer will be ignored, as if they would not exist.
+
+/screenPosition/ is measured in screen coordinates, like the values returned by Input.mousePosition property.
+
+__Note:__ GUILayer.HitTest only finds old-school GUI components
+(made up of the classes GUIElement, GUITexture, GUIText, GUILayer),
+and will not work with the "new" one (referred to as "UnityGUI" and
+made up of all the other GUIAnything classes, and the OnGUI() call).\\
+So if you're using UnityGUI, HitTest won't find anything.
+
+SA: GUIElement.HitTest, Input.mousePosition
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Tests if the mouse is touching a GUIElement.
+	// Add a GUITexture and put the mouse over it and
+	// it will print the GUITexture name.
+	private var test : GUILayer;
+	test = Camera.main.GetComponent(GUILayer);
+	function Update() {
+		if(test.HitTest(Input.mousePosition) != null) {
+			Debug.Log(test.HitTest(Input.mousePosition).name);
+		}
+	}
+END EX

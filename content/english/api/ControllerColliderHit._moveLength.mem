@@ -1,0 +1,10 @@
+How far the character has travelled until it hit the collider.
+Note that this can is different from what you pass to CharacterController.Move,
+because all movement is constrained by collisions.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnControllerColliderHit(hit : ControllerColliderHit) {
+		Debug.Log(hit.moveLength);
+	}
+END EX

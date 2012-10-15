@@ -1,0 +1,1 @@
+Deletes the session. Call End() prior to deleting the session.

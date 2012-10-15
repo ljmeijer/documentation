@@ -1,0 +1,25 @@
+Reset all the achievements for the local user.
+Only affects the currently running game.
+Javascript code example:
+BEGIN EX
+
+		function Start () {
+			GameCenterPlatform.ResetAllAchievements( function(resetResult) {
+				Debug.Log( (resetResult) ? "Reset done." : "Reset failed." );
+			});
+		}
+END EX
+C# example:
+BEGIN EX
+
+		using UnityEngine;
+		using UnityEngine.SocialPlatforms.GameCenter;
+		
+		public class Reset : MonoBehaviour {
+			void Start () {
+				GameCenterPlatform.ResetAllAchievements( (resetResult) => {
+					Debug.Log( (resetResult) ? "Reset done." : "Reset failed." );
+				});
+			}
+		}
+END EX

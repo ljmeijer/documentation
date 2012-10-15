@@ -1,0 +1,10 @@
+CSNONE
+Called on the client when a connection attempt fails for some reason.
+The reason why it fails is passed in as a [[NetworkConnectionError]] enum.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnFailedToConnect(error: NetworkConnectionError) {
+		Debug.Log("Could not connect to server: "+ error);
+	}
+END EX

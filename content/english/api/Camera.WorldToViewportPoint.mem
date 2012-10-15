@@ -1,0 +1,19 @@
+Transforms /position/ from world space into viewport space.
+
+Viewport space is normalized and relative to the camera. The bottom-left of the camera is
+(0,0); the top-right is (1,1). The z position is in world units from the camera.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Finds out whether /target/ is on the left or right side of the screen
+	var target : Transform;
+	
+	function Update () {
+		var viewPos : Vector3 = camera.WorldToViewportPoint (target.position);
+		// viewport coordinates range from zero to one
+		if( viewPos.x > 0.5 )
+			print ("target is on the right side!");
+		else
+			print ("target is on the left side!");
+	}
+END EX

@@ -1,0 +1,2 @@
+Allow script debuggers to attach to the player remotely.
+SA: BuildPipeline.BuildPlayer.

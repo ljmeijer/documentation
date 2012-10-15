@@ -1,0 +1,2 @@
+Gets the number of friends a local user has.
+Returns 0, if user is not online.

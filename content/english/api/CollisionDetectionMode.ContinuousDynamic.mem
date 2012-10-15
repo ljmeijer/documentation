@@ -1,0 +1,4 @@
+Continuous collision detection is on for colliding with static and dynamic geometry.
+Prevent this Rigidbody from passing through static mesh geometry, and through other 
+Rigidbodies which have continuous collision detection enabled, when it is moving fast.
+This is the slowest collision detection mode, and should only be used for selected fast moving objects.

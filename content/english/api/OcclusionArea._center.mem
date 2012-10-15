@@ -1,0 +1,10 @@
+Center of the occlusion area relative to the transform
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Sets the center of the occlusion area to the center of the transform
+
+	@script RequireComponent(OcclusionArea)
+
+	transform.GetComponent(OcclusionArea).center = Vector3.zero;
+END EX

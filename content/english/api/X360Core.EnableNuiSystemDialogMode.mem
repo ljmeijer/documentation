@@ -1,0 +1,3 @@
+Enables Natural User Interface mode for system dialogs. No effect if Kinect is disabled.
+Calling this function will reset the skeleton tracking id.
+Call /SetNuiSystemDialogTrackingId/ to select an active skeleton.

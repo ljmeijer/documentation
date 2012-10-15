@@ -1,0 +1,8 @@
+How this light casts shadows?
+SA: [[LightShadows]], ::ref::shadowStrength property, Renderer.castShadows, Renderer.receiveShadows.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// make the light cast hard shadows
+	light.shadows = LightShadows.Hard;
+END EX

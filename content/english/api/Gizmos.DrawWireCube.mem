@@ -1,0 +1,10 @@
+Draw a wireframe box with /center/ and /size/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnDrawGizmosSelected () {
+		// Draw a yellow cube at the transforms position
+		Gizmos.color = Color.yellow;
+		Gizmos.DrawWireCube (transform.position, Vector3 (1,1,1));
+	}
+END EX

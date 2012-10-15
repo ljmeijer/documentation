@@ -1,0 +1,11 @@
+Interpolates between /min/ and /max/ and creates smoothing at the limits.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var minimum = 10.0;
+	var maximum = 20.0;
+	
+	function Update() {
+		transform.position = Vector3(Mathf.SmoothStep(minimum, maximum, Time.time), 0, 0);
+	}
+END EX

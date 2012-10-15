@@ -1,0 +1,28 @@
+Clears all vertex data and all triangle indices.
+You should call this function before rebuilding ::ref::triangles array.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws a simple triangle with UVs
+
+	function Start () {
+		gameObject.AddComponent("MeshFilter");
+		gameObject.AddComponent("MeshRenderer");
+		var mesh : Mesh = GetComponent(MeshFilter).mesh;
+
+		// Clears all the data that the mesh can contain previously.
+		mesh.Clear();
+
+		mesh.vertices = [Vector3(0,0,0), Vector3(0,1,0), Vector3(1, 1, 0)];
+		mesh.uv = [Vector2 (0, 0), Vector2 (0, 1), Vector2 (1, 1)];
+		mesh.triangles = [0, 1, 2];
+	}
+END EX
+
+Default behaviour of this function keeps the existing vertex layout:
+if the mesh had tangent vectors and vertex colors, for example, then
+the tangents and colors will be part of mesh data once you fill in
+new vertex data. If you want to completely clear the mesh and start
+with an empty vertex layout, pass false for /keepVertexLayout/ parameter.
+Alternatively, assigning an empty array to any mesh component will also
+remove it from the vertex layout.

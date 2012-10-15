@@ -1,0 +1,2 @@
+Reapply the clipping info.
+Call this after switching render buffers.

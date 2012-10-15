@@ -1,0 +1,4 @@
+The BitStream class represents seralized variables, packed into a stream.
+Data can be serialized, transmitted, and then received by remote clients by
+using this class. See the [[wiki:class-NetworkView|Network View component reference]] page for general
+information on network synchronization and the Network.OnSerializeNetworkView function for more information.

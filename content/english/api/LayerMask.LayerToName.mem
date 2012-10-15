@@ -1,0 +1,8 @@
+Given a layer number, returns the name of the layer as defined in either a Builtin or a User Layer in the [[wiki:class-TagManager|Tag Manager]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints the name of the layer 1
+
+	Debug.Log(LayerMask.LayerToName(1));
+END EX

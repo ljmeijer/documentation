@@ -1,0 +1,13 @@
+Echo decay per delay. 0 to 1. 1.0 = No decay, 0.0 = total decay (i.e. simple 1 line delay). Default = 0.5.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the decayRatio on the chorus filter to total decay
+	
+	@script RequireComponent(AudioSource)
+	@script RequireComponent(AudioEchoFilter)
+	
+	function Start() {
+		GetComponent(AudioEchoFilter).decayRatio = 0.0;
+	}
+END EX

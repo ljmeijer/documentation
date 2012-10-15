@@ -1,0 +1,6 @@
+Use a two-pass shader for the vegetation in the terrain engine.
+
+If enabled, vegetation will have smoothed edges, if disabled all plants
+will have hard edges but are rendered roughly twice as fast.
+
+SA: [[wiki:class-QualitySettings|Quality Settings]].

@@ -1,0 +1,8 @@
+The light is an area light. It affects only lightmaps and lightprobes.
+SA: Light.type, [[wiki:class-Light|light component]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Make the light an area light
+	light.type = LightType.Area;
+END EX

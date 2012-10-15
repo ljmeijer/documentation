@@ -1,0 +1,5 @@
+A script interface for the [[wiki:class-Skybox|skybox component]].
+
+The skybox class has only the ::ref::material property.
+
+SA: [[wiki:class-Skybox|skybox component]].

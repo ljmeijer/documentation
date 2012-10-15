@@ -1,0 +1,7 @@
+Allowed error of animation rotation compression.
+
+Allowed error is defined in angle (in degrees) between compressed and 
+original quaternions on a curve. This settings used only when animation keyframe 
+reduction is enabled.
+
+SA: ::ref::animationCompression, [[ModelImporterAnimationCompression]].

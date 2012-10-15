@@ -1,0 +1,7 @@
+Adds an animation event to the clip.
+
+Note that events added with AddEvent will only persist until play mode
+is exited of player is quit. If you want to add an event to a clip persistently,
+use AnimationUtility.SetAnimationEvents from the Unity editor.
+
+SA: [[AnimationEvent]], [[AnimationUtility]] classes.

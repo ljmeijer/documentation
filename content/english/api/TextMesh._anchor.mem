@@ -1,0 +1,6 @@
+Which point of the text shares the position of the Transform
+CONVERTEXAMPLE
+BEGIN EX
+
+	GetComponent(TextMesh).anchor = TextAnchor.MiddleCenter;
+END EX

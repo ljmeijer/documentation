@@ -1,0 +1,5 @@
+Amount of video memory present (RO).
+
+This is the approximate amount of graphics memory in megabytes.
+
+SA: SystemInfo.systemMemorySize.

@@ -1,0 +1,7 @@
+Gizmos are used to give visual debugging or setup aids in the scene view.
+
+All gizmo drawing has to be done in either MonoBehaviour::pref::OnDrawGizmos or
+MonoBehaviour::pref::OnDrawGizmosSelected functions of the script.
+
+__OnDrawGizmos__ is called every frame. All gizmos rendered within OnDrawGizmos are pickable.\\
+__OnDrawGizmosSelected__ is called only if the object the script is attached to is selected.

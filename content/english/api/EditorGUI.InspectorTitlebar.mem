@@ -1,0 +1,69 @@
+<signature>
+InspectorTitlebar_Rect_bool_object
+InspectorTitlebar_Rect_bool_objectArray
+</signature>
+Make an inspector-window-like titlebar.
+The titlebar has a foldout arrow, a help icon, and a settings menu that depends on the type of the object supplied.
+
+{img EditorGUIInspectorTitlebar.png}\\
+''Inspector titlebar in an Editor Window.''
+BEGIN EX
+
+	// Editor window that shows the detailed rotation (X,Y,Z and W components), 
+	// the position in 3D space and position in Screen space of the selected 
+	// transform.
+	
+	class CustomTransformInspector extends EditorWindow {
+		var showing : boolean = true;
+		var rotationComp : Vector4;
+	
+		@MenuItem("Examples/GameObject detailed inspector")
+		static function Init() {
+			var window = GetWindow(CustomTransformInspector);
+			window.Show();
+		}
+		
+		function OnInspectorUpdate() {
+			Repaint();
+		}
+		function OnGUI() {
+			var currObj = Selection.activeTransform;
+			showing = EditorGUI.InspectorTitlebar(Rect(0,0,position.width, 20), showing, currObj);
+			if(showing) {
+				if(currObj) {
+					currObj.position = EditorGUI.Vector3Field(Rect(3,15,position.width-6,20),
+							"Position in 3D Space:",
+							currObj.position);
+					
+					EditorGUI.Vector2Field(Rect(3,50,position.width-6,20),
+							"Position in Screen Space:",
+							Camera.main.WorldToScreenPoint(currObj.position));
+					
+					rotationComp = EditorGUI.Vector4Field(Rect(3, 85, position.width-6, 20),
+									"Detailed Rotation:",
+									QuaternionToVector4(currObj.localRotation));
+					currObj.localRotation = ConvertToQuaternion(rotationComp);
+									
+					currObj.localScale = EditorGUI.Vector3Field(Rect(3,120,position.width-6,20),
+									"Scale:",
+									currObj.localScale);
+					
+				} else {
+					EditorGUI.DropShadowLabel(Rect(3,15,position.width,20),"Select an Object to inspect");
+				}		
+			}
+		}
+		
+		function ConvertToQuaternion(v4 : Vector4) {
+			return Quaternion(v4.x, v4.y, v4.z, v4.w);
+		}
+		function QuaternionToVector4(q : Quaternion) {
+			return Vector4(q.x, q.y, q.z, q.w);
+		}	
+	}
+END EX
+
+@param position Rectangle on the screen to use for the titlebar.
+@param foldout The foldout state shown with the arrow.
+@param targetObj The object (for example a component) or objects that the titlebar is for.
+@returns The foldout state selected by the user.

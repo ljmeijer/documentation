@@ -1,0 +1,15 @@
+Style used by default for the background part of GUI::ref::VerticalScrollbar controls.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Modifies only the default background of the 
+	// vertical scrollbar of the current GUISkin
+
+	var hSbarValue : float;
+	var style : GUIStyle;
+
+	function OnGUI () {
+		GUI.skin.verticalScrollbar = style;
+		hSbarValue = GUILayout.VerticalScrollbar (hSbarValue, 1.0, 0.0, 10.0);
+	}
+END EX

@@ -1,0 +1,9 @@
+Force cone friction to be used for this rigidbody.
+This insures that all contacts involving the actor will use cone friction. This will however have a negative impact on 
+performance. By default this is off and a much faster and almost as good approximation called pyramid friction method is used.
+In most cases it is recommended to leave this value off.
+CONVERTEXAMPLE
+BEGIN EX
+
+	rigidbody.useConeFriction = true;
+END EX

@@ -1,0 +1,4 @@
+Lightmap format of a [[Texture2D|texture]].
+
+SA: Texture2D.Texture2D, [[wiki:class-Texture2D|texture assets]].
+*undocumented Should be internal I guess, no public API ever uses it.

@@ -1,0 +1,2 @@
+Scaling mode for non power of two textures in [[TextureImporter]].
+SA: TextureImporter.npotScale.

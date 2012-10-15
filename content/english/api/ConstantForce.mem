@@ -1,0 +1,7 @@
+A force applied constantly.
+This is a small physics utility class used to apply a continous force to an object.
+
+Rigidbody.AddForce applies a force to the [[Rigidbody]] only for one frame, thus you have to keep calling the function.
+ConstantForce on the other hand will apply the force every frame until you change the force or torque to a new value.
+
+SA: [[Rigidbody]]

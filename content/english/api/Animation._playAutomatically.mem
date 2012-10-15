@@ -1,0 +1,6 @@
+Should the default animation clip (Animation.clip) automatically start playing on startup.
+CONVERTEXAMPLE
+BEGIN EX
+
+	animation.playAutomatically = true;
+END EX

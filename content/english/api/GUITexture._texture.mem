@@ -1,0 +1,8 @@
+The texture used for drawing.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Assign someTexture to the guiTexture
+	var someTexture : Texture2D;
+	guiTexture.texture = someTexture;
+END EX

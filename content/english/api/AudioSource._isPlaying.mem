@@ -1,0 +1,17 @@
+Is the ::ref::clip playing right now (RO)?
+
+__Note:__ AudioSource.isPlaying will return ''false'' when AudioSource.Pause() is called. When you use
+AudioSource.Play() again back, it will return true.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// When the audio component has stopped playing, play otherClip
+	var otherClip : AudioClip;
+
+	function Update (){
+		if (!audio.isPlaying){
+			audio.clip = otherClip;
+			audio.Play();
+		}
+	}
+END EX

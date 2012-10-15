@@ -1,0 +1,13 @@
+The playback speed of the animation. 1 is normal playback speed.
+A negative playback speed will play the animation backwards.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Walk backwards
+	animation["Walk"].speed = -1.0;
+
+	// Walk at double speed
+	animation["Walk"].speed = 2;
+END EX
+
+SA: AnimationState::ref::time, AnimationState::ref::wrapMode properties and [[WrapMode]] enum.

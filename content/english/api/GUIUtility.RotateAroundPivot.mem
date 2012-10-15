@@ -1,0 +1,20 @@
+Helper function to rotate the GUI around a point.
+
+Modifies GUI.matrix to rotate all GUI elements /angle/ degrees around /pivotPoint/.
+
+SA: GUI.matrix, ::ref::ScaleAroundPivot
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Rotate a button 10 degrees clockwise when presed.
+
+	private var rotAngle : float = 0;
+	private var pivotPoint : Vector2;
+
+	function OnGUI () {   
+		pivotPoint = Vector2(Screen.width/2,Screen.height/2);
+		GUIUtility.RotateAroundPivot (rotAngle, pivotPoint); 
+		if(GUI.Button(Rect(Screen.width/2-25, Screen.height/2-25, 50, 50),"Rotate"))
+			rotAngle += 10;
+	}
+END EX

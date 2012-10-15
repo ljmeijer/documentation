@@ -1,0 +1,41 @@
+Calculate the size of a some content if it is rendered with this style.
+This function does not take wordwrapping into account. To do that, you need to determine the allocated width and then call ::ref::CalcHeight to figure out the wordwrapped height.
+BEGIN EX
+
+	// Simple custom editor that when any SimpleExampleScript
+	// is detected in the inspector, it shows it as an IntSlider
+	// and a GUILayouted bar.
+	
+	@CustomEditor(SimpleExampleScript)
+	class CustomEditorExample extends Editor {
+	
+		function OnInspectorGUI() {
+			// Get the place of the next available position in the script
+			target.damage = EditorGUILayout.IntSlider("Damage:",target.damage,1,100);
+			ProgressBar (target.damage / 100.0, "Damage");
+			
+			target.armor = EditorGUILayout.IntSlider("Armor:",target.armor,1,100);
+			ProgressBar (target.armor / 100.0, "Armor");
+			
+		}
+		
+		// Custom GUILayout progress bar.
+		function ProgressBar (value : float, label : String) {
+			var size : Vector2 = GUI.skin.GetStyle("ProgressBarText").CalcSize(GUIContent(label));
+			var rect : Rect = GUILayoutUtility.GetRect (size.x, Mathf.Max(size.y));
+			rect = Rect(rect.x + 4, rect.y, rect.width -8, rect.height);
+			EditorGUI.ProgressBar (rect, value, label);
+			EditorGUILayout.Space();
+		}
+	}
+END EX
+
+And the script attached to this editor script:
+BEGIN EX
+
+	// SimpleExampleScript.js
+	// This is not an editor script.
+	
+	var armor : int = 75;
+	var damage : int = 25;
+END EX

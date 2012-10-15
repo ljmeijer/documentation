@@ -1,0 +1,21 @@
+Returns the path to the Unity editor application (RO)
+
+SA: ::ref::applicationContentsPath.
+BEGIN EX
+
+	// This example lets you load Editor scripts
+	// automatically to your current working project
+	//
+	// Just place your editor scripts next to where the Unity binary
+	// resides.
+	
+	@MenuItem("Example/Load Editor Scripts")
+	static function LoadEditorScripts() {
+		// Get the editor folder that resides next to the Unity exec
+		var appPath : String[] = EditorApplication.applicationPath.Split(char.Parse("/"));
+		appPath[appPath.Length -1] = "Editor";
+		var editorFolder : String = String.Join("/",appPath);
+		Debug.Log("Loading editor scripts at: " + editorFolder);
+		FileUtil.CopyFileOrDirectory(editorFolder,"Assets/");
+	}
+END EX

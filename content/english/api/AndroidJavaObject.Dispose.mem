@@ -1,0 +1,4 @@
+IDisposable callback
+Used in conjunction with using() { }
+
+SA: <a href=http://msdn.microsoft.com/en-us/library/system.idisposable.aspx>IDisposable Interface (MSDN)</a>

@@ -1,0 +1,4 @@
+Add a continuous acceleration to the rigidbody, ignoring its mass.
+Apply the acceleration in each FixedUpdate over a duration of time. In contrast to ForceMode.Force, Acceleration will move every rigidbody the same way regardless of differences in mass.
+This mode is useful if you just want to control the acceleration of an object directly.
+In this mode, the unit of the force parameter is applied to the rigidbody as distance/time^2.

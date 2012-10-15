@@ -1,0 +1,28 @@
+Applies a force to the rigidbody that simulates explosion effects. The explosion force will fall off linearly with distance to the rigidbody.
+The function also plays nicely with ragdolls.
+
+If /radius/ is 0, the full force will be applied no matter how far away /position/ is from the rigidbody.
+/upwardsModifier/ applies the force as if it was applied from beneath the object.
+This is useful since explosions that throw things up instead of pushing things to the side look cooler.
+A value of 2 will apply a force as if it is applied from 2 meters below while not changing the actual explosion position.
+/explosionPosition/	is the position from which the explosion force is to be applied.
+/explosionRadius/ is the radius of the explosion. Rigidbodies further away than /explosionRadius/ will not be affected.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var radius = 5.0;
+	var power = 10.0;
+	function Start () {
+		// Applies an explosion force to all nearby rigidbodies
+		var explosionPos : Vector3 = transform.position;
+		var colliders : Collider[] = Physics.OverlapSphere (explosionPos, radius);
+		
+		for (var hit : Collider in colliders) {
+			if (!hit)
+				continue;
+			
+			if (hit.rigidbody)
+				hit.rigidbody.AddExplosionForce(power, explosionPos, radius, 3.0);
+		}
+	}
+END EX

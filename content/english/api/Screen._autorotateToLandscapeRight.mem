@@ -1,0 +1,3 @@
+Allow auto-rotation to landscape right?
+
+This setting is taken into account when ::ref::orientation is set to ScreenOrientation::pref::AutoRotation.

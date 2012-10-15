@@ -1,0 +1,4 @@
+Set Filtering on given controller and axis
+@param controllerID Controller index
+@axis Axis to set the filter on 
+@filterType Type of filter

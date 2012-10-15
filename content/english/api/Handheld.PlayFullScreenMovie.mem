@@ -1,0 +1,43 @@
+Plays a full-screen movie.
+Note that player will stream movie directly
+from the device storage, therefore you have to provide movie as a
+separate files and not as a usual asset. You will have to create a
+folder named @@StreamingAssets@@ inside your Unity project (inside your
+Assets folder). Store your movies inside that folder.
+Unity will automatically copy contents of that folder into the
+application bundle.
+
+Calling this function will pause Unity during movie playback. When
+playback finishes Unity will resume.
+
+The first parameter, @@path@@, can be a network-based URL. The function
+will detect that by looking for a "://" substring that follows the
+protocol name.
+
+On iOS, @@Handheld.PlayFullScreenMovie@@ internally uses MPMoviePlayerController
+object to play movies. Therefore, you should expect the same behavior
+and the same supported formats. MPMoviePlayerController supports any
+movie or audio files that already play correctly on an iPod or iPhone.
+
+For movie files, this typically means files with the extensions .mov,
+.mp4, .mpv, and .3gp and using one of the following compression
+standards:
+<ul>
+<li>H.264 Baseline Profile Level 3.0 video, up to 640 x 480 at 30 fps.
+Note that B frames are not supported in the Baseline profile.</li>
+<li>MPEG-4 Part 2 video (Simple Profile).</li>
+</ul>
+
+Calling this function will initiate a transition that fades the screen
+from your current content to the designated background color of the
+player. When playback finishes, the player uses another fade effect to
+transition back to your content.
+
+You can find Apple's MPMoviePlayerController documentation here:
+<a href="http://developer.apple.com/library/ios/#DOCUMENTATION/MediaPlayer/Reference/MPMoviePlayerController_Class/Reference/Reference.html">MPMoviePlayerController Class Reference</a>
+BEGIN EX
+
+	function Start () {
+		Handheld.PlayFullScreenMovie ("StarWars.mp4", Color.black, FullScreenMovieControlMode.CancelOnInput);
+	}
+END EX

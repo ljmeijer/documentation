@@ -1,0 +1,12 @@
+The density of the exponential fog.
+
+Fog density is used by FogMode::pref::Exponential and FogMode::pref::ExponentialSquared
+modes.
+BEGIN EX
+
+	/// Set for density
+	RenderSettings.fogDensity = 0.1;
+	// And enable fog
+	RenderSettings.fog = true;
+END EX
+SA: RenderSettings.fogMode, [[wiki:class-RenderSettings|Render Settings manager]]

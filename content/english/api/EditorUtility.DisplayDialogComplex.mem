@@ -1,0 +1,47 @@
+Displays a modal dialog with three buttons.
+
+Use it for displaying message boxes in the editor.
+
+Similar to ::ref::DisplayDialog, only this version shows a dialog with three buttons. /ok/, /cancel/ and /alt/
+are labels to be displayed on the buttons. DisplayDialogComplex returns an integer 0, 1 or 2 corresponding to
+ok, cancel and alt buttons.
+
+SA: ::ref::DisplayDialog function.
+
+{img EditorUtilityDisplayDialogComplex.png}\\
+''Display dialog complex for the example below.''
+BEGIN EX
+
+	// Lets you save, save and quit or quit without saving
+
+	class EditorUtilityDisplayDialogComplex extends MonoBehaviour {
+
+		@MenuItem("Examples/Enhanced Save")
+		static function Init() {
+			var option = EditorUtility.DisplayDialogComplex(
+					"What do you want to do?",
+					"Please choose one of the following options.",
+					"Save Scene",
+					"Save and Quit",
+					"Quit without saving");
+			switch (option) {
+				// Save Scene
+				case 0:
+					EditorApplication.SaveScene(EditorApplication.currentScene);
+					break;
+				// Save and Quit.
+				case 1:
+					EditorApplication.SaveScene(EditorApplication.currentScene);
+					EditorApplication.Exit(0);
+					break;
+				// Quit Without saving.
+				case 2:
+					EditorApplication.Exit(0);
+					break;
+				default:
+					Debug.LogError("Unrecognized option.");
+
+			}
+		}
+	}
+END EX

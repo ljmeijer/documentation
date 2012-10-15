@@ -1,0 +1,64 @@
+<signature>
+EnumPopup_Enum_GUILayoutOptionArray
+EnumPopup_Enum_GUIStyle_GUILayoutOptionArray
+EnumPopup_string_Enum_GUILayoutOptionArray
+EnumPopup_string_Enum_GUIStyle_GUILayoutOptionArray
+EnumPopup_GUIContent_Enum_GUILayoutOptionArray
+EnumPopup_GUIContent_Enum_GUIStyle_GUILayoutOptionArray
+</signature>
+Make an enum popup selection field.
+Takes the currently selected enum value as a parameter and returns the enum value selected by the user.
+
+{img EditorGUILayoutEnumPopup.png}\\
+''Creates a primitive selected by the user.''
+BEGIN EX
+
+	// Creates an instance of a primitive depending on the option selected by the user.
+	
+	enum OPTIONS { 
+		CUBE = 0, 
+		SPHERE = 1, 
+		PLANE = 2
+	}
+	class EditorGUILayoutEnumPopup extends EditorWindow {
+		var op : OPTIONS;
+		
+		@MenuItem("Examples/Editor GUILayout Enum Popup usage")
+		static function Init() {
+			var window = GetWindow(EditorGUILayoutEnumPopup);
+			window.Show();
+		}
+		function OnGUI() {
+			op = EditorGUILayout.EnumPopup("Primitive to create:", op);
+			if(GUILayout.Button("Create"))
+				InstantiatePrimitive(op);
+		}
+		function InstantiatePrimitive(op : OPTIONS) {
+			switch (op) {
+				case OPTIONS.CUBE:
+					var cube : GameObject  = GameObject.CreatePrimitive(PrimitiveType.Cube);
+	   				cube.transform.position = Vector3.zero;
+	   				break;
+				case OPTIONS.SPHERE:
+					 var sphere : GameObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+					sphere.transform.position = Vector3.zero;
+					break;
+				case OPTIONS.PLANE:
+					var plane : GameObject = GameObject.CreatePrimitive(PrimitiveType.Plane);
+					plane.transform.position = Vector3.zero;
+					break;
+				default:
+					Debug.LogError("Unrecognized Option");
+					break;
+			}
+		}
+	}
+END EX
+
+@param label Optional label in front of the field.
+@param selected The enum option the field shows.
+@param style Optional [[GUIStyle]].
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The enum option that has been selected by the user.

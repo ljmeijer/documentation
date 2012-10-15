@@ -1,0 +1,9 @@
+The name of the object.
+
+Components share the same name with the game object and all attached components.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Changes the name of the game object to Hello
+	name = "Hello";
+END EX

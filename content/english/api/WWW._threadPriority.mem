@@ -1,0 +1,15 @@
+Priority of [[AssetBundle]] decompression thread.
+
+You can control decompression speed vs. impact on frame rate tradeoff when downloading Asset Bundles in the background.
+When using lower priority, decompression will take longer, but will not have such a big impact on frame rates.
+Default value is ThreadPriority.Normal.
+BEGIN EX
+
+	function Start () {
+		var www = new WWW ("http://myserver/myBundle.unity3d");
+		www.threadPriority = ThreadPriority.Low;
+		yield www;
+		// Get the designated main asset and instantiate it.
+		Instantiate(www.assetBundle.mainAsset);
+	}
+END EX

@@ -1,0 +1,125 @@
+Render into a static cubemap from this camera.
+
+This function is mostly useful in the editor for "baking" static cubemaps of your scene. See
+wizard example below. If you want a realtime-updated cubemap, use RenderToCubemap variant that uses
+a RenderTexture with RenderTexture::pref::isCubemap flag, see below.
+
+Camera's position, clear flags and clipping plane distances will be used to
+render into cubemap faces. /faceMask/ is a bitfield indicating which cubemap faces should be rendered into. Each
+bit that is set corresponds to a face. Bit numbers are integer values of [[CubemapFace]] enum.
+By default all six cubemap faces will be rendered (default value 63 has six lowest bits on).
+
+This function will return /false/ if rendering to cubemap fails. Some graphics hardware does not
+support the functionality.
+
+__Note:__ This is a Unity PRO feature.
+
+SA: [[wiki:class-Cubemap|Cubemap assets]], [[wiki:shader-ReflectiveFamily|Reflective shaders]].
+BEGIN EX
+
+	// Render scene from a given point into a static cube map.
+	// Place this script in Editor folder of your project.
+	// Then use the cubemap with one of Reflective shaders!
+	class RenderCubemapWizard extends ScriptableWizard {
+		var renderFromPosition : Transform;
+		var cubemap : Cubemap;
+		
+		function OnWizardUpdate () {
+			helpString = "Select transform to render from and cubemap to render into";
+			isValid = (renderFromPosition != null) && (cubemap != null);
+		}
+		
+		function OnWizardCreate () {
+			// create temporary camera for rendering
+			var go = new GameObject( "CubemapCamera", Camera );
+			// place it on the object
+			go.transform.position = renderFromPosition.position;
+			go.transform.rotation = Quaternion.identity;
+
+			// render into cubemap		
+			go.camera.RenderToCubemap( cubemap );
+			
+			// destroy temporary camera
+			DestroyImmediate( go );
+		}
+		
+		@MenuItem("GameObject/Render into Cubemap")
+		static function RenderCubemap () {
+			ScriptableWizard.DisplayWizard.<RenderCubemapWizard>(
+				"Render cubemap", "Render!");
+		}
+	}
+END EX<signature>
+RenderToCubemap_Cubemap_int
+RenderToCubemap_RenderTexture_int
+</signature>
+Render into a cubemap from this camera.
+
+This is used for real-time reflections into cubemap render textures. It can be quite expensive though,
+especially if all six cubemap faces are rendered each frame.
+
+Camera's position, clear flags and clipping plane distances will be used to
+render into cubemap faces. /faceMask/ is a bitfield indicating which cubemap faces should be rendered into. Each
+bit that is set corresponds to a face. Bit numbers are integer values of [[CubemapFace]] enum.
+By default all six cubemap faces will be rendered (default value 63 has six lowest bits on).
+
+This function will return /false/ if rendering to cubemap fails. Some graphics hardware does not
+support the functionality.
+
+__Note:__ This is a Unity PRO feature.
+
+SA: RenderTexture.isCubemap, [[wiki:shader-ReflectiveFamily|Reflective shaders]].
+BEGIN EX
+
+	// Attach this script to an object that uses a Reflective shader.
+	// Realtime reflective cubemaps!
+
+	@script ExecuteInEditMode
+
+	var cubemapSize = 128;
+	var oneFacePerFrame = false;
+	private var cam : Camera;
+	private var rtex : RenderTexture;
+
+	function Start () {
+		// render all six faces at startup
+		UpdateCubemap( 63 );
+	}
+
+	function LateUpdate () {
+		if (oneFacePerFrame) {
+			var faceToRender = Time.frameCount % 6;
+			var faceMask = 1 << faceToRender;
+			UpdateCubemap (faceMask);
+		} else {
+			UpdateCubemap (63); // all six faces
+		}
+	}
+
+	function UpdateCubemap (faceMask : int) {
+		if (!cam) {
+			var go = new GameObject ("CubemapCamera", Camera);
+			go.hideFlags = HideFlags.HideAndDontSave;
+			go.transform.position = transform.position;
+			go.transform.rotation = Quaternion.identity;
+			cam = go.camera;
+			cam.farClipPlane = 100; // don't render very far into cubemap
+			cam.enabled = false;
+		}
+		
+		if (!rtex) {	
+			rtex = new RenderTexture (cubemapSize, cubemapSize, 16);
+			rtex.isCubemap = true;
+			rtex.hideFlags = HideFlags.HideAndDontSave;
+			renderer.sharedMaterial.SetTexture ("_Cube", rtex);
+		}
+		
+		cam.transform.position = transform.position;
+		cam.RenderToCubemap (rtex, faceMask);
+	}
+
+	function OnDisable () {
+		DestroyImmediate (cam);
+		DestroyImmediate (rtex);
+	}
+END EX

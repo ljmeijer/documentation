@@ -1,0 +1,2 @@
+Within the Min distance the AudioSource will cease to grow louder in volume.
+Outside the min distance the volume starts to attenuate.

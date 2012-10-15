@@ -1,0 +1,14 @@
+Calls a Java method on an object (non-static).
+
+To call a method with return type 'void', use the regular version.
+BEGIN EX
+
+	// Create a android.content.res.Configuration object and call setToDefaults.
+	function Start() {
+		var jo = new AndroidJavaObject("android.content.res.Configuration");
+		jo.Call("setToDefaults");
+	}
+END EX
+
+@param methodName Specifies which method to call.
+@param args An array of parameters passed to the method.

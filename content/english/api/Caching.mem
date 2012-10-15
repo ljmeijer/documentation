@@ -1,0 +1,2 @@
+The Caching class lets you manage cached AssetBundles, downloaded using WWW::ref::LoadFromCacheOrDownload.
+SA: WWW.LoadFromCacheOrDownload

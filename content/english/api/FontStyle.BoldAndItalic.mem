@@ -1,0 +1,6 @@
+Bold and Italic styles applied to your texts.
+CONVERTEXAMPLE
+BEGIN EX
+
+	guiText.fontStyle = FontStyle.BoldAndItalic;
+END EX

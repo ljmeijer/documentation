@@ -1,0 +1,5 @@
+Number of available blocks for application use under home directory. Result of ::ref::GetAvailableArea.
+BEGIN EX
+
+	Debug.Log ("Available blocks: " + sys.availableBlocks);
+END EX

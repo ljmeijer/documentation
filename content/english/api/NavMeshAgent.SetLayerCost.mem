@@ -1,0 +1,4 @@
+Sets the cost for traversing over geometry of the layer type.
+If you enable or disable the agent. The cost will be reset to the default layer cost.
+@param layer layer index.
+@param cost New cost for the specified layer.

@@ -1,0 +1,5 @@
+Initializes the video player
+SA: [[RenderTexture]], PS3VideoPlayer.Update
+@param	renderTexture	The target surface for the video rendering
+Use this function to initialize the size of the output video (when rendering into a render target).
+If this function is not called, then the video player will output at the rendering resolution.

@@ -1,0 +1,11 @@
+Sets the priority of the [[AudioSource]]
+Unity is virtualizing AudioSources, when there's more AudioSources playing than available hardware channels. 
+The AudioSources with lowest priority (and audibility) is virtualized first.
+Priority is an integer between 0 and 256. 0=highest priority, 256=lowest priority
+CONVERTEXAMPLE
+BEGIN EX
+
+	// occlude this sound if we dont have hardware resources to virtualize it
+
+	audio.priority = 256;
+END EX

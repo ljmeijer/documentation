@@ -1,0 +1,8 @@
+Compute Shader asset.
+
+Compute shaders are programs that run on the GPU outside of the normal rendering pipeline.
+They correspond to compute shader assets in the project (.compute files).
+
+Compute shaders need a fairly modern GPU and are only available when using DirectX 11 right now.
+
+SA: SystemInfo.supportsComputeShaders, [[ComputeBuffer]] class, [[wiki:ComputeShaders|Compute Shaders]].

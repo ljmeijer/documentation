@@ -1,0 +1,3 @@
+CSNONE
+Sent to all game objects when the player pauses.
+OnApplicationPause can be a co-routine, simply use the yield statement in the function.

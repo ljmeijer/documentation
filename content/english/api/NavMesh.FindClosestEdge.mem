@@ -1,0 +1,5 @@
+Locate the closest NavMesh edge from a point on the NavMesh.
+@param sourcePosition The origin of the distance query.
+@param hit Holds the properties of the resulting location.
+@param passableMask A mask specifying which NavMesh layers can be passed when finding the nearest edge.
+@returns True if a nearest edge is found.

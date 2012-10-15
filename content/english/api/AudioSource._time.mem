@@ -1,0 +1,23 @@
+Playback position in seconds.
+
+Use this to read current playback time or to seek to a new playback time.
+
+__Be aware that:__ On a compressed audio track position does not necessary reflect the actual time in the track\\ 
+Compressed audio is represented as a set of so-called packets. \\
+The length of a packet depends on the compression settings and can quite often be 2-3 seconds per packet.
+SA: ::ref::timeSamples variable.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints the elapsed time in seconds the audio
+	// source has been playing.
+	// Press "Return" to start the song and see how the 
+	// time gets restarted..
+	function Update() {
+		if(Input.GetKeyDown(KeyCode.Return)) {
+			audio.Stop();
+			audio.Play();
+		}
+		Debug.Log(audio.time);	
+	}
+END EX

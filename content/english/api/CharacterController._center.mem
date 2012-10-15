@@ -1,0 +1,9 @@
+The center of the character's capsule relative to the transform's position.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Move the center of the capsule up.
+	var controller : CharacterController;
+	controller = GetComponent(CharacterController);
+	controller.center = Vector3 (0, 1, 0);
+END EX

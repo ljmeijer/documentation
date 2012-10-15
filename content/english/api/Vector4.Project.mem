@@ -1,0 +1,3 @@
+Projects a vector onto another vector.
+
+Returns /a/ projected onto /b/.

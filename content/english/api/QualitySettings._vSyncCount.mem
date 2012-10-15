@@ -1,0 +1,11 @@
+The VSync Count.
+The number of VSyncs that should pass between each frame. Use 'Don't Sync' (0) to not wait for VSync.
+Value must be 0, 1 or 2
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Sync framerate to monitors refresh rate
+
+	QualitySettings.vSyncCount = 1;
+END EX
+SA: [[wiki:class-QualitySettings|Quality Settings]].

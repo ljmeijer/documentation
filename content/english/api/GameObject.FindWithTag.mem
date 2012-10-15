@@ -1,0 +1,17 @@
+Returns one active GameObject tagged /tag/. Returns null if no GameObject was found.
+Tags must be declared in the tag manager before using them.
+BEGIN EX
+
+	#pragma strict
+	var respawnPrefab : GameObject;
+	var respawn: GameObject;
+	
+	// Instantiates respawnPrefab at the location 
+	// of the game object with tag "Respawn"	
+	function Start()
+	{
+		if (respawn==null)
+			respawn = GameObject.FindWithTag ("Respawn");
+		Instantiate (respawnPrefab, respawn.transform.position, respawn.transform.rotation);
+	}
+END EX

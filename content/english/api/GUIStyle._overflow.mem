@@ -1,0 +1,16 @@
+Extra space to be added to the background image.
+This is used if your image has a drop shadow and you want to extend the background image beyond the rectangles specified for gui elements that use this style.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints the left, right, top and down values of the GUIStyle overflow
+
+	private var rctOff : RectOffset;
+	function OnGUI() {
+		if(GUI.skin.customStyles.Length > 0) {
+			rctOff = GUI.skin.customStyles[0].overflow;
+			Debug.Log("Left: " + rctOff.left + " Right: " + rctOff.right);
+			Debug.Log("Top: " + rctOff.top + " Bottom: " + rctOff.bottom);
+		}
+	}
+END EX

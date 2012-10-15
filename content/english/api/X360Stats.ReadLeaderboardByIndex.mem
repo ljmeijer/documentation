@@ -1,0 +1,6 @@
+Reads Xbox LIVE leaderboards starting with /startIndex/.
+/viewId/ ID of the title for which to retrieve statistics (Use 0 for current title)
+/columnIds/ Array of column IDs to retrieve
+/startIndex/ Rank at which to start the enumeration (1 to nnnn)
+/maxRows/ Number of rows to retrieve
+/onRead/ Delagate method to involke when results are ready

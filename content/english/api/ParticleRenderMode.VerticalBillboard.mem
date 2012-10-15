@@ -1,0 +1,1 @@
+Render the particles as billboards always facing the player, but not pitching along the x-Axis.

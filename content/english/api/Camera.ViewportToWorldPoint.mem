@@ -1,0 +1,19 @@
+Transforms /position/ from viewport space into world space.
+
+Viewport space is normalized and relative to the camera. The bottom-left of the camera is
+(0,0); the top-right is (1,1). The z position is in world units from the camera.
+
+Note that it transforms a x-y screen position, into a x-y-z position in 3D space. 
+
+You provide the function with a vector where the x-y components of the vector are the screen coordinates and the z component is the distance of the resulting plane from the camera.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draw a yellow sphere at top-right corner of the near plane
+	// for the selected camera in the scene view.
+	function OnDrawGizmosSelected () {
+		var p : Vector3 = camera.ViewportToWorldPoint (Vector3 (1,1, camera.nearClipPlane));
+		Gizmos.color = Color.yellow;
+		Gizmos.DrawSphere (p, 0.1);
+	}
+END EX

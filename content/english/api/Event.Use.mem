@@ -1,0 +1,2 @@
+Use this event.
+Call this method when you've used an event. The event's type will be set to EventType.Used, causing other GUI elements to ignore it.

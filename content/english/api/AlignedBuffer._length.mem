@@ -1,0 +1,6 @@
+Length of the buffer, in bytes.
+BEGIN EX
+
+	var buffer: AlignedBuffer = new AlignedBuffer (1024, AlignedBuffer.Memory.Mem1, 32);
+	Debug.Log ("Buffer length: " + buffer.length);
+END EX

@@ -1,0 +1,10 @@
+<signature>
+ToString
+ToString_string
+</signature>
+Returns a nicely formatted string of this color.
+CONVERTEXAMPLE
+BEGIN EX
+
+	print(Color.white);
+END EX

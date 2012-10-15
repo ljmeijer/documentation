@@ -1,0 +1,6 @@
+Enables the joint's motor.
+CONVERTEXAMPLE
+BEGIN EX
+
+	hingeJoint.useMotor = true;
+END EX

@@ -1,0 +1,6 @@
+Mesh compression setting.
+
+Compressing meshes saves space in the built game, but more compression
+introduces more artifacts in vertex data.
+
+SA: [[ModelImporterMeshCompression]].

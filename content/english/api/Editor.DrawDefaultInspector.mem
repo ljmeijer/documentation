@@ -1,0 +1,22 @@
+Draw the built-in inspector.
+Call this function from inside OnInspectorGUI method to draw the automatic inspector.
+It is useful you don't want to redo the entire inspector, but you want to add
+a few buttons to it.
+
+SA: ::ref::OnInspectorGUI
+BEGIN EX
+NOCHECK
+	// This example shows a custom inspector for an
+	// object "MyPlayerEditor", which has two variables, speed and ammo.
+	@CustomEditor(MyPlayerEditor)
+	class MyPlayerEditor extends Editor {
+		function OnInspectorGUI() {
+			EditorGUILayout.LabelField ("Some help", "Some other text");
+
+			target.speed = EditorGUILayout.Slider ("Speed", target.speed, 0, 100);
+
+			// Show default inspector property editor
+			DrawDefaultInspector ();
+		}
+	}
+END EX

@@ -1,0 +1,17 @@
+<signature>
+PropertyField_SerializedProperty_GUILayoutOptionArray
+PropertyField_SerializedProperty_GUIContent_GUILayoutOptionArray
+PropertyField_SerializedProperty_bool_GUILayoutOptionArray
+PropertyField_SerializedProperty_GUIContent_bool_GUILayoutOptionArray
+</signature>
+Make a field for [[SerializedProperty]].
+
+SA: [[SerializedProperty]], [[SerializedObject]].
+
+@param property The SerializedProperty to make a field for.
+@param label Optional label to use. If not specified the label of the property itself is used. Use GUIContent.none to not display a label at all.
+@param includeChildren If /true/ the property including children is drawn; otherwise only the control itself (such as only a foldout but nothing below it).
+@returns True if the property has children and is expanded and includeChildren was set to false; otherwise false.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight

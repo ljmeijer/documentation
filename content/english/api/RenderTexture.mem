@@ -1,0 +1,18 @@
+Render textures are textures that can be rendered to.
+
+They can be used to implement image based rendering effects, dynamic shadows,
+projectors, reflections or surveillance cameras.
+
+All rendering goes into the active RenderTexture (::ref::active class property).
+If the active RenderTexture is /null/ everything is rendered to the main window.
+
+Note that while [[wiki:class-RenderTexture|RenderTexture assets]] can be only power-of-two
+size, it is possible to create a non-power-of-two (''rect'') render textures from scripts.
+These are most often used for image post processing effects.
+
+Keep in mind that render texture contents can become "lost" on certain events, like loading
+a new level, system going to a screensaver mode, in and our of fullscreen and so on.
+When that happens, your existing render textures will become "not yet created" again,
+you can check for that with ::ref::IsCreated function.
+
+RenderTexture class is only available in __Unity Pro__.

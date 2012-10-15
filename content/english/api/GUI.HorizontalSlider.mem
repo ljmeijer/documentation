@@ -1,0 +1,23 @@
+<signature>
+HorizontalSlider_Rect_float_float_float
+HorizontalSlider_Rect_float_float_float_GUIStyle_GUIStyle
+</signature>
+A horizontal slider the user can drag to change a value between a min and a max.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws a horizontal slider control that goes from 0 to 10.
+	var hSliderValue : float = 0.0;
+	
+	function OnGUI () {
+		hSliderValue = GUI.HorizontalSlider (Rect (25, 25, 100, 30), hSliderValue, 0.0, 10.0);
+	}
+END EX
+
+@param position 			Rectangle on the screen to use for the slider.
+@param value					The value the slider shows. This determines the position of the draggable thumb.
+@param leftValue				The value at the left end of the slider
+@param rightValue				The value at the right end of the slider
+@param slider					The [[GUIStyle]] to use for displaying the dragging area. If left out, the /horizontalSlider/ style from the current [[GUISkin]] is used.
+@param thumb				The [[GUIStyle]] to use for displaying draggable thumb. If left out, the /horizontalSliderThumb/ style from the current [[GUISkin]] is used.
+@returns The value that has been set by the user.

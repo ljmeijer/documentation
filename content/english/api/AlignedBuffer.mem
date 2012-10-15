@@ -1,0 +1,1 @@
+Aligned buffer provides a mean to allocate an aligned block from memory pool either 1 or 2, with specific alignment. Particulary memory block, aligned to 32 bytes is required to be used for NAND memory reading and writing.

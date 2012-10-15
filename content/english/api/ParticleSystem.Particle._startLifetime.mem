@@ -1,0 +1,8 @@
+The starting lifetime of the particle.
+
+This is the total lifetime of this particle in seconds. It is set by the particle system when creating the particle.
+BEGIN EX
+
+	// Calculate how long the particle has been alive.
+	float timeAlive = particle.startLifetime - particle.lifetime;
+END EX

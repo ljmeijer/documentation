@@ -1,0 +1,14 @@
+Sets profiler output file in built players.
+If binary log is enabled, a file is generated named "<logfile>.data" which holds binary data for the profile
+This becomes a large file, so only enable it for a few frames
+on webplayers the file is placed next to the log file
+SA: Profiler.enableBinaryLog
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		Profiler.logFile = "mylog.log";
+		Profiler.enableBinaryLog = true; // writes to "mylog.log.data"
+		Profiler.enabled = true;
+	}
+END EX

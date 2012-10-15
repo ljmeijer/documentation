@@ -1,0 +1,116 @@
+Get an array of descriptions of all the properties this Procedural Material has.
+
+This can be used to build generic GUI that can be used to edit the properties of any Procedural Material
+without knowing the properties of it in advance.
+CONVERTEXAMPLE
+BEGIN EX
+
+var scrolling : Vector2;
+
+function OnGUI () {
+	if (renderer.sharedMaterial as ProceduralMaterial) {
+		// Show substance properties inside window
+		var windowRect = new Rect (Screen.width-250, 30, 220, Screen.height-60);
+		GUI.Window (0, windowRect, ProceduralPropertiesGUI, "Procedural Properties");
+	}
+}
+
+function ProceduralPropertiesGUI (windowId : int) {	
+	scrolling = GUILayout.BeginScrollView (scrolling);
+	
+	var substance = renderer.sharedMaterial as ProceduralMaterial;
+	
+	// Get a list of all the Procedural properties
+	var inputs = substance.GetProceduralPropertyDescriptions ();
+	// Iterate through all the properties
+	for (var i : int = 0; i < inputs.Length; i++) {
+		var input = inputs[i];
+		
+		// Handle the different types of properties
+		var type = input.type;
+		
+		// Show a boolean as a toggle
+		if (type == ProceduralPropertyType.Boolean) {
+			var inputBool = substance.GetProceduralBoolean (input.name);
+			var oldInputBool = inputBool;
+			inputBool = GUILayout.Toggle (inputBool, input.name);
+			if (inputBool != oldInputBool)
+				substance.SetProceduralBoolean (input.name, inputBool);
+		}
+		// Show a float as a slider
+		else if (type == ProceduralPropertyType.Float) {
+			// Only show GUI for numbers with a defined range
+			if (input.hasRange) {
+				GUILayout.Label (input.name);
+				
+				var inputFloat = substance.GetProceduralFloat (input.name);
+				var oldInputFloat = inputFloat;
+				
+				inputFloat = GUILayout.HorizontalSlider (inputFloat, input.minimum, input.maximum);
+				if (inputFloat != oldInputFloat)
+					substance.SetProceduralFloat (input.name, inputFloat);
+			}
+		}
+		// Show a vector as multiple sliders
+		else if (type == ProceduralPropertyType.Vector2 ||
+			type == ProceduralPropertyType.Vector3 ||
+			type == ProceduralPropertyType.Vector4
+		) {
+			// Only show GUI for numbers with a defined range
+			if (input.hasRange) {
+				GUILayout.Label (input.name);
+				
+				// How many components are in this vector?
+				var vectorComponentAmount = 4;
+				if (type == ProceduralPropertyType.Vector2) vectorComponentAmount = 2;
+				if (type == ProceduralPropertyType.Vector3) vectorComponentAmount = 3;
+				
+				var inputVector = substance.GetProceduralVector (input.name);
+				var oldInputVector = inputVector;
+				
+				// Loop through the vector component and show a slider for each
+				for (var c : int = 0; c < vectorComponentAmount; c++)
+					inputVector[c] = GUILayout.HorizontalSlider (
+						inputVector[c], input.minimum, input.maximum);
+				
+				if (inputVector != oldInputVector)
+					substance.SetProceduralVector (input.name, inputVector);
+			}
+		}
+		// Show a color as multiple sliders
+		else if (type == ProceduralPropertyType.Color3 || type == ProceduralPropertyType.Color4) {
+			GUILayout.Label (input.name);
+			
+			// How many numbers are in this color?
+			var colorComponentAmount = (type == ProceduralPropertyType.Color3 ? 3 : 4);
+			
+			var colorInput = substance.GetProceduralColor (input.name);
+			var oldColorInput = colorInput;
+			
+			// Loop through the vector numbers and show a slider for each
+			for (var d : int = 0; d < colorComponentAmount; d++)
+				colorInput[d] = GUILayout.HorizontalSlider (colorInput[d], 0, 1);
+			
+			if (colorInput != oldColorInput)
+				substance.SetProceduralColor (input.name, colorInput);
+		}
+		
+		// Show an enum as a selection grid
+		else if (type == ProceduralPropertyType.Enum) {
+			GUILayout.Label (input.name);
+			
+			var enumInput = substance.GetProceduralEnum (input.name);
+			var oldEnumInput = enumInput;
+			var enumOptions = input.enumOptions;
+			
+			enumInput = GUILayout.SelectionGrid (enumInput, enumOptions, 1);
+			if (enumInput != oldEnumInput)
+				substance.SetProceduralEnum (input.name, enumInput);
+		}
+	}
+	// Rebuild the textures to show the changes
+	substance.RebuildTextures();
+	
+	GUILayout.EndScrollView();
+}
+END EX

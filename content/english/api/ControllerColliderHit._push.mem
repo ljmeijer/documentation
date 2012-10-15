@@ -1,0 +1,3 @@
+*undocumented NOT IMPLEMENTED
+Set push to true to make it automatically push the hit rigidbody.
+This is for convinience. To fine tune game code you can apply your own forces to the hit rigidbodies.

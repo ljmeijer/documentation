@@ -1,0 +1,22 @@
+Sets a column of the matrix.
+
+You use this to build transformation matrices using right, up and forward vectors:
+CONVERTEXAMPLE
+BEGIN EX
+
+	// build a matrix from a transform.
+	var matrix = Matrix4x4();
+
+	/// Build a matrix from a transform.
+	function Start () {
+		matrix.SetColumn (0, transform.right);
+		matrix.SetColumn (1, transform.up);
+		matrix.SetColumn (2, transform.forward);
+		var p = transform.position;
+		matrix.SetColumn (3, Vector4 (p.x, p.y, p.z, 1));
+	}
+END EX
+
+The i-th column is set from /v/. /i/ must be from 0 to 3 inclusive.
+
+SA: ::ref::GetColumn.

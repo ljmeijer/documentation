@@ -1,0 +1,21 @@
+If the movie is downloading from a web site, this returns if enough data has been downloaded so playback should be able to start without interruptions.
+For movies not associated with a web stream, this value always returns true.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Plays a movie over a texture from a stream
+
+	var wwwData : WWW;
+	var url : String = "";
+
+	function Start () {
+		wwwData = new WWW(url);
+		guiTexture.texture = wwwData.movie;
+	}
+
+	function Update () {
+		var m : MovieTexture = guiTexture.texture as MovieTexture;
+		if (!m.isPlaying && m.isReadyToPlay)
+			m.Play ();
+	}
+END EX

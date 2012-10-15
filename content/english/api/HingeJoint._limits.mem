@@ -1,0 +1,15 @@
+The limits of the hinge joint.
+The joint will be limited so that the angle is always between /limits.min/ and /limits.max/.
+The joint angle is in degrees relative to the rest angle. The rest angle between the bodies is always zero at the beginning of the simulation.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Make hinge limit for a door.
+	var limits = hingeJoint.limits;
+	limits.min = 0;
+	limits.minBounce = 0;
+	limits.max = 90;
+	limits.maxBounce = 0;
+	hingeJoint.limits = limits;
+END EX
+Modifying the limit automatically enables it.

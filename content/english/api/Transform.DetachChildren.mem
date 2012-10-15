@@ -1,0 +1,9 @@
+Unparents all children.
+Useful if you want to destroy the root of a hierarchy without destroying the children.
+CONVERTEXAMPLE
+BEGIN EX
+
+	transform.DetachChildren();
+	Destroy(gameObject);
+END EX
+SA: Transform.parent to detach/change the parent of a single transform

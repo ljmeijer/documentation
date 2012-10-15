@@ -1,0 +1,4 @@
+Reads the default repeat mode set higher up.
+If you haven't changed wrapMode on [[AnimationClip]] or on [[Animation]], then WrapMode::ref::Default resolves to WrapMode::ref::Once.
+
+SA: [[WrapMode]] for me details.

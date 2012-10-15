@@ -1,0 +1,2 @@
+Returns false if application is altered in any way after it was built.
+Otherwise returns true.

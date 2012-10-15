@@ -1,0 +1,7 @@
+Pixel distance from mouse pointer to a rectangle on screen
+
+Calculates the screen space distance from the mouse pointer to the rectangle at given world
+space /position/ with the given /rotation/ and /size/. The rectangle is defined by the right
+and up vectors of the rotation in Euler angles.
+
+SA: ::ref::DistanceToDisc.

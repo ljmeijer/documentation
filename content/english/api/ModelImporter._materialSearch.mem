@@ -1,0 +1,4 @@
+Existing material search setting.
+
+When importing new model Unity will try to find existing materials in a set of folders based on this setting.
+SA: [[ModelImporterMaterialSearch]], ::ref::materialName, ::ref::importMaterials.

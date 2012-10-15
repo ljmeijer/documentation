@@ -1,0 +1,9 @@
+Test if Wii Remote's Rumble Motor feature is enabled.
+BEGIN EX
+
+	function OnGUI () {
+		GUI.Label (Rect (100,100,100,50), "Motor feature is " + 
+			WiiInput.motorEnabled ? "on" : "off");
+	}
+END EX
+Boolean describing wheather motor feature is on or off.

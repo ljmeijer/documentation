@@ -1,0 +1,4 @@
+The color of the particle.
+Alpha channel of the color is used to fade out particles.
+
+SA: [[wiki:comp-ParticlesLegacy|Particles documentation]].

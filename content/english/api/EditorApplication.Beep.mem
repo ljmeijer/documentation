@@ -1,0 +1,9 @@
+Plays system beep sound.
+BEGIN EX
+
+	// Play sound on mouse down event 
+	function OnGUI () {
+		if (Event.current.type == EventType.MouseDown)
+			EditorApplication.Beep();
+	}
+END EX

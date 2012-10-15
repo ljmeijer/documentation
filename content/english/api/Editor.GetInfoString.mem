@@ -1,0 +1,6 @@
+Implement this method to show asset information on top of the asset preview.
+You will also have to implement HasPreviewGUI and OnPreviewGUI in addition to this method.
+The default implementation just returns an empty string, which disables the feature.
+
+__Note:__ Inspector previews are limited to the primary editor of persistent objects (assets), e.g., GameObjectInspector, MaterialEditor, TextureInspector.
+This means that it is currently not possible for a component to have its own inspector preview.

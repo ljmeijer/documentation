@@ -1,0 +1,8 @@
+The shared material of this object.
+Modifying /sharedMaterial/ will change the appearance of all objects using this material,
+and change material settings that are stored in the project too.
+
+It is not recommended to modify materials returned by sharedMaterial.
+If you want to modify the material of a renderer use ::ref::material instead.
+
+SA: ::ref::material property.

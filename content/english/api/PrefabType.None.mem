@@ -1,0 +1,2 @@
+The object is not a prefab nor an instance of a prefab.
+SA: EditorUtility.GetPrefabType.

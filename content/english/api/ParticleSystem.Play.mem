@@ -1,0 +1,4 @@
+Plays the particle system.
+SA: ::ref::Stop, ::ref::Pause functions.
+
+@param withChildren Play all child particle systems as well.

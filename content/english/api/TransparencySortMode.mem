@@ -1,0 +1,9 @@
+Transparent object sorting mode of a [[Camera]].
+
+By default, perspective cameras sort objects based on distance from camera position
+to the object center; and orthographic cameras sort based on distance along the view direction.
+
+If you're making a 2D game with a perspective camera, you might want to use TransparencySortMode.Orthographic
+sort mode so that objects are sorted based on distance along the camera's view.
+
+SA: Camera.transparencySortMode.

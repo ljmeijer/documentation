@@ -1,0 +1,40 @@
+CSNONE
+OnCollisionEnter is called when this collider/rigidbody has begun touching another rigidbody/collider.
+In contrast to OnTriggerEnter, OnCollisionEnter is passed the [[Collision]] class and not a Collider.
+The [[Collision]] class contains information about contact points, impact velocity etc.
+If you don't use collisionInfo in the function, leave out the collisionInfo parameter as this avoids unneccessary calculations.
+Note that collision events are only sent if one of the colliders also has a non-kinematic rigidbody attached.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnCollisionEnter(collision : Collision) {
+		// Debug-draw all contact points and normals
+		for (var contact : ContactPoint in collision.contacts) {
+			Debug.DrawRay(contact.point, contact.normal, Color.white);
+		}
+		
+		// Play a sound if the coliding objects had a big impact.		
+		if (collision.relativeVelocity.magnitude > 2)
+			audio.Play();
+	}
+END EX
+Another example:
+CONVERTEXAMPLE
+BEGIN EX
+
+	// A grenade
+	// - instantiates a explosion prefab when hitting a surface
+	// - then destroys itself
+
+	var explosionPrefab : Transform;
+
+	function OnCollisionEnter(collision : Collision) {
+		// Rotate the object so that the y-axis faces along the normal of the surface
+		var contact : ContactPoint = collision.contacts[0];
+		var rot : Quaternion = Quaternion.FromToRotation(Vector3.up, contact.normal);
+		var pos : Vector3 = contact.point;
+		Instantiate(explosionPrefab, pos, rot);
+		// Destroy the projectile
+		Destroy (gameObject);
+	}
+END EX

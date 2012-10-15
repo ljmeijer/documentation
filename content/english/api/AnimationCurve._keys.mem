@@ -1,0 +1,30 @@
+All keys defined in the animation curve.
+
+This lets you clear, add or remove any keys from the array.
+If keys are not sorted by time, they will be automatically sorted on assignment.
+
+Note that the array is "by value", i.e. getting keys returns a copy of all keys
+and setting keys copies them into the curve.
+
+SA: [[Keyframe]] struct, ::ref::AddKey, ::ref::RemoveKey functions.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Make a GameObject follow a Cuadratic function 
+	// Over the X and Y axis.
+
+	private var anim : AnimationCurve;
+	private var ks : Keyframe[];
+
+	function Start() {
+		ks = new Keyframe[50];
+		for(var i = 0; i < ks.Length ; i++){
+			ks[i] = Keyframe(i,i*i);	
+		}
+		anim = new AnimationCurve(ks);
+	}
+
+	function Update() {
+		transform.position = Vector3(Time.time,anim.Evaluate(Time.time),0);
+	}
+END EX

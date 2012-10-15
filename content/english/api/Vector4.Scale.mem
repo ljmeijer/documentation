@@ -1,0 +1,12 @@
+Multiplies two vectors component-wise.
+Every component in the result is a component of /a/ multiplied by the same component of /b/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// prints (2.0,6.0,12.0,20.0)
+	print (Vector4.Scale (Vector4(1,2,3,4), Vector4(2,3,4,5)));
+END EX<signature>
+Scale_Vector4_Vector4
+Scale_Vector4
+</signature>
+Multiplies every component of this vector by the same component of /scale/.

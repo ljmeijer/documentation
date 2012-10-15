@@ -1,0 +1,5 @@
+Convert 2D GUI position to a world space ray.
+
+Uses the current camera to calculate the ray.
+
+SA: ::ref::WorldToGUIPoint.

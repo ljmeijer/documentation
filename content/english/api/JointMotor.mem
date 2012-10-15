@@ -1,0 +1,4 @@
+The JointMotor is used to motorize a joint.
+For example the [[HingeJoint]] can be told to rotate at a given speed and force.
+The joint will then attempt to reach the velocity with the given maximum force.\\
+SA: [[HingeJoint]]

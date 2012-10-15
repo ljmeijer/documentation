@@ -1,0 +1,6 @@
+Set a named Procedural enum property.
+Used for Procedural properties of type Enum.
+The function does not take an actual enum but an integer specifying the index of the selected option.
+The available options are contained in the array [[ProceduralPropertyDescription.enumOptions]].
+
+SA: ::ref::GetProceduralPropertyDescriptions, ::ref::GetProceduralEnum.

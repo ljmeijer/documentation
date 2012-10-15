@@ -1,0 +1,8 @@
+The tab width multiplier.
+
+This is multiplied with the tab width defined in the font.
+CONVERTEXAMPLE
+BEGIN EX
+
+	guiText.tabSize = 4.0;
+END EX

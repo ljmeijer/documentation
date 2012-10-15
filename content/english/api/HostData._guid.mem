@@ -1,0 +1,14 @@
+The GUID of the host, needed when connecting with NAT punchthrough.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Requests info from the master server and prints
+	// the GUID
+
+	function Start() {
+		var hostData : HostData[] = MasterServer.PollHostList();
+		for(var element : HostData in hostData) {
+			Debug.Log(element.gameName + " guid: " + element.guid + "\n");
+		}
+	}
+END EX

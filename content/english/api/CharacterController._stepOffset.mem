@@ -1,0 +1,9 @@
+The character controllers step offset in meters
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the controller step offset to 2.0
+	var controller : CharacterController;
+	controller = GetComponent(CharacterController);
+	controller.stepOffset = 2.0;
+END EX

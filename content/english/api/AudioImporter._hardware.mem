@@ -1,0 +1,11 @@
+Use hardware voice/decoder if available
+BEGIN EX
+
+	// C#: Use hardware voice/decoder if available when importing Audio.
+	class UseHardwareDecoder extends AssetPostprocessor {
+	    function OnPreprocessAudio () {
+	        var audioImporter : AudioImporter = assetImporter;
+	        audioImporter.hardware = true;
+	    }
+	}
+END EX

@@ -1,0 +1,45 @@
+The indent level of the field labels.
+
+{img EditorGUIIndent.png}\\
+''Shows info of the selected object.''
+BEGIN EX
+
+	// Shows info of the selected transform
+	
+	class EditorGUIIndent extends EditorWindow {
+		
+		@MenuItem("Examples/Indent usage")
+		static function Init() {
+			var window = GetWindow(EditorGUIIndent);
+			window.position = Rect(0, 0, 100, 100);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			var obj = Selection.activeTransform;
+			EditorGUILayout.LabelField("Name:", obj ? obj.name : "Select an Object");
+			if(obj) {
+				// Indent block more
+				EditorGUI.indentLevel++;
+				EditorGUILayout.LabelField("Position:", obj.position.ToString());
+				EditorGUILayout.LabelField("Rotation:", obj.rotation.eulerAngles.ToString());
+				// Indent inner block even more
+				EditorGUI.indentLevel++;
+				EditorGUILayout.LabelField("X:", obj.rotation.x.ToString());
+				EditorGUILayout.LabelField("Y:", obj.rotation.y.ToString());
+				EditorGUILayout.LabelField("Z:", obj.rotation.z.ToString());
+				EditorGUILayout.LabelField("W:", obj.rotation.w.ToString());
+				// End of inner block
+				EditorGUI.indentLevel--;
+				EditorGUILayout.LabelField("Scale:", obj.localScale.ToString());
+				// End of block
+				EditorGUI.indentLevel--;
+			}
+		}
+	}
+END EX
+
+The indent level is 1 by default in [[EditorGUIUtility.LookLikeInspector|LookLikeInspector]]
+and 0 by default in [[EditorGUIUtility.LookLikeControls|LookLikeControls]] but this may change in the future.
+To maximize future compatibility, do not make assumptions about what a specific indent level means,
+but instead just increase or decrease by one around blocks of controls that need to be more indented, as in the example above.

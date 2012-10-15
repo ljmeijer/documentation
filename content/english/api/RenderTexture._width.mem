@@ -1,0 +1,4 @@
+The width of the render texture in pixels.
+
+Note that unlike Texture.width property, this is both read and write -
+setting a value changes size.

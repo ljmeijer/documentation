@@ -1,0 +1,5 @@
+Inspector title for an object.
+
+If an object is a script, this will return "''scriptname'' (Script)", for example.
+
+SA: ObjectNames.GetClassName, ObjectNames.NicifyVariableName.

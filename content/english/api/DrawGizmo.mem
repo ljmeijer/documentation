@@ -1,0 +1,3 @@
+The DrawGizmo attribute allows you to supply a gizmo renderer for any [[Component]].
+At the moment you can only supply gizmo drawers for engine-components.
+All gizmo drawing methods need to be static.

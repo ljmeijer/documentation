@@ -1,0 +1,1 @@
+Sets a plane using a point that lies within it plus a normal to orient it (note that the normal must be a normalised vector).

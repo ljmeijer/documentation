@@ -1,0 +1,2 @@
+Starts a synchronous bake job, but only bakes light probes.
+Returns when the lightmapping has finished.

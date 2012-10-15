@@ -1,0 +1,8 @@
+Divides a vector by a number.
+Divides each component of /a/ by a number /d/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// make the vector twice shorter: prints (0.5,1.0,1.5)
+	print (Vector3(1,2,3) / 2.0);
+END EX

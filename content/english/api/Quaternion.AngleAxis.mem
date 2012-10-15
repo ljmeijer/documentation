@@ -1,0 +1,7 @@
+Creates a rotation which rotates /angle/ degrees around /axis/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Sets the transforms rotation to rotate 30 degrees around the y-axis
+	transform.rotation = Quaternion.AngleAxis(30, Vector3.up);
+END EX

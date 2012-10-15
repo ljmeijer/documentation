@@ -1,0 +1,21 @@
+Check for the latest host list received by using MasterServer.RequestHostList.
+You can clear the current host list with MasterServer.ClearHostList. That way you can be sure that the list returned by is up to date.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Awake() {
+		// Make sure list is empty and request a new list
+		MasterServer.ClearHostList();
+		MasterServer.RequestHostList("LarusTest");
+	}
+
+	function Update() {
+		// If any hosts were received, display game name, the clear host list again
+		if (MasterServer.PollHostList().Length != 0) {
+			var hostData: HostData[] = MasterServer.PollHostList();
+			for (var i : int = 0; i < hostData.Length; i++)
+				Debug.Log("Game name: " + hostData[i].gameName);
+			MasterServer.ClearHostList();
+		}
+	}
+END EX

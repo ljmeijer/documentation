@@ -1,0 +1,8 @@
+Multiplies a vector by a number.
+Multiplies each component of /a/ by a number /d/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// make the vector twice longer: prints (2.0,4.0,6.0,8.0)
+	print (2.0 * Vector4(1,2,3,4));
+END EX

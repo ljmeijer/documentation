@@ -1,0 +1,2 @@
+Accelerometer update frequency
+Note: build-time option. Has no effect if changed when application is already running.

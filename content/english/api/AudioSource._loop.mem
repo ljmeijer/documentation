@@ -1,0 +1,12 @@
+Is the audio clip looping?
+If you disable looping on a playing AudioSource the sound will stop after the end of the current loop.
+CONVERTEXAMPLE
+BEGIN EX
+
+	@script RequireComponent(AudioSource)
+	// Stop looping the sound
+	function Start()
+	{
+		audio.loop = false;
+	}
+END EX

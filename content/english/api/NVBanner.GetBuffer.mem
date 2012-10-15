@@ -1,0 +1,12 @@
+Copies banner data to a created AlignedBuffer so that it can be saved to NAND memory.
+BEGIN EX
+
+	function SaveBanner (file:NVFile, banner:NVBanner) {
+		var buffer: AlignedBuffer = banner.GetBuffer ();
+		yield file.Write (buffer, buffer.length)
+		if (!file.success) {
+			Debug.Log ("Could not write banner to file");
+		}
+	}
+END EX
+@return	AlignedBuffer with the banner content.

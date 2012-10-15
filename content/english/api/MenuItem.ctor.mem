@@ -1,0 +1,15 @@
+Creates a menu item and invokes the static function following it, when the menu item is selected.
+The /itemName/ is the menu item represented like a pathname. Eg. "GameObject/Do Something"
+If /isValidateFunction/ is true, this is a validation function and will be called before invoking the menu function with the same name.
+/Priority/ defines the order by which menu items are displayed in the menu bar.<signature>
+ctor_string_bool_int
+ctor_string_bool
+</signature>
+Creates a menu item and invokes the static function following it, when the menu item is selected.
+The /itemName/ is the menu item represented like a pathname. Eg. "GameObject/Do Something"
+If /isValidateFunction/ is true, this is a validation function and will be called before invoking the menu function with the same name.
+<signature>
+ctor_string
+</signature>
+Creates a menu item and invokes the static function following it, when the menu item is selected.
+The /itemName/ is the menu item represented like a pathname. Eg. "GameObject/Do Something"

@@ -1,0 +1,7 @@
+Clips /absolutePos/ to drawing coordinates
+Used for reconverting values calculated from ::ref::Unclip<signature>
+Clip_Vector2
+Clip_Rect
+</signature>
+Convert /absoluteRect/ to drawing coordinates
+Used for reconverting values calculated from ::ref::Unclip

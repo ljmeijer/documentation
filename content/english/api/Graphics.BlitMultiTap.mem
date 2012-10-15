@@ -1,0 +1,16 @@
+Copies source texture into destination, for multi-tap shader.
+
+This is mostly used for implementing some [[wiki:comp-ImageEffects|image effects]]. For example,
+Gaussian or iterative Cone blurring samples source texture at multiple different locations.
+Requires Unity Pro.
+
+BlitMultiTap sets /dest/ to be RenderTexture::pref::active render texture, sets /source/ as
+@@_MainTex@@ property on the material, and draws a full-screen quad. Each vertex of the quad
+has multiple texture coordinates set up, offset by /offsets/ pixels.
+
+SA: Graphics.Blit, [[wiki:comp-ImageEffects|image effects]].
+
+@param source Source texture.
+@param dest Destination [[RenderTexture]], or /null/ to blit directly to screen.
+@param mat Material to use for copying. Material's shader should do some post-processing effect.
+@param offsets Variable number of filtering offsets. Offsets are given in pixels.

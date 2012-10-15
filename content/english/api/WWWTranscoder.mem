@@ -1,0 +1,2 @@
+*undocumented*
+Helper class to assist in byte encoding. Can handle url encoding and quoted-printable encoding.

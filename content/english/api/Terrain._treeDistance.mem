@@ -1,0 +1,11 @@
+The maximum distance at which trees are rendered
+The higher this is, the further the distance trees can be seen and the slower it will run.
+
+SA: Terrain.treeBillboardDistance
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		Terrain.activeTerrain.treeDistance = 2000;
+	}
+END EX

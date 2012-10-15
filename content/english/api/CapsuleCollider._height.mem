@@ -1,0 +1,8 @@
+The height of the capsule meased in the object's local space.
+The capsule's height will be scaled by the transform's scale.
+Note that the height is the actual height including the half-spheres at each end.
+CONVERTEXAMPLE
+BEGIN EX
+
+	collider.height = 5;
+END EX

@@ -1,0 +1,2 @@
+Used to compute static occlusion culling data asynchronously.
+SA: StaticOcclusionCulling.Compute, StaticOcclusionCulling.Cancel, ::ref::isRunning

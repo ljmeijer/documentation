@@ -1,0 +1,10 @@
+Force the [[Light]] to be a pixel light.
+Use this only for really important lights, like a player flashlight.
+SA: [[wiki:class-Light|light component]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Force the light to be pixel-lit
+
+	light.renderMode = LightRenderMode.ForcePixel;
+END EX

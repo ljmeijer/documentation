@@ -1,0 +1,2 @@
+Record a distance measurement from a handle.
+All handles call this with their controlID during layout, then use nearestControl to check if they got the mouseDown.

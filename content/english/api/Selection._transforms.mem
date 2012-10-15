@@ -1,0 +1,28 @@
+Returns the top level selection, excluding prefabs.
+This is the most common selection type when working with scene objects.
+BEGIN EX
+
+	// C# example
+	// Select Objects and make them look to the main Camera by pressing 'l'
+	using UnityEngine;
+	using UnityEditor;
+
+	public class LookAtMainCamera : ScriptableObject {
+		[MenuItem ("Example/Selection looks at Main Camera _l")]
+		static void Look() {
+			Camera camera = Camera.main;
+
+			if (camera) {
+				foreach (Transform transform in Selection.transforms) {
+					Undo.RegisterUndo(transform, transform.name + " Looks at Main Camera" );
+					transform.LookAt(camera.transform);
+				}
+			}
+		}
+		//The menu item will be disabled if nothing, is selected.
+		[MenuItem ("Example/Selection looks at Main Camera _l", true)]
+		static bool ValidateSelection () {
+			return Selection.transforms.Length != 0;
+		}
+	}
+END EX

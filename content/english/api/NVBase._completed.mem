@@ -1,0 +1,6 @@
+Equals to true if the operation has completed processing already.
+BEGIN EX
+
+	if (file.completed)
+		Debug.Log ("Operation has completed");
+END EX

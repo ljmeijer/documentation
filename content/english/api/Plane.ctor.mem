@@ -1,0 +1,16 @@
+Creates a plane.
+Resulting plane has normal /inNormal/ and goes through a point /inPoint/.
+
+/inNormal/ must be a normalized vector.<signature>
+ctor_Vector3_Vector3
+ctor_Vector3_float
+</signature>
+Creates a plane.
+Resulting plane has normal /inNormal/ and distance /d/.
+
+/inNormal/ must be a normalized vector.
+<signature>
+ctor_Vector3_Vector3_Vector3
+</signature>
+Creates a plane.
+The resulting plane goes through the given three points. The points go around clockwise as you look down on the top surface of the plane.

@@ -1,0 +1,2 @@
+PS3Move controller notification.
+SA: PS3SystemUtility.SystemNotificationDelegate /subsystem/

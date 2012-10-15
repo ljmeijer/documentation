@@ -1,0 +1,3 @@
+Boosts indirect light (Beast's diffuseBoost property, pow(colorComponent, (1.0 / diffuseBoost))).
+It can be used to increase the amount of bounced light within a scene
+and it's cheaper than setting the number of bounces to high values.

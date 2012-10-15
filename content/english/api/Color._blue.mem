@@ -1,0 +1,7 @@
+Solid blue. RGBA is (0, 0, 1, 1).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Assign a blue color to this transform's material
+	transform.renderer.material.color = Color.blue;
+END EX

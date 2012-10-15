@@ -1,0 +1,69 @@
+Low-level graphics library.
+
+Use this class to manipulate active transformation matrices,
+issue rendering commands similar to OpenGL's immediate mode and do other low-level
+graphics tasks. Note that in almost all cases using Graphics.DrawMesh is more efficient than
+using immediate mode drawing.
+
+GL immediate drawing functions use whatever is the "current material" set up right now.
+The material controls how the rendering is done (blending, textures, etc.), so unless you explicitly
+set it to something before using GL draw functions, the material can happen to be anything.
+Also, if you call any other drawing commands from inside GL drawing code, they can set
+material to something else, so make sure it's under control as well.
+
+GL drawing commands execute immediately. That means if you call them in Update(), they will be executed
+before the camera is rendered (and the camera will most likely clear the screen, making the GL drawing
+not visible).
+
+__The usual place to call GL drawing is most often in OnPostRender() from a script attached to a camera__
+BEGIN EX
+
+static var lineMaterial : Material;
+
+static function CreateLineMaterial() {
+	if( !lineMaterial ) {
+		lineMaterial = new Material( "Shader \"Lines/Colored Blended\" {" +
+			"SubShader { Pass { " +
+			"    Blend SrcAlpha OneMinusSrcAlpha " +
+			"    ZWrite Off Cull Off Fog { Mode Off } " +
+			"    BindChannels {" +
+			"      Bind \"vertex\", vertex Bind \"color\", color }" +
+			"} } }" );
+		lineMaterial.hideFlags = HideFlags.HideAndDontSave;
+		lineMaterial.shader.hideFlags = HideFlags.HideAndDontSave;
+	}
+}
+
+function OnPostRender() {
+	CreateLineMaterial();
+	// set the current material
+	lineMaterial.SetPass( 0 );
+	GL.Begin( GL.LINES );
+	GL.Color( Color(1,1,1,0.5) );
+	GL.Vertex3( 0, 0, 0 );
+	GL.Vertex3( 1, 0, 0 );
+	GL.Vertex3( 0, 1, 0 );
+	GL.Vertex3( 1, 1, 0 );
+	GL.Color( Color(0,0,0,0.5) );
+	GL.Vertex3( 0, 0, 0 );
+	GL.Vertex3( 0, 1, 0 );
+	GL.Vertex3( 1, 0, 0 );
+	GL.Vertex3( 1, 1, 0 );
+	GL.End();
+}
+END EX
+__Note:__ This class is almost always used when you need to draw a couple of lines or triangles, and don't want to deal with meshes.
+If you want to avoid surprises the usage pattern is this:
+BEGIN EX
+
+function OnPostRender() {
+	 // Set your materials
+
+	 GL.PushMatrix();
+	 // yourMaterial.SetPass( );
+	 // Draw your stuff
+	 GL.PopMatrix();
+}
+END EX
+where at the "// Draw your stuff" you should do SetPass() on some material previously declared, which will be used for drawing.
+If you dont call SetPass, then you'll get basically a random material (whatever was used before) which is not good. So do it.

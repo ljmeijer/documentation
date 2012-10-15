@@ -1,0 +1,5 @@
+A 2D Rectangle defined by x, y position and width, height
+
+The /Rect/ structure is mainly used for 2D operations; The UnityGUI system uses it extensively, as well as positioning cameras on-screen.
+
+SA: [[wiki:gui-Basics|GUI Scripting Guide]], Camera.rect, Camera.pixelRect.

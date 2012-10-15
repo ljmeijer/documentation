@@ -1,0 +1,3 @@
+Delegate for OnGUI events for every visible list item in the HierarchyWindow.
+
+SA: EditorApplication.HierarchyWindowItemCallback, EditorApplication.RepaintHierarchyWindow

@@ -1,0 +1,6 @@
+Returns /f/ raised to power /p/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	print(Mathf.Pow(6, 1.8));
+END EX

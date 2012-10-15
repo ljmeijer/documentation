@@ -1,0 +1,10 @@
+Clamps value between 0 and 1 and returns value
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the position of the transform to be that of the time
+	// but never less than 0 or more than 1
+	function Update () {
+		transform.position = Vector3(Mathf.Clamp01(Time.time), 0, 0);
+	}
+END EX

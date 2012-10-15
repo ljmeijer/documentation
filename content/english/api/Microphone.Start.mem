@@ -1,0 +1,19 @@
+Start Recording with device
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Start recording with built-in Microphone and play the recorded audio right away
+	function Start() {
+		audio.clip = Microphone.Start("Built-in Microphone", true, 10, 44100);
+		audio.Play();
+	}
+END EX
+@param deviceName the name of the device. Passing null or an empty string will pick the default device. Get device names with [[Microphone.devices|Microphone.devices]]
+@param lengthSec is the length of the AudioClip produced by the recording.	
+@param loop indicates whether the recording should continue recording if lengthSec is reached, and wrap around and record from the beginning of the AudioClip.	
+@param frequency is the smaplerate of the AudioClip produced by the recording. Get minimum and maximum supported rates from [GetDeviceCaps].
+@return the function returns null if the recording fails to start	
+
+Note that if you want to use the Microphone class in the web player, you need to get the 
+user's permission to do so. Call [[Application.RequestUserAuthorization]] before calling
+any Microphone methods.

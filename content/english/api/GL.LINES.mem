@@ -1,0 +1,41 @@
+Mode for ::ref::Begin: draw lines.
+If you want to draw something 2D in screen space then
+probably you will want to use GL.LoadOrtho or GL.LoadPixelMatrix.\\
+If you want something in "3D", then probably you should consider
+using GL.LoadIdentity followed by GL.MultMatrix with the actual
+3D transform you want your stuff to be in.
+
+SA: GL.Begin, GL.End.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws a line from "startVertex" var to the curent mouse position.
+	var mat : Material;
+	private var startVertex : Vector3;
+	private var mousePos : Vector3;
+	startVertex = Vector3(0,0,0);
+
+	function Update() {
+		mousePos = Input.mousePosition;
+		// Press space to update startVertex
+		if(Input.GetKeyDown(KeyCode.Space)){
+			startVertex = Vector3(mousePos.x/Screen.width, mousePos.y/Screen.height, 0);
+		}
+	}
+
+	function OnPostRender() {
+		if (!mat) {
+			Debug.LogError("Please Assign a material on the inspector");
+			return;
+		}
+		GL.PushMatrix();
+		mat.SetPass(0);
+		GL.LoadOrtho();
+		GL.Begin(GL.LINES);
+		GL.Color(Color.red);
+		GL.Vertex(startVertex);
+		GL.Vertex(Vector3(mousePos.x/Screen.width, mousePos.y/Screen.height, 0));
+		GL.End();
+		GL.PopMatrix();
+	}
+END EX

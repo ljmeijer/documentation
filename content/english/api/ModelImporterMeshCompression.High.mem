@@ -1,0 +1,7 @@
+High amount of mesh compression.
+
+Vertex positions, normals/tangents and UVs will be quantized to
+respectively 10, 6, 8 bits per component. Skinning information
+will be compressed.
+
+SA: ModelImporter.meshCompression.

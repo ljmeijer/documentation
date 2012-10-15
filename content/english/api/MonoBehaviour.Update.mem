@@ -1,0 +1,16 @@
+CSNONE
+Update is called every frame, if the MonoBehaviour is enabled.
+
+Update is the most commonly used function to implement any kind of game behaviour.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Moves the object forward 1 meter a second
+
+	function Update () {
+		transform.Translate(0, 0, Time.deltaTime * 1);
+	}
+END EX
+In order to get the elapsed time since last call to Update, use Time.deltaTime.
+This function is only called if the [[Behaviour]] is enabled.
+Override this function in order to provide your component's functionality.

@@ -1,0 +1,4 @@
+Set a named Procedural vector property.
+Used for Procedural properties of types Vector2, Vector3, and Vector4.
+
+SA: ::ref::GetProceduralPropertyDescriptions, ::ref::GetProceduralVector.

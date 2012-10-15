@@ -1,0 +1,14 @@
+StaticBatchingUtility can prepare your objects to take advantage of Unity's static batching.
+This step is useful as a performance optimization allowing engine to reduce number of draw-calls dramatically,
+but keep amount of rendered geometry intact.
+
+By calling one of the Combine methods you will create an internal mesh which will contain combined geometry,
+however each original GameObject will be present in the scene and will be culled individually.
+The fact that GameObjects can be culled individually allows run-time to render the same amount of geometry
+as it would without batching, unlike combining geometry in the modeling tool. Combining geometry in the modeling tool
+prevents efficient culling and results in much higher amount of geometry being rendered.
+
+Note that you do not need to call Combine methods on objects which were already marked as "Static" in the Editor. They will
+be prepared for static batching automatically during the Build Player step.
+
+__IMPORTANT:__ only objects with the same material can be batched, thus it is useful to share as many textures/material as you can.

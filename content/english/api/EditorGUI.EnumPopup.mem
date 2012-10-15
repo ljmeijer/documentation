@@ -1,0 +1,75 @@
+<signature>
+EnumPopup_Rect_Enum_GUIStyle
+EnumPopup_Rect_string_Enum_GUIStyle
+EnumPopup_Rect_GUIContent_Enum_GUIStyle
+</signature>
+Make an enum popup selection field.
+Takes the currently selected enum value as a parameter and returns the enum value selected by the user.
+{img EditorGUIEnumPopup.png}\\
+''Enum Popup in an Editor Window.''
+BEGIN EX
+
+	// Shows info of a GameObject depending on the selected option
+	
+	enum OPTIONS {
+		Position = 0,
+		Rotation = 1,
+		Scale = 2,
+	}
+	
+	class EditorGUIEnumPopup extends EditorWindow {
+	
+		var display : OPTIONS = OPTIONS.Position;
+	
+		@MenuItem("Examples/Editor GUI Enum Popup usage")
+		static function Init() {
+			var window = GetWindow(EditorGUIEnumPopup);
+			window.position = Rect(0, 0, 220, 80);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			var selectedObj : Transform = Selection.activeTransform;
+			display = EditorGUI.EnumPopup(
+				Rect(3,3,position.width - 6, 15),
+				"Show:",
+				display);
+				EditorGUI.LabelField(Rect(0, 20, position.width,15),
+					"Name:",
+					selectedObj ? selectedObj.name : "Select an Object");
+			if(selectedObj) {
+				switch(display) {
+					case OPTIONS.Position:
+						EditorGUI.LabelField(Rect(0, 40, position.width,15),
+							"Position:",
+							selectedObj.position.ToString());
+						break;
+						
+					case OPTIONS.Rotation:
+						EditorGUI.LabelField(Rect(0, 40, position.width,15),
+							"Rotation:",
+							selectedObj.rotation.ToString());
+						break;
+					
+					case OPTIONS.Scale:
+						EditorGUI.LabelField(Rect(0, 40, position.width,15),
+							"Scale:",
+							selectedObj.localScale.ToString());
+						break;
+					
+					default:
+						Debug.LogError("Unrecognized Option");
+						break;
+				}
+			}
+			if(GUI.Button(Rect(3,position.height - 25, position.width - 6, 24),"Close"))
+				this.Close();
+		}
+	}
+END EX
+
+@param position Rectangle on the screen to use for the field.
+@param label Optional label in front of the field.
+@param selected The enum option the field shows.
+@param style Optional [[GUIStyle]].
+@returns The enum option that has been selected by the user.

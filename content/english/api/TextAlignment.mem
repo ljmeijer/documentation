@@ -1,0 +1,4 @@
+How multiline text should be aligned.
+This is used by GUIText.alignment property.
+
+SA: [[wiki:class-GUIText|GUI Text component]].

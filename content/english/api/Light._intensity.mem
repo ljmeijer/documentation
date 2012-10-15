@@ -1,0 +1,17 @@
+The Intensity of a light is multiplied with the Light color.
+The value can be between 0 and 8. This allows you to create over bright lights.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Pulse light's intensity over time
+
+	var duration : float= 1.0;
+	function Update() {
+		// argument for cosine
+		var phi : float = Time.time / duration * 2 * Mathf.PI;
+		// get cosine and transform from -1..1 to 0..1 range
+		var amplitude : float = Mathf.Cos( phi ) * 0.5 + 0.5;
+		// set light color
+		light.intensity = amplitude;
+	}
+END EX

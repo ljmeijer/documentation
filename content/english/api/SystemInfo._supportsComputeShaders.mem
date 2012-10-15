@@ -1,0 +1,3 @@
+Are compute shaders supported? (RO)
+
+SA: [[ComputeShader]], [[ComputeBuffer]] classes.

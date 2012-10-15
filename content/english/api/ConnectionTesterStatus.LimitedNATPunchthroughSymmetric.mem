@@ -1,0 +1,1 @@
+Symmetric NAT type, cannot do NAT punchthrough to other symmetric types nor port restricted type.

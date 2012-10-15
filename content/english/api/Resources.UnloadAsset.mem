@@ -1,0 +1,4 @@
+Unloads /assetToUnload/ from memory.
+This function can only be called on Assets that are stored on disk.
+
+If there are any references from game objects in the scene to the asset and it is being used then Unity will reload the asset from disk as soon as it is accessed.

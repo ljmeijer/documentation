@@ -1,0 +1,8 @@
+Uses interpolated normals for sphere collisions instead of flat polygonal normals.
+This smoothes out bumps for sphere's rolling over smooth surfaces.
+The downside is that rolling over steep corners can behave really strangely and appears like it is pulling the sphere in some direction.
+CONVERTEXAMPLE
+BEGIN EX
+
+	transform.collider.smoothSphereCollisions = true;
+END EX

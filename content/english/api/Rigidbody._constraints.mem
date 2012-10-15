@@ -1,0 +1,11 @@
+Controls which degrees of freedom are alowed for the simulation of this Rigidbody.
+By default this is RigidbodyConstraints.FreezeNone, allowing rotation and movement along all axes.
+In some cases, you may want to constrain a Rigidbody to only move or rotate along some axes, for 
+example when developing 2D games. You can use the bitwise OR operator to combine multiple
+constraints.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Freeze the rotation around x-Axis
+	rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
+END EX

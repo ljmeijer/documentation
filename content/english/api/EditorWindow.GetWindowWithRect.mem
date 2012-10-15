@@ -1,0 +1,25 @@
+Returns the first EditorWindow of type /t/ which is currently on the screen.
+If there is none, creates and shows new window at the position /rect/ and returns the instance of it.
+
+{img GetWindowRectEx.png}\\
+''Create an empty 100x150px window at the upper left corner of the screen.''
+BEGIN EX
+
+	// Create a dockable empty window at the top left corner of the screen
+	// with 100px width and 150px height
+	
+	import UnityEditor;
+	
+	class GetWindowRectEx extends EditorWindow {	
+		@MenuItem("Example/Display simple sized Window")
+		static function Initialize() {
+			var window : GetWindowEx = 
+				EditorWindow.GetWindowWithRect(GetWindowRectEx, Rect(0, 0, 100, 150));
+		}
+	}
+END EX
+
+@param t the type of the window. Must derive from EditorWindow.
+@param rect the position on the screen where a newly created window will show.
+@param utility set this to true, to create a floating utility window, false to create a normal window.
+@param title if GetWindow creates a new window, it will get this title. If this value is null, use the class name as title.

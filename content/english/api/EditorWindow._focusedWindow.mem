@@ -1,0 +1,23 @@
+The EditorWindow which currently has keyboard focus (RO)
+/focusedWindow/ can be null if no window has focus.
+
+SA: ::ref::mouseOverWindow, ::ref::Focus.
+
+{img focusedWindowEx.png}\\
+''Focus other windows with a mouse click.''
+BEGIN EX
+
+	// Prints to a label the name of the focused window
+	
+	class focusedWindowEx extends EditorWindow {
+		
+		@MenuItem("Example/Print Focused Window Name")
+		static function Init() {
+			var window = GetWindow(focusedWindowEx);
+			window.Show();
+		}	
+		function OnGUI () {
+			GUILayout.Label(EditorWindow.focusedWindow.ToString());
+		}
+	}
+END EX

@@ -1,0 +1,6 @@
+How much space will be inserted for a tab '\t' character. This is a multiplum of the 'spacebar' character offset
+CONVERTEXAMPLE
+BEGIN EX
+
+	GetComponent(TextMesh).tabSize = 5;
+END EX

@@ -1,0 +1,43 @@
+Is there a help page for this object?
+
+SA: Help.ShowHelpForObject.
+
+{img QuickHelper.png}\\
+''Editor Window that lets you load docs for any Selected GameObject.''
+BEGIN EX
+
+	// EditorScript that quickly searchs for a help page
+	// of the selected Object.
+	//
+	// If there is no page found on the Manual it opens the Unity forum.
+
+	import UnityEditor;
+
+	class QuickHelper extends EditorWindow {
+
+		var source : Object;
+
+		@MenuItem("Example/QuickHelper _h")
+		static function Init() {
+			var window : QuickHelper = EditorWindow.GetWindowWithRect(QuickHelper, Rect(0,0,165,100));
+			window.Show();
+		}
+
+		function OnGUI() {
+			EditorGUILayout.BeginHorizontal();
+			source = EditorGUILayout.ObjectField(source, Object);
+			EditorGUILayout.EndHorizontal();
+
+			if(GUILayout.Button("Search!")) {
+				if(source == null) {
+					this.ShowNotification(GUIContent("No object selected for searching"));
+				} else {
+					if(Help.HasHelpForObject(source))
+						Help.ShowHelpForObject(source);
+					else
+						Help.BrowseURL("http://forum.unity3d.com/search.php");
+				}
+			}
+		}
+	}
+END EX

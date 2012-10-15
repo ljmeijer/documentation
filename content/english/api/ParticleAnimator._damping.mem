@@ -1,0 +1,2 @@
+How much particles are slowed down every frame.
+A value of 1 gives no damping, while smaller values makes them slow down.

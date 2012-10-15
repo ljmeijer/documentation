@@ -1,0 +1,40 @@
+<signature>
+FloatField_Rect_float_GUIStyle
+FloatField_Rect_string_float_GUIStyle
+FloatField_Rect_GUIContent_float_GUIStyle
+</signature>
+Make a text field for entering floats.
+
+{img EditorGUIFloatField.png}\\
+''Float Field in an Editor Window.''
+BEGIN EX
+
+	// Editor Script that multiplies the scale of the current selected GameObject 
+	
+	class EditorGUIFloatField extends EditorWindow {
+	
+		var sizeMultiplier : float = 1;
+		
+		@MenuItem("Examples/Scale selected Object")
+		static function Init() {
+			var window = GetWindow(EditorGUIFloatField);
+			window.position = Rect(0, 0, 210, 30);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			sizeMultiplier = EditorGUI.FloatField(Rect(3,3,150, 20),
+						"Increase scale by:", 
+						sizeMultiplier);
+			if(GUI.Button(Rect(160,3,45,20), "Scale!"))
+				Selection.activeTransform.localScale = 
+					Selection.activeTransform.localScale * sizeMultiplier;
+		}
+	}
+END EX
+
+@param position Rectangle on the screen to use for the float field.
+@param label Optional label to display in front of the float field.
+@param value The value to edit.
+@param style Optional [[GUIStyle]].
+@returns The value entered by the user.

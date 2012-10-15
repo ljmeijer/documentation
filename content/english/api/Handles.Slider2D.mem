@@ -1,0 +1,15 @@
+Slide a handle in a 2D plane
+This will draw a draggable handle on the screen. The handle is constrained to sliding on a plane.
+@param id (optional) override the default ControlID for this Slider2D instance
+@param handlePos the position of the current point.
+@param offset (optional) renders the Slider2D at handlePos, but treats the Slider2D's origin as handlePos + offset. Useful for Slider2D instances that are placed/rendered relative to another object or handle.
+@param handleDir the direction of the handle, only used for rendering of the handle
+@param slideDir1 the first direction of the sliding.
+@param slideDir2 the second direction of the sliding.
+@param handleSize the size of the handle - HandleUtility.GetHandleSize (position);
+@param drawFunc the function to call for doing the actual drawing - by default, it's Handles.ArrowCap, but any function that has the same signature can be used.
+@param snap (float or Vector2) set the snap increment (Pass a Vector2 to use separate snap increments in each dimension)
+@param drawHelper (default: false) render a rectangle around the handle when dragging
+@return the new handle position
+
+__Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.

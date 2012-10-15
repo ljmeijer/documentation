@@ -1,0 +1,2 @@
+AndroidJavaObject is the Unity representation of a generic instance of java.lang.Object.
+It can be used as type-less interface to an instance of any Java class.

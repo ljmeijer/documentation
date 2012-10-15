@@ -1,0 +1,30 @@
+<signature>
+RaycastAll_Ray_float_int
+RaycastAll_Vector3_Vector3_float_int
+</signature>
+Casts a ray through the scene and returns all hits. Note that order is not guaranteed.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update () {
+		var hits : RaycastHit[];
+		hits = Physics.RaycastAll (transform.position, transform.forward, 100.0);
+
+		// Change the material of all hit colliders
+		// to use a transparent Shader
+		for (var i = 0;i < hits.Length; i++) {
+			var hit : RaycastHit = hits[i];
+			var renderer =  hit.collider.renderer;
+			if (renderer) {
+				renderer.material.shader = Shader.Find("Transparent/Diffuse");
+				renderer.material.color.a = 0.3;
+			}
+		}
+	}
+END EX
+
+__Notes:__ This function will return false if you cast a ray from
+inside a sphere to the outside; this in an intended behaviour.
+If you move colliders from scripting or by animation, there needs to be at
+least one FixedUpdate executed so that the physics library can update it's data
+structures, before a Raycast will hit the collider at it's new position.

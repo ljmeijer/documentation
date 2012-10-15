@@ -1,0 +1,12 @@
+Is the game running fullscreen?
+It is possible to toggle fullscreen mode by changing this property:
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Toggle fullscreen
+
+	Screen.fullScreen = !Screen.fullScreen;
+END EX
+A fullscreen switch does not happen immediately; it will actually happen when the current frame is finished.
+
+SA: ::ref::SetResolution.

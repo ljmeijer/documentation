@@ -1,0 +1,9 @@
+Data buffer to hold data for compute shaders.
+
+[[ComputeShader]] programs often need arbitrary data to be read & written into memory buffers.
+ComputeBuffer class is exactly for that - you can create & fill them from script code,
+and use them in compute shaders or regular shaders.
+
+Compute shaders need a fairly modern GPU and are only available when using DirectX 11 right now.
+
+SA: SystemInfo.supportsComputeShaders, [[ComputeShader]] class, Shader.SetGlobalBuffer, Material.SetBuffer, [[wiki:ComputeShaders|Compute Shaders]].

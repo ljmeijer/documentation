@@ -1,0 +1,8 @@
+Enable HTML-style tags for Text Formatting Markup.
+
+Supported tags are:
+<color="htmlcolor">colored text</color>, where "htmlcolor" is a html color string, like "#ff0000" or "red".
+<b>bold text</b>
+<i>italic text</i>
+<size=20>sized text</size>
+These are only supported for fonts set to use dynamic font rendering, except for the 'color' tag.

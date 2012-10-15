@@ -1,0 +1,46 @@
+Builds an asset bundle __(Unity Pro only)__.
+Creates a compressed unity3d file that contains a collection of /assets/. AssetBundles can contain any asset found in the project folder.
+This lets you stream resource data of any type, fully setup prefabs, textures, meshes, animations, any type of asset shown in the project window.
+/mainAsset/ lets you specify a specific object that can be conveniently retrieved using AssetBundle.mainAsset.
+The compressed asset bundle file will be saved at /pathName/.
+/options/ allows you to automatically include dependencies or always include complete assets instead of just the exact referenced objects.
+All paths are relative to the project folder. Like: "Assets/MyTextures/hello.png"
+
+Note that asset bundles built for standalone or webplayer targets cannot be loaded by
+applications built for mobile platforms and vice versa. Furthermore, bundles are not
+compatible between iOS and Android platforms.
+
+SA: [[AssetBundle]] class, WWW.assetBundle.
+BEGIN EX
+
+	// C# Example
+	// Builds an asset bundle from the selected objects in the project view.
+	// Once compiled go to "Menu" -> "Assets" and select one of the choices
+	// to build the Asset Bundle
+	
+	using UnityEngine;
+	using UnityEditor;
+
+	public class ExportAssetBundles {
+		[MenuItem("Assets/Build AssetBundle From Selection - Track dependencies")]
+		static void ExportResource () {
+			// Bring up save panel
+			string path = EditorUtility.SaveFilePanel ("Save Resource", "", "New Resource", "unity3d");
+			if (path.Length != 0) {
+				// Build the resource file from the active selection.
+				Object[] selection = Selection.GetFiltered(typeof(Object), SelectionMode.DeepAssets);
+				BuildPipeline.BuildAssetBundle(Selection.activeObject, selection, path, BuildAssetBundleOptions.CollectDependencies | BuildAssetBundleOptions.CompleteAssets);
+				Selection.objects = selection;
+			}
+		}
+		[MenuItem("Assets/Build AssetBundle From Selection - No dependency tracking")]
+		static void ExportResourceNoTrack () {
+			// Bring up save panel
+			string path = EditorUtility.SaveFilePanel ("Save Resource", "", "New Resource", "unity3d");
+			if (path.Length != 0) {
+				// Build the resource file from the active selection.
+				BuildPipeline.BuildAssetBundle(Selection.activeObject, Selection.objects, path);
+			}
+		}
+	}
+END EX

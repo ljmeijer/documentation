@@ -1,0 +1,22 @@
+The animation component is used to play back animations.
+You can assign animation clips to the animation component and control playback from your script.
+The animation system in Unity is weight based and supports:
+Animation Blending, Additive animations, Animation Mixing, Layers and full control over all aspects of animation playback.
+
+For an overview of animation scripting in Unity please [[wiki:Animation Scripting|read this introduction]].
+
+To play a simple animation use Animation.Play\\
+To cross-fade between animations use Animation.CrossFade\\
+To change how animations wrap (Loop, Once, PingPong) change the [[WrapMode]] of the respective AnimationClips in their import settings, or use AnimationState.wrapMode to change it at runtime.\\
+[[AnimationState]] can be used to change the layer of an animation, modify playback speed, and for direct control over blending and mixing.
+
+Animation also supports enumerators so you can loop through all AnimationStates like this:
+CONVERTEXAMPLE
+BEGIN EX
+
+// Make all animations in this character play at half speed
+for (var state : AnimationState in animation) {
+	state.speed = 0.5;
+}
+END EX
+SA: An overview of animation scripting in Unity is [[wiki:Animation Scripting|here]].

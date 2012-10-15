@@ -1,0 +1,33 @@
+Option passed to a control to specify a maximum width.
+
+{img GUILayoutMaxWidth.png}\\
+''Maximum allowed width for a window.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws a window you can resize between 80px and 200px width
+	// Just click the box inside the window and move your mouse
+	private var windowRect : Rect = Rect (10, 10, 100, 100);
+	private var scaling : boolean = false;
+	
+	function OnGUI () {
+		windowRect = GUILayout.Window (0, windowRect, ScalingWindow, "resizeable", 
+					       GUILayout.MinWidth(80), GUILayout.MaxWidth(200));
+	}
+	
+	function ScalingWindow (windowID : int) {
+		GUILayout.Box("", GUILayout.Width(20), GUILayout.Height(20));
+		if (Event.current.type == EventType.MouseUp) {
+			scaling = false;
+		}
+		else if (Event.current.type == EventType.MouseDown && 
+			 GUILayoutUtility.GetLastRect().Contains(Event.current.mousePosition)) {
+			scaling = true;
+		}
+		
+		if (scaling) {
+			windowRect = Rect (windowRect.x, windowRect.y, 
+				   windowRect.width + Event.current.delta.x, windowRect.height + Event.current.delta.y);
+		}
+	}
+END EX

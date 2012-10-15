@@ -1,0 +1,13 @@
+Copy data from other array to this buffer.
+BEGIN EX
+
+	function PrepareBuffer (data:byte[]) {
+		var buffer: AlignedBuffer = new AlignedBuffer (data.length, AlignedBuffer.Memory.Mem2, 32);
+		buffer.CopyFrom (data, 0, 0, dat.length);
+		return buffer;
+	}
+END EX
+@param source	An array to copy data from.
+@param source_offset	Offset in the source array where to read data from.
+@param this_offset	Offset in the AlignedBuffer to write data to.
+@param copy_size	Number of bytes to copy. This must not exceed this buffer size (minus offset).

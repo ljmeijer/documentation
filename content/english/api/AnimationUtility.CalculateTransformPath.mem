@@ -1,0 +1,4 @@
+Calculates path from root transform to target transform.
+
+Returns a string representing the path in a transform hierarchy from a given root transform down to a given target transform.
+The root transform does not need to be an actual root, but it must be higher in the hierarchy than the target transform. The target and root may also be the same transform.

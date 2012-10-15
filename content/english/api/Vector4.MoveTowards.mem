@@ -1,0 +1,3 @@
+Moves a point /current/ towards /target/.
+This is essentially the same as Vector4.Lerp but instead the function will ensure that the speed never exceeds /maxDistanceDelta/.
+Negative values of /maxDistanceDelta/ pushes the vector away from /target/.

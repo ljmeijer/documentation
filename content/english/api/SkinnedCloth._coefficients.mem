@@ -1,0 +1,2 @@
+The cloth skinning coefficients used to set up how the cloth interacts with the skinned mesh.
+See the SkinnedCloth component reference for a description how these are used, and how to set them up in the Unity editor.

@@ -1,0 +1,8 @@
+Determines how the friction is combined.
+Traditionally friction properties are dependent on the combination of the two materials in contact.
+This is however impractical in a game. Instead you can use the combine mode to tune how the friction values of two materials are combined.
+CONVERTEXAMPLE
+BEGIN EX
+
+	collider.material.frictionCombine = PhysicMaterialCombine.Average;
+END EX

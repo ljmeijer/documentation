@@ -1,0 +1,3 @@
+Get the state of a MotionPlus on a specified channel (extension needs to be attached).
+@param	chan	Remote index, in range 0...3.
+@return A class describing MotionPlus controllers.

@@ -1,0 +1,18 @@
+Get or set the minimum number of ViewID numbers in the ViewID pool given to clients by the server.
+The ViewID pools are given to each player as he connects and are refreshed with new numbers
+if the player runs out. The server and clients should be in sync regarding this value. Setting 
+this higher only on the server has the effect that he sends more view ID numbers to clients, than
+they really want. Setting this higher only on clients means they request more view IDs more often, 
+for example twice in a row, as the pools received from the server don't contain enough numbers. 
+The default value is 100.
+
+If a game instantiates a lot of new objects over the network on each client, like more than
+100 network intantiations per minute, then this value should be set higher.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Awake () {
+		// Use a bigger view ID pool to allocate from
+		Network.minimumAllocatableViewIDs = 500;
+	}
+END EX

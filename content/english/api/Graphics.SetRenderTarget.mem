@@ -1,0 +1,17 @@
+<signature>
+SetRenderTarget_RenderTexture
+SetRenderTarget_RenderBuffer_RenderBuffer
+SetRenderTarget_RenderBufferArray_RenderBuffer
+</signature>
+Sets current render target.
+
+This function sets which [[RenderTexture]] or a [[RenderBuffer]] combination will be
+rendered into next. Use it when implementing custom rendering algorithms, where
+you need to render something into a render texture manually.
+Requires Unity Pro.
+
+The function call with colorBuffers array enables techniques that use
+Multiple Render Targets (MRT), where fragment shader can output more
+than one final color.
+
+SA: [[RenderTexture]], [[Graphics.activeColorBuffer]], [[Graphics.activeDepthBuffer]], [[SystemInfo.supportedRenderTargetCount]].

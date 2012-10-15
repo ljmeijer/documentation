@@ -1,0 +1,13 @@
+<signature>
+GetWindowWithRect_T__Rect
+GetWindowWithRect_T__Rect_bool
+GetWindowWithRect_T__Rect_bool_string
+GetWindowWithRect_T__Rect_bool_string_bool
+</signature>
+Returns the first EditorWindow of type /t/ which is currently on the screen.
+If there is none, creates and shows new window at the position /rect/ and returns the instance of it.
+
+@param t the type of the window. Must derive from EditorWindow.
+@param rect the position on the screen where a newly created window will show.
+@param utility set this to true, to create a floating utility window, false to create a normal window.
+@param title if GetWindow creates a new window, it will get this title. If this value is null, use the class name as title.

@@ -1,0 +1,5 @@
+When time reaches the end of the animation clip, the clip will automatically stop playing and time will be reset to beginning of the clip.
+Note that when playing backwards and when the time reaches the beginning the clip will automatically stop playing, but the time won't be 
+reset to the end - it will be kept at the beginning.
+
+SA: AnimationState::ref::wrapMode, AnimationState::ref::time, AnimationState::ref::speed properties.

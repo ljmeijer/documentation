@@ -1,0 +1,11 @@
+Distorts the sphere defined by the maxDistance based on skinned mesh normals.
+The feature is disabled
+for a value of 0.0 (default). In this case the max distance sphere is undistorted.
+Decreasing the maxDistanceBias towards -1.0 reduces the distance the vertex is allowed to
+travel in the tangential direction. For -1.0 the vertex has to stay on the normal through
+the skinned mesh vertex position and within maxDistance to the skinned mesh vertex position.
+Increasing maxDistanceBias towards 1.0 reduces the discance the vertex is allowed to travel
+in the normal direction. At 1.0 the vertex can only move inside the tangental plane within 
+maxDistance from the skinned mesh vertex position.
+Default: 0.0
+Range: [-1.0, 1.0]

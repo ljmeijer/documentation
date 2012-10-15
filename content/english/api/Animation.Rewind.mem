@@ -1,0 +1,17 @@
+Rewinds the animation named /name/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Rewind the walk animation to the start
+	animation.Rewind("walk");
+END EX<signature>
+Rewind_string
+Rewind
+</signature>
+Rewinds all animations
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Rewind all animations to the start
+	animation.Rewind();
+END EX

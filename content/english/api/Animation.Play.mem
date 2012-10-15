@@ -1,0 +1,41 @@
+<signature>
+Play_PlayMode
+Play_string_PlayMode
+</signature>
+Plays animation without any blending.
+
+Play() will start animation with name /animation/, or play the default animation.
+The animation will be played abruptly without any blending.
+
+If mode is PlayMode.StopSameLayer then all animations in the same layer will be stopped.
+If mode is PlayMode.StopAll then all animations currently playing will be stopped.
+
+If the animation is already playing, other animations will be stopped but the animation
+will not rewind to the beginning.
+
+If the animation is not set to be looping it will be stopped and rewinded after playing.
+
+Play() will return false if animation can't be played (no animation clip or no default animation).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Plays the default animation
+	animation.Play();
+END EX
+For a specific animation, you can call the animation with play as well.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Plays the walk animation - stops all other animations in the same layer
+	animation.Play("walk");
+	// Plays the walk animation - stops all other animations
+	animation.Play("walk", PlayMode.StopAll);
+END EX
+<signature>
+Play_AnimationPlayMode
+</signature>
+*undocumented* deprecated
+<signature>
+Play_string_AnimationPlayMode
+</signature>
+*undocumented* deprecated

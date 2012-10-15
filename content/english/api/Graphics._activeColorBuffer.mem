@@ -1,0 +1,3 @@
+Currently active color buffer (RO).
+
+SA: [[RenderBuffer]], [[Graphics.activeDepthBuffer]], [[Graphics.SetRenderTarget]].

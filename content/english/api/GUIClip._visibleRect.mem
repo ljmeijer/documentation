@@ -1,0 +1,2 @@
+The visible rectangle.
+Use this to determine which part of the viewport is actually visible. This is used to optimize your drawing when inside scrollviews.

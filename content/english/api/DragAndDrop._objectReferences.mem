@@ -1,0 +1,5 @@
+References to [[Object|objects]] being dragged.
+
+Never returns null. If no object references are available returns an empty array.
+
+SA: ::ref::paths, ::ref::PrepareStartDrag, ::ref::StartDrag.

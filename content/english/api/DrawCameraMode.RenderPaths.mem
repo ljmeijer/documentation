@@ -1,0 +1,1 @@
+Draw color-coded render paths. Objects are colored Green for Deferred, Yellow for Forward and Red for VertexLit.

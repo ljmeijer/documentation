@@ -1,0 +1,8 @@
+Displays the recorded profiledata in the profiler.
+Use the name of the text file, ".data" will be appended
+CONVERTEXAMPLE
+BEGIN EX
+
+	Profiler.AddFramesFromFile ("mylog.log");
+END EX
+SA: Profiler.AddFramesFromFile, [[wiki:Profiler]].

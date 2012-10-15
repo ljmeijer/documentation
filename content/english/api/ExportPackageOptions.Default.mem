@@ -1,0 +1,2 @@
+Default mode. Will not include dependencies or subdirectories nor include Library assets unless specifically included in the asset list.
+The export process will happen synchronously, ie. the ExportPackage function will not return until the package is fully exported.

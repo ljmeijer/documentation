@@ -1,0 +1,7 @@
+Bilinear filtering - texture samples are averaged.
+SA: Texture.filterMode, [[wiki:class-Texture2D|texture assets]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	renderer.material.mainTexture.filterMode = FilterMode.Bilinear;
+END EX

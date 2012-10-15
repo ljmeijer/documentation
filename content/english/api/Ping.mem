@@ -1,0 +1,3 @@
+Ping any given IP address (given in dot notation).
+The ping operation is asynchronous and a ping object can be polled for status using Ping.isDone. 
+When a response is received it is in Ping.time.

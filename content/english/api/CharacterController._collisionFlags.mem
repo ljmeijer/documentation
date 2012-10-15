@@ -1,0 +1,9 @@
+What part of the capsule collided with the environment during the last CharacterController.Move call.
+BEGIN EX
+
+	function Update () {
+		var controller : CharacterController = GetComponent(CharacterController);
+		if ((controller.collisionFlags & CollisionFlags.Above) != 0)
+			print("touched the ceiling");
+	}
+END EX

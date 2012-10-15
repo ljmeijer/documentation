@@ -1,0 +1,2 @@
+Get the cursor position (indexing into contents.text) when the user clicked at cursorPixelPosition
+This does not respect any images inside content.

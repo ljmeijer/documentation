@@ -1,0 +1,11 @@
+Get a named vector value.
+
+Four component vectors and colors are the same in Unity shaders. /GetVector/ does exactly the same
+as ::ref::GetColor just the input data type is different (@@xyzw@@ in the vector becomes @@rgba@@ in the color).
+
+SA: GetColor, SetVector.
+CONVERTEXAMPLE
+BEGIN EX
+
+	print(renderer.material.GetVector("_Color"));
+END EX

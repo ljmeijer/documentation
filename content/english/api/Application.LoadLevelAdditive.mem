@@ -1,0 +1,20 @@
+<signature>
+LoadLevelAdditive_int
+LoadLevelAdditive_string
+</signature>
+Loads a level additively.
+
+Unlike ::ref::LoadLevel, LoadLevelAdditive does not destroy objects in the current level. Objects from the new
+level are added to the current scene. This is useful for creating continuous virtual worlds, where more
+content is loaded in as you walk through the environment.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Loads the level with index 1
+	Application.LoadLevelAdditive (1);
+
+	// Load the level named "MoreStuff".
+	Application.LoadLevel ("MoreStuff");
+END EX
+
+SA: [[AsyncOperation]], Application.backgroundLoadingPriority, Application.LoadLevelAdditiveAsync, Application.LoadLevel, Application.LoadLevelAsync.

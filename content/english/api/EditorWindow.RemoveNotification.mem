@@ -1,0 +1,31 @@
+Stop showing notification message.
+Notification message fades away automatically after some time. This function will remove it immediately.
+
+{img ShowRemoveNotification.png}\\
+''Show a notification in an editor window.''
+BEGIN EX
+
+	// Simple example that shows a notification message
+	// with what the user has typed.
+	
+	class ShowRemoveNotification extends EditorWindow {
+	
+		var notification : String = "This is a Notification";
+	
+		@MenuItem("Example/Notification usage")
+		static function Initialize() {
+			var window : ShowRemoveNotification = EditorWindow.GetWindow(ShowRemoveNotification);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			notification = EditorGUILayout.TextField(notification);
+			if(GUILayout.Button("Show Notification")){
+				this.ShowNotification(GUIContent(notification));
+			}
+			if(GUILayout.Button("Remove Notification")) {
+				this.RemoveNotification();
+			}
+		}
+	}
+END EX

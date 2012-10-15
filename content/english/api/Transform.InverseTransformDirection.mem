@@ -1,0 +1,23 @@
+Transforms a /direction/ from world space to local space. The opposite of Transform.TransformDirection.
+This operation is unaffected by scale.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// transform the world forward into local space:
+	private var relative : Vector3;
+	relative = transform.InverseTransformDirection(Vector3.forward);
+	Debug.Log(relative);
+END EX<signature>
+InverseTransformDirection_Vector3
+InverseTransformDirection_float_float_float
+</signature>
+Transforms the direction /x/, /y/, /z/ from world space to local space. The opposite of Transform.TransformDirection.
+This operation is unaffected by scale.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// transform the world forward into local space:
+	private var relative : Vector3;
+	relative = transform.InverseTransformDirection(0, 0, 1);
+	Debug.Log(relative);
+END EX

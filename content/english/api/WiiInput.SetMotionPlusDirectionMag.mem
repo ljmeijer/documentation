@@ -1,0 +1,3 @@
+Sets Wii MotionPlus direction magnitude.
+@param	chan	Remote index, in range 0...3.
+@param	mag		Magnitude applied to the angular velocity used to calculate the 3D attitude.

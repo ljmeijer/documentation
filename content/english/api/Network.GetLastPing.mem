@@ -1,0 +1,15 @@
+The last ping time to the given /player/ in milliseconds.
+If the player can't be found -1 will be returned.
+Pings are automatically sent out every couple of seconds.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI() {
+		GUILayout.Label("Player ping values");
+		for (var i : int = 0; i < Network.connections.Length; i++) {
+			GUILayout.Label("Player " + 
+				Network.connections[i] + " - " + 
+				Network.GetLastPing(Network.connections[i]) + " ms");
+		}
+	}
+END EX

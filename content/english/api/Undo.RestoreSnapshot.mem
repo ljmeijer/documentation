@@ -1,0 +1,2 @@
+Restore the snapshot state made with ::ref::CreateSnapshot.
+This can be used if a change in progress should be canceled; for example if the user presses Escape while dragging something.

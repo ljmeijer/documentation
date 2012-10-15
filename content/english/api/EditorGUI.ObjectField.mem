@@ -1,0 +1,56 @@
+<signature>
+ObjectField_Rect_object_Type_bool
+ObjectField_Rect_string_object_Type_bool
+ObjectField_Rect_GUIContent_object_Type_bool
+</signature>
+Make an object field. You can assign objects either by drag and drop objects or by selecting an object using the Object Picker.
+
+Ensure that the __allowSceneObjects__ parameter is false if the object reference is stored as part of an asset, since assets can't store references to objects in a scene.<br>
+If the ObjectField is part of a custom Editor for a script component, use EditorUtility.IsPersistent() to check if the component is on an asset or a scene object. <br>
+See example in [[Editor]] class.
+
+{img EditorGUIObjectField.png}\\
+''Object field in an Editor Window.''
+BEGIN EX
+
+	//Select the dependencies of the found GameObject
+	
+	class EditorGUIObjectField extends EditorWindow {
+		
+		var obj : GameObject = null;
+		
+		@MenuItem("Examples/Select Dependencies")
+		static function Init () {
+			var window = GetWindow(EditorGUIObjectField);
+			window.position = Rect(0, 0, 250, 80);
+			window.Show();
+		}
+		
+		function OnInspectorUpdate () {
+			Repaint ();
+		}
+	
+		function OnGUI () {		
+			obj = EditorGUI.ObjectField(Rect(3,3,position.width - 6, 20),
+					"Find Dependency",
+					obj,
+					GameObject);
+			
+			if (obj)	{	
+				if (GUI.Button(Rect(3,25,position.width - 6, 20), "Check Dependencies"))
+					Selection.objects = EditorUtility.CollectDependencies ([obj]);
+			} else {
+				EditorGUI.LabelField (Rect (3, 25, position.width - 6, 20),
+					"Missing:", 
+					"Select an object first");
+			}
+		}
+	}
+END EX
+
+@param position Rectangle on the screen to use for the field.
+@param label Optional label in front of the field.
+@param obj The object the field shows.
+@param objType The type of the objects that can be assigned.
+@param allowSceneObjects Allow assigning scene objects. See Description for more info.
+@returns The object that has been set by the user.

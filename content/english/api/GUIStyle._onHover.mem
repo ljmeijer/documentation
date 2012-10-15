@@ -1,0 +1,9 @@
+Rendering settings for when the control is turned on and the mouse is hovering it.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI() {
+		if(GUI.skin.customStyles.Length > 0)
+			GUI.skin.customStyles[0].onHover.textColor = Color.cyan;
+	}
+END EX

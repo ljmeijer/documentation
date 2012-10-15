@@ -1,0 +1,2 @@
+Get an existing state object from a controlID.
+This will return a recycled state object that is unique for /controlID/. If there is none already, this funtion will return null.

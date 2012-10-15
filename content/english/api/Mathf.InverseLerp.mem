@@ -1,0 +1,13 @@
+Calculates the ::ref::Lerp parameter between of two values.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var walkSpeed = 5.0;
+	var runSpeed = 10.0;
+	var speed = 8.0;
+
+	function Start() {
+		// parameter is now 3 / 5
+		var parameter : float = Mathf.InverseLerp(walkSpeed, runSpeed, speed);
+	}
+END EX

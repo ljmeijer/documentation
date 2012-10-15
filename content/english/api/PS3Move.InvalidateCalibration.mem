@@ -1,0 +1,4 @@
+Invalidates the Ready state of the controller specified by ''controllerID'' and forces it to require recalibration.
+Calibration is achieved by pointing your controller towards the camera and pressing the PS3Move button until the sphere stops flashing.
+<br> SA: PS3SystemConstants.SupportedMoveControllers
+@param controllerID Controller index

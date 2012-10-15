@@ -1,0 +1,2 @@
+The global Substance engine processor usage (as used for the ProceduralMaterial.substanceProcessorUsage property).
+The values refer to the number of physical processor cores used for material generation.

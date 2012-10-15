@@ -1,0 +1,7 @@
+Controls the [[wiki:Profiler]] from script.
+
+You can add custom Profiler sections in your scripts with Profiler.BeginSample and Profiler.EndSample.
+
+In standalone games, Profiler can dump all profiling information using Profiler.logFile and Profiler.enabled.
+
+Profiler is only available in __Unity Pro__.

@@ -1,0 +1,13 @@
+The mass of the rigidbody.
+You should strive to keep mass close to 0.1 and never more than 10.
+Large masses make physics simulation unstable.
+
+Higher mass objects push lower mass objects more when colliding. Think of a big truck, hitting a small car.
+
+A common mistake is to assume that heavy objects fall faster than light ones.
+This is not true as the speed is dependent on gravity and drag.
+CONVERTEXAMPLE
+BEGIN EX
+
+	rigidbody.mass = 0.5;
+END EX

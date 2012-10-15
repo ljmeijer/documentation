@@ -1,0 +1,33 @@
+CSNONE
+Called whenever the project has changed.
+Typically after import, file moves, etc.
+
+
+{img ForceSync.png}\\
+''Force Sync with MonoDevelop each time the hierarchy or the project view changes.''
+BEGIN EX
+
+	// Simple Editor Script that makes Unity Sync with MonoDevelop each time
+	// there is a change in the Hierarchy or the Project view.
+	
+	class ForceSync extends EditorWindow {
+	
+		@MenuItem("Example/ForceSync When project changes")
+		static function Init() {
+			var window : ForceSync = EditorWindow.GetWindowWithRect(ForceSync, Rect(0,0,100, 100));
+			window.Show();
+		}
+		function OnGUI() {
+			if(GUILayout.Button("Sync now!"))
+				EditorApplication.ExecuteMenuItem("Assets/Sync MonoDevelop Project");
+		}
+		function OnHierarchyChange() {
+			EditorApplication.ExecuteMenuItem("Assets/Sync MonoDevelop Project");
+			Debug.Log("Sync");
+		}
+		function OnProjectChange() {
+			EditorApplication.ExecuteMenuItem("Assets/Sync MonoDevelop Project");
+			Debug.Log("Sync");
+		}
+	}
+END EX

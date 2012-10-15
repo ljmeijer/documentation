@@ -1,0 +1,7 @@
+The far clipping plane distance.
+CONVERTEXAMPLE
+BEGIN EX
+
+	camera.farClipPlane = 100.0;
+END EX
+SA: [[wiki:class-Camera|camera component]], ::ref::layerCullDistances.

@@ -1,0 +1,5 @@
+Plays back the animation. When it reaches the end, it will keep playing the last frame and never stop playing.
+When playing backwards it will reach the first frame and will keep playing that.
+This is useful for additive animations, which should never be stopped when they reach the maximum.
+
+SA: AnimationState::ref::wrapMode, AnimationState::ref::time, AnimationState::ref::speed properties.

@@ -1,0 +1,7 @@
+A [[SerializedObject]] representing the object or objects being inspected.
+
+The serializedObject can be used inside the ::ref::OnInspectorGUI function of a custom Editor as described on the page about the [[Editor]] class.
+
+The serializedObject should not be used inside ::ref::OnSceneGUI or ::ref::OnPreviewGUI. Use the target property directly in those callback functions instead.
+
+SA: [[Editor]] class, [[SerializedObject]] class

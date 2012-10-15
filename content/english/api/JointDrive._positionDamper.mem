@@ -1,0 +1,18 @@
+Resistance strength against the Position Spring. Only used if /mode/ includes Position.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Create a JointDrive, configure it and assign the JointDrive to
+	// the zDrive element of a configurable joint.
+	
+	function Start() {
+		var joint : ConfigurableJoint = gameObject.AddComponent(ConfigurableJoint);
+		joint.targetPosition = Vector3(0,0,-10);
+		
+		var drive : JointDrive = JointDrive();
+		drive.mode = JointDriveMode.Position;
+		drive.positionDamper = 30;
+		
+		joint.zDrive = drive;
+	}
+END EX

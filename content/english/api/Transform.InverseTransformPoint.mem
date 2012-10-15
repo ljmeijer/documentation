@@ -1,0 +1,30 @@
+Transforms /position/ from world space to local space. The opposite of Transform.TransformPoint.
+Note that the returned position is affected by scale. Use Transform.InverseTransformDirection if you are dealing with directions.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Calculate the transform's position relative to the camera.
+
+	var cam = Camera.main.transform;
+	var cameraRelative = cam.InverseTransformPoint(transform.position);
+	if (cameraRelative.z > 0)
+		print ("The object is in front of the camera");
+	else
+		print ("The object is behind the camera");
+END EX<signature>
+InverseTransformPoint_Vector3
+InverseTransformPoint_float_float_float
+</signature>
+Transforms the position /x/, /y/, /z/ from world space to local space. The opposite of Transform.TransformPoint.
+Note that the returned position is affected by scale. Use Transform.InverseTransformDirection if you are dealing with directions.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Calculate the world origin relative to this transform.
+
+	relativePoint = transform.InverseTransformPoint(0, 0, 0);
+	if (relativePoint.z > 0)
+		print ("The world origin is in front of this object");
+	else
+		print ("The world origin is behind of this object");
+END EX

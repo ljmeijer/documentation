@@ -1,0 +1,3 @@
+Access to display information.
+Screen class can be used to get the list of supported resolutions, switch the current resolution, hide or
+show the system mouse pointer.

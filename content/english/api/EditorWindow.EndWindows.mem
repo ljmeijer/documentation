@@ -1,0 +1,77 @@
+Close a window group started with EditorWindow::ref::BeginWindows
+
+{img GUIWindowDemo.png}\\
+''Simple editor Window with a window and a button inside.''
+BEGIN EX
+
+	class GUIWindowDemo extends EditorWindow {
+		// The position of the window
+		var windowRect = Rect (100,100,200,200);
+
+		// Main GUI Function
+		function OnGUI () {
+			// Begin Window
+			BeginWindows ();
+			
+			// All GUI.Window or GUILayout.Window must come inside here
+			windowRect = GUILayout.Window (1, windowRect, DoWindow, "Hi There");		
+			
+			// Collect all the windows between the two.
+			EndWindows ();			
+		}
+		
+		// The window function. This works just like ingame GUI.Window
+		function DoWindow () {
+			GUILayout.Button ("Hi");
+			GUI.DragWindow ();		
+		}
+		
+		// Add menu item to show this demo.
+		@MenuItem ("Test/GUIWindow Demo")
+		static function Init () {
+			EditorWindow.GetWindow (GUIWindowDemo);
+		}
+	}
+END EX
+The placement of the ::ref::BeginWindows / ::ref::EndWindows pair determines where popup windows will appear; all windows are clipped to the clipping area
+defined by GUI::ref::BeginGroup or GUI::ref::BeginScrollview. A small example of that:
+
+{img GUIWindowDemo2.png}\\
+''Simple editor window with a window and a button inside using scroll bars.''
+BEGIN EX
+
+	class GUIWindowDemo2 extends EditorWindow {
+		// The position of the window
+		var windowRect = Rect (100,100,200,200);
+
+		// Scroll position
+		var scrollPos = Vector2.zero;
+
+		function OnGUI () {
+			// Set up a scroll view
+			scrollPos = GUI.BeginScrollView (
+				new Rect (0, 0, position.width, position.height), 
+				scrollPos, 
+				new Rect (0, 0, 1000, 1000)
+			);
+
+			// Same code as before - make a window. Only now, it's INSIDE the scrollview
+			BeginWindows ();	
+			windowRect = GUILayout.Window (1, windowRect, DoWindow, "Hi There");				
+			EndWindows ();
+			
+			// Close the scroll view
+			GUI.EndScrollView ();
+		}
+		
+		function DoWindow () {
+			GUILayout.Button ("Hi");
+			GUI.DragWindow ();		
+		}
+
+		@MenuItem ("Test/GUIWindow Demo 2")
+		static function Init () {
+			EditorWindow.GetWindow (GUIWindowDemo2);
+		}
+	}
+END EX

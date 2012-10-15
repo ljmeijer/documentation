@@ -1,0 +1,13 @@
+Returns pixel color at coordinates (face, x, y).
+
+If the pixel coordinates are out of bounds (larger than width/height or small than 0),
+they will be clamped or repeat based on the texture's wrap mode.
+
+The texture must have the __Is Readable__ flag set in the import settings, otherwise this function will fail.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// prints the color of the pixel at (0,0) of the +X face
+	var c : Cubemap;
+	Debug.Log(c.GetPixel(CubemapFace.PositiveX, 0, 0));
+END EX

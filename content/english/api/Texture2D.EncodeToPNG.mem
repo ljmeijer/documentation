@@ -1,0 +1,57 @@
+Encodes this texture into PNG format.
+
+The returned byte array is the PNG "file". You can write them to disk to get the PNG file,
+send them over the network, etc.
+
+This function works only on /ARGB32/ and /RGB24/ texture formats.
+The texture also has to have __Is Readable__ flag set in the import settings.
+
+The encoded PNG data will
+contain alpha channel for /ARGB32/ textures, and no alpha channel for /RGB24/ textures.
+PNG data will not contain gamma correction or color profile information.
+BEGIN EX
+
+	// Saves screenshot as PNG file.
+	import System.IO;
+
+	// Take a shot immediately
+	function Start () {
+		UploadPNG ();
+	}
+
+	function UploadPNG () {
+		// We should only read the screen bufferafter rendering is complete
+		yield WaitForEndOfFrame();
+
+		// Create a texture the size of the screen, RGB24 format
+		var width = Screen.width;
+		var height = Screen.height;
+		var tex = new Texture2D (width, height, TextureFormat.RGB24, false);
+		// Read screen contents into the texture
+		tex.ReadPixels (Rect(0, 0, width, height), 0, 0);
+		tex.Apply ();
+
+		// Encode texture into PNG
+		var bytes = tex.EncodeToPNG();
+		Destroy (tex);
+
+		// For testing purposes, also write to a file in the project folder
+		// File.WriteAllBytes(Application.dataPath + "/../SavedScreen.png", bytes);
+
+
+		// Create a Web Form
+		var form = new WWWForm();
+		form.AddField("frameCount", Time.frameCount.ToString());
+		form.AddBinaryData("fileUpload",bytes);
+
+		// Upload to a cgi script
+		var w = WWW("http://localhost/cgi-bin/env.cgi?post", form);
+		yield w;
+		if (w.error != null) {
+			print(w.error);
+		} else {
+			print("Finished Uploading Screenshot");
+		}
+	}
+END EX
+SA: ::ref::ReadPixels, [[WaitForEndOfFrame]], ::ref::LoadImage.

@@ -1,0 +1,11 @@
+Streams an AssetBundle that can contain any kind of asset from the project folder.
+BEGIN EX
+
+	function Start () {
+		var www = new WWW ("http://myserver/myBundle.unity3d");
+		yield www;
+		// Get the designated main asset and instantiate it.
+		Instantiate(www.assetBundle.mainAsset);
+	}
+END EX
+SA: [[AssetBundle]] class.

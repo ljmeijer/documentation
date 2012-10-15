@@ -1,0 +1,3 @@
+Implement this method to show a limited inspector for showing tweakable parameters in an Asset Store preview.
+Currently, this is only used by the ProceduralMaterial inspector.  (Until someone makes this comment obsolete :\P)
+The defalut implementation shows nothing.

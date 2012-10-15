@@ -1,0 +1,3 @@
+When a folder is imported, import all its contents as well.
+
+SA: AssetDatabase.ImportAsset, AssetDatabase.Refresh.

@@ -1,0 +1,18 @@
+The spring attempts to reach a target angle by adding spring and damping forces.
+
+The /spring.spring/ force attempts to reach the target angle. A larger value makes the spring reach the target position faster.
+
+The /spring.damper/ force dampens the angular velocity. A larger value makes the spring reach the goal slower.
+
+The spring reaches for the /spring.targetPosition/ angle in degrees relative to the rest angle. The rest angle between the bodies is always zero at the beginning of the simulation.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Make the spring reach shoot for a 70 degree angle.
+	// This could be used to fire off a catapult.
+
+	hingeJoint.spring.spring = 10;
+	hingeJoint.spring.damper = 3;
+	hingeJoint.spring.targetPosition = 70;
+END EX
+Modifying the spring automatically enables it.

@@ -1,0 +1,56 @@
+CSNONE
+OnDestroy is called when the EditorWindow is closed.
+
+{img TearMeshApart.png}\\
+''Displays a log with the number of times that the object was deformed after closing the window.''
+BEGIN EX
+
+	// Simple editor script that separates slightly a mesh from its triangles.
+	// and prints after closing the inspector how many times the user distortionated the mesh
+	//
+	// Note the mesh will be updated when you focus the scene view.
+
+	class TearMeshApart extends EditorWindow {
+		
+		var noiseCounter = 0;
+		var distortionRange = 0.1;
+		@MenuItem("Example/Distortionate Mesh")
+		static function Init() {
+			var window = GetWindow(TearMeshApart);
+			window.position = Rect(0,0,200,80);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			GUILayout.Label("Select an object to distortionate");
+			if(GUILayout.Button("Distortionate")) {
+				AddNoiseToMesh();
+			}
+			if(GUILayout.Button("Close")) {
+				this.Close();
+			}
+		}	
+		function AddNoiseToMesh() {
+			var objectMesh = 
+				Selection.activeTransform ? 
+					Selection.activeTransform.GetComponent(MeshFilter) : null;
+
+			if(!objectMesh) {
+				Debug.LogError("Please select a Game Object with a MeshFilter");
+				return;
+			}
+			var verts : Vector3[] = objectMesh.sharedMesh.vertices;
+			for(var i = 0; i < verts.Length; i++)
+				verts[i] += Vector3(
+					Random.Range(-distortionRange, distortionRange) - distortionRange/2,
+					Random.Range(-distortionRange, distortionRange) - distortionRange/2,
+					Random.Range(-distortionRange, distortionRange) - distortionRange/2);
+			objectMesh.sharedMesh.vertices = verts;
+			noiseCounter++;
+		}
+		
+		function OnDestroy() {
+			Debug.Log("Deformed the object " + noiseCounter + " times.");
+		}
+	}
+END EX

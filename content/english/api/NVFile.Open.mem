@@ -1,0 +1,11 @@
+*undocumented
+Open a file for reading, writing or both.
+BEGIN EX
+
+	var file: File = new File ();
+	yield file.Open ("/tmp/test", WiiNand.Access.ReadWrite);
+	if (file.success) 
+		yield file.Close ();
+END EX
+@param	name	File path/name to open.
+@param	access	File access type, any of WiiNand.Access enumeration values.

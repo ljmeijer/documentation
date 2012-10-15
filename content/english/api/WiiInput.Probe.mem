@@ -1,0 +1,11 @@
+Check controller type on a specified channel.
+BEGIN EX
+
+	// Fetch and print status of the first controller on the screen.
+	var devType : WiiDevType;
+	var status = WiiInput.Probe(0, devType); 
+	GUI.Label (Rect (10,10,300,40), ("Slot 0. Device: " + devType + ", Status: " + status));
+END EX
+@param	chan	Remote index, in range 0...3.
+@param	type	Reference to a variable of [[WiiDevType]] getting the controller.
+@return describing connection status.

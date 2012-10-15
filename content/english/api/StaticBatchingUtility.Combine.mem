@@ -1,0 +1,7 @@
+Combine will prepare all children of the @@staticBatchRoot@@ for static batching.
+Once combined children can NOT change their @@Transform@@ properties, however @@staticBatchRoot@@ can be moved.<signature>
+Combine_Gameobject
+Combine_GameobjectArray_Gameobject
+</signature>
+Combine will prepare all @@gos@@ for the static batching. @@staticBatchRoot@@ will be treated as their parent.
+Once combined @@gos@@ can NOT change their @@Transform@@ properties, however @@staticBatchRoot@@ can be moved.

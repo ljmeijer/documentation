@@ -1,0 +1,47 @@
+Loads the new web player data file.
+The first level of the loaded @@.unity3d@@ file will automatically be loaded.
+All objects, scripts and static variables from the previous .unity3d file will be unloaded.
+You can move information between the two sessions using [[PlayerPrefs]] class.
+
+This function is only supported in the web player.
+
+If the object has not finished downloading the unity3d file will not be loaded.
+Use ::ref::isDone or /yield/ to see if the data is available.
+BEGIN EX
+
+	function Start () {
+		// Start streaming the data file
+		var stream =
+		  new WWW ("http://www.unity3d.com/webplayers/Lightning/lightning.unity3d");
+		// Yield until stream is done
+		yield stream;
+		// Load it!
+		stream.LoadUnityWeb();
+	}
+END EX
+
+BEGIN EX
+
+	// Streams a .unity3d file and displays the progress in a GUI texture.
+	// You need to make sure the GUI texture is set up to have a pixel inset.
+	function Start () {
+		// Store the original pixel inset
+		// and modify it from there.
+		var originalPixelRect = guiTexture.pixelInset;
+
+		// Update the progress bar by scaling the gui texture
+		// until we reach the end
+		var stream =
+		  new WWW ("http://www.unity3d.com/webplayers/Lightning/lightning.unity3d");
+		while (!stream.isDone) {
+			guiTexture.pixelInset.xMax = originalPixelRect.xMin
+			      + stream.progress * originalPixelRect.width;
+
+			yield;
+		}
+		// Update it one last time before loading
+		guiTexture.pixelInset.xMax = originalPixelRect.xMax;
+
+		stream.LoadUnityWeb();
+	}
+END EX

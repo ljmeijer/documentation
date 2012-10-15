@@ -1,0 +1,2 @@
+If true, the Float or Vector property is constrained to values within a specified range.
+For Vector types this applies to all the vector components.

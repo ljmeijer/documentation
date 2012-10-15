@@ -1,0 +1,14 @@
+Set owner id, group id, attribute and permission of a file or a directory.
+BEGIN EX
+
+	var sys: NVSystem = new NVSystem ();
+	yield sys.SetStatus (NVDirectory.home + "/savegame",
+		1, 2, 0, WiiNand.Permissions.OwnerRW|WiiNand.Permissions.GroupRW);
+	if (!sys.success)
+		Debug.Log ("Failed to change status of the file, asyncResult: " + sys.asyncResult);
+END EX
+@param	name	File or directory name.
+@param	ownerId	File owner ID number.
+@param	groupId	File group ID number.
+@param	attr	File or directory attribute. ''Not supported on Mac, always equal to 0.''
+@param	perm	New file's or directory's permissions. A combination of WiiNand.Permissions flags.

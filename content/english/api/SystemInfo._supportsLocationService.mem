@@ -1,0 +1,4 @@
+Returns a boolean value that indicates whether the device is capable to
+report its location. This property does not provide a detailed
+information on what kind of sensor can be used, it can use all kinds of
+underlying technology with varying accuracy.

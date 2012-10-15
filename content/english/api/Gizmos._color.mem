@@ -1,0 +1,11 @@
+Sets the color for the gizmos that will be drawn next.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnDrawGizmosSelected () {
+		// Draws a 5 meter long red line in front of the object
+		Gizmos.color = Color.red;
+		var direction : Vector3 = transform.TransformDirection (Vector3.forward) * 5;
+		Gizmos.DrawRay (transform.position, direction);
+	}
+END EX

@@ -1,0 +1,9 @@
+Approximately the direction from the center of the capsule to the point we touch.
+This can be used to find a reasonable direction to apply forces to touched rigidbodies.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnControllerColliderHit(hit : ControllerColliderHit) {
+		Debug.Log(hit.moveDirection);
+	}
+END EX

@@ -1,0 +1,30 @@
+The time stamp when the Message was sent in seconds.
+Timestamps can be used to implement interpolation or extrapolation of continous streams of packets
+The timestamp is passed as a double to avoid overflow when a game is running for a long time.
+Internally timestamps are sent as 32 bit integers with millisecond accuracy to save bandwidth.
+Timestamps are automatically adjusted to be relative to Network.time.
+Thus Network.time - messageInfo.timeStamp is the time the packet spent in transit.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var something : float;
+	var transitTime: double;
+	function OnSerializeNetworkView (stream : BitStream, 
+		info : NetworkMessageInfo) {
+		var horizontalInput : float = 0.0;
+		if (stream.isWriting) {
+			// Sending
+			horizontalInput = transform.position.x;
+			stream.Serialize (horizontalInput);
+		} else {
+			// Receiving
+			transitTime = Network.time - info.timestamp;
+			stream.Serialize (horizontalInput);
+			something = horizontalInput;
+		}
+	}
+
+	function OnGUI() {
+		GUILayout.Label("Last transmission time: "+ transitTime);
+	}
+END EX

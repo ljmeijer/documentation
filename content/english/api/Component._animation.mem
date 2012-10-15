@@ -1,0 +1,6 @@
+The [[Animation]] attached to this [[GameObject]] (null if there is none attached).
+CONVERTEXAMPLE
+BEGIN EX
+
+	animation.Play();
+END EX

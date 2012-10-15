@@ -1,0 +1,8 @@
+Two colliding objects with a relative velocity below this will not bounce (default 2). Must be positive.
+
+This value is usually changed in @@Edit->Project Settings->Physics@@ inspector instead of from scripts.
+CONVERTEXAMPLE
+BEGIN EX
+
+	Physics.bounceThreshold = 1;
+END EX

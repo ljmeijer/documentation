@@ -1,0 +1,2 @@
+Stores the location of detected object and flag whether
+the object should be ignored as a tilt target.

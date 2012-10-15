@@ -1,0 +1,7 @@
+Implement to create your own custom preview. Custom previews are used in the preview area of the inspector, primary editor headers, and the object selector.
+If you implement ::ref::OnInteractivePreviewGUI then this will only be called for non-interactive custom previews.
+The overidden method should use the rectangle passed in and render a preview of the asset into it.
+The default implementation is a no-op.
+
+__Note:__ Inspector previews are limited to the primary editor of persistent objects (assets), e.g., GameObjectInspector, MaterialEditor, TextureInspector.
+This means that it is currently not possible for a component to have its own inspector preview.

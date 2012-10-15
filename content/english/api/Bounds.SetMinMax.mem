@@ -1,0 +1,2 @@
+Sets the bounds to the /min/ and /max/ value of the box.
+Using this function is faster than assigning /min/ and /max/ separately.

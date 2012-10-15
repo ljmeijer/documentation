@@ -1,0 +1,11 @@
+The number of submeshes. Every material has a separate triangle list.
+
+SA: ::ref::GetTriangles, ::ref::SetTriangles.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start() {
+		var mesh : Mesh = GetComponent(MeshFilter).mesh;
+		Debug.Log("Submeshes: " + mesh.subMeshCount);
+	}
+END EX

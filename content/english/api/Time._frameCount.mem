@@ -1,0 +1,13 @@
+The total number of frames that have passed (RO).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Makes sure that RecalculateValue only performs
+	// some operations once per frame and no more.
+	static private var lastRecalculation = -1;
+	static function RecalculateValue () {
+		if (lastRecalculation == Time.frameCount)
+			return;
+		ProcessData.AndDoSomeCalculations();
+	}
+END EX

@@ -1,0 +1,2 @@
+An animation curve. Lets you add keyframes and evaluate the curve at a given time.
+A collection of curves form an [[AnimationClip]].

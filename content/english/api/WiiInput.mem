@@ -1,0 +1,26 @@
+Class for accessing Wii remote controllers.
+Most methods in names and functionality correspond to those found in KPad library. Please consult Revolution SDK for a detailed reference.
+Mouse emulation is supported: values read from first correctly synchronized Wii Remote's IR sensor are passed to InputManager and set as mouse position. Before assigning it to Input::ref::mousePosition, it is scaled to approximately match screen size and multiplied by user specifieable sensitivity.
+Remote's buttons are mapped to InputManager (Input) keys. The mappings as follows:
+<table><th>Wii Remote</th><th>Input Manager</th>
+<tr><td>left</td><td>left</td></tr>
+<tr><td>right</td><td>right</td></tr>
+<tr><td>up</td><td>up</td></tr>
+<tr><td>down</td><td>down</td></tr>
+<tr><td>A</td><td>left ctrl</td></tr>
+<tr><td>B</td><td>space</td></tr>
+<tr><td>1</td><td>left alt</td></tr>
+<tr><td>2</td><td>left cmd</td></tr>
+<tr><td>plus</td><td>+</td></tr>
+<tr><td>minus</td><td>-</td></tr>
+<tr><td>nunchuk stick</td><td>joystick 1</td></tr>
+<tr><td>nunchuk z</td><td>z, rigth shift</td></tr>
+<tr><td>nunchuk c</td><td>c, left shift</td></tr>
+</table>
+BEGIN EX
+
+	if (Input.GetButton ("+")) {
+		// this would be fired when ''+'' on the synced Wii Remote is pressed.
+		WiiPerf.Enable (true);
+	}
+END EX

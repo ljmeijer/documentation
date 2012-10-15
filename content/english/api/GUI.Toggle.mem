@@ -1,0 +1,36 @@
+<signature>
+Toggle_Rect_bool_string
+Toggle_Rect_bool_Texture
+Toggle_Rect_bool_GUIContent
+Toggle_Rect_bool_string_GUIStyle
+Toggle_Rect_bool_Texture_GUIStyle
+Toggle_Rect_bool_GUIContent_GUIStyle
+</signature>
+Make an on/off toggle button.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws 2 toggle controls, one with a text, the other with an image.
+	var aTexture : Texture;
+	
+	private var toggleTxt : boolean = false;
+	private var toggleImg : boolean = false;
+	
+	function OnGUI () {
+		if(!aTexture) {
+			Debug.LogError("Please assign a texture in the inspector.");
+			return;
+		}
+	
+		toggleTxt = GUI.Toggle(Rect(10, 10, 100, 30), toggleTxt, "A Toggle text");
+		toggleImg = GUI.Toggle(Rect(10, 50, 50, 50), toggleImg, aTexture);
+	}
+END EX
+
+@param position		Rectangle on the screen to use for the button.
+@param value				Is this button on or off?
+@param text				Text to display on the button.
+@param image			[[Texture]] to display on the button.
+@param content			Text, image and tooltip for this button.
+@param style				The style to use. If left out, the /toggle/ style from the current [[GUISkin]] is used.
+@returns The new value of the button.

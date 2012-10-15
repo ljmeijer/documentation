@@ -1,0 +1,5 @@
+Returns a preview texture for an asset.<signature>
+GetAssetPreview_object
+GetAssetPreview_int
+</signature>
+Returns a preview texture for an instanceID of an asset

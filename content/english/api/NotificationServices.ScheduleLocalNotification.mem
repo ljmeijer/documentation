@@ -1,0 +1,20 @@
+Schedules a local notification.
+BEGIN EX
+
+	function Start()
+	{
+		// schedule notification to be delivered in 10 seconds
+		var notif = new LocalNotification();
+		notif.fireDate = DateTime.Now.AddSeconds(10);
+		notif.alertBody = "Hello!";
+		NotificationServices.ScheduleLocalNotification(notif);
+	}
+
+	function Update()
+	{
+		if (NotificationServices.localNotificationCount > 0) {
+			Debug.Log(NotificationServices.localNotifications[0].alertBody);
+			NotificationServices.ClearLocalNotifications();
+		}
+	}
+END EX

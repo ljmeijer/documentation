@@ -1,0 +1,27 @@
+The rotation as Euler angles in degrees.
+
+The x, y, and z angles represent a rotation z degrees around the z axis, x degrees around the x axis, and y degrees around the y axis (in that order).
+
+Only use this variable to read and set the angles to absolute values. Don't increment them, as it will fail when the angle exceeds 360 degrees.
+Use Transform.Rotate instead.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Print the rotation around the global X Axis
+	print (transform.eulerAngles.x); 
+	// Print the rotation around the global Y Axis
+	print (transform.eulerAngles.y); 
+	// Print the rotation around the global Z Axis
+	print (transform.eulerAngles.z); 
+
+	// Assign an absolute rotation using eulerAngles
+	var yRotation : float = 5.0;
+	function Update () {
+		yRotation += Input.GetAxis("Horizontal");
+		transform.eulerAngles = Vector3(10, yRotation, 0);
+		
+	}
+END EX
+Do not set one of the eulerAngles axis separately  (eg. eulerAngles.x = 10; ) since this will lead to drift and undesired rotations.
+When setting them to a new value set them all at once as shown above.
+Unity will convert the angles to and from the rotation stored in Transform.rotation

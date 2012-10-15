@@ -1,0 +1,7 @@
+The [[Light]] attached to this GameObject (RO). (null if there is none attached)
+CONVERTEXAMPLE
+BEGIN EX
+
+	var other : GameObject; 
+	other.light.range = 10;
+END EX

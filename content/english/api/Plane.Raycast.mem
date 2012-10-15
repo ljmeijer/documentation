@@ -1,0 +1,6 @@
+Intersects a ray with the plane.
+
+This function sets /enter/ to the distance along the ray, where it intersects the plane.
+If the ray is parallel to the plane, function returns /false/ and sets /enter/ to zero.
+If the ray is pointing in the opposite direction than the plane, function returns /false/ 
+and sets /enter/ to the distance along the ray (negative value).

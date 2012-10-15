@@ -1,0 +1,15 @@
+AssetBundles let you stream additional assets via the WWW class and instantiate them at runtime. AssetBundles are created via BuildPipeline.BuildAssetBundle.
+Note that bundles are not fully compatible between platforms. A bundle built for any of the standalone
+platforms (including webplayer) can be loaded on any of those platforms but not on iOS or Android.
+Furthermore, a bundle built for iOS is not compatible with Android and vice versa.
+
+SA: WWW.assetBundle, [[wiki:Loading Resources at Runtime|Loading Resources at Runtime]], BuildPipeline.BuildAssetBundle.
+BEGIN EX
+
+function Start () {
+	var www = WWW ("http://myserver/myBundle.unity3d");
+	yield www;
+	// Get the designated main asset and instantiate it.
+	Instantiate(www.assetBundle.mainAsset);
+}
+END EX

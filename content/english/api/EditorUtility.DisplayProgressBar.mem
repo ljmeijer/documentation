@@ -1,0 +1,53 @@
+Displays or updates a progress bar.
+
+The window title will be set to /title/ and the info will be set to /info/.
+Progress should be set to a value between 0.0 and 1.0, where 0 means nothing done and 1.0 means 100% completed.
+
+This is useful if you perform any lengthy operations in your editor scripts or wizards,
+and want to notify the user about the progress.
+
+SA: ::ref::DisplayCancelableProgressBar, ::ref::ClearProgressBar functions.
+
+{img EditorUtilityDisplayProgressBar.png}\\
+''Progress bar in the editor.''
+BEGIN EX
+
+	// Simple Editor Script that fills a bar in the given seconds.
+
+	class EditorUtilityDisplayProgressBar extends EditorWindow {
+		var secs = 10.0;
+		var startVal = 0;
+		var progress = 0;
+
+		@MenuItem("Examples/Progress Bar Usage")
+		static function Init() {
+			var window = GetWindow(EditorUtilityDisplayProgressBar);
+			window.Show();
+		}
+
+		function OnGUI() {
+			secs = EditorGUILayout.IntField("Time to wait:", secs);
+			if(GUILayout.Button("Display bar")) {
+				if(secs < 1) {
+					Debug.LogError("Seconds should be bigger than 1");
+					return;
+				}
+				startVal = EditorApplication.timeSinceStartup;
+			}
+
+			if(progress < secs)
+				EditorUtility.DisplayProgressBar(
+					"Simple Progress Bar",
+					"Shows a progress bar for the given seconds",
+					progress/secs);
+			else
+				EditorUtility.ClearProgressBar();
+
+			progress = EditorApplication.timeSinceStartup - startVal;
+		}
+
+		function OnInspectorUpdate() {
+			Repaint();
+		}
+	}
+END EX

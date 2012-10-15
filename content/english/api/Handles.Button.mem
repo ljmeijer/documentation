@@ -1,0 +1,39 @@
+Make a 3D Button.
+This works like a normal GUI.Button, but it has a 3D position and is drawn by a handle function
+
+__Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.
+
+{img ButtonHandle.png}\\
+''Button Handle as a rectangle in the Scene View.''
+BEGIN EX
+
+	// Create a simple button on 3D space and when the user clicks over the handle
+	// it prints a message.
+	
+	@CustomEditor (ButtonChecker)
+	class ButtonHandle extends Editor {
+		function OnSceneGUI () {
+	        target.checkButton = 
+	        	Handles.Button(target.transform.position + Vector3(0,2,0),
+	        			Quaternion.identity,
+	        			3,
+	        			3,
+	        			Handles.DrawRectangle);	
+	    }
+	}
+END EX
+
+And the script attached to this handle:
+BEGIN EX
+
+	// Usage: Place this script on the object you want to create the button on.
+	// When the script is placed, just press "Play" and click the rectangle
+	// that appears over the GameObject
+	
+	var checkButton : boolean = true;
+	
+	function Update() {
+		if(checkButton)
+			Debug.Log("The handle button has been pressed!");
+	}
+END EX

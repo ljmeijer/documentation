@@ -1,0 +1,9 @@
+Sets the index buffer for the submesh.
+A submesh is simply a separate indices array. When the mesh renderer uses multiple materials, you should
+ensure that there are as many submeshes as materials.
+
+::ref::SetTriangles and ::triangles always make the mesh be composed of triangles
+faces. Using SetIndices you can create a mesh that's made out of lines or points,
+see [[MeshTopology]] enum.
+
+SA: ::ref::subMeshCount, [[MeshTopology]] enum.

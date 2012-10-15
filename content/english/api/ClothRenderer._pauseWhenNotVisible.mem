@@ -1,0 +1,7 @@
+Pause the cloth simulation, when the ClothRenderer is not currently visible.
+If this is enable, the cloth will only be simulated, while the cloth is visible to any camera.
+This can improve performance of the physics simulation.
+BEGIN EX
+
+	pauseWhenNotVisible = true;
+END EX

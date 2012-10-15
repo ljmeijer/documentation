@@ -1,0 +1,13 @@
+The default solver iteration count permitted for any rigid bodies (default 7). Must be positive.
+
+The solverIterationCount determines how accurately joints and contacts are resolved. 
+If you are having trouble with connected bodies oscillating and behaving erratically setting 
+a higher solver iteration count may improve their stability (but is slower).
+Usually a value of 7 works very well for almost all situations.
+
+This value is usually changed in @@Edit->Project Settings->Physics@@ inspector instead of from scripts.
+CONVERTEXAMPLE
+BEGIN EX
+
+	Physics.solverIterationCount = 10;
+END EX

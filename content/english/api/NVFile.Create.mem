@@ -1,0 +1,23 @@
+Create a new file. NOTE: Creating a file doesn't automatically open it. In order to read, write or call other functions on the file you have to open it after creating.
+BEGIN EX
+
+	function CreateFile (filename:String) : Boolean {
+		// Create file object
+		var file:NVFile = new NVFile ();
+		
+		// Initiate operation and continue after it completes
+		yield file.Create (filename, WiiNand.Permissions.OwnerRW|WiiNand.Permissions.GroupRead, 0);
+		
+		// Check if file was successfully created
+		if (!file.success) {
+			Debug.Log ("File could not be created. Result: "
+				+ file.result + ", asyncResult: " + file.asyncResult);
+			return false;
+		}
+		
+		return true;
+	}
+END EX
+@param	name	File name, length of it can not exceed 12 characters.
+@param	perm	File permissions, a combination of WiiNand.Permissions flags. At least ''must'' include WiiNand.Permissions.OwnerRead or else creation will fail.
+@param	attr	Attributes of the file. ''Not supported on Mac, always equal to 0.''

@@ -1,0 +1,9 @@
+The shared physic material of this collider.
+Modifying this material will change the surface properties of all colliders using the material.
+In most cases you want to modify Collider.material instead.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var material : PhysicMaterial;
+	collider.sharedMaterial = material;
+END EX

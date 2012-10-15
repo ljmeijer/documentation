@@ -1,0 +1,2 @@
+Flushes gathered statistics to the LIVE servers.
+Normally, statistics are cached locally and sent to the statistics server only after End() is called. For games with typical session lengths (five to ten minutes), this caching is both desirable and acceptable. For games with longer session lengths (campaign sessions that last hours, for example), the title may wish to periodically flush the cached statistics so they are not lost due to disconnects or other failures.

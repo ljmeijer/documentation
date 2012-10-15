@@ -1,0 +1,3 @@
+Query memory2 usage.
+Returns number of bytes allocated by the engine from available Mem2 heap including all the bookkeeping overhead. This number includes GC heap size for the garbage collector. Use other functions to query memory [[WiiPerf.gcHeapSize|allocated total]] for GC or [[WiiPerf.gcHeapUsedSize|used]] by it.
+@return Number of bytes allocated.

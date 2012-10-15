@@ -1,0 +1,23 @@
+Construct an AndroidJavaObject based on the name of the class.
+This essentially means locate the class type, allocate an object and run the specified constructor.
+BEGIN EX
+
+	// Create a java.lang.String object holding the string "some string".
+	function Start() {
+		var jo = new AndroidJavaObject("java.lang.String", "some string");
+	}
+END EX
+
+BEGIN EX
+
+	// Inner (nested) classes must use /$ separators.
+	// Here we create a LayoutParams object with a specified width and height.
+	function Start() {
+		var width = 300;
+		var height = 150;
+		var jo = new AndroidJavaObject("android/view/ViewGroup$LayoutParams", width, height);
+	}
+END EX
+
+@param className Specifies the Java class name (e.g. "<tt>java.lang.String</tt>" or "<tt>java/lang/String</tt>")
+@param args An array of parameters passed to the constructor.

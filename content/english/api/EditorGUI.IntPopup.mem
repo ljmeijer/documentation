@@ -1,0 +1,55 @@
+<signature>
+IntPopup_Rect_int_stringArray_intArray_GUIStyle
+IntPopup_Rect_int_GUIContentArray_intArray_GUIStyle
+IntPopup_Rect_SerializedProperty_GUIContentArray_intArray_GUIContent
+IntPopup_Rect_string_int_stringArray_intArray_GUIStyle
+IntPopup_Rect_GUIContent_int_GUIContentArray_intArray_GUIStyle
+</signature>
+Make an integer popup selection field.
+Takes the currently selected integer as a parameter and returns the integer selected by the user.
+
+{img EditorGUIIntPopup.png}\\
+''Int Popup in an Editor Window.''
+BEGIN EX
+
+	// Multiplies the scale of the selected transform.
+	
+	
+	class EditorGUIIntPopup extends EditorWindow {
+
+		var selectedSize : int = 1;
+		var names : String[] = ["Double", "Triple", "Quadruple"];
+		var sizes : int[] = [2,3,4];
+		
+		@MenuItem("Examples/Editor GUI Int Popup usage")
+		static function Init() {
+			var window = GetWindow(EditorGUIIntPopup);
+			window.position = Rect(0,0,180,60);
+			window.Show();
+		}
+		function OnGUI() {
+			selectedSize = EditorGUI.IntPopup(
+				Rect(3,3,position.width - 6,20),
+				"Size:", 
+				selectedSize,
+				names,
+				sizes);
+			if(GUI.Button(Rect(0,25,position.width,position.height - 27), "Modify"))
+				Rescale();
+		}
+		function Rescale() {
+			if(Selection.activeTransform)
+				Selection.activeTransform.localScale *= selectedSize;	
+			else
+				Debug.LogError("No Object selected, please select an object to scale.");
+		}
+	}
+END EX
+
+@param position Rectangle on the screen to use for the field.
+@param label Optional label in front of the field.
+@param selectedValue The value of the option the field shows.
+@param displayedOptions An array with the displayed options the user can choose from.
+@param optionValues An array with the values for each option. If optionValues a direct mapping of selectedValue to displayedOptions is assumed.
+@param style Optional [[GUIStyle]].
+@returns The value of the option that has been selected by the user.

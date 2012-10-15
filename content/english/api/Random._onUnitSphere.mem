@@ -1,0 +1,8 @@
+Returns a random point on the surface of a sphere with radius 1 (RO).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Sets the rigidbody velocity to 10 and in a random direction.
+
+	rigidbody.velocity = Random.onUnitSphere * 10;
+END EX

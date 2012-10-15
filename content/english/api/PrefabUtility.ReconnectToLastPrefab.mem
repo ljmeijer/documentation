@@ -1,0 +1,2 @@
+Connects the game object to the prefab that it was last connected to.
+Returns true if the game object has never been a prefab instance.

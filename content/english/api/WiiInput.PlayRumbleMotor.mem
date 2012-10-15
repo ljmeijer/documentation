@@ -1,0 +1,25 @@
+Play a sequence of Rumble Motor state changes.
+This function interates through all the bits passed to it and sets state of the Rumble Motor to the value of the bit for 1/100th of a second. Bit value of 1 means Motor is turned on, 0 means it's off.
+BEGIN EX
+
+	function OnGUI () {
+		if (WiiInput.IsRumbleMotorPlaybackPlaying(0)) {
+			if (GUI.Button (Rect(20,20,200,50), "Stop Rumble")) {
+				WiiInput.StopRumbleMotorPlayback (0);
+			}
+		} else {
+			if (GUI.Button (Rect(20,20,200,50), "Vibrate!")) {
+				var dat: byte[] = new byte [25];
+				for (var i:int = 0; i<25*8; ++i) {
+					var on: boolean = Random.value > 0.5;
+					if (on)
+						dat [i / 8] |= (0x80 >> (i%8));
+					WiiInput.PlayRumbleMotor (0, dat, 25*8);
+				}
+			}
+		}
+	}
+END EX
+@param	chan	Remote index, in range 0...3.
+@param	data	Bit data to play, byte size is 8 bits, most significant bit is processed first.
+@param	bits	Number of bits to process, this might be less that the of the array provided by data.

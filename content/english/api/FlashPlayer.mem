@@ -1,0 +1,2 @@
+Runtime FlashPlayer support.
+When targetting the Flash Player, this class can be used to perform runtime Flash specific features.

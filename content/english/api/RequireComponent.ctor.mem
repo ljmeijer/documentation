@@ -1,0 +1,9 @@
+Require a single component<signature>
+ctor_Type
+ctor_Type_Type
+</signature>
+Require a two components
+<signature>
+ctor_Type_Type_Type
+</signature>
+Require three components

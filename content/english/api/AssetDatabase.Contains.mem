@@ -1,0 +1,7 @@
+<signature>
+Contains_object
+Contains_int
+</signature>
+Is object an asset?
+Returns true when an object is an asset (corresponds to a file in the Assets folder), 
+and false if it is not (for example object in the scene, or an object created at runtime).

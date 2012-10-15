@@ -1,0 +1,16 @@
+Does this font have a specific character?
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Detects if the current font of a 3D text
+	// supports '-' sign
+	private var t : TextMesh;
+	function Start() {
+		t = transform.GetComponent(TextMesh);
+		if (t.font.HasCharacter("-"[0])) {
+			Debug.Log("Font supports '-' sign.");
+		} else {
+			Debug.LogWarning("This font doesnt support '-'");
+		}
+	}
+END EX

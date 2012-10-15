@@ -1,0 +1,6 @@
+Color render texture format, 16 bit floating point per channel.
+
+Note that not all graphics cards support floating point render textures.
+Use SystemInfo.SupportsRenderTextureFormat to check for support.
+
+SA: RenderTexture.format, [[RenderTexture]] class, SystemInfo.SupportsRenderTextureFormat.

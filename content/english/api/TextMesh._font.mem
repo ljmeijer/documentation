@@ -1,0 +1,10 @@
+The [[Font]] used.
+
+SA: [[wiki:class-TextMesh|text mesh component]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the text of the attached Text mesh
+	var newFont : Font;
+	GetComponent(TextMesh).font = newFont;
+END EX

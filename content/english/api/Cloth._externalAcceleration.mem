@@ -1,0 +1,10 @@
+A constant, external acceleration applied to the cloth.
+Use this to simulate constant forces on the cloth, such as wind waving a flag.
+SA: [[Cloth.randomAcceleration]], [[InteractiveCloth.AddForceAtPosition]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Make this cloth fall at half speed (if is affected by gravity).
+
+	transform.GetComponent(Cloth).externalAcceleration =  -Physics.gravity/2;
+END EX

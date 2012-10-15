@@ -1,0 +1,8 @@
+Should gravity affect the cloth simulation?
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Dont use gravity on this cloth regardless if is Interactive or Skinned.
+
+	transform.GetComponent(Cloth).useGravity = false;
+END EX

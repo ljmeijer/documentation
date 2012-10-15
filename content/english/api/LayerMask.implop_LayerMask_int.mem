@@ -1,0 +1,11 @@
+implicitly converts an integer to a LayerMask
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Converts an integer to a layer and prints the layer name.
+
+	var i : int = 0;
+	var la : LayerMask;
+	la = i;
+	Debug.Log(LayerMask.LayerToName(la));
+END EX

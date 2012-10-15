@@ -1,0 +1,19 @@
+The main material's color.
+The same as using ::ref::GetColor or ::ref::SetColor with @@"_Color"@@ name.
+
+SA: ::ref::SetColor, ::ref::GetColor.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Fade the color from red to green
+	// back and forth over the defined duration
+
+	var colorStart : Color = Color.red;
+	var colorEnd : Color = Color.green;
+	var duration : float = 1.0;
+
+	function Update () {
+		var lerp : float = Mathf.PingPong (Time.time, duration) / duration;
+		renderer.material.color = Color.Lerp (colorStart, colorEnd, lerp);
+	}
+END EX

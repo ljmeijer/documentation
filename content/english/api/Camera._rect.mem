@@ -1,0 +1,15 @@
+Where on the screen is the camera rendered in normalized coordinates.
+
+The values in /rect/ range from zero (left/bottom) to one (right/top).
+BEGIN EX
+
+	// Change the width of the viewport each time space key is pressed
+	function Update () {
+		if (Input.GetButtonDown ("Jump")) {
+			// choose the margin randomly
+			var margin = Random.Range (0.0, 0.3);
+			// setup the rectangle
+			camera.rect = Rect (margin, 0, 1 - margin * 2, 1);
+		}
+	}
+END EX

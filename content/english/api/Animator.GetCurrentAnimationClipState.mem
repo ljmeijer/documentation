@@ -1,0 +1,2 @@
+Gets the list of AnimationInfo currently played by the current state
+@param layerIndex The layer's index

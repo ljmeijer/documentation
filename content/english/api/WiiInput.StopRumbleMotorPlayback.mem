@@ -1,0 +1,11 @@
+Cancels Rumble Motor playback.
+BEGIN EX
+
+	function OnGUI () {
+		for (var i: int = 0; i<4; ++i) {
+			if (GUI.Button (Rect (20,20 + i*50,200,40), "Stop Rumble " + i.ToString() + "playback"))
+				WiiInput.StopRumbleMotorPlayback (i);
+		}
+	}
+END EX
+@param	chan	Remote index, in range 0...3.

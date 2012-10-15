@@ -1,0 +1,18 @@
+<signature>
+PingObject_object
+PingObject_int
+</signature>
+Ping an object in a window like clicking it in an inspector
+BEGIN EX
+
+	// Pings the currently selected Object
+	
+	@MenuItem("Examples/Ping Selected")
+	static function Ping() {
+		if(!Selection.activeObject) {
+			Debug.LogError("Select an object to ping");
+			return;
+		}
+		EditorGUIUtility.PingObject(Selection.activeObject);
+	}
+END EX

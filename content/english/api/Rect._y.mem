@@ -1,0 +1,8 @@
+Top coordinate of the rectangle.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var rect = Rect (10, 10, 100, 100);
+	print(rect.y);
+	rect.x = 20;
+END EX

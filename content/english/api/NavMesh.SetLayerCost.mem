@@ -1,0 +1,2 @@
+Sets the cost for traversing over geometry of the layer type on all agents.
+This will replace any custom layer costs on all agents.

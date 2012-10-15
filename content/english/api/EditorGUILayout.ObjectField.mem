@@ -1,0 +1,59 @@
+<signature>
+ObjectField_object_Type_bool_GUILayoutOptionArray
+ObjectField_string_object_Type_bool_GUILayoutOptionArray
+ObjectField_GUIContent_object_Type_bool_GUILayoutOptionArray
+</signature>
+Make an object field. You can assign objects either by drag'n drop objects or by selecting an object using the Object Picker.
+
+Ensure that the __allowSceneObjects__ parameter is false if the object reference is stored as part of an asset, since assets can't store references to objects in a scene.<br>
+If the ObjectField is part of a custom Editor for a script component, use EditorUtility.IsPersistent() to check if the component is on an asset or a scene object. <br>
+See example in [[Editor]] class.
+
+{img QuickHelperObjectField.png}\\
+''Search for a help page by selecting the GameObject in the Object Field.''
+BEGIN EX
+
+	// EditorScript that quickly searchs for a help page
+	// of the selected Object.
+	//
+	// If there is no page found on the Manual it opens the Unity forum.
+	
+	import UnityEditor;
+	
+	class QuickHelper extends EditorWindow {
+	
+		var source : Object;
+	
+		@MenuItem("Example/QuickHelper _h")
+		static function Init() {
+			var window : QuickHelper = EditorWindow.GetWindowWithRect(QuickHelper, Rect(0,0,165,100));
+			window.Show();
+		}
+		
+		function OnGUI() {
+			EditorGUILayout.BeginHorizontal();
+			source = EditorGUILayout.ObjectField(source, Object);
+			EditorGUILayout.EndHorizontal();
+			
+			if(GUILayout.Button("Search!")) {
+				if(source == null) {
+					this.ShowNotification(GUIContent("No object selected for searching"));
+				} else {
+					if(Help.HasHelpForObject(source))
+						Help.ShowHelpForObject(source);
+					else
+						Help.BrowseURL("http://forum.unity3d.com/search.php");
+				}
+			}
+		}
+	}
+END EX
+
+@param label Optional label in front of the field.
+@param obj The object the field shows.
+@param objType The type of the objects that can be assigned.
+@param allowSceneObjects Allow assigning scene objects. See Description for more info.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The object that has been set by the user.

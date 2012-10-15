@@ -1,0 +1,8 @@
+<signature>
+HelpBox_string_MessageType
+HelpBox_string_MessageType_bool
+</signature>
+Make a help box with a message to the user.
+@param message The message text.
+@param type The type of message.
+@param wide If true, the box will cover the whole width of the window; otherwise it will cover the controls part only.

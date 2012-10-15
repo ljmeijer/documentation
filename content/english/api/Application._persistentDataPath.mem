@@ -1,0 +1,9 @@
+Contains the path to a persistent data directory (RO).
+
+The value is a directory path where data expected to be kept between runs can be stored.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// print the path to the persistent data folder
+	print (Application. persistentDataPath);
+END EX

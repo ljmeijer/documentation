@@ -1,0 +1,10 @@
+Enable or disables the reception of messages in a specific group number from a specific player.
+You can use the when you do not want any network messages coming in for processing at the moment, and then enable it later
+when you are ready. This is useful to stop network messages until a level is loaded, for example.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Stop receiving messages in group 0 from all players (clients)
+	for (var player : NetworkPlayer in Network.connections)
+		Network.SetReceivingEnabled(player, 0, false);
+END EX

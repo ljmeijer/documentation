@@ -1,0 +1,25 @@
+CSNONE
+OnPreRender is called before a camera starts rendering the scene.
+
+This message is sent to all scripts attached to the camera.
+
+Note that if you change camera's viewing parameters (e.g. ::ref::fieldOfView) here,
+they will only take effect the next frame. Do that in ::ref::OnPreCull instead.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// This script lets you enable/disable fog per camera.
+	// by enabling or disabling the script in the title of the inspector
+	// you can turn fog on or off per camera.
+
+	private var revertFogState = false;
+	
+	function OnPreRender () {
+		revertFogState = RenderSettings.fog;
+		RenderSettings.fog = enabled;
+	}
+	
+	function OnPostRender () {
+		RenderSettings.fog = revertFogState;
+	}
+END EX

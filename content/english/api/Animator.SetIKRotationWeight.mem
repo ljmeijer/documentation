@@ -1,0 +1,3 @@
+Sets the rotational weight of an IK goal (0 = rotation before IK, 1 = rotation at the IK goal)
+@param goal The AvatarIKGoal that is set
+@param value The rotational weight

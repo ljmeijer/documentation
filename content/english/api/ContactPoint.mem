@@ -1,0 +1,2 @@
+Describes a contact point where the collision occurs.
+Contact points are stored in [[Collision]] structure. SA: [[Collision]], Collider.OnCollisionEnter, Collider.OnCollisionStay, Collider.OnCollisionExit.

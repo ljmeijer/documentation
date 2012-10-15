@@ -1,0 +1,11 @@
+Lets you essentially lower the heightmap resolution used for rendering
+This can be used on low end cards to never display the highest lod terrain.
+A value of 0 means always showing highest detail. A value of 1 means the triangle count will be reduced to 1/4th.
+The heightmap resolution will be halved for width and height.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		Terrain.activeTerrain.heightmapMaximumLOD = 1;
+	}
+END EX

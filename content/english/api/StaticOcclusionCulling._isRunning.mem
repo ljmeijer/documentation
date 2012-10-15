@@ -1,0 +1,2 @@
+Used to check if asynchronous generation of static occlusion culling data is still running.
+SA: StaticOcclusionCulling.GenerateInBackground, StaticOcclusionCulling.Cancel

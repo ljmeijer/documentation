@@ -1,0 +1,16 @@
+Transforms /position/ from screen space into world space.
+
+Screenspace is defined in pixels. The bottom-left of the screen is (0,0); the right-top
+is (::ref::pixelWidth,::ref::pixelHeight). The z position is in world units from the camera.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draw a yellow sphere in the scene view at the position
+	// on the near plane of the selected camera that is
+	// 100 pixels from lower-left.
+	function OnDrawGizmosSelected () {
+		var p : Vector3 = camera.ScreenToWorldPoint (Vector3 (100,100,camera.nearClipPlane));
+		Gizmos.color = Color.yellow;
+		Gizmos.DrawSphere (p, 0.1);
+	}
+END EX

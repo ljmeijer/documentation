@@ -1,0 +1,9 @@
+Emits an ActionScript expression translating variable and field references to their ActionScript names.
+CONVERTEXAMPLE
+BEGIN EX
+
+	import UnityEngine.Flash;
+	
+	var value = 42;
+	var asObject = ActionScript.Expression.<Object>("{value: {0}}", value);
+END EX

@@ -1,0 +1,69 @@
+Creates a WWW request with the given URL.
+
+This function creates and sends a GET request.
+The stream will automatically start downloading the response.
+
+After the stream is created you have to wait for it to complete, then you can access the downloaded data.
+As a convenience the stream can be yielded, so you can very easily tell Unity to wait for the download to complete.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Get the latest webcam shot from outside "Friday's" in Times Square
+	var url = "http://images.earthcam.com/ec_metros/ourcams/fridays.jpg";
+	function Start () {
+		 // Start a download of the given URL
+		var www : WWW = new WWW (url);
+
+		// Wait for download to complete
+		yield www;
+
+		// assign texture
+		renderer.material.mainTexture = www.texture;
+	}
+END EX
+@param url The url to download.
+@returns A new WWW object. When it has been downloaded, the results can be fetched from the returned object.<signature>
+ctor_string
+ctor_string_WWWForm
+</signature>
+Creates a WWW request with the given URL.
+
+This function creates and sends a POST request with form data contained in a [[WWWForm]]
+parameter. This is the same as calling @@new WWW(url,form.data, form.headers)@@.
+The stream will automatically start downloading the response.
+
+After the stream is created you have to wait for it to complete, then you can access the downloaded data.
+As a convenience the stream can be yielded, so you can very easily tell Unity to wait for the download to complete.
+@param url The url to download.
+@param form A [[WWWForm]] instance containing the form data to post.
+@returns A new WWW object. When it has been downloaded, the results can be fetched from the returned object.
+<signature>
+ctor_string_byteArray
+</signature>
+Creates a WWW request with the given URL.
+
+This function creates and sends a POST request with raw post data contained in postData.
+The stream will automatically start downloading the response.
+Use this version if you need to post raw post data in a custom format to the server.
+
+After the stream is created you have to wait for it to complete, then you can access the downloaded data.
+As a convenience the stream can be yielded, so you can very easily tell Unity to wait for the download to complete.
+@param url The url to download.
+@param postData A byte array of data to be posted to the url.
+@returns A new WWW object. When it has been downloaded, the results can be fetched from the returned object.
+<signature>
+ctor_string_byteArray_Hashtable
+</signature>
+Creates a WWW request with the given URL.
+
+This function creates and sends a POST request with raw post data contained in
+postData and custom request headers supplied in the /headers/ hashtable.
+The stream will automatically start downloading the response.
+Use this version if you need to post raw post data in a custom format to the server or if you need to supply custom request headers.
+
+After the stream is created you have to wait for it to complete, then you can access the downloaded data.
+As a convenience the stream can be yielded, so you can very easily tell Unity to wait for the download to complete.
+@param url The url to download.
+@param postData A byte array of data to be posted to the url.
+@param headers A hash table of custom headers to send with the request.
+@returns A new WWW object. When it has been downloaded, the results can be fetched from the returned object.

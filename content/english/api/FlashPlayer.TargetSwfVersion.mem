@@ -1,0 +1,8 @@
+Get a string representing the version of the SWF which the current project has been compiled against.
+CONVERTEXAMPLE
+BEGIN EX
+
+	import UnityEngine.Flash;
+	
+	var swfVersion = FlashPlayer.TargetSwfVersion;
+END EX

@@ -1,0 +1,9 @@
+Create a new folder.
+@param parentFolder the name of the parent folder
+@param newFolderName the name of the new folder
+@returns the GUID of the newly created folder
+BEGIN EX
+
+		string guid = AssetDatabase.CreateFolder("Assets", "My Folder");
+		string newFolderPath = AssetDatabase.GUIDToAssetPath(guid);
+END EX

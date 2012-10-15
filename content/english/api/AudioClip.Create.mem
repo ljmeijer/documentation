@@ -1,0 +1,39 @@
+<signature>
+Create_string_int_int_int_bool_bool
+Create_string_int_int_int_bool_bool_PCMReaderCallback
+Create_string_int_int_int_bool_bool_PCMReaderCallback_PCMSetPositionCallback
+</signature>
+Creates a user AudioClip with a name and with the given length in samples, channels and frequency.
+Set your own audio data with ::ref::SetData. 
+Use the ::ref::PCMReaderCallback and ::ref::PCMSetPositionCallback delegates to get a callback whenever the clip reads data and changes the position.
+If stream is true, Unity will on demand read in small chunks of data. If it's false, all the samples will be read during the creation.
+CONVERTEXAMPLE
+BEGIN EX
+
+	#pragma strict
+	// Creates a 1 sec long audioclip, with a 440hz sinoid
+	var position: int = 0;
+	var sampleRate : int = 0;
+	var frequency : float = 440;
+	function Start () {
+		var myClip = AudioClip.Create("MySinoid", 44100, 1, 44100, false, true, OnAudioRead, OnAudioSetPosition);
+		sampleRate = AudioSettings.outputSampleRate;
+
+		audio.clip = myClip;
+		audio.Play();            
+	}
+
+	function OnAudioRead(data:float[])
+	{
+		for (var count = 0; count < data.Length; count++)
+		{
+			data[count] = Mathf.Sign(Mathf.Sin(2 * Mathf.PI * frequency * position / sampleRate));
+			position++;
+		}
+	}
+
+	function OnAudioSetPosition(newPosition:int)
+	{
+		position = newPosition;
+	}
+END EX

@@ -1,0 +1,9 @@
+Get a JNI method ID based on calling arguments.
+Generic parameter represents the method return type, and the regular method assumes 'void' return type.
+Scans a particular Java class for a method matching a signature based on passed arguments.
+The signature comparison is done to allow for sub-/base-classes of the class types.
+
+@param javaClass Raw JNI Java class object (obtained by calling AndroidJNI.FindClass).
+@param methodName Name of the method as declared in Java.
+@param args Array with parameters to be passed to the method when invoked.
+@param isStatic  Set to <tt>true</tt> for static methods; <tt>false</tt> for instance (nonstatic) methods.

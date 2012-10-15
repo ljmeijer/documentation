@@ -1,0 +1,9 @@
+Makes a variable not show up in the inspector but be serialized.
+CONVERTEXAMPLE
+BEGIN EX
+
+// Make the variable p not show up in the inspector
+// but be serialized.
+@HideInInspector
+var p = 5;
+END EX

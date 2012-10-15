@@ -1,0 +1,9 @@
+Creates a rotation which rotates from /fromDirection/ to /toDirection/.
+Usually you use this to rotate a transform so that one of its axes eg. the y-axis - follows a target direction /toDirection/ in world space.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Sets the rotation so that the transform's y-axis goes along the z-axis
+
+	transform.rotation = Quaternion.FromToRotation (Vector3.up, transform.forward);
+END EX

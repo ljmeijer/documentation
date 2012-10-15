@@ -1,0 +1,4 @@
+Portrait orientation, upside down.
+Available on iOS and on Android 2.3+. On older Androids falls back to Portrait.
+
+SA: Screen.orientation.

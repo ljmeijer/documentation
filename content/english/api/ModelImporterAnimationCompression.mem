@@ -1,0 +1,6 @@
+Animation compression options for [[ModelImporter]].
+
+Compressing animations saves space in the built game, but more compression
+introduces more artifacts in the animations.
+
+SA: ModelImporter.animationCompression.

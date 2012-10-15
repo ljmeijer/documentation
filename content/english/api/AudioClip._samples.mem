@@ -1,0 +1,7 @@
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start() {
+		Debug.Log(audio.clip.samples);	
+	}
+END EX

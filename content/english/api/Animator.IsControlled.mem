@@ -1,0 +1,2 @@
+Returns true if the transform is controlled by the Animator\
+@param transform The transform that is queried

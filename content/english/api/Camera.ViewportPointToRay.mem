@@ -1,0 +1,22 @@
+Returns a ray going from camera through a viewport point.
+
+Resulting ray is in world space, starting on the near plane of the camera and going through
+position's (x,y) coordinates on the viewport (position.z is ignored).
+
+Viewport coordinates are normalized and relative to the camera. The bottom-left of the camera is (0,0); the top-right is (1,1).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints the name of the object camera is directly looking at
+
+	function Update () {
+		// Get the ray going through the center of the screen
+		var ray : Ray = camera.ViewportPointToRay (Vector3(0.5,0.5,0));
+		// Do a raycast
+		var hit : RaycastHit;
+		if (Physics.Raycast (ray, hit))
+			print ("I'm looking at " + hit.transform.name);
+		else
+			print ("I'm looking at nothing!");
+	}
+END EX

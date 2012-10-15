@@ -1,0 +1,4 @@
+Play a video file.
+SA: [[PS3VideoPlayer]], PS3VideoPlayer.IsPlaying
+@param	path		Path of the PS3 native video file. Must begin with 'Raw/'.
+@param	loop		@@true@@ if you want for movie to automatically loop.

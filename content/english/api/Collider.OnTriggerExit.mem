@@ -1,0 +1,13 @@
+CSNONE
+OnTriggerExit is called when the [[Collider]] /other/ has stopped touching the [[class-BoxCollider|trigger]].
+This message is sent to the trigger and the collider that touches the trigger.
+Note that trigger events are only sent if one of the colliders also has a rigidbody attached.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Destroy everything that leaves the trigger
+
+	function OnTriggerExit (other : Collider) {
+		Destroy(other.gameObject);
+	}
+END EX

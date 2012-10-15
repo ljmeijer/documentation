@@ -1,0 +1,14 @@
+Makes the object /target/ not be destroyed automatically when loading a new scene.
+
+When loading a new level all objects in the scene are destroyed, then the objects in the new level are loaded.
+In order to preserve an object during level loading call DontDestroyOnLoad on it.
+If the object is a component or game object then its entire transform hierarchy will not be destroyed either.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Make this game object and all its transform children
+	// survive when loading a new scene.
+	function Awake () {
+		DontDestroyOnLoad (transform.gameObject);
+	}
+END EX

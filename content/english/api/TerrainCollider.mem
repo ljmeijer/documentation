@@ -1,0 +1,2 @@
+A heightmap based collider.
+SA: [[SphereCollider]], [[CapsuleCollider]], [[PhysicMaterial]], [[Rigidbody]]

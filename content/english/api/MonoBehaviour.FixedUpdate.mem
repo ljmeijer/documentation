@@ -1,0 +1,18 @@
+CSNONE
+This function is called every fixed framerate frame, if the MonoBehaviour is enabled.
+
+FixedUpdate should be used instead of Update when dealing with [[Rigidbody]].
+For example when adding a force to a rigidbody, you have to apply the force every fixed 
+frame inside FixedUpdate instead of every frame inside Update.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Apply a upwards force to the rigid body every frame
+
+	function FixedUpdate () {
+		rigidbody.AddForce (Vector3.up);
+	}
+END EX
+In order to get the elapsed time since last call to Update, use Time.deltaTime
+This function is only called if the [[Behaviour]] is enabled.
+Override this function in order to provide your component's functionality.

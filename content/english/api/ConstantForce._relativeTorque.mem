@@ -1,0 +1,7 @@
+The torque - relative to the rigid bodies coordinate system - applied every frame.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Rotates the object around the its own x-axis
+	constantForce.relativeTorque = Vector3.right * 2;
+END EX

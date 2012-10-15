@@ -1,0 +1,11 @@
+The font to use for rendering. If null, the default font for the current [[GUISkin]] is used instead.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints name of the font that customStyles[0] is using
+
+	function OnGUI() {
+		if(GUI.skin.customStyles.Length > 0)
+			Debug.Log("Font name: " + GUI.skin.customStyles[0].font.name);
+	}
+END EX

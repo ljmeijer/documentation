@@ -1,0 +1,3 @@
+Sets the translative weight of an IK goal (0 = at the original animation before IK, 1 = at the goal)
+@param goal The AvatarIKGoal that is set
+@param value The translative weight

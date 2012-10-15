@@ -1,0 +1,2 @@
+Saves all serializable assets that have not yet been written to disk (eg. Materials)
+Also makes sure the asset database is written.

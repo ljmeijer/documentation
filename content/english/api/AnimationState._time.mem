@@ -1,0 +1,11 @@
+The current time of the animation
+If the time is larger than length it will be wrapped according to wrapMode.
+The value can be larger than the animations length.
+In this case playback mode will remap the time before sampling.
+This value usually goes from 0 to infinity
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Rewind the walk animation
+	animation["Walk"].time = 0.0;
+END EX

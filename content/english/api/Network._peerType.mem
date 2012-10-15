@@ -1,0 +1,13 @@
+The status of the peer type, i.e. if it is disconnected, connecting, server or client.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI() {
+		if (Network.peerType == NetworkPeerType.Disconnected)
+			GUILayout.Label("Not Connected");
+		else if (Network.peerType == NetworkPeerType.Connecting)
+			GUILayout.Label("Connecting");
+		else
+			GUILayout.Label("Network started");
+	}
+END EX

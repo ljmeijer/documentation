@@ -1,0 +1,9 @@
+The transform that was hit by the controller.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// print the transform's name that collided with this transform
+	function OnControllerColliderHit(hit : ControllerColliderHit) {
+	 	Debug.Log("I'm colliding with: " + hit.transform.name);
+	}
+END EX

@@ -1,0 +1,115 @@
+<signature>
+Window_int_Rect_WindowFunction_string
+Window_int_Rect_WindowFunction_Texture
+Window_int_Rect_WindowFunction_GUIContent
+Window_int_Rect_WindowFunction_string_GUIStyle
+Window_int_Rect_WindowFunction_Texture_GUIStyle
+Window_int_Rect_WindowFunction_GUIContent_GUIStyle
+</signature>
+Make a popup window.
+Windows float above normal GUI controls, feature click-to-focus and can optionally be dragged around by the end user.
+	Unlike other controls, you need to pass them a separate function for the GUI controls to put inside the window. 
+	<b>Note:</b> If you are using [[GUILayout]] to place your components inside the window, you should use GUILayout.Window.
+	Here is a small example to get you started:
+CONVERTEXAMPLE
+BEGIN EX
+
+	var windowRect : Rect = Rect (20, 20, 120, 50);
+
+	function OnGUI () {
+		// Register the window. Notice the 3rd parameter 
+		windowRect = GUI.Window (0, windowRect, DoMyWindow, "My Window");
+	}
+
+	// Make the contents of the window
+	function DoMyWindow (windowID : int) {
+		if (GUI.Button (Rect (10,20,100,20), "Hello World"))
+			print ("Got a click");
+	}
+END EX
+You can use the same function to create multiple windows. Just make sure that ''each window has its own ID''. Example:
+CONVERTEXAMPLE
+BEGIN EX
+
+	var windowRect0 : Rect = Rect (20, 20, 120, 50);
+	var windowRect1 : Rect = Rect (20, 100, 120, 50);
+
+	function OnGUI () {
+		// Register the window. We create two windows that use the same function
+		// Notice that their IDs differ
+		windowRect0 = GUI.Window (0, windowRect0, DoMyWindow, "My Window");
+		windowRect1 = GUI.Window (1, windowRect1, DoMyWindow, "My Window");
+	}
+
+	// Make the contents of the window
+	function DoMyWindow (windowID : int) {
+		if (GUI.Button (Rect (10,20,100,20), "Hello World"))
+			print ("Got a click in window " + windowID);
+		// Make the windows be draggable.
+		GUI.DragWindow (Rect (0,0,10000,10000));
+	}
+END EX
+To stop showing a window, simply stop calling GUI.Window from inside your main OnGUI function:
+CONVERTEXAMPLE
+BEGIN EX
+
+	// boolean variable to decide whether to show the window or not.
+	// Change this from the in-game GUI, scripting, the inspector or anywhere else to
+	// decide whether the window is visible
+	var doWindow0 : boolean = true;
+
+	// Make the contents of the window.
+	function DoWindow0 (windowID : int) {
+		GUI.Button (Rect (10,30, 80,20), "Click Me!");
+	}
+
+	function OnGUI () {
+		// Make a toggle button for hiding and showing the window
+		doWindow0 = GUI.Toggle (Rect (10,10,100,20), doWindow0, "Window 0");
+		
+		// Make sure we only call GUI.Window if doWindow0 is true.
+		if (doWindow0)
+			GUI.Window (0, Rect (110,10,200,60), DoWindow0, "Basic Window");
+	}
+END EX
+To make a window that gets its size from automatic GUI layouting, use GUILayout.Window.
+	__Call Ordering__
+	Windows need to be drawn back-to-front; windows on top of other windows need to be drawn later than the ones below them. This means that you can not count on your DoWindow functions to 
+	be called in any particular order. In order for this to work seamlessly, the following values are stored when you create your window (using the __Window__ function), and retrieved when your DoWindow gets called: 
+		GUI.skin, GUI.enabled, GUI.color, GUI.backgroundColor, GUI.contentColor, GUI.matrix
+	This means it's easy to do colored windows like this:
+CONVERTEXAMPLE
+BEGIN EX
+
+	var windowRect0 : Rect = Rect (20, 20, 120, 50);
+	var windowRect1 : Rect = Rect (20, 100, 120, 50);
+
+	function OnGUI () {
+		// Here we make 2 windows. We set the GUI.color value to something before each.
+		GUI.color = Color.red;		
+		windowRect0 = GUI.Window (0, windowRect0, DoMyWindow, "Red Window");
+
+		GUI.color = Color.green;		
+		windowRect1 = GUI.Window (1, windowRect1, DoMyWindow, "Green Window");
+	}
+
+	// Make the contents of the window.
+	// The value of GUI.color is set to what it was when the window
+	// was created in the code above.
+	function DoMyWindow (windowID : int) {
+		if (GUI.Button (Rect (10,20,100,20), "Hello World"))
+			print ("Got a click in window with color " + GUI.color);
+		// Make the windows be draggable.
+		GUI.DragWindow (Rect (0,0,10000,10000));
+	}
+END EX
+Hint: you can use the alpha component of GUI.color to fade windows in and out.
+	SA: ::ref::DragWindow, ::ref::BringWindowToFront, ::ref::BringWindowToBack 
+	@param id			A unique ID to use for each window. This is the ID you'll use to interface to.
+	@param clientRect		Rectangle on the screen to use for the group.
+	@param func			The function that creates the GUI /inside/ the window. This function must take one parameter - the /id/ of the window it's currently making GUI for.
+	@param text 			Text to display as a title for the window.
+	@param image		[[Texture]] to display an image in the titlebar.
+	@param content		Text, image and tooltip for this window.
+	@param style			An optional style to use for the window. If left out, the /window/ style from the current [[GUISkin]] is used.
+	@returns the rectangle the window is at.

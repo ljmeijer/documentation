@@ -1,0 +1,9 @@
+The line spacing multiplier.
+
+This is multiplied with the line spacing defined in the font.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Double line spacing
+	guiText.lineSpacing = 2.0;
+END EX

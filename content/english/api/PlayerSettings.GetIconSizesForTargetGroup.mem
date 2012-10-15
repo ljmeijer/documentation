@@ -1,0 +1,4 @@
+Returns a list of icon sizes for the specified platform.
+
+Most platforms support viewing icons in multiple sizes so Unity lets you specify multiple icon textures for each platform.
+Use this function to get the sizes to use for the specified platform, where each size specifies both the width and height in pixels.

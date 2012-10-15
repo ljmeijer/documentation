@@ -1,0 +1,11 @@
+If non-0, any GUI elements rendered with this style will have the width specified here.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints the value of fixedWidth of customStyles[0]
+	
+	function OnGUI() {
+		if(GUI.skin.customStyles.Length > 0)
+			Debug.Log(GUI.skin.customStyles[0].fixedWidth);
+	}
+END EX

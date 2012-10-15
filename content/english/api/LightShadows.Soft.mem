@@ -1,0 +1,9 @@
+Cast "soft" shadows (with 4x PCF filtering).
+SA: [[wiki:class-Light|light component]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set light to cast 4x filtered soft shadows (disc)
+
+	light.shadows = LightShadows.Soft;
+END EX

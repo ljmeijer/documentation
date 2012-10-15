@@ -1,0 +1,20 @@
+The color of the flare.
+
+This controls the color of some flare elements (the ones that have ''use light color'' enabled).
+
+SA: [[wiki:class-LensFlare|Lens flare component]], [[wiki:class-Flare|flare assets]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Changes the color of the LensFlare (on a gray scale) from black to white.
+	// More white when tr gets near the LensFlare, and darker when the transform goes away.
+	// Remember that the color works on elements that have adlight color enabled.
+
+	var lf : LensFlare;
+	var tr : Transform;
+
+	function Update() {
+		var percentage : float = 1/Vector3.Distance(lf.transform.position, tr.position);
+		lf.color = Color(percentage, percentage, percentage);
+	}
+END EX

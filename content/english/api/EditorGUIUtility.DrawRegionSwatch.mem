@@ -1,0 +1,5 @@
+Draw swatch with a filled region between two SerializedProperty curves.<signature>
+DrawRegionSwatch_Rect_SerializedProperty_SerializedProperty_Color_Color_Rect
+DrawRegionSwatch_Rect_AnimationCurve_AnimationCurve_Color_Color_Rect
+</signature>
+Draw swatch with a filled region between two curves.

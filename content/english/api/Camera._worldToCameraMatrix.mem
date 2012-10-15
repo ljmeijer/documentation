@@ -1,0 +1,28 @@
+Matrix that transforms from world to camera space.
+Use this to calculate the camera space position of objects or to provide custom
+camera's location that is not based on the transform.
+
+Note that camera space matches OpenGL convention: camera's forward is the negative
+Z axis. This is different from Unity's convention, where forward is the positive Z
+axis.
+
+If you change this matrix, the camera no longer updates its rendering based on its [[Transform]].
+This lasts until you call ::ref::ResetWorldToCameraMatrix.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Offsets camera's rendering from the transform's position.
+
+	var offset : Vector3 = Vector3 (0,1,0);
+	
+	function LateUpdate () {
+		// Construct a matrix that offsets and mirrors along
+		// Z axis. Because camera space has mirrored Z with respect
+		// to the rest of Unity.
+		var camoffset : Vector3 = Vector3 (-offset.x, -offset.y, offset.z);
+		var m : Matrix4x4 = Matrix4x4.TRS (camoffset, Quaternion.identity, Vector3 (1,1,-1));
+		// Override worldToCameraMatrix to be offset/mirrored
+		// transform's matrix.
+		camera.worldToCameraMatrix = m * transform.worldToLocalMatrix;
+	}
+END EX

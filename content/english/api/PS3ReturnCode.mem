@@ -1,0 +1,3 @@
+These are the return codes for various I/O operations as returned by some Unity PS3 APIs.
+<br>
+SA: PS3SaveDataUtility.GetResult, PS3DRMUtility.GetResult

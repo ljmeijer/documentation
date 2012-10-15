@@ -1,0 +1,52 @@
+Loads an asset stored at /path/ in a Resources folder.
+Returns the asset at /path/ if it can be found otherwise returns null.
+The /path/ is relative to any Resources folder inside the Assets folder of your project, extensions must be omitted.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Assigns a texture named "Assets/Resources/glass" to a Plane.
+
+	function Start () {
+		var go = new GameObject.CreatePrimitive(PrimitiveType.Plane);
+		go.renderer.material.mainTexture = Resources.Load("glass") as Texture;
+	}
+END EX
+
+Another example:
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Instantiates a prefab at the path "Assets/Resources/enemy".
+
+	function Start () {
+		var instance : GameObject = Instantiate(Resources.Load("enemy"));
+	}
+END EX<signature>
+Load_string
+Load_string_Type
+</signature>
+Loads an asset stored at /path/ in a Resources folder.
+Returns the asset at /path/ if it can be found otherwise returns null.
+Only objects of /type/ will be returned.
+The /path/ is relative to any Resources folder inside the Assets folder of your project, extensions must be omitted.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Assigns a texture named "glass" to a Plane.
+
+	function Start () {
+		var go = new GameObject.CreatePrimitive(PrimitiveType.Cube);
+		go.renderer.material.mainTexture = Resources.Load("glass", Texture2D);
+	}
+END EX
+
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Instantiates a prefab named "enemy" located in any Resources 
+	// folder in your project's Assets folder.
+
+	function Start () {
+		var instance : GameObject = Instantiate(Resources.Load("enemy", GameObject));
+	}
+END EX

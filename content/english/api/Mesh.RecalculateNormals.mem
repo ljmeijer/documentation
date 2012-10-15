@@ -1,0 +1,15 @@
+Recalculates the normals of the mesh from the triangles and vertices.
+After modifying the vertices it is often useful to update the normals to reflect the change.
+Normals are calculated from all shared vertices.
+Imported meshes sometimes don't share all vertices. For example a vertex at a uv seam will be split into two vertices.
+Thus the RecalculateNormals function will create normals that are not smooth at the uv seam.
+Also note that RecalculateNormals does not generate tangents automatically thus bumpmap shaders will not work with the mesh
+after calling RecalculateNormals. You can provide your own tangents however.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		var mesh : Mesh = GetComponent(MeshFilter).mesh;
+		mesh.RecalculateNormals();
+	}
+END EX

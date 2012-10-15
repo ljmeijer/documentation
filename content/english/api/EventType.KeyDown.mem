@@ -1,0 +1,8 @@
+A keyboard key was pressed.
+
+Use Event.character to find out what has been typed. Use Event.keyCode to handle arrow, home/end or other function keys, or to find
+out which physical key has been pressed.
+This event is sent repeatedly depending on the end user's keyboard repeat settings.
+
+Note that key presses can come as separate events, one with valid Event.keyCode, and another with valid Event.character.
+In case of keyboard layouts with dead keys, multiple Event.keyCode events can generate a single Event.character event.

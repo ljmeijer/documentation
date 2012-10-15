@@ -1,0 +1,30 @@
+Mode for ::ref::Begin: draw triangles.
+If you want to draw something 2D in screen space then
+probably you will want to use GL.LoadOrtho or GL.LoadPixelMatrix.\\
+If you want something in "3D", then probably you should consider
+using GL.LoadIdentity followed by GL.MultMatrix with the actual
+3D transform you want your stuff to be in.
+
+SA: GL.Begin, GL.End.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws a triangle that covers the middle of the screen
+	var mat : Material;
+
+	function OnPostRender() {
+		if (!mat) {
+			Debug.LogError("Please Assign a material on the inspector");
+			return;
+		}
+		GL.PushMatrix();
+		mat.SetPass(0);
+		GL.LoadOrtho();
+		GL.Begin(GL.TRIANGLES);
+		GL.Vertex3(0,0,0);
+		GL.Vertex3(1,1,0);
+		GL.Vertex3(0,1,0);
+		GL.End();
+		GL.PopMatrix();
+	}
+END EX

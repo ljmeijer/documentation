@@ -1,0 +1,2 @@
+State of the WiiFileInfo structure. See RVL documentation for DVDGetFileInfoStatus function for more information.
+On WiiWare this always returns State.End.

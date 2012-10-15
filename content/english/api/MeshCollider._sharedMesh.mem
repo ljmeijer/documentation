@@ -1,0 +1,15 @@
+The mesh object used for collision detection
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Assigns an arbitrary mesh collider to the current transform
+
+	var meshToCollide : Mesh;
+	
+	if(!meshToCollide) {
+		Debug.LogError("Assign a mesh in the inspector");
+		return;
+	}
+	transform.gameObject.AddComponent(MeshCollider);
+	transform.GetComponent(MeshCollider).sharedMesh = meshToCollide;
+END EX

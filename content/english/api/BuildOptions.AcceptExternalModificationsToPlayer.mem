@@ -1,0 +1,3 @@
+Do not overwrite player directory, but accept user's modifications.
+On iPhone this setting will append changes to already existing and potentially user modified XCode project.
+SA: BuildPipeline.BuildPlayer

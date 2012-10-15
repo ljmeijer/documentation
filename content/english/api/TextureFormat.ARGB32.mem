@@ -1,0 +1,11 @@
+Color with an alpha channel texture format.
+SA: Texture2D.Texture2D, [[wiki:class-Texture2D|texture assets]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		// Create a new ARGB texture and assign it to the renderer's material
+		var texture = new Texture2D (128, 128, TextureFormat.ARGB32, false);
+		renderer.material.mainTexture = texture;
+	}
+END EX

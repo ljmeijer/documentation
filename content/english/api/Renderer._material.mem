@@ -1,0 +1,44 @@
+The material of this object.
+Modifying /material/ will change the material for this object only.
+
+If the material is used by any other renderers,
+this will clone the shared material and start using it from now on.
+Important note: This function automatically instantiates the materials and makes them unique to this renderer.
+It is your responsibility to destroy the materials when the game object is being destroyed. Resources.UnloadUnusedAssets
+also destroys the materials but it is usually only called when loading a new level.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Awake ()
+	{
+		// Set main color to red
+		renderer.material.color = Color.red;
+	}
+
+	function OnDestroy ()
+	{
+		DestroyImmediate(renderer.material);
+	}
+END EX
+Another example:
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Change renderer's material each /changeInterval/
+	// seconds from the material array defined in the inspector.
+
+	var materials : Material[];
+	var changeInterval = 0.33;
+
+	function Update () {
+		if (materials.Length == 0) // do nothing if no materials
+			return;
+
+		// we want this material index now
+		var index : int = Time.time / changeInterval;
+		// take a modulo with materials count so that animation repeats
+		index = index % materials.Length;
+		// assign it to the renderer
+		renderer.sharedMaterial = materials[index];
+	}
+END EX

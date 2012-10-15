@@ -1,0 +1,20 @@
+The time this frame has started (RO). This is the time in seconds since the start of the game.
+
+When called from inside MonoBehaviour's MonoBehaviour::pref::FixedUpdate, returns ::ref::fixedTime property.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Instantiates a projectile off every 0.5 seconds,
+	// if the Fire1 button (default is ctrl) is pressed.
+
+	var projectile : GameObject;
+	var fireRate = 0.5;
+	private var nextFire = 0.0;
+
+	function Update () {
+		if (Input.GetButton ("Fire1") && Time.time > nextFire) {
+			nextFire = Time.time + fireRate;
+			var clone = Instantiate (projectile, transform.position, transform.rotation);
+		}
+	}
+END EX

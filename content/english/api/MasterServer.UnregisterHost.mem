@@ -1,0 +1,12 @@
+Unregister this server from the master server.
+Does nothing if the server is not registered or has already unregistered.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI() {
+		if (GUILayout.Button ("Disconnect")) {
+			Network.Disconnect();
+			MasterServer.UnregisterHost();
+		}
+	}
+END EX

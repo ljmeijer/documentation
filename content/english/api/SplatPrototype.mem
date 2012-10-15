@@ -1,0 +1,2 @@
+A Splat prototype is just a texture that is used by the TerrainData
+class on a Terrain GameObject.

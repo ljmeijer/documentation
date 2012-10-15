@@ -1,0 +1,12 @@
+Copy buffer data to an Array. The size that is copied must match the array size.
+BEGIN EX
+
+	function FetchData (AlignedBuffer:buffer) : byte[] {
+		var data:byte[] = new byte [buffer.length];
+		buffer.CopyTo (data, 0, buffer.length);
+		return data;
+	}
+END EX
+@param	destination	Destination array.
+@param	source_offset	Offset in ''this'' buffer where to copy from.
+@param	copy_size	Number of bytes to copy. Can not exceed ''destination'' array size.

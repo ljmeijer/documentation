@@ -1,0 +1,3 @@
+Gets/Sets the current Avatar
+
+Changing the avatar at runtime is not fully supported. Use it at your own risk.

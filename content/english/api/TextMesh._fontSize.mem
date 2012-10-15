@@ -1,0 +1,9 @@
+The font size to use (for dynamic fonts)
+
+If this is set to a non-zero value, the font size specified in the font importer is overriden with a custom size.
+This is only supported for fonts set to use dynamic font rendering. Other fonts will always use the default font size.
+CONVERTEXAMPLE
+BEGIN EX
+
+	GetComponent(TextMesh).fontSize = 12;
+END EX

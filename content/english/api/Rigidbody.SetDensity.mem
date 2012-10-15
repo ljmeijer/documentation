@@ -1,0 +1,7 @@
+Sets the mass based on the attached colliders assuming a constant density.
+This is useful to set the mass to a value which scales with the size of the colliders.
+CONVERTEXAMPLE
+BEGIN EX
+
+	rigidbody.SetDensity(1.5);
+END EX

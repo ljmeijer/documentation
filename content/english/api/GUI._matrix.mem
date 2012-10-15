@@ -1,0 +1,6 @@
+The GUI transform matrix.
+CONVERTEXAMPLE
+BEGIN EX
+
+	print (GUI.matrix);
+END EX

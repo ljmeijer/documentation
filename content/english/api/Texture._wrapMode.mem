@@ -1,0 +1,10 @@
+Wrap mode (Repeat or Clamp) of the texture.
+
+Set the texture to clamp at the borders to avoid warping artifacts with TextureWrapMode.Clamp.
+Or tile the texture with TextureWrapMode.Repeat.
+SA: Texture.wrapMode, [[wiki:class-Texture2D|texture assets]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	renderer.material.mainTexture.wrapMode = TextureWrapMode.Clamp;
+END EX

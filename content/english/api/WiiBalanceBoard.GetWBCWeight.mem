@@ -1,0 +1,3 @@
+Weight as read by the WBCRead. TODO: This should probably be dropped!
+@param	corner	Pressure sensor index of the Balance Board.
+@return Momentary pressure of the specified pressure sensor.

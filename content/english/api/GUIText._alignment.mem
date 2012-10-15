@@ -1,0 +1,6 @@
+The alignment of the text.
+CONVERTEXAMPLE
+BEGIN EX
+
+	guiText.alignment = TextAlignment.Left;
+END EX

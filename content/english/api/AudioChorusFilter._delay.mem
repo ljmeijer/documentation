@@ -1,0 +1,13 @@
+Chorus delay in ms. 0.1 to 100.0. Default = 40.0 ms.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Dont use delay on the filter.
+	
+	@script RequireComponent(AudioSource)
+	@script RequireComponent(AudioChorusFilter)
+	
+	function Start() {
+		GetComponent(AudioChorusFilter).delay = 0.1;
+	}
+END EX

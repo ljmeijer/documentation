@@ -1,0 +1,3 @@
+Checks if a named Procedural property is cached for efficient runtime tweaking.
+
+SA: ::ref::CacheProceduralProperty, ::ref::ClearCache.

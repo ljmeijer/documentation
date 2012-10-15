@@ -1,0 +1,17 @@
+Construct AlignedBuffer.
+BEGIN EX
+
+	function PrepareBuffer (data:byte[]) {
+		var buffer: AlignedBuffer = new AlignedBuffer (data.length, AlignedBuffer.Memory.Mem2, 32);
+		buffer.CopyFrom (data, 0, 0, dat.length);
+		return buffer;
+	}
+END EX
+@param	size	Size of buffer to allocate.
+@param	mem	Memory type. On Wii this can be either Mem1 or Mem2.
+@param	alignment	Align buffer on this value.<signature>
+ctor_int_Memory_int
+ctor_IntPtr_Memory_int
+</signature>
+Construct AlignedBuffer from size and pointer.
+*undocumented

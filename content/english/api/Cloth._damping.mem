@@ -1,0 +1,11 @@
+Damp cloth motion.
+Set this to damp the motions of a cloth instance. Must be between zero and one.
+Setting this to zero will disable cloth damping.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the damping to 1 regardless if the cloth
+	// is a Skinned Cloth or Interactive.
+
+	transform.GetComponent(Cloth).damping = 1;
+END EX

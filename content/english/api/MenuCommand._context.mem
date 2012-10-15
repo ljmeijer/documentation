@@ -1,0 +1,13 @@
+Context is the object that is the target of a menu command.
+
+Usually the context is the current selection or the item under
+the mouse when invoking a context menu.
+BEGIN EX
+
+	// Add context menu named "Do Something" to context menu
+	@MenuItem ("CONTEXT/Rigidbody/Do Something")
+	static function DoSomething (command : MenuCommand) {
+		var body : Rigidbody = command.context;
+		body.mass = 5;
+	}
+END EX

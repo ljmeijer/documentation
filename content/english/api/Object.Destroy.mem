@@ -1,0 +1,27 @@
+Removes a gameobject, component or asset.
+The object /obj/ will be destroyed now or if a time is specified /t/ seconds from now.
+If /obj/ is a [[Component]] it will remove the component from the [[GameObject]] and destroy it.
+If /obj/ is a [[GameObject]] it will destroy the [[GameObject]], all its components and all transform children of the [[GameObject]].
+Actual object destruction is always delayed until after the current Update loop, but will always be done before rendering.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Kills the game object
+	Destroy (gameObject);
+
+	// Removes this script instance from the game object
+	Destroy (this);
+
+	// Removes the rigidbody from the game object
+	Destroy (rigidbody);
+	
+	// Kills the game object in 5 seconds after loading the object
+	Destroy (gameObject, 5);
+
+	// When the user presses Ctrl, it will remove the script 
+	// named FooScript from the game object
+	function Update () {
+		if (Input.GetButton ("Fire1") && GetComponent (FooScript))
+			Destroy (GetComponent (FooScript));
+	}
+END EX

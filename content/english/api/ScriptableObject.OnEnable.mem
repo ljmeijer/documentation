@@ -1,0 +1,10 @@
+CSNONE
+This function is called when the object is loaded
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnEnable () {
+		print("script was enabled");
+	}
+END EX
+OnEnable cannot be a co-routine.

@@ -1,0 +1,17 @@
+Determines how much the filter's self-resonance is dampened.
+Higher Lowpass Resonance Q indicates a lower rate of energy loss i.e. the oscillations die out more slowly.
+
+Lowpass resonance Q value goes from 1.0 to 10.0. Default = 1.0.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Moves the Lowpass Resonance Quality Factor from 0 to 10 following a Sinus function
+	// Attach this to an audio source with a LowPassFilter to listen it working.
+	
+	@script RequireComponent(AudioSource)
+	@script RequireComponent(AudioLowPassFilter)
+	
+	function Update() {
+		GetComponent(AudioLowPassFilter).lowpassResonaceQ = (Mathf.Sin(Time.time)*5 + 5);
+	}
+END EX

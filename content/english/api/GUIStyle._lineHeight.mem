@@ -1,0 +1,11 @@
+The height of one line of text with this style, measured in pixels. (RO)
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints the lineHeight value of customStyles[0]
+
+	function OnGUI() {
+		if(GUI.skin.customStyles.Length > 0)
+			Debug.Log(GUI.skin.customStyles[0].lineHeight);
+	}
+END EX

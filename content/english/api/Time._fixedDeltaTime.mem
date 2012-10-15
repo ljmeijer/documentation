@@ -1,0 +1,7 @@
+The interval in seconds at which physics and other fixed frame rate updates (like MonoBehaviour's MonoBehaviour::pref::FixedUpdate) are performed.
+
+For reading the delta time it is recommended to use Time.deltaTime instead because it automatically
+returns the right delta time if you are inside a MonoBehaviour::pref::FixedUpdate function or
+MonoBehaviour::pref::Update function.
+
+Note that the /fixedDeltaTime/ interval is with respect to the in-game time affected by ::ref::timeScale.

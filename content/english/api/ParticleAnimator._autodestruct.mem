@@ -1,0 +1,3 @@
+Does the [[GameObject]] of this particle animator auto destructs?
+
+When set to /true/, the [[GameObject]] will be destroyed when all particles disappear.

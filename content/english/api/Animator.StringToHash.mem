@@ -1,0 +1,3 @@
+Generates an parameter id from a string
+Ids are used for optimized setters and getters on parameters
+@param name The string to convert to Id

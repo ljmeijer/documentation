@@ -1,0 +1,2 @@
+The [[Transform]] of the rigidbody or collider that was hit.
+SA: Physics.Raycast, Physics.Linecast, Physics.RaycastAll.

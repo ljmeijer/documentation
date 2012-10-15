@@ -1,0 +1,7 @@
+Returns pixel color at coordinates (x, y).
+
+If the pixel coordinates are out of bounds (larger than width/height or small than 0),
+they will be clamped or repeat based on the texture's wrap mode.
+
+If you are reading a large block of pixels from the texture, it may be faster
+to use ::ref::GetPixels which returns a whole block of pixel colors.

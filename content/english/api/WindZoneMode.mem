@@ -1,0 +1,4 @@
+Modes a Wind Zone can have, either Spherical or Directional
+You can have more than one Spherical Wind Zone in a scene, but it does not make much
+sense to have more than one Directional Wind Zone in your scene as it affects
+the whole scene. This Wind Zone Mode is used by the WindZone.mode member.

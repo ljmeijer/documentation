@@ -1,0 +1,4 @@
+Creates a translation, rotation and scaling matrix.
+
+The returned matrix is such that places things at position /pos/,
+oriented in rotation /q/ and scaled by /s/.

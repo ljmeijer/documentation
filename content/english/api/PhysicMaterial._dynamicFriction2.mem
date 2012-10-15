@@ -1,0 +1,6 @@
+If anisotropic friction is enabled, dynamicFriction2 will be applied along frictionDirection2.
+CONVERTEXAMPLE
+BEGIN EX
+
+	collider.physicMaterial.dynamicFriction2 = 0;
+END EX

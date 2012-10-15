@@ -1,0 +1,4 @@
+Delegate for changed keyboard modifier keys.
+Add your functions to this delegate to get a callback whenever the keyboard modifier keys have changed.
+
+SA: EditorApplication.CallbackFunction.

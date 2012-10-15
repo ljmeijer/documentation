@@ -1,0 +1,10 @@
+Clear only the depth buffer.
+This will leave colors from the previous frame or whatever was displayed before.
+SA: Camera.clearFlags property, [[wiki:class-Camera|camera component]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Clear only the depth buffer
+
+	camera.clearFlags = CameraClearFlags.Depth;
+END EX

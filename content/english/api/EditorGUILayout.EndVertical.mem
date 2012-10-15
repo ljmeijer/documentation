@@ -1,0 +1,28 @@
+Close a group started with BeginVertical
+
+SA: EditorGUILayout.BeginVertical
+
+{img BeginEndVerticalExample.png}\\
+''Vertical Compound group.''
+BEGIN EX
+
+	// Create a Vertical Compound Button 
+	
+	class BeginEndVerticalExample extends EditorWindow {
+	
+		@MenuItem("Examples/Begin-End Vertical usage")
+		static function Init() {
+			var window = GetWindow(BeginEndVerticalExample);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			var r : Rect = EditorGUILayout.BeginVertical("Button");
+				if (GUI.Button(r, GUIContent.none))
+					Debug.Log("Go here");
+				GUILayout.Label("I'm inside the button");
+				GUILayout.Label("So am I");	
+			EditorGUILayout.EndVertical();
+		}
+	}
+END EX

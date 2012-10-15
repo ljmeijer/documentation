@@ -1,0 +1,7 @@
+Load a built-in resource
+This function will look in Assets/Editor Default Resources/ + path for the resource.
+If not there, it will try the built-in editor resources by name.
+BEGIN EX
+
+	var handleMaterial : Material = EditorGUIUtility.Load("HandleMaterial.mat");
+END EX

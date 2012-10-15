@@ -1,0 +1,19 @@
+Whether the drive should attempt to reach position, velocity, both or nothing
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Create a JointDrive, configure it and assign the JointDrive to
+	// the zDrive element of a configurable joint.
+	
+	function Start() {
+		var joint : ConfigurableJoint = gameObject.AddComponent(ConfigurableJoint);
+		joint.targetPosition = Vector3(0,0,-10);
+		
+		var drive : JointDrive = JointDrive();
+		drive.positionSpring = 50;
+
+		drive.mode = JointDriveMode.Position;
+		
+		joint.zDrive = drive;
+	}
+END EX

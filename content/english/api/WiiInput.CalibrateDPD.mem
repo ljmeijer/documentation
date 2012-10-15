@@ -1,0 +1,4 @@
+Set the horizontal state of each Wii controller.
+For more information, please refer to KPADCalibrateDPD function documentation in RVL SDK.
+@param	chan	Remote index. Valid values 0...3.
+@return	returns the number of objects captured by the Wii Remote pointer.

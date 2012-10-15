@@ -1,0 +1,6 @@
+Build a development version of the standalone player.
+
+This includes debug symbols and enables [[Profiler]]. To profile a webplayer you need to
+have the development version of the web player installed.
+
+SA: BuildPipeline.BuildPlayer.

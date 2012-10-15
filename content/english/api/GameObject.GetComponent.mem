@@ -1,0 +1,49 @@
+Returns the component of Type /type/ if the game object has one attached, null if it doesn't. You can access both builtin components or scripts with this function.
+
+GetComponent is the primary way of accessing other components. From javascript the type of a script is always the name of the script as seen in the project view.
+Example:
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		var curTransform : Transform;
+		
+		curTransform = gameObject.GetComponent(Transform);
+		// This is equivalent to:
+		curTransform = gameObject.transform;
+	}
+
+	function Update () {
+		// To access public variables and functions 
+		// in another script attached to the same game object.
+		// (ScriptName is the name of the javascript file)
+		var other : ScriptName = gameObject.GetComponent(ScriptName);
+		// Call the function DoSomething on the script
+		other.DoSomething ();
+		// set another variable in the other script instance
+		other.someVariable = 5;
+	}
+END EX<signature>
+GetComponent_Type
+GetComponent_string
+</signature>
+Returns the component with name /type/ if the game object has one attached, null if it doesn't.
+It is better to use GetComponent with a Type instead of a string for performance reasons.
+Sometimes you might not be able to get to the type however, for example when trying to access a C# script from Javascript.
+In that case you can simply access the component by name instead of type.
+Example:
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update () {
+		// To access public variables and functions 
+		// in another script attached to the same game object.
+		// (ScriptName is the name of the javascript file)
+		var other : ScriptName;
+		other = gameObject.GetComponent("ScriptName");
+		// Call the function DoSomething on the script
+		other.DoSomething ();
+		// set another variable in the other script instance
+		other.someVariable = 5;
+	}
+END EX

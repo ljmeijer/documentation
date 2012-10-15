@@ -1,0 +1,34 @@
+Network instantiate a prefab.
+The given prefab will be instanted on all clients in the game. Synchronization is automatically set up so there is no
+extra work involved. The position, rotation and network group number are given as parameters. Note that in the example below there must
+be something set to the playerPrefab in the Editor. You can read more about instantiations in the object reference Object.Instantiate.
+
+Internally this is a buffered [[RPC]] call. You can use Network.RemoveRPCs is with the group number to 
+remove the call from the buffer. Alternatively you can call Network.RemoveRPCs on the first NetworkViewID in the instantiated
+prefab. When the instantiation occurs internally the buffered RPC message is linked to the first NetworkView of the prefab which
+makes this possible.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Immediately instantiate new connected player's character
+	// when successfully connected to the server.
+
+	var playerPrefab : Transform;
+	function OnConnectedToServer () {
+		Network.Instantiate(playerPrefab, transform.position, transform.rotation, 0);
+	}
+END EX
+Example of removing an instantiation from the RPC buffer:
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Immediately destroy and remove RPC for network instantiated object
+	// (script attached to prefab)
+	function OnNetworkInstantiate(info: NetworkMessageInfo) {
+		Debug.Log(networkView.viewID + " spawned");
+		if (Network.isServer) {
+			Network.RemoveRPCs(networkView.viewID);
+			Network.Destroy(gameObject);
+		}
+	}
+END EX

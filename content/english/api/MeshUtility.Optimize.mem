@@ -1,0 +1,12 @@
+Optimizes the mesh for GPU access.
+This operation might take a while but will make the geometry displayed be faster.
+You should use it if you generate a mesh from scratch procedurally and you want to trade better runtime performance against higher load time. 
+Internally it converts the mesh to triangle list and optimizes the triangles and vertices for both pre and post transform cache locality.
+For imported models you should never call this as the import pipeline already does it for you.
+BEGIN EX
+
+		function Start () {
+			var mesh : Mesh = GetComponent(MeshFilter).mesh;
+			MeshUtility.Optimize(mesh);
+		}
+END EX

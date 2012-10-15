@@ -1,0 +1,3 @@
+Should the Procedural Material be generated at load time?
+If enabled, the Procedural Material will be generated when the scene loads.
+If disabled, the Procedural Material will not be generated until RebuildTextures or RebuildTexturesImmediately is called.

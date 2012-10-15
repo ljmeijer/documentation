@@ -1,0 +1,37 @@
+Sets the value of the preference identified by /key/.
+BEGIN EX
+
+	// Simple scripts that creates an empty window and remembers the position and size
+	// of the created window.
+
+	class RememberPosition extends EditorWindow {
+		var width : float = 300;
+		var height : float = 300;
+		var x : float = 100;
+		var y : float = 100;
+
+		@MenuItem("Examples/Remember position")
+		static function Init() {
+			var window = GetWindow(RememberPosition);
+			window.Show();
+		}
+		function Awake() {
+			width = EditorPrefs.GetFloat("EditorWindowWidth", 300);
+			height = EditorPrefs.GetFloat("EditorWindowHeight", 300);
+			x = EditorPrefs.GetFloat("EditorWindowX", 100);
+			y = EditorPrefs.GetFloat("EditorWindowY", 100);
+
+			position = Rect(x, y, width, height);
+		}
+		function OnDestroy() {
+			EditorPrefs.SetFloat("EditorWindowWidth", width);
+			EditorPrefs.SetFloat("EditorWindowHeight", height);
+			EditorPrefs.SetFloat("EditorWindowX", x);
+			EditorPrefs.SetFloat("EditorWindowY", y);
+		}
+		function OnGUI() {
+			if(GUILayout.Button("Close"))
+				this.Close();
+		}
+	}
+END EX

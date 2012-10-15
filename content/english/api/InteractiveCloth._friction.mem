@@ -1,0 +1,9 @@
+The friction of the cloth.
+Must be between zero and one.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Make the cloth slide on any surface
+
+	transform.GetComponent(InteractiveCloth).friction = 0;
+END EX

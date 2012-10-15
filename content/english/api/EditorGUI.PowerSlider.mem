@@ -1,0 +1,5 @@
+@param position Rectangle on the screen to use for the slider.
+@param sliderValue The value the slider shows. This determines the position of the draggable thumb.
+@param min The value at the left end of the slider.	
+@param max The value at the right end of the slider.
+@param power The amount of extra sensitivity around 0. Larger numbers lead to more sensitivity.

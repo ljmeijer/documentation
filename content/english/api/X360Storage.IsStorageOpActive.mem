@@ -1,0 +1,1 @@
+Checks if a storage operation (PlayerPrefs read/write, CreateSaveGame, OpenSaveGame) operation is in progress.

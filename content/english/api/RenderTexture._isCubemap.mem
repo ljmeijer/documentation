@@ -1,0 +1,7 @@
+If enabled, this Render Texture will be used as a [[Cubemap]]
+
+[[Cubemap]] render textures are most often used for dynamic cubemap reflections, see Camera.RenderToCubemap.
+A cubemap render texture must have the same ::ref::width and ::ref::height, and must be power of two
+size.
+
+SA: Camera.RenderToCubemap, [[wiki:shader-ReflectiveFamily|Reflective shaders]].

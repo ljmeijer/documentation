@@ -1,0 +1,3 @@
+Gets the installation height of the Sensor Bar.
+@param	chan		Remote index to apply settings to. Valid values 0...3.
+@return Returns current height.

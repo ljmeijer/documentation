@@ -1,0 +1,12 @@
+Request information about bytes and i-node count that are used under ''/tmp'' directory. Upon successful request completion, information will be available through ::ref::tmpDirBlocks and ::ref::tmpDirNodes properties.
+BEGIN EX
+
+	var sys: NVSystem = new NVSystem ();
+	yield sys.GetTmpDirUsage ();
+	if (sys.success)
+		Debug.Log ("/tmp directory usage, blocks: "
+			+ sys.tmpDirBlocks + ", nodes: " + sys.tmpDirNodes);
+	else
+		Debug.Log ("Failed to successfully complete request, asyncResult: "
+			+ sys.asyncResult);
+END EX

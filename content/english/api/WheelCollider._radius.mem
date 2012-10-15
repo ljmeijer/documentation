@@ -1,0 +1,7 @@
+The radius of the wheel, measured in local space.
+The radius will be scaled by the transform's scale.
+CONVERTEXAMPLE
+BEGIN EX
+
+	collider.radius = 0.5;
+END EX

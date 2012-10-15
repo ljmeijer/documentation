@@ -1,0 +1,8 @@
+The maximimum angular velocity of the rigidbody. (Default 7) range { 0, infinity }
+The angular velocity of rigidbodies is clamped to maxAngularVelocity to avoid numerical instability with fast rotating bodies.
+Because this may prevent intentional fast rotations on objects such as wheels, you can override this value per rigidbody.
+CONVERTEXAMPLE
+BEGIN EX
+
+	rigidbody.maxAngularVelocity = 10;
+END EX

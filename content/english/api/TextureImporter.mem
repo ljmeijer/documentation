@@ -1,0 +1,2 @@
+Texture importer lets you modify [[Texture2D]] import settings from editor scripts.
+Settings of this class match the ones exposed in [[wiki:class-Texture2D|Texture Import Settings]].

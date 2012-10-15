@@ -1,0 +1,2 @@
+Returns the distance between /a/ and /b/.
+@@Vector4.Distance(a,b)@@ is the same as @@(a-b).magnitude@@

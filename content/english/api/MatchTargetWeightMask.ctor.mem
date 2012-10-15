@@ -1,0 +1,3 @@
+MatchTargetWeightMask contructor
+@param positionXYZWeight Position XYZ weight
+@param rotationWeight Rotation weight

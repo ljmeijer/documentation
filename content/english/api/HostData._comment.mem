@@ -1,0 +1,14 @@
+A miscellaneous comment (can hold data)
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Requests info from the master server and prints
+	// the comment of each host
+
+	function Start() {
+		var hostData : HostData[] = MasterServer.PollHostList();
+		for(var element : HostData in hostData) {
+			Debug.Log(element.gameName + " description: " + element.comment + "\n");
+		}
+	}
+END EX

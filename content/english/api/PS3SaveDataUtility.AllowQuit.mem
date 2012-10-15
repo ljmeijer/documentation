@@ -1,0 +1,3 @@
+Allow quit.
+SA: PS3SaveDataUtility.Init
+@param allowQuit	Set to @@true@@ if quit is allowed or @@false@@ otherwise. Typically used to disallow quit during Save/Load operations.

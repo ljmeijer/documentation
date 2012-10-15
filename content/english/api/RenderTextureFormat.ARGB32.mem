@@ -1,0 +1,2 @@
+Color render texture format, 8 bits per channel.
+SA: RenderTexture.format, [[RenderTexture]] class.

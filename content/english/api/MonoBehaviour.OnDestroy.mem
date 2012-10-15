@@ -1,0 +1,11 @@
+CSNONE
+This function is called when the MonoBehaviour will be destroyed.
+OnDestroy will only be called on game objects that have previously been active.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnDestroy () {
+		print("Script was destroyed");
+	}
+END EX
+OnDestroy cannot be a co-routine.

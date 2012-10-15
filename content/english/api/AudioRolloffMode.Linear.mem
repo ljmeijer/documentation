@@ -1,0 +1,12 @@
+Use this mode when you want to lower the volume of your sound over the distance
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Sets the rolloff of the audio source attached to
+	// this script to linear.
+	
+	@script RequireComponent(AudioSource)
+	function Start() {
+		audio.rolloffMode = AudioRolloffMode.Linear;
+	}
+END EX

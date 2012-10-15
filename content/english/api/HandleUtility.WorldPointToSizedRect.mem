@@ -1,0 +1,4 @@
+Figure out a rectangle to display a 2D GUI element in 3D space.
+@param position the world-space position to use
+@param content the content to make room for
+@param style the style to use. The style's alignment

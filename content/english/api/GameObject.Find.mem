@@ -1,0 +1,44 @@
+Finds a game object by /name/ and returns it.
+If no game object with /name/ can be found, null is returned.
+If /name/ contains a '/' character it will traverse the hierarchy like a path name.
+This function only returns active gameobjects.
+
+For performance reasons it is recommended to not use this function every frame
+Instead cache the result in a member variable at startup or use GameObject.FindWithTag.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var hand : GameObject;
+	// This will return the game object named Hand in the scene.
+	hand = GameObject.Find("Hand");
+
+	// This will return the game object named Hand.
+	// Hand must not have a parent in the hierarchy view!
+	hand = GameObject.Find("/Hand");
+
+	// This will return the game object named Hand,
+	// which is a child of Arm -> Monster.
+	// Monster must not have a parent in the hierarchy view!
+	hand = GameObject.Find("/Monster/Arm/Hand");
+
+	// This will return the game object named Hand,
+	// which is a child of Arm -> Monster.
+	// Monster may have a parent.
+	hand = GameObject.Find("Monster/Arm/Hand");
+END EX
+This function is most useful to automatically connect references to other objects at load time, eg. inside MonoBehaviour.Awake or MonoBehaviour.Start.
+You should avoid calling this function every frame eg. MonoBehaviour.Update for performance reasons.
+A common pattern is to assign a game object to a variable inside MonoBehaviour.Start. And use the variable in MonoBehaviour.Update.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Find the hand inside Start and rotate it every frame
+	private var hand : GameObject;
+	function Start () {
+		hand = GameObject.Find("/Monster/Arm/Hand");
+	}
+	
+	function Update () {
+		hand.transform.Rotate(0, 100 * Time.deltaTime, 0);
+	}
+END EX

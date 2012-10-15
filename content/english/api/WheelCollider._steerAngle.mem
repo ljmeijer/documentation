@@ -1,0 +1,9 @@
+Steering angle in degrees, always around the local y-axis.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// steer forwards
+
+	collider.steerAngle = 0;
+END EX
+At high velocities use only small steer angles; a few degrees should suffice.

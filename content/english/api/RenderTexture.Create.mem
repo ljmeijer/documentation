@@ -1,0 +1,8 @@
+Actually creates the RenderTexture.
+
+RenderTexture constructor does not actually create the hardware texture;
+by default the texture is created the first time it is set ::ref::active.
+Calling @@Create@@ lets you create it up front. @@Create@@ does nothing
+if the texture is already created.
+
+SA: ::ref::Release, ::ref::IsCreated functions.

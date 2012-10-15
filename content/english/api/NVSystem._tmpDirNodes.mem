@@ -1,0 +1,5 @@
+Number of used i-nodes under ''/tmp'' directory. Result of ::ref::GetTmpDirUsage.
+BEGIN EX
+
+	Debug.Log ("Used nodes: " + sys.tmpDirNodes);
+END EX

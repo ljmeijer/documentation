@@ -1,0 +1,39 @@
+Removes /key/ and its corresponding value from the preferences.
+
+{img RemoveSpecificEditorPrefs.png}\\
+''Removes a user entered editor preference, if it doesnt exists it prints a message.''
+BEGIN EX
+
+	// Removes a user entered editor preference, if it doesnt exists it prints a message.
+
+	class RemoveSpecificEditorPrefs extends EditorWindow {
+
+		var editorPref : String = "";
+
+		@MenuItem("Examples/Remove specific editor key pref.")
+		static function Init() {
+			var window = GetWindow(RemoveSpecificEditorPrefs);
+			window.Show();
+		}
+
+		function OnGUI() {
+			editorPref = EditorGUILayout.TextField("Editor key name:",editorPref);
+			if(GUILayout.Button("Delete"))
+				if(EditorPrefs.HasKey(editorPref)) {
+					if(EditorUtility.DisplayDialog("Removing " + editorPref + "?",
+						"Are you sure you want to
+						delete the editor key " +
+						editorPref + "?, This action cant be undone",
+						"Yes",
+						"No"))
+							EditorPrefs.DeleteKey(editorPref);
+				} else {
+					EditorUtility.DisplayDialog("Couldnt find " + editorPref,
+						"Seems that " + editorPref +
+						" doesnt exists or it has been deleted already,
+						check that you have typed correctly the name of the key.",
+						"Ok");
+				}
+		}
+	}
+END EX

@@ -1,0 +1,6 @@
+Test a mesh for intersection agains a ray
+@param ray the ray to test against.
+@param mesh the mesh to test
+@param matrix the INVERSE orientation of the mesh
+@param t the distance along the ray of the hit
+@return index of the triangle hit or -1 if missed.

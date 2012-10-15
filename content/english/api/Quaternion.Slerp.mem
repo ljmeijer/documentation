@@ -1,0 +1,16 @@
+Spherically interpolates between /from/ and /to/ by t.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Interpolates rotation between the rotations "from" and "to"
+	// (Choose from and to not to be the same as 
+	// the object you attach this script to)
+
+	var from : Transform;
+	var to : Transform;
+	var speed = 0.1;
+	function Update () {
+		transform.rotation =
+		  Quaternion.Slerp (from.rotation, to.rotation, Time.time * speed);
+	}
+END EX

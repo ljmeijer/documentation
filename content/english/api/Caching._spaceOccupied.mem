@@ -1,0 +1,3 @@
+Used disk space in bytes.
+Initially this is 0. As you download files to the cache, this will increment.
+If insufficient space is available in the cache to store a requested AssetBundle, the least-recently-used AssetBundles in the cache will be iteratively removed until enough space is available for the new AssetBundle.

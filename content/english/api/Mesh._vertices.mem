@@ -1,0 +1,19 @@
+Returns a copy of the vertex positions or assigns a new vertex positions array.
+
+The number of vertices in the mesh is changed by assigning a vertex array with a different number of vertices.
+Note that if you resize the vertex array then all other vertex attributes (normals, colors, tangents, UVs) will be automatically resized too.
+RecalculateBounds will automatically be invoked if no vertices have been assigned to the mesh when setting the vertices.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update () {
+		var mesh : Mesh = GetComponent(MeshFilter).mesh;
+		var vertices : Vector3[] = mesh.vertices;
+
+		for (var i = 0; i < vertices.Length; i++)
+			vertices[i] += Vector3.up * Time.deltaTime;
+
+		mesh.vertices = vertices;
+		mesh.RecalculateBounds();
+	}
+END EX

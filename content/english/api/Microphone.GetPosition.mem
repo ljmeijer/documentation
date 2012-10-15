@@ -1,0 +1,3 @@
+Get the position in samples of the recording.
+You can use this to control latency. If you want a 30ms latency, poll getRecordPosition() until 30ms (in samples) has gone and then start the audio.
+@param deviceName the name of the device. Passing null or an empty string will pick the default device. Get device names with [[Microphone.devices|Microphone.devices]]

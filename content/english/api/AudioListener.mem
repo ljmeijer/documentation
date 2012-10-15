@@ -1,0 +1,5 @@
+Representation of a listener in 3D space.
+This class implements a microphone-like device. It records the sounds around it and plays that through the player's speakers.
+You can only have one listener in a scene.
+
+SA: [[AudioSource]], [[class-AudioListener|AudioListener component]] in the Components Reference.

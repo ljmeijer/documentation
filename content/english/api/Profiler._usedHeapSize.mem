@@ -1,0 +1,2 @@
+Heap size used by the program
+@return size of the used heap in bytes, (or 0 if the profiler is disabled)

@@ -1,0 +1,2 @@
+Callback activated when system state has changed.
+SA: PS3SystemUtility.SystemNotificationDelegate

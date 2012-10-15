@@ -1,0 +1,10 @@
+<signature>
+Contains_int
+Contains_object
+</signature>
+Returns whether an object is contained in the current selection.
+BEGIN EX
+
+	if (Selection.Contains (gameObject))
+		Debug.Log ("I'm selected!");
+END EX

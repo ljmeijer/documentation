@@ -1,0 +1,20 @@
+Style settings for a GUI element.
+This class contains all information for how a gui element should be rendered. It contains information for font, icon placement, background images, and spacing. 
+It does /not/ contain information for what it contains - just defines how any text rendered with this style should be displayed. 
+It does /not/ define what interactions can occur with the element, but defines the display settings commonly used in by the interactions.
+The settings of a [[GUIStyle]]. It is modelled after a CSS Style. It contains settings for the following items:
+<dl>
+<dt>Background images</dt>
+<dd>	These are rendered behind the contents. Different images can be assigned for normal display, when the user hovers the mouse over the element, 
+		when the user presses it down - as well as alternatives for when the element has been turned on - like toggle butons do. Below, these are referred to as style /states/.
+		SA: ::ref::normal, ::ref::hover, ::ref::active, ::ref::onNormal, ::ref::onHover, ::ref::onActive - these contain the background image & text color properties for each state.</dd>
+<dt>Text rendering</dt>
+<dd>	The style can define a font for text rendering, as well as alignment, wordwrap and clipping settings. It also defines colors for the text in the various states of the style element
+		SA: ::ref::font, ::ref::alignment, ::ref::wordWrap, ::ref::normal, ::ref::hover, ::ref::active, ::ref::onHover, ::ref::onActive</dd>
+<dt>Icon Placement</dt>
+<dd>	GUIStyles can be rendered with either text, and icon or both. The GUIStyle defines where these two are rendered in relation to each other (or can force it to only display one of them).
+		SA: ::ref::imagePosition</dd>
+<dt>Sizing and Spacing Options</dd>
+<dd>	GUIStyles contain padding, margins and borders. These corresponds loosely to the similar named CSS properties. A GUIStyle can optionally define a fixed width and height.
+		SA: ::ref::margin, ::ref::padding, ::ref::border, ::ref::fixedWidth, ::ref::fixedHeight</dd>
+</dl>

@@ -1,0 +1,5 @@
+When time reaches the end of the animation clip, time will ping pong back between beginning and end.
+It has same behaviour when playing backwards - when time reaches the beginning of the animation clip, time will ping pong back 
+between beginning and end. The animation will never automatically stop playing.
+
+SA: AnimationState::ref::wrapMode, AnimationState::ref::time, AnimationState::ref::speed properties.

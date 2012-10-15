@@ -1,0 +1,3 @@
+Gets the cost for traversing over geometry of the layer type.
+@param layer Layer index.
+@returns Current cost of specified layer.

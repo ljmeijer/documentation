@@ -1,0 +1,1 @@
+Definition of how the joint's rotation will behave around all local axes. Only used if Rotation Drive Mode is Slerp Only

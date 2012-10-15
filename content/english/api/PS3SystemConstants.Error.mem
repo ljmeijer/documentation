@@ -1,0 +1,2 @@
+The device has encounter an error. The [[PS3SystemUtility.SystemNotificationDelegate]] /status/ will contain the value of the error code.
+SA: PS3SystemUtility.SystemNotificationDelegate /notification/

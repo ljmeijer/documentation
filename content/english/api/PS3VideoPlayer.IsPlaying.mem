@@ -1,0 +1,2 @@
+Checks the state of the video player
+@return @@true@@ if the video is currently playing

@@ -1,0 +1,16 @@
+The name of the graphics device (RO).
+
+This is the name of user's graphics card, as reported by the graphics driver.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints "ATI Radeon X1600 OpenGL Engine" on MacBook Pro running OS X 10.4.8
+
+	print (SystemInfo.graphicsDeviceName);
+END EX
+
+Note that the same graphics card can be reported by different names depending on the operating system,
+driver and so on. If you want to reliably identify some specific card, use SystemInfo.graphicsDeviceID
+SystemInfo.graphicsDeviceVendorID.
+
+SA: SystemInfo.graphicsDeviceID, SystemInfo.graphicsDeviceVendor, SystemInfo.graphicsDeviceVersion.

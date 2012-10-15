@@ -1,0 +1,3 @@
+ADInterstitialAd is a wrapper around the ADInterstitialAd class found in the Apple iAd framework and is only available on iPad.
+
+It provides full-screen advertisements that your iPad application can display to the user.

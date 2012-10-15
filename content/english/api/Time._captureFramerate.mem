@@ -1,0 +1,8 @@
+If /captureFramerate/ is set to a value larger than 0, time will advance in
+@@(1.0 / captureFramerate)@@ per frame regardless of real time.
+This is useful if you want to capture a movie where you need a constant frame rate.
+CONVERTEXAMPLE
+BEGIN EX
+
+	Time.captureFramerate = 25;
+END EX

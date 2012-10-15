@@ -1,0 +1,16 @@
+<signature>
+OpenAsset_int_int
+OpenAsset_object_int
+</signature>
+Opens the asset with associated application.
+
+Opens asset in an external editor, texture application or modelling tool depending on what type of asset it is.
+If it is a text file, /lineNumber/ instructs the text editor to go to that line.
+Returns true if asset opened successfully.
+<signature>
+OpenAsset_objectArray
+</signature>
+Opens the asset(s) with associated application(s).
+
+Opens asset in an external editor, texture application or modelling tool depending on what type of asset it is.
+Returns true if all assets opened successfully.

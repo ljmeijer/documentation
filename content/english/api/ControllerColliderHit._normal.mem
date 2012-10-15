@@ -1,0 +1,13 @@
+The normal of the surface we collided with in world space.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// print the point's normal we impacted
+	function OnControllerColliderHit(hit : ControllerColliderHit) {
+		Debug.Log("Normal vector we collided at: " + hit.normal);
+	}
+END EX
+
+__Note:__ When the CharacterController is colliding with an edge or a corner rather than a flat surface,
+the reported normal may be different when colliding with BoxColliders than when colliding with MeshColliders.
+This is due to a limitation in how PhysX handles Capsule/BoxCollider collisions.

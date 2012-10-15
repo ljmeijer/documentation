@@ -1,0 +1,26 @@
+Register the state of the entire scene so the user can later undo back to that state.
+
+This is the easiest, most robust, but slowest way to store an Undo operation.
+Call this method before performing an operation that it should be possible to undo.
+
+SA: Undo.RegisterUndo.
+BEGIN EX
+
+	// Editor Script that lets you change the color of the material of your
+	// Selected objects to red.
+
+	@MenuItem("Example/Mass Set Materials")
+	static function MassSetAlpha() {
+		Undo.RegisterSceneUndo("Mass Set Materials");
+		for (var obj : GameObject in Selection.gameObjects) {
+			obj.renderer.sharedMaterial.color = Color.red;
+		}
+	}
+	// If nothing is selected, the menu will be disabled
+	@MenuItem ("Example/Mass Set Materials", true)
+	static function ValidateMoveToOrigin () {
+		return Selection.activeTransform != null;
+	}
+END EX
+
+@param name The name of the action to undo. Think "Undo ...." in the main menu.

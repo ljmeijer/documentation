@@ -1,0 +1,31 @@
+<signature>
+LoadLevelAsync_int
+LoadLevelAsync_string
+</signature>
+Loads the level asynchronously in the background.
+
+Unity will completely load all assets and all objects in the scene in a background loading thread.
+This allows you to load new levels while still playing the current one, show a progress bar or
+create a completely streaming world where you constantly load and unload different parts of the
+world based on the player position, without any hiccups in game play.
+
+AsyncOperation::pref::isDone variable from the resulting [[AsyncOperation]] can be used to query
+if the level load has completed. The result of a LoadLevelAsync can also be used to __yield__ in a coroutine.
+
+When building a player Unity automatically optimizes assets in such a way that LoadLevelAsync will
+load them from disk linearly to avoid seek times.  Note that background loading performance in the
+Unity Editor is much lower than in the web player or standalone build. In the Editor you might also
+get more loading hiccups than in the player.
+
+This function requires __Unity Pro__.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		// Load the level named "MyBigLevel".
+		var async : AsyncOperation = Application.LoadLevelAsync ("MyBigLevel");
+		yield async;
+		Debug.Log ("Loading complete");
+	}
+END EX
+SA: [[AsyncOperation]], Application.backgroundLoadingPriority, Application.LoadLevel, Application.LoadLevelAdditive, Application.LoadLevelAdditiveAsync.

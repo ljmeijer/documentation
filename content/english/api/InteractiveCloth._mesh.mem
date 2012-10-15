@@ -1,0 +1,5 @@
+The mesh used as base for the cloth object.
+Changing this property causes the cloth simulation to reset.
+For best performance, pick a mesh which does not have UV or color seams (ie, duplicated vertices with the same 
+position but two or more texture coordinates or color values),
+as this requires some additional vertex mapping to be performed when rendering the results of the cloth simulation.

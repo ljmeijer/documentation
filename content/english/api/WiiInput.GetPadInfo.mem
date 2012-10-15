@@ -1,0 +1,3 @@
+Access to a requested Remote information.
+For a code example please see RequestPadInfo documentation.
+@param	chan	Remote index, in range 0...3.

@@ -1,0 +1,5 @@
+Sample a position along the current path.
+@param passableMask A mask specifying which NavMesh layers can be passed when tracing the path.
+@param maxDistance Terminate scanning the path at this distance.
+@param hit Holds the properties of the resulting location.
+@returns True If terminated before reaching position at maxDistance. Otherwise returns false.

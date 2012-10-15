@@ -1,0 +1,7 @@
+Data of a lightmap.
+
+A scene can have several lightmaps stored in it, and [[Renderer]] components can use those
+lightmaps. This makes it possible to use the same material on multiple objects, while
+each object can refer to a different lightmap or different portion of the same lightmap.
+
+SA: [[LightmapSettings]] class, Renderer.lightmapIndex property.

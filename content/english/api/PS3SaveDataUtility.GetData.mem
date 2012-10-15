@@ -1,0 +1,3 @@
+Retrieves the loaded data.
+SA: PS3SaveDataUtility.Init, PS3SaveDataUtility.DoAutoLoad
+@return Save data content after [[ref:PS3SaveDataUtility.DoAutoLoad]] operation.

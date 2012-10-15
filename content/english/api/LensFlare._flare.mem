@@ -1,0 +1,11 @@
+The [[wiki:class-Flare|flare asset]] to use.
+
+SA: [[wiki:class-LensFlare|Lens flare component]], [[wiki:class-Flare|flare assets]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Assigns the flare of lf to this transforms light flare
+
+	var lf : LensFlare;
+	light.flare = lf.flare;
+END EX

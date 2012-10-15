@@ -1,0 +1,2 @@
+Mouse button was pressed.
+This event gets sent when any mouse button is pressed. Use Event.button to determine which button was pressed down.

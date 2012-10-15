@@ -1,0 +1,15 @@
+Issues command to the NAND library to gather directory content. After command successfully completes, content can be accessed using ::ref::GetDirectoryContent method.
+BEGIN EX
+
+	function Start () {
+		var dir: NVDirectory = new NVDirectory ();
+		yield dir.Read ("/");
+		if (dir.success) {
+			var content: String[] = dir.GetDirectoryContent ();
+			foreach (var s: String in content) {
+				Debug.Log (s + "\n");
+			}
+		}
+	}
+END EX
+@param	name	Directory path.

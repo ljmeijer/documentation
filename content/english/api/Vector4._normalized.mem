@@ -1,0 +1,8 @@
+Returns this vector with a ::ref::magnitude of 1 (RO).
+
+Note that the current vector is unchanged and a new normalized vector is returned. If you
+want to normalize the current vector, use ::ref::Normalize function.
+
+If the vector is too small to be normalized a zero vector will be returned.
+
+SA: ::ref::Normalize function.

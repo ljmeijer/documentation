@@ -1,0 +1,19 @@
+Returns a rotation that rotates z degrees around the z axis, x degrees around the x axis, and y degrees around the y axis (in that order).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// A rotation 30 degrees around the y-axis
+
+	var rotation = Quaternion.Euler(0, 30, 0);
+END EX<signature>
+Euler_float_float_float
+Euler_Vector3
+</signature>
+Returns a rotation that rotates z degrees around the z axis, x degrees around the x axis, and y degrees around the y axis (in that order).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// A rotation 30 degrees around the y-axis
+
+	var rotation = Quaternion.Euler(Vector3(0, 30, 0));
+END EX

@@ -1,0 +1,19 @@
+Returns a [[AudioClip]] generated from the downloaded data (RO).
+
+The data must be an audio clip in Ogg(Web/Standalones), MP3(phones,Flash), WAV, XM, IT, MOD or S3M format.
+The clip will be downloaded completely before it's ready to play.
+Use the overloaded ::ref::GetAudioClip (bool threeD, bool stream) to stream the audio, instead of downloading the entire clip.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var url : String;
+	function Start () {
+		var www = new WWW(url);
+		audio.clip = www.audioClip;
+	}
+
+	function Update () {
+		if(!audio.isPlaying && audio.clip.isReadyToPlay)
+			audio.Play();
+	}
+END EX

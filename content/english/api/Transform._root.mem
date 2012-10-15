@@ -1,0 +1,12 @@
+Returns the topmost transform in the hierarchy.
+(This never returns null, if this Transform doesn't have a parent it returns itself.)
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Is a collision between two objects in different hierarchies?
+	function OnCollisionEnter(collision : Collision) {
+		if ( collision.transform.root != transform.root ) {
+			print("The colliding objects are not in the same hierarchy");
+		}
+	}
+END EX

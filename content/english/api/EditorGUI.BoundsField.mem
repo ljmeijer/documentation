@@ -1,0 +1,45 @@
+<signature>
+BoundsField_Rect_Bounds
+BoundsField_Rect_GUIContent_Bounds
+</signature>
+Make Center & Extents field for entering a [[Bounds]].
+
+{img EditorGUIBoundsField.png}\\
+''Bounds field in an Editor Window.''
+BEGIN EX
+
+	// Simple script that shows radius of bounds of selected MeshFilter
+
+	class EditorGUILayoutBoundsField extends EditorWindow {
+
+		var radius : float = 0;
+		var bounds : Bounds;
+
+		@MenuItem("Examples/Show Radius of mesh bounds")
+		static function Init() {
+			var window = GetWindow(EditorGUILayoutBoundsField);
+			window.Show();
+		}
+		function OnGUI() {
+			GUILayout.Label("Select a mesh in the Hierarchy view and click 'Capture Bounds'");
+			EditorGUILayout.BeginHorizontal();
+				bounds = EditorGUILayout.BoundsField("Mesh bounds:", bounds);
+				if(GUILayout.Button("Capture Bounds") && Selection.activeTransform)
+				{
+					var meshFilter : MeshFilter = Selection.activeTransform.GetComponentInChildren(MeshFilter);
+					if (meshFilter)
+						bounds = meshFilter.sharedMesh.bounds;
+				}
+			EditorGUILayout.EndHorizontal();
+			
+			EditorGUILayout.LabelField("Radius:", bounds.size.magnitude.ToString());
+			if(GUILayout.Button("Close"))
+				this.Close();		
+		}
+	}
+END EX
+
+@param position Rectangle on the screen to use for the field.
+@param label Optional label to display above the field.
+@param value The value to edit.
+@returns The value entered by the user.

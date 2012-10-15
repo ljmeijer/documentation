@@ -1,0 +1,13 @@
+Can this shader run on the end-users graphics card? (RO)
+
+Returns true if the shader itself or any fallbacks setup in the shader are supported.
+Most often you use this when implementing special effects. For example, [[wiki:comp-ImageEffects|image effects]]
+in Unity Pro automatically disable themselves if the shader is not supported.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Disable renderer if material's shader is not supported
+	if (!renderer.material.shader.isSupported)
+		renderer.enabled = false;
+END EX
+SA: [[Material]] class, [[wiki:Shaders|ShaderLab documentation]].

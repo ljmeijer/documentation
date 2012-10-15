@@ -1,0 +1,4 @@
+The lifetime of the particle.
+
+This is the time in seconds for how long this particle will remain alive.
+When the lifetime drops below zero the Particle will be killed.

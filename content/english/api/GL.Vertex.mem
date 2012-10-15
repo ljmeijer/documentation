@@ -1,0 +1,29 @@
+Submit a vertex.
+
+In OpenGL this matches @@glVertex3f(v.x,v.y,v.z)@@; on other graphics APIs the same
+functionality is emulated.
+
+This function can only be called between GL.Begin and GL.End functions.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws a line from the bottom right
+	// to the top left of the Screen
+	// Using GL.Vertex
+	var mat : Material;
+
+	function OnPostRender() {
+		if (!mat) {
+			Debug.LogError("Please Assign a material on the inspector");
+			return;
+		}
+		GL.PushMatrix();
+		mat.SetPass(0);
+		GL.LoadOrtho();
+		GL.Begin(GL.LINES);
+		GL.Vertex(Vector3(1,0,0));
+		GL.Vertex(Vector3(0,1,0));
+		GL.End();
+		GL.PopMatrix();
+	}
+END EX

@@ -1,0 +1,2 @@
+Make a custom editor for /obj/.
+Returns NULL if obj doesn't have a custom editor class defined.

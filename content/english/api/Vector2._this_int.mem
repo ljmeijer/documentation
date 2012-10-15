@@ -1,0 +1,7 @@
+Access the /x/ or /y/ component using [0] or [1] respectively.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var p : Vector2;
+	p[1] = 5; // the same as p.y = 5
+END EX

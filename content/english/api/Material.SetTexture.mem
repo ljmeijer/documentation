@@ -1,0 +1,16 @@
+Set a named texture.
+
+Many shaders use more than one texture. Use SetTexture to change the /propertyName/ texture.
+
+Common texture names used by Unity's builtin shaders: \\
+@@"_MainTex"@@ is the main diffuse texture. This can also be accessed via ::ref::mainTexture property. \\
+@@"_BumpMap"@@ is the normal map. \\
+@@"_Cube"@@ is the reflection cubemap.
+
+SA: ::ref::mainTexture property, ::ref::GetTexture.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var bumpMap : Texture;
+	renderer.material.SetTexture("_BumpMap", bumpMap);
+END EX

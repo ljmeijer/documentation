@@ -1,0 +1,4 @@
+Mesh is made from triangles.
+Each three indices in the mesh index buffer form a triangular face.
+
+SA: Mesh.SetIndices function.

@@ -1,0 +1,2 @@
+Used to generate static occlusion culling data. This function will not return until occlusion data is generated.
+SA: StaticOcclusionCulling.GenerateInBackground

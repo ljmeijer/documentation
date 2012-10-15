@@ -1,0 +1,5 @@
+Import materials from file.
+
+When set to false ModelImporter will use default material (Default-Diffuse.mat) instead of imported materials,
+otherwise it will find existing or create new materials based on ::ref::materialName and ::ref::materialSearch options.
+SA: ::ref::materialName, ::ref::materialSearch options.

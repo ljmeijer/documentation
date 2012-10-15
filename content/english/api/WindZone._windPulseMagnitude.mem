@@ -1,0 +1,17 @@
+Defines ow much the wind changes over time.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Creates a wind zone with the effect of a helicopter passing by
+	// Just place this into an empty game object and move it over a tree
+	
+	function Start() {
+	//	var wind : WindZone = gameObject.AddComponent(WindZone);
+	//	wind.mode = WindZoneMode.Spherical;
+	//	wind.radius = 10.0;
+	//	wind.windMain = 3.0;
+	//	wind.windTurbulence = 0.5;
+	//	wind.windPulseMagnitude = 2.0;
+	//	wind.windPulseFrequency = 0.01;
+	}
+END EX

@@ -1,0 +1,11 @@
+Is some level being loaded? (RO)
+
+::ref::LoadLevel and ::ref::LoadLevelAdditive don't happen immediately - a new level is loaded after the
+current game frame finishes. isLoadingLevel returns /true/ if a level load was requested this frame already.
+
+SA: ::ref::LoadLevel, ::ref::LoadLevelAdditive.
+CONVERTEXAMPLE
+BEGIN EX
+
+	print(Application.isLoadingLevel);
+END EX

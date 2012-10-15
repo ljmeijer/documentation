@@ -1,0 +1,35 @@
+The bounding volume of the renderer (RO).
+This is the axis-aligned bounding box fully enclosing the object in world space.
+
+Using /bounds/ is convenient to make rough approximations about the object's location
+and its extents. For example, /renderer.bounds.center/ often is more precise
+"center of the object" than /transform.position/ - especially if the object is not
+symmetrical.
+
+See also Mesh.bounds property that returns bounds of the mesh in local space.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints the left extreme point of the bounding volume on the x-axis
+	print(renderer.bounds.min.x);
+	// Prints the right extreme point of the bounding volume on the x-axis
+	print(renderer.bounds.max.x);
+END EX
+
+Another example:
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws a wireframe sphere in the scene view, fully enclosing
+	// the object.
+
+	function OnDrawGizmosSelected () {
+		// A sphere that fully encloses the bounding box
+		var center = renderer.bounds.center;
+		var radius = renderer.bounds.extents.magnitude;
+		// Draw it
+		Gizmos.color = Color.white;
+		Gizmos.DrawWireSphere (center, radius);
+	}
+END EX
+SA: [[Bounds]] class, Mesh.bounds property.

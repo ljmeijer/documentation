@@ -1,0 +1,27 @@
+Sets a channels pan position linearly. Only works for 2D clips.
+-1.0 to 1.0. -1.0 is full left. 0.0 is center. 1.0 is full right.
+Only sounds that are mono or stereo can be panned. Multichannel sounds (ie >2 channels) cannot be panned.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Switches sound from left to right everytime the user presses space	
+	
+	@script RequireComponent(AudioSource)	
+	var panOnLeft = false;
+	function Start()
+	{
+		audio.pan = 1;
+	}
+	
+	function Update() {
+		if(Input.GetKeyDown(KeyCode.Space)) {
+			if(panOnLeft) {
+				panOnLeft = false;
+				audio.pan = 1;
+			} else {
+				panOnLeft = true;
+				audio.pan = -1;
+			}
+		}
+	}
+END EX

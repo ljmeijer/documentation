@@ -1,0 +1,7 @@
+Calculates the shortest difference between two given angles.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints 90
+	Debug.Log(Mathf.DeltaAngle(1080,90));
+END EX

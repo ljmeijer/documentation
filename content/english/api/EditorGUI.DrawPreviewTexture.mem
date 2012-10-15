@@ -1,0 +1,86 @@
+Draws the texture within a rectangle.
+
+If mat is null (the default), an appropriate material will be chosen for a RGBM or doubleLDR lightmap or a normal map
+and the fallback blit material will be chosen otherwise.
+
+{img EditorGUIDrawPreviewTexture.png}\\
+''Preview Texture in an Editor Window.''
+BEGIN EX
+
+	// Load a texture, display the texture, display its alpha channel and
+	// show a preview of the inverted texture
+	
+	class EditorGUITextures extends EditorWindow {
+	
+		var texture : Texture2D;
+		var invertedTexture : Texture2D;
+		var showInverted = false;
+		
+		@MenuItem("Examples/Texture Previewer")
+		static function Init() {
+			var window = GetWindow(EditorGUITextures);
+			window.position = Rect(0,0,400, 200);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			texture = EditorGUI.ObjectField(Rect(3,3,200,20),
+					"Add a Texture:",
+					texture,
+					Texture);
+			if(GUI.Button(Rect(208,3, position.width - 210, 20),"Process Inverted")) {
+				if(invertedTexture)
+					DestroyImmediate(invertedTexture);
+				//Copy the new texture
+				invertedTexture = new Texture2D(texture.width, 
+						texture.height, 
+						texture.format, 
+						(texture.mipmapCount != 0));
+				for (var m : int  = 0; m < texture.mipmapCount; m++) 
+					invertedTexture.SetPixels(texture.GetPixels(m), m);
+				InvertColors();
+				showInverted = true;
+			}
+			if(texture) {
+				EditorGUI.PrefixLabel(Rect(25,45,100,15),0,GUIContent("Preview:"));
+				EditorGUI.DrawPreviewTexture(Rect(25,60,100,100),texture);
+				EditorGUI.PrefixLabel(Rect(150,45,100,15),0,GUIContent("Alpha:"));
+				EditorGUI.DrawTextureAlpha(Rect(150,60,100,100),texture);
+				EditorGUI.PrefixLabel(Rect(275,45,100,15),0,GUIContent("Inverted:"));
+				if(showInverted)
+					EditorGUI.DrawPreviewTexture(Rect(275,60,100,100),invertedTexture);
+				if(GUI.Button(Rect(3,position.height - 25, position.width-6,20),"Clear texture")) {
+					texture = EditorGUIUtility.whiteTexture;
+					showInverted = false;
+				}
+			} else {
+				EditorGUI.PrefixLabel(
+					Rect(3,position.height - 25,position.width - 6, 20),
+					0,
+					GUIContent("No texture found"));
+			}
+		}
+		
+		function InvertColors() { 
+			for (var m : int  = 0; m < invertedTexture.mipmapCount; m++) {
+				var c : Color[] = invertedTexture.GetPixels(m);
+				for (var i : int = 0 ;i < c.Length; i++) {
+					c[i].r = 1 - c[i].r;
+					c[i].g = 1 - c[i].g;
+					c[i].b = 1 - c[i].b;
+				}
+				invertedTexture.SetPixels(c, m); 
+			}
+			invertedTexture.Apply();
+		}
+		function OnInspectorUpdate() {
+			Repaint();
+		}
+	}
+END EX
+
+@param position		Rectangle on the screen to draw the texture within.
+@param image		[[Texture]] to display.
+@param mat			Material to be used when drawing the texture.
+@param scaleMode	How to scale the image when the aspect ratio of it doesn't fit the aspect ratio to be drawn within. 
+@param imageAspect	Aspect ratio to use for the source image. If 0 (the default), the aspect ratio from the image is used.

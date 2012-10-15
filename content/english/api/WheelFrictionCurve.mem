@@ -1,0 +1,27 @@
+WheelFrictionCurve is used by the [[WheelCollider]] to describe friction properties of the wheel tire.
+
+The curve takes a measure of tire slip as an input and gives a force as output. The curve is approximated by
+a two-piece spline. The first section goes from ''(0,0)'' to ''(extremumSlip,extremumValue)'', at which
+point the curve's tangent is zero. The second section goes from ''(extremumSlip,extremumValue)''
+to ''(asymptoteSlip,asymptoteValue)'', where curve's tangent is again zero:
+
+{img WheelFrictionCurve.png}
+
+Wheel collider computes friction separately from the rest of physics engine, using a slip based
+friction model. It separates the overall friction force into a "forwards" component (in the
+direction of rolling, and responsible for acceleration and braking) and "sideways" component
+(orthogonal to rolling, responsible for keeping the car oriented). Tire friction is described
+separately in these directions using WheelCollider.forwardFriction and WheelCollider.sidewaysFriction.
+In both directions it is first determined how much the tire is slipping (what is the speed difference between
+the rubber and the road). Then this slip value is used to find out tire force exerted on the contact.
+
+The property of real tires is that for low slip they can exert high forces as the rubber compensates
+for the slip by stretching. Later when the slip gets really high, the forces are reduced as the tire
+starts to slide or spin. Thus tire friction curves have a shape like in the image above.
+
+Because the friction for the tires is computed separately, the [[PhysicMaterial]] of the ground
+does not affect the wheels. Simulation of different road materials is done by changing
+the WheelCollider::pref::forwardFriction and WheelCollider::pref::sidewaysFriction of the wheel,
+based on what material the wheel is hitting. SA: WheelCollider.GetGroundHit, [[WheelHit]].
+
+SA: [[WheelCollider]], WheelCollider.forwardFriction, WheelCollider.sidewaysFriction.

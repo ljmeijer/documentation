@@ -1,0 +1,2 @@
+Utility class for making new GUI controls.
+Unless you are creating your own GUI controls from scratch, you should not use these functions.

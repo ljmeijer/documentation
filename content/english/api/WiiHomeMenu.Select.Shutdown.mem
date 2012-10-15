@@ -1,0 +1,1 @@
+Shutdown was pressed during the Home menu. Note, that Home menu is not blacked out before returning from WiiHomeMenu.Show function.

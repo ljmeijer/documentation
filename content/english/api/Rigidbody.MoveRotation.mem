@@ -1,0 +1,13 @@
+Rotates the rigidbody to /rotation/.
+For kinematic rigidbodies it applies friction based on the motion of the rigidbody.
+This lets you simulate moving / rotating platforms with rigidbodies sitting on top of the elevator.
+If you want other rigidbodies to interact with the kinematic rigidbody you need to move it in the FixedUpdate function.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var eulerAngleVelocity : Vector3 = Vector3 (0, 100, 0);
+	function FixedUpdate () {
+		var deltaRotation : Quaternion = Quaternion.Euler(eulerAngleVelocity * Time.deltaTime);
+		rigidbody.MoveRotation(rigidbody.rotation * deltaRotation);
+	}
+END EX

@@ -1,0 +1,3 @@
+Asynchronous create request for an [[AssetBundle]].
+
+SA: AssetBundle.CreateFromMemory, [[AsyncOperation]].

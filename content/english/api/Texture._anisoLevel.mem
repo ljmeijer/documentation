@@ -1,0 +1,15 @@
+Anisotropic filtering level of the texture.
+
+Anisotropic filtering makes textures look better when viewed at a shallow angle, but comes at a performance cost in the graphics hardware.
+Usually you use it on floor, ground or road textures to make them look better.
+
+The value range of this variable goes from 1 to 9, where 1 equals  no filtering applied and  9 equals full filtering applied. As the value gets bigger, the texture is clearer at shallow angles. Lower values mean the texture will be more blurry at shallow angles.
+
+
+
+SA: [[wiki:class-Texture2D|texture assets]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	renderer.material.mainTexture.anisoLevel = 2;
+END EX

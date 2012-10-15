@@ -1,0 +1,2 @@
+Disabling this lets you skip the GUI layout phase.
+It can only be used if you do not use GUI.Window and GUILayout inside of this OnGUI call.

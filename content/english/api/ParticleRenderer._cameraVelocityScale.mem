@@ -1,0 +1,2 @@
+How much are the particles strected depending on the [[Camera]]'s speed.
+Use this to make particles become large if the viewing camera has a large speed.

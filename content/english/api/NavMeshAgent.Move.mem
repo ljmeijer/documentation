@@ -1,0 +1,3 @@
+Apply relative movement to current position.
+If the agent has a path it will be adjusted.
+@param offset The relative move vector.

@@ -1,0 +1,2 @@
+determines if the array contains the item
+@return true if ''item'' is in ''array'', false otherwise

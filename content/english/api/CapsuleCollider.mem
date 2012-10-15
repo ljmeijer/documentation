@@ -1,0 +1,4 @@
+A capsule-shaped primitive collider.
+Capsules are cylinders with a half-sphere at each end.
+
+SA: [[BoxCollider]], [[SphereCollider]], [[PhysicMaterial]], [[Rigidbody]]

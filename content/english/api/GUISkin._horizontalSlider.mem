@@ -1,0 +1,15 @@
+Style used by default for the background part of GUI::ref::HorizontalSlider controls.
+The padding property is used to determine the size of the area the thumb can be dragged within.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Modifies only the horizontal slider style of the current GUISkin
+
+	var hSliderValue : float = 0.0;
+	var style : GUIStyle;
+
+	function OnGUI () {
+		GUI.skin.horizontalSlider = style;
+		hSliderValue = GUILayout.HorizontalSlider (hSliderValue, 0.0, 10.0);
+	}
+END EX

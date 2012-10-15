@@ -1,0 +1,12 @@
+Various drawing stuff.
+Scene View style 3D GUI controls.
+<dl>
+<dt>Setting up</dt>
+<dd>You must begin with a call to DrawCamera in order to set up the current camera. All 3d stuff done after DrawCamera uses the camera that was rendered.</dd>
+<dt>Drawing stuff</dd>
+<dd>	You can draw 3D gizmo-like stuff. SA: ::ref::CubeCap, ::ref::DrawLine. Set the color of them with Handles.color</dd>
+<dt>Traditional 2D GUI</dt>
+<dd>	After having made a call to DrawCamera, you need to wrap traditional GUI calls in a Handles.BeginGUI / ::ref::EndGUI pair. </dd>
+<dt>Converting coordinate systems</dt>
+<dd>Use HandleUtility.GUIPointToWorldRay  and HandleUtility.WorldToGUIPoint to convert coordinates between 2D GUI and 3D world coordinates.</dd>
+</dl>

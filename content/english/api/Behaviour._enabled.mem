@@ -1,0 +1,7 @@
+Enabled Behaviours are Updated, disabled Behaviours are not.
+This is shown as the small checkbox in the inspector of the behaviour.
+CONVERTEXAMPLE
+BEGIN EX
+
+	GetComponent(PlayerScript).enabled = false;
+END EX

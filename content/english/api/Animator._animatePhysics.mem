@@ -1,0 +1,1 @@
+When turned on, animations will be executed in the physics loop. This is only useful in conjunction with kinematic rigidbodies.

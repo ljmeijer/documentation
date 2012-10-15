@@ -1,0 +1,28 @@
+Packs multiple /textures/ into a texture atlas.
+
+This function will replace current texture with the texture atlas. Size, format and whether
+the texture has mipmaps can change after packing.
+
+Resulting texture atlas will be as large as needed to fit all input textures, but only up to /maximumAtlasSize/ in
+each dimension. If all input textures can't fit into texture atlas of such size, they will be
+scaled down to fit.
+
+Texture atlas will have TextureFormat::pref::DXT1 format if all input textures are DXT1 compressed.
+If all input textures are compressed in TextureFormat::pref::DXT1 or TextureFormat::pref::DXT5 formats,
+then atlas will be in DXT5 format. If any input texture is not compressed, then atlas will
+be in TextureFormat::pref::ARGB32 uncompressed format.
+
+If none of input textures have mipmaps, then atlas will have no mipmaps as well.
+
+If you use non-zero padding and atlas is compressed and have mip-maps, lower-level mip-maps might be off
+due to compression restrictions
+
+If /makeNoLongerReadable/ is /true/, texture will be marked as no longer readable
+and memory will be freed after uploading to GPU.
+By default /makeNoLongerReadable/ is set to /false/.
+
+@param textures Array of textures to pack into atlas.
+@param padding Padding in pixels between packed textures.
+@param maximumAtlasSize Maximum size of the resulting texture.
+@param makeNoLongerReadable If we should mark texture as no longer readable
+@returns An array of rectangles containing the UV coordinates in the atlas for each input texture, or null if packing fails.

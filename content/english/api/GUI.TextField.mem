@@ -1,0 +1,22 @@
+<signature>
+TextField_Rect_string
+TextField_Rect_string_int
+TextField_Rect_string_GUIStyle
+TextField_Rect_string_int_GUIStyle
+</signature>
+Make a single-line text field where the user can edit a string.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var stringToEdit : String = "Hello World";
+
+	function OnGUI () {
+		// Make a text field that modifies stringToEdit.
+		stringToEdit = GUI.TextField (Rect (10, 10, 200, 20), stringToEdit, 25);
+	}
+END EX
+@param position	Rectangle on the screen to use for the text field.
+@param text 			Text to edit. The return value of this function should be assigned back to the string as shown in the example.
+@param maxLength		The maximum length of the string. If left out, the user can type for ever and ever.
+@param style			The style to use. If left out, the /textField/ style from the current [[GUISkin]] is used.
+@return the edited string.

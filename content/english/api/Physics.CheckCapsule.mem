@@ -1,0 +1,1 @@
+Returns true if there are any colliders touching the capsule defined by the axis going from /start/ and /end/ and having /radius/ in world coordinates

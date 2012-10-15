@@ -1,0 +1,49 @@
+<signature>
+TagField_string_GUILayoutOptionArray
+TagField_string_GUIStyle_GUILayoutOptionArray
+TagField_string_string_GUILayoutOptionArray
+TagField_string_string_GUIStyle_GUILayoutOptionArray
+TagField_GUIContent_string_GUILayoutOptionArray
+TagField_GUIContent_string_GUIStyle_GUILayoutOptionArray
+</signature>
+Make a tag selection field.
+
+{img EditorGUILayoutTagField.png}\\
+''Assign tags on the selected GameObjects''
+BEGIN EX
+
+	// Simple editor script that lets you set a tag for the selected GameObjects.
+	
+	class EditorGUILayoutTagField extends EditorWindow {
+	
+		var tagStr = "";
+		@MenuItem("Examples/Set Tags For Selection")
+		static function Init() {
+			var window = GetWindow(EditorGUILayoutTagField);
+			window.Show();
+		}
+		//Disable menu if we dont have at least 1 gameobject selected
+		@MenuItem("Examples/Set Tags For Selection", true)
+		static function ValidateSelection() {
+			return	Selection.activeGameObject != null;
+		}
+		
+		function OnGUI() {
+			tagStr = EditorGUILayout.TagField("Tag for Objects:",tagStr);
+			if(GUILayout.Button("Set Tag!"))
+				SetTags();
+		}
+		function SetTags() {
+			for(var go : GameObject in Selection.gameObjects)
+				go.tag = tagStr;
+		}
+	}
+END EX
+
+@param label Optional label in front of the field.
+@param tag The tag the field shows.
+@param style Optional [[GUIStyle]].
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The tag selected by the user.

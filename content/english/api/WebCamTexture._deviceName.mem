@@ -1,0 +1,14 @@
+Set this to specify the name of the device to use.
+This only has an effect when set while the camera is not running.
+BEGIN EX
+
+	// Sets the device of the WebCamTexture to the first one available and starts playing it
+	function Start () {
+		var devices : WebCamDevice[] = WebCamTexture.devices;
+		var webcamTexture : WebCamTexture = WebCamTexture();
+		if(devices.length > 0){
+            webcamTexture.deviceName = devices[0].name;
+			webcamTexture.Play();
+		}
+	}
+END EX

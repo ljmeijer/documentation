@@ -1,0 +1,45 @@
+Make an X, Y, Z & W field for entering a [[Vector4]].
+
+{img ModifyQuaternionDirectly.png}\\
+''Modify X,Y,Z and W values directly of a GameObject.''
+BEGIN EX
+
+	// Simple script that lets you modify the X,Y,Z and W 
+	// Quaternion values of the selected GameObject
+	
+	class ModifyQuaternionDirectly extends EditorWindow {
+		
+		
+		var quat : Quaternion;
+		var values : Vector4;
+		@MenuItem("Examples/Modify internal Quaternion")
+		static function Init() {
+			var window = GetWindow(ModifyQuaternionDirectly);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			
+			values = EditorGUILayout.Vector4Field("Components:",values);
+			if(GUILayout.Button("Capture Rotation"))
+				values = QuaternionToVector4(Selection.activeTransform.rotation);
+			if(GUILayout.Button("Close"))
+				this.Close();
+		}
+		function OnInspectorUpdate() {
+			if(Selection.activeTransform)
+				Selection.activeTransform.rotation = 
+					Quaternion(values.x, values.y, values.z, values.w);
+		}
+		function QuaternionToVector4(rot : Quaternion) {
+			return Vector4(rot.x, rot.y, rot.z, rot.w);
+		}
+	}
+END EX
+
+@param label Label to display above the field.
+@param value The value to edit.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The value entered by the user.

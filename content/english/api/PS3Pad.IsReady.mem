@@ -1,0 +1,13 @@
+Checks if the status of the controller specified by ''controllerID'' is properly initialized and calibrated.
+BEGIN EX
+
+		function OnGUI() {
+			if(PS3Pad.IsReady(0)) {
+				GUILayout.Label("Pad Controller 0 is Ready!");
+			}else{
+				GUILayout.Label("Pad Controller 0 is not Ready!");
+			}
+		}
+END EX
+@param controllerID Controller index
+@return @@true@@ if the controller specified by ''controllerID'' is properly initialized and calibrated, @@false@@ otherwise.

@@ -1,0 +1,16 @@
+Returns the text displayed by the input field of the keyboard. This
+value can be accessed at any moment, even if user has not yet finished
+input process.
+BEGIN EX
+
+	var inputText : String = "text";
+	private var keyboard : TouchScreenKeyboard;
+	// Updates button's text while user is typing
+	function OnGUI() {
+		if (GUI.Button(Rect(0, 10, 200, 32), inputText))
+			keyboard = TouchScreenKeyboard.Open(inputText);
+
+		if (keyboard)
+			inputText = keyboard.text;
+	}
+END EX

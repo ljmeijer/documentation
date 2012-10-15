@@ -1,0 +1,6 @@
+<textureName>.mat material name.
+
+Name materials <textureName>.mat (i.e. diffuse texture name of imported material) when searching for existing or creating new materials.
+If imported material doesn't have a diffuse texture assigned then material will be named <materialName>.mat instead.
+
+SA: ModelImporter.materialName

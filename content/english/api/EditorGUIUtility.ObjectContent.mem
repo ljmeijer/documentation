@@ -1,0 +1,41 @@
+Return a GUIContent object with the name and icon of an Object.
+If the object is null, the icon will be picked according to type.
+
+{img EditorGUIUtilityObjectContent.png}\\
+''Object Content usage.''
+BEGIN EX
+
+	// Simple Editor Script that shows the icons of Transform, rigidbody, GameObject
+	// and MonoBehaviour in 4 buttons.
+	
+	class EditorGUIUtilityObjectContent extends EditorWindow {
+	
+		@MenuItem("Examples/ObjectContent Usage")
+		static function Init() {
+			var window = GetWindow(EditorGUIUtilityObjectContent);
+			window.Show();	
+		}
+		
+		function OnGUI() {
+			EditorGUILayout.PrefixLabel("Select a type:");
+			EditorGUILayout.BeginHorizontal();
+				if(GUILayout.Button(EditorGUIUtility.ObjectContent(null,Transform).image))
+					DoSomething();
+				if(GUILayout.Button(EditorGUIUtility.ObjectContent(null,Rigidbody).image))
+					DoSomething();
+				if(GUILayout.Button(EditorGUIUtility.ObjectContent(null,GameObject).image))
+					DoSomething();
+				if(GUILayout.Button(EditorGUIUtility.ObjectContent(null,MonoBehaviour).image))
+					DoSomething();
+			EditorGUILayout.EndHorizontal();
+			
+			if(GUILayout.Button("Close"))
+				this.Close();
+			
+		}
+		
+		function DoSomething() {
+			Debug.Log("Hello there!");
+		}
+	}
+END EX

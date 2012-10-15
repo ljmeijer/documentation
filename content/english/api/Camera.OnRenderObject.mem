@@ -1,0 +1,6 @@
+CSNONE
+OnRenderObject is called after camera has rendered the scene.
+
+This can be used to render your own objects using Graphics.DrawMeshNow or other functions.
+This function is similar to ::ref::OnPostRender, except OnRenderObject is called on any object
+that has a script with the function; no matter if it's attached to a Camera or not.

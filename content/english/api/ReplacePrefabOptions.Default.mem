@@ -1,0 +1,3 @@
+Replaces prefabs by matching pre-existing connections to the prefab.
+If the game object hierarchy was not connected to the prefab before all game objects / components will be new
+and thus overrides in prefab instances will be lost.

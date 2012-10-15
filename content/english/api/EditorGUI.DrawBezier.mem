@@ -1,0 +1,13 @@
+*undocumented*<signature>
+DrawBezier_Vector2_Vector2_Vector2_Vector2_int_Color
+DrawBezier_Vector2_Vector2_Vector2_Vector2_int_Color_Texture
+</signature>
+Draw an anti-aliased bezier curve
+TODO: Quick and dirty implementation - doesn't get clipped. Could be a lot faster.
+@param from the point to draw from
+@param from the point to draw to
+@param from the point to draw fromTangent
+@param from the point to draw toTangent
+@param thickness pixel width of the beziuer
+@param tex optional texture to use along. if left undefined, one will be calculated on-the-fly for making the bezier's edges soft. So there!
+*undocumented*

@@ -1,0 +1,7 @@
+Is fog enabled?
+BEGIN EX
+
+	// Enable fog
+	RenderSettings.fog = true;
+END EX
+SA: RenderSettings.fogMode, [[wiki:class-RenderSettings|Render Settings manager]]

@@ -1,0 +1,2 @@
+Don't compress the data when creating the asset bundle.
+This makes it faster to build & load, but since it is much bigger it will take longer to download.

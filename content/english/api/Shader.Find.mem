@@ -1,0 +1,33 @@
+Finds a shader with the given /name/.
+
+Shader.Find can be used to switch to another shader without having to keep a reference to the shader.
+/name/ is the name you can see in the shader popup of any material.
+Common names are: "Diffuse", "Bumped Diffuse", "VertexLit", "Transparent/Diffuse" etc.
+
+When building a player, a shader will only be included if it is assigned to a material that is used in any scene or if the shader is placed in a "Resources" folder.
+SA: [[Material]] class.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Switch the shader from code
+
+	function Start () {
+		// Switch to the transparent diffuse shader
+		renderer.material.shader = Shader.Find ("Transparent/Diffuse");
+	}
+END EX
+
+Another Example:
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Create a material from code
+
+	function Start () {
+		// Create a material with transparent diffuse shader
+		var material = new Material (Shader.Find ("Transparent/Diffuse"));
+		material.color = Color.green;
+		// assign the material to the renderer
+		renderer.material = material;
+	}
+END EX

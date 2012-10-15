@@ -1,0 +1,17 @@
+Is a streamed audio clip ready to play? (RO)
+
+If the AudioClip is downloading from a web site, this returns if enough data has been downloaded so playback should be able to start without interruptions.
+For AudioClips not associated with a web stream, this value always returns true.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		var www : WWW = new WWW("www.example.com");
+		audio.clip = www.audioClip;
+	}
+	
+	function Update () {
+		if(!audio.isPlaying && audio.clip.isReadyToPlay)
+			audio.Play();
+	}
+END EX

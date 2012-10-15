@@ -1,0 +1,10 @@
+Blend weights.
+The Blend weights can be set to either One Bone, Two Bones or Four Bones.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set Blend weights to one bone.
+
+	QualitySettings.blendWeights = BlendWeights.OneBone;
+END EX
+SA: [[wiki:class-QualitySettings|Quality Settings]].

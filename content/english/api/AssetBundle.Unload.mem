@@ -1,0 +1,9 @@
+Unloads all assets in the bundle.
+
+Unload frees all the memory associated with the objects inside the bundle.
+
+When /unloadAllLoadedObjects/ is false, compressed file data for assets inside the bundle will be unloaded, but any actual objects already loaded
+from this bundle will be kept intact. Of course you won't be able to load any more objects from this bundle.
+
+When /unloadAllLoadedObjects/ is true, all objects that were loaded from this bundle will be destroyed as well. If there are game
+objects in your scene referencing those assets, the references to them will become missing.

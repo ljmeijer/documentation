@@ -1,0 +1,19 @@
+Returns true during the frame the user releases the given mouse button.
+You need to call this function from the MonoBehaviour::pref::Update function, since the state gets reset each frame.	
+It will not return true until the user has pressed the mouse button and released it again.
+''button'' values are 0 for left button, 1 for right button, 2 for the middle button.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Detects clicks from the mouse and prints a message
+	// depending on the click detected.
+
+	function Update() {
+		if(Input.GetMouseButtonUp(0))
+			Debug.Log("Pressed left click.");
+		if(Input.GetMouseButtonUp(1))
+			Debug.Log("Pressed right click.");
+		if(Input.GetMouseButtonUp(2))
+			Debug.Log("Pressed middle click.");
+	}
+END EX

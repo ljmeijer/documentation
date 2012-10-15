@@ -1,0 +1,25 @@
+Returns the instantiated [[Mesh]] assigned to the mesh filter.
+
+If no mesh is assigned to the mesh filter a new mesh will be created and assigned.\\
+If the mesh assigned to the mesh filter is shared, it will be automatically duplicated and the instantiated mesh will be returned.
+
+By using /mesh/ property you can modify the mesh for a single object only. The
+other objects that used the same mesh will not be modified.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Distortionates the mesh vertically.
+
+	function Update () {
+		// Get instantiated mesh
+		var mesh : Mesh = GetComponent(MeshFilter).mesh;
+		// Randomly change vertices
+		var vertices : Vector3[] = mesh.vertices;
+		for (var p : int = 0; p < vertices.Length; p++) {
+			vertices[p] += Vector3(0, Random.Range(-0.3, 0.3), 0);
+		}
+		mesh.vertices = vertices;
+		mesh.RecalculateNormals();
+	}
+END EX
+SA: [[Mesh]] class.

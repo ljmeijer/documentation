@@ -1,0 +1,15 @@
+Get a named color value.
+
+Many shaders use more than one color. Use GetColor to get the /propertyName/ color.
+
+Common color names used by Unity's builtin shaders: \\
+@@"_Color"@@ is the main color of a material. This can also be accessed via ::ref::color property. \\
+@@"_SpecColor"@@ is the specular color of a material (used in specular/glossy/vertexlit shaders). \\
+@@"_Emission"@@ is the emissive color of a material (used in vertexlit shaders). \\
+@@"_ReflectColor"@@ is the reflection color of the material (used in reflective shaders).
+
+SA: ::ref::color property, ::ref::SetColor.
+BEGIN EX
+
+	print (renderer.material.GetColor("_SpecColor"));
+END EX

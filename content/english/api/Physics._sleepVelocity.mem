@@ -1,0 +1,10 @@
+The default linear velocity, below which objects start going to sleep (default 0.15). Must be positive.
+See [[wiki:RigidbodySleeping|Rigidbody Sleeping]] for more information.
+This value can be overridden per rigidbody using Rigidbody.sleepVelocity. 
+
+This value is usually changed in @@Edit->Project Settings->Physics@@ inspector instead of from scripts.
+CONVERTEXAMPLE
+BEGIN EX
+
+	Physics.sleepVelocity = 0.1;
+END EX

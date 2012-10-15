@@ -1,0 +1,18 @@
+CSNONE
+OnMouseDrag is called when the user has clicked on a [[GUIElement]] or [[Collider]] and is still holding down the mouse.
+OnMouseDrag is called every frame while the mouse is down.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Darken the material color while user holds down the mouse.
+
+	function OnMouseDrag () {
+		renderer.material.color -= Color.white * Time.deltaTime;
+	}
+END EX
+This function is not called on objects that belong to Ignore Raycast layer.
+
+OnMouseDrag can be a co-routine, simply use the yield statement in the function.
+This event is sent to all scripts attached to the [[Collider]] or [[GUIElement]].
+
+__IMPORTANT:__ This function has no effect on iPhone.

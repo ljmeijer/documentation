@@ -1,0 +1,2 @@
+The TerrainData class stores heightmaps, detail mesh positions, tree instances, and terrain texture alpha maps.
+The [[Terrain]] component links to the terrain data and renders it.

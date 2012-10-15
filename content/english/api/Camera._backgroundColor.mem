@@ -1,0 +1,20 @@
+The color with which the screen will be cleared.
+
+Only used if ::ref::clearFlags are set to CameraClearFlags.SolidColor (or CameraClearFlags.Skybox but the skybox is not set up).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// ping-pong animate background color
+	var color1 : Color = Color.red;
+	var color2 : Color = Color.blue;
+	var duration = 3.0;
+	
+	// Set clear flags to color
+	camera.clearFlags = CameraClearFlags.SolidColor;
+	
+	function Update () {
+		var t : float = Mathf.PingPong (Time.time, duration) / duration;
+		camera.backgroundColor = Color.Lerp (color1, color2, t);
+	}
+END EX
+SA: [[wiki:class-Camera|camera component]], Camera.clearFlags property.

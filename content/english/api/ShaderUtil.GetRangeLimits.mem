@@ -1,0 +1,2 @@
+Get Limits for for a range property ONLY.
+defminmax: 0 = default, 1 = min, 2=max

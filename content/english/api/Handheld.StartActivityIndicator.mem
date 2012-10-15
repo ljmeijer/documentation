@@ -1,0 +1,25 @@
+Starts os activity indicator
+Please be warned that this informs os ui system to start.
+For actual animation to take effect you usually need to wait till the end of this frame.
+So if you want activity indicator to be animated during synced operation, please use coroutines
+BEGIN EX
+
+	IEnumerator Load()
+    {
+        #if UNITY_IPHONE
+            Handheld.SetActivityIndicatorStyle(iOSActivityIndicatorStyle.Gray);
+        #elif UNITY_ANDROID
+            Handheld.SetActivityIndicatorStyle(AndroidActivityIndicatorStyle.Small);
+        #endif
+
+        Handheld.StartActivityIndicator();
+        yield return new WaitForSeconds(0);
+        Application.LoadLevel(1);
+    }
+
+    void OnGUI()
+    {
+       if( GUI.Button(new Rect(10, 10, 200, 200), "Load!") )
+            StartCoroutine(Load());
+    }
+END EX

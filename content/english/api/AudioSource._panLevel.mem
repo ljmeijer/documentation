@@ -1,0 +1,10 @@
+Sets how much the 3d engine has an effect on the channel.
+Useful for morphing an AudioSource from 3D(1.0f) to 2D(0.0f)
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Hear the audio clip in both channels (2D)
+	function Start() {
+		audio.panLevel = 0;
+	}
+END EX

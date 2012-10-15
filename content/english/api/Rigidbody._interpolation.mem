@@ -1,0 +1,13 @@
+Interpolation allows you to smooth out the effect of running physics at a fixed frame rate.
+
+By default interpolation is turned off. Commonly rigidbody interpolation is used on the player's character.
+Physics is running at discrete timesteps, while graphics is renderered at variable frame rates.
+This can lead to jittery looking objects, because physics and graphics are not completely in sync.
+The effect is subtle but often visible on the player character, especially if a camera follows the main character.
+It is recommended to turn on interpolation for the main character but disable it for everything else.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Make the rigidbody interpolate the graphics
+	rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
+END EX

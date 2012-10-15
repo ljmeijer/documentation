@@ -1,0 +1,5 @@
+An array of all the object being inspected.
+
+For editors that support multi-object editing, the targets property can be used in ::ref::OnInspectorGUI, but usually it is better to handle things through the ::ref::serializedObject instead as described on the page about the [[Editor]] class.
+
+SA: ::ref::serializedObject, [[Editor]] class

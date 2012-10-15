@@ -1,0 +1,18 @@
+CSNONE
+LateUpdate is called every frame, if the [[Behaviour]] is enabled.
+
+LateUpdate is called after all Update functions have been called.
+This is useful to order script execution. For example a follow camera should always be implemented in LateUpdate
+because it tracks objects that might have moved inside Update.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Moves the object forward 1 meter a second
+
+	function LateUpdate () {
+		transform.Translate(0, 0, Time.deltaTime * 1);
+	}
+END EX
+In order to get the elapsed time since last call to LateUpdate, use Time.deltaTime.
+This function is only called if the [[Behaviour]] is enabled.
+Override this function in order to provide your component's functionality.

@@ -1,0 +1,34 @@
+Get a texture from its source filename.
+{img EditorGUIUtilityFindTexture.png}\\
+''Checks the path of a texture.''
+BEGIN EX
+
+	// Simply editor window that lets you quick check a path of
+	// a texture in your project instead of waiting your code to 
+	// compile.
+	//
+	// if the path exists then it shows a message
+	// else displays an error message
+	
+	class EditorGUIUtilityFindTexture extends EditorWindow {
+	
+		var path : String = "";
+	
+		@MenuItem("Examples/Check Path For Texture")
+		static function Init() {
+			var window = GetWindow(EditorGUIUtilityFindTexture);
+			window.position = Rect(0,0,180,55);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			path = EditorGUILayout.TextField("Path To Test:", path);
+			if(GUILayout.Button("Check"))
+				if(EditorGUIUtility.FindTexture(path)) {
+					Debug.Log("Yay!, texture found at: " + path);
+				} else {
+					Debug.LogError("No texture found at: " + path + " Check your path");
+				}
+		}
+	}
+END EX

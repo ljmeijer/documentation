@@ -1,0 +1,26 @@
+The Resources class allows you to find and access Objects including assets.
+
+In the editor, Resources.FindObjectsOfTypeAll can be used to locate assets and scene objects.
+
+All assets that are in a folder named "Resources" anywhere in the Assets folder can be accessed via the Resources.Load functions.
+Multiple "Resources" folders may exist and when loading objects each will be examined.
+
+In Unity you usually don't use path names to access assets, instead you expose a reference to an 
+asset by declaring a member-variable, and then assign it in the inspector.
+When using this technique Unity can automatically calculate which assets are used when building a player.
+This radically minimizes the size of your players to the assets that you actually use in the built game.
+When you place assets in "Resources" folders this can not be done, thus all assets in the "Resources" folders will be included in a build.
+
+Another disadvantage of using path names is that it leads to less reusable code since scripts will have specific hard coded requirements on where the used assets are placed.
+On the other hand using references that are exposed in the inspector are self-documenting and immediately obvious to the user of your script.
+
+However there are situations where it is more convenient to fetch an asset by its name instead of linking to it in the inspector.
+Essentially whenever it is inconvenient to assign the reference to the object in the inspector. 
+For example you might want to create a game object procedurally from a script and for example assign a texture to a procedurally generated mesh.
+
+Some loaded assets, most notably textures, can use up memory even when no instance exists in the scene. To reclaim this memory when the asset is no longer needed, you can use Resources.UnloadUnusedAssets.
+BEGIN EX
+
+var go = new GameObject.CreatePrimitive(PrimitiveType.Plane);
+go.renderer.material.mainTexture = Resources.Load("glass");
+END EX

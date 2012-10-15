@@ -1,0 +1,8 @@
+Is the rigidbody sleeping?
+See [[wiki:RigidbodySleeping|Rigidbody Sleeping]] for more information.
+CONVERTEXAMPLE
+BEGIN EX
+
+	if (rigidbody.IsSleeping())
+	   print("Sleeping");
+END EX

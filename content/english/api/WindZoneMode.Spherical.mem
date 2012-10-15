@@ -1,0 +1,11 @@
+Wind zone affects the entire scene in one direction.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Creates a Spherical Wind Zone.
+
+	function Start() {
+	//	var wind : WindZone = gameObject.AddComponent(WindZone);
+	//	wind.mode = WindZoneMode.Spherical;
+	}
+END EX

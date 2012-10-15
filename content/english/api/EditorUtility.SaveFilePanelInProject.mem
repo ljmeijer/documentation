@@ -1,0 +1,43 @@
+Displays the "save file" dialog in the Assets folder of the project and returns the selected path name.
+
+SA: ::ref::SaveFilePanel function.
+
+{img EditorUtilitySaveFilePanelInProject.png}\\
+''Save File panel in project.''
+BEGIN EX
+
+	// Opens a file selection dialog for a PNG file and saves a selected texture to the file.
+
+	import System.IO;
+
+	@MenuItem("Examples/Save Texture to file")
+	static function Apply () {
+		var texture : Texture2D = Selection.activeObject as Texture2D;
+
+		if(!texture) {
+			EditorUtility.DisplayDialog("Select Texture",
+						    "You Must Select a Texture first!",
+						    "Ok");
+			return;
+		}
+
+		var path = EditorUtility.SaveFilePanelInProject("Save texture as PNG",
+								texture.name + ".png",
+								"png",
+								"Please enter a file name to save the texture to");
+		if(path.Length != 0) {
+			// Convert the texture to a format compatible with EncodeToPNG
+			if(texture.format != TextureFormat.ARGB32 && texture.format != TextureFormat.RGB24) {
+				var newTexture = Texture2D(texture.width, texture.height);
+				newTexture.SetPixels(texture.GetPixels(0),0);
+				texture = newTexture;
+			}
+			var pngData = texture.EncodeToPNG();
+			if(pngData != null) {
+				File.WriteAllBytes(path, pngData);
+				// As we are saving to the asset folder, tell Unity to scan for modified or new assets
+				AssetDatabase.Refresh();
+			}
+		}
+	}
+END EX

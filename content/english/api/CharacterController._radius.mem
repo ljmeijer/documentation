@@ -1,0 +1,9 @@
+The radius of the character's capsule
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the controller radius to 0.3
+	var controller : CharacterController;
+	controller = GetComponent(CharacterController);
+	controller.radius = 0.3;
+END EX

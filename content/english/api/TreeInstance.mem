@@ -1,0 +1,2 @@
+Contains information about a tree placed in the Terrain game object.
+This struct can be accessed from the TerrainData Object.

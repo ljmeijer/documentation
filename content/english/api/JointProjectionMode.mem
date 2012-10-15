@@ -1,0 +1,2 @@
+Determines how to snap physics joints back to its constrained position when it drifts off too much
+SA: [[ConfigurableJoint]]

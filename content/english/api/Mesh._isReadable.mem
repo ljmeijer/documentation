@@ -1,0 +1,13 @@
+Returns state of the Read/Write Enabled checkbox when model was imported.
+For a dynamic Mesh created from script, always returns true.
+
+Meshes not marked readable will throw an error on accessing any data arrays from script at runtime.
+Access is allowed in Unity's editor outside of the game and rendering loop.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		var mesh : Mesh = GetComponent(MeshFilter).sharedMesh;
+		print(mesh.isReadable);
+	}
+END EX

@@ -1,0 +1,15 @@
+Style used by default for the right button on GUI::ref::HorizontalScrollbar controls.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Modifies only the horizontal scrollbar 
+	// right button of the current GUISkin
+
+	var hSbarValue : float;
+	var style : GUIStyle;
+
+	function OnGUI () {
+		GUI.skin.horizontalScrollbarRightButton = style;
+		hSbarValue = GUILayout.HorizontalScrollbar (hSbarValue, 1.0, 0.0, 10.0);
+	}
+END EX

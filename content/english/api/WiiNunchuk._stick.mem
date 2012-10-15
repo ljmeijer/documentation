@@ -1,0 +1,7 @@
+Control stick data for Nunchuk unit. Values are in range [-1,1] . A [[WiiInput.DisableStickCrossClamp|circular]] or [[WiiInput.EnableStickCrossClamp|cross]] clamping of range [-1,1] is applied.
+BEGIN EX
+
+	// Querying the first Wii Remote. Is has Nunchuk attached.
+	var remote:WiiNunchuk = WiiInput.GetNunchuk(0);
+	transform.position = Vector3(nunchuk.stick);
+END EX

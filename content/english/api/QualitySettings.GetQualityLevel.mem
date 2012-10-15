@@ -1,0 +1,8 @@
+Returns the current graphics quality level.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var qualityLevel = QualitySettings.GetQualityLevel ();
+END EX
+
+SA: ::ref::SetQualityLevel

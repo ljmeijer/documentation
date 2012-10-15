@@ -1,0 +1,17 @@
+Invokes the method /methodName/ in /time/ seconds.
+After the first invocation repeats calling that function every /repeatRate/ seconds.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Starting in 2 seconds.
+	// a projectile will be launched every 0.3 seconds
+
+	var projectile : Rigidbody;
+
+	InvokeRepeating("LaunchProjectile", 2, 0.3);
+
+	function LaunchProjectile () {
+		var instance : Rigidbody = Instantiate(projectile);
+		instance.velocity = Random.insideUnitSphere * 5;
+	}
+END EX

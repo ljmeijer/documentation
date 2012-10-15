@@ -1,0 +1,9 @@
+Returns the first asset object of type __type__ at given path __assetPath__.
+Some asset files may contain multiple objects. (such as a Maya file which may contain multiple Meshes and GameObjects).
+All paths are relative to the project folder. Like: "Assets/MyTextures/hello.png".
+
+__Note:__\\
+The __assetPath__ parameter is not needed to be case sensitive.\\
+__ALL__ asset names & paths in Unity are with forward slashes.
+
+SA: AssetDatabase.LoadMainAssetAtPath, AssetDatabase.LoadAllAssetsAtPath

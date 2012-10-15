@@ -1,0 +1,39 @@
+Make all ref::EditorGUI look like regular controls.
+
+This will make the default styles used by ::ref::EditorGUI look like controls (e.g. EditorGUI.Popup becomes a full popup menu).
+
+{img EditorGUIUtilityLookLikeControls.png}\\
+''Editor window with "LookLikeControls" look.''
+SA: ::ref::LookLikeInspector
+BEGIN EX
+
+	// Simple editor window that shows the difference between
+	// Look like controls and look like inspector 
+	
+	class LookLikeControlsInspector extends EditorWindow { 
+		
+	    var integer1 : int = 0;
+	    var float1 : float = 5.5;
+	
+	    @MenuItem("Examples/Look Like Controls - Inspector")
+	    static function Init() {
+	        var window = GetWindow(LookLikeControlsInspector);
+	        window.Show();
+	    }
+	
+	    function OnGUI() {
+	    	EditorGUIUtility.LookLikeInspector ();
+	    		EditorGUILayout.TextField ("Text Field:", "Hello There");
+	    		EditorGUILayout.IntField("Int Field:", integer1);
+	    		EditorGUILayout.FloatField("Float Field:", float1);
+	    	EditorGUILayout.Space();
+	    	EditorGUIUtility.LookLikeControls();
+	    		EditorGUILayout.TextField ("Text Field", "Hello There");
+	    		EditorGUILayout.IntField("Int Field:", integer1);
+	    		EditorGUILayout.FloatField("Float Field:", float1);
+	    }
+	}
+END EX
+
+@param labelWidth Width to use for prefixed labels.
+@param fieldWidth Width of text entries.

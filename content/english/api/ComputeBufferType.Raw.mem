@@ -1,0 +1,2 @@
+Raw [[ComputeBuffer]] type.
+Buffer that allows raw unstructured access; underlying DX11 format is typeless R32.

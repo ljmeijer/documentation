@@ -1,0 +1,4 @@
+Delegate for play mode state changes.
+Add your functions to this delegate to get a callback whenever the playmode state changes (enter/exit play mode, pause).
+
+SA: EditorApplication.CallbackFunction.

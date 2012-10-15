@@ -1,0 +1,14 @@
+CSNONE
+Called when a joint attached to the same game object broke.
+When a force that is higher than the breakForce of the joint, the joint will break off.
+When the joint breaks off, OnJointBreak will be called and the break force applied to the joint will be passed in.
+After OnJointBreak the joint will automatically be removed from the game object and deleted.
+
+SA: Joint.breakForce
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnJointBreak(breakForce : float) { 
+		Debug.Log("Joint Broke!, force: " + breakForce);
+	}
+END EX

@@ -1,0 +1,13 @@
+Returns all components of Type /type/ in the [[GameObject]] or any of its children.
+Only active components are returned.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Disable the spring on all HingeJoints 
+	// in this game object and all its child game objects
+	var hingeJoints : Component[];
+	hingeJoints = GetComponentsInChildren (HingeJoint);
+	for (var joint : HingeJoint in hingeJoints) {
+		joint.useSpring = false;
+	}
+END EX

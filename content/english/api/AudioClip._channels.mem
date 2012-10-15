@@ -1,0 +1,9 @@
+Channels in audio clip (RO)
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints how many channels the attached audio source has
+	// 1 --> Mono
+	// 2+ Stereo
+	Debug.Log(audio.clip.channels);
+END EX

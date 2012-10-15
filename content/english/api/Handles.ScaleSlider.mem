@@ -1,0 +1,45 @@
+Make a directional scale slider
+
+{img ScaleSliderHandle.png}\\
+''Scale slider handle in the Scene View.''
+BEGIN EX
+
+	// Increase/decrease a value just by moving the Scale slider Handle
+	
+	
+	@CustomEditor (FreeScale)
+	class FreeScaleHandleJS extends Editor {
+		function OnSceneGUI () {
+	        target.val = Handles.ScaleSlider(target.val, 
+	        				target.transform.position, 
+	        				Vector3.up, 
+	        				Quaternion.identity, 
+	        				5, 
+	        				HandleUtility.GetHandleSize(target.transform.position));
+	        if (GUI.changed)
+	            EditorUtility.SetDirty (target);
+	    }
+	}
+END EX
+
+And the script attached to this handle:
+BEGIN EX
+
+	// FreeScale.js
+	@script ExecuteInEditMode()
+	
+	var val : float = 1;
+	
+	function Update () {
+		Debug.Log("Value tied to the slider: " + val);
+	}
+END EX
+
+@param scale The value the user can modify.
+@param position The position of the handle.
+@param direction The direction of the handle.
+@param rotation The rotation of whole object.
+@param size The size of the handle. 
+@param snap The new value after the user has modified it. 
+
+__Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.

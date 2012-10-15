@@ -1,0 +1,11 @@
+The tooltip of this element.
+The tooltip associated with this content. Read GUItooltip to get the tooltip of the gui element the user is currently over.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI () {
+		GUI.Button (Rect (0, 0, 100, 20), GUIContent ("A Button", "This is the tooltip"));
+		// If the user hovers the mouse over the button, the global tooltip gets set
+		GUI.Label (Rect (0, 40, 100, 40), GUI.tooltip);
+	}
+END EX

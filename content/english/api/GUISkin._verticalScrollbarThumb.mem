@@ -1,0 +1,14 @@
+Style used by default for the thumb that is dragged in GUI::ref::VerticalScrollbar controls.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Modifies only the vertical scrollbar thumb of the current GUISkin
+
+	var hSbarValue : float;
+	var style : GUIStyle;
+
+	function OnGUI () {
+		GUI.skin.verticalScrollbarThumb = style;
+		hSbarValue = GUILayout.VerticalScrollbar (hSbarValue, 1.0, 0.0, 10.0);
+	}
+END EX

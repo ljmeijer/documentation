@@ -1,0 +1,9 @@
+Sets the value of a bool parameter
+@param name The name of the parameter
+@param value the new value for the parameter<signature>
+SetBool_string_bool
+SetBool_int_bool
+</signature>
+Sets the value of a bool parameter
+@param id The id of the parameter. The id is generated using Animator::StringToHash	
+@param value The new value for the parameter

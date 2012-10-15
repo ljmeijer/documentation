@@ -1,0 +1,7 @@
+The motor will apply a force up to /force/ to achieve /targetVelocity/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Achieve 10 m/s.
+	hingeJoint.motor.targetVelocity = 10;
+END EX

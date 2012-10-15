@@ -1,0 +1,7 @@
+Alpha component of the color.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var color : Color = Color.white;
+	color.a = 0;
+END EX

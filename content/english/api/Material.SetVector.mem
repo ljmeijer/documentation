@@ -1,0 +1,11 @@
+Set a named vector value.
+
+Four component vectors and colors are the same in Unity shaders. /SetVector/ does exactly the same
+as ::ref::SetColor just the input data type is different (@@xyzw@@ in the vector becomes @@rgba@@ in the color).
+
+SA: ::ref::SetColor, ::ref::GetVector.
+CONVERTEXAMPLE
+BEGIN EX
+
+	renderer.material.SetVector("_Color", Vector4(0,0,1,1));
+END EX

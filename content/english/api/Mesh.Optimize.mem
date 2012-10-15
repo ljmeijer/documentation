@@ -1,0 +1,13 @@
+Optimizes the mesh for display.
+This operation might take a while but will make the geometry displayed be faster.
+For example it generates triangle strips out of the triangles.
+You should use it if you generate a mesh from scratch procedurally and you want to trade better runtime performance against higher load time. Internally it tri-strips your model and optimizes the triangles for vertex cache locality.
+For imported models you should never call this as the import pipeline already does it for you.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		var mesh : Mesh = GetComponent(MeshFilter).mesh;
+		mesh.Optimize();
+	}
+END EX

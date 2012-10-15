@@ -1,0 +1,21 @@
+The normals of the mesh.
+
+If the mesh contains no normals an empty array will be returned.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Rotate the normals by speed every frame
+
+	var speed = 100.0;
+
+	function Update () {
+		var mesh : Mesh = GetComponent(MeshFilter).mesh;
+		var normals : Vector3[] = mesh.normals;
+
+		var rotation : Quaternion = Quaternion.AngleAxis(Time.deltaTime * speed, Vector3.up);
+		for (var i = 0; i < normals.Length; i++)
+			normals[i] = rotation * normals[i];
+
+		mesh.normals = normals;
+	}
+END EX

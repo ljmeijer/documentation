@@ -1,0 +1,16 @@
+Is a point on screen inside the element.
+Returns true if the /screenPosition/ is contained in this GUIElement. /screenPosition/ is specified in
+screen coordinates, like the values returned by Input.mousePosition property.
+If no /camera/ is given a camera filling the entire game window will be assumed.
+
+Note that if the position is inside the element, /true/ will be returned even if
+the game object belongs to Ignore Raycast layer (normally mouse events are not sent
+to Ignore Raycast objects).
+
+SA: GUILayer.HitTest
+CONVERTEXAMPLE
+BEGIN EX
+
+	if (guiText.HitTest (Vector3(360, 450, 0)))
+		print ("This gui texture covers pixel 360, 450");
+END EX

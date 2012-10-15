@@ -1,0 +1,7 @@
+Red component of the color.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var color : Color32 = Color.white;
+	color.r = 0;
+END EX

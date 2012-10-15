@@ -1,0 +1,11 @@
+A UnityGUI event.
+
+Events correspond to user input (key presses, mouse actions), or are UnityGUI layout or rendering events.
+
+For each event MonoBehaviour::pref::OnGUI is called in the scripts; so OnGUI is potentially
+called multiple times per frame. Event.current corresponds to "current" event inside OnGUI call.
+
+SA: [[wiki:GUI Scripting Guide|GUI Scripting Guide]], [[EventType]].<signature>
+Event
+</signature>
+The player has completed a special goal in the game.

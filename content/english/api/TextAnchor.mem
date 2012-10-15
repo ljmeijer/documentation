@@ -1,0 +1,4 @@
+Where the anchor of the text is placed.
+This is used by GUIText.anchor property.
+
+SA: [[wiki:class-GUIText|GUI Text component]].

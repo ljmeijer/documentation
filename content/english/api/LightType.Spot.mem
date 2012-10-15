@@ -1,0 +1,8 @@
+The light is a spot light.
+SA: Light.type, [[wiki:class-Light|light component]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Make the light a spot light
+	light.type = LightType.Spot;
+END EX

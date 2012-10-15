@@ -1,0 +1,7 @@
+Draws a fully procedural geometry on the GPU.
+
+DrawProcedural does a draw call on the GPU, without any vertex or index buffers.
+This is only useful on DirectX 11 level hardware where shaders can read
+arbitrary data from [[ComputeBuffer]] buffers.
+
+SA: Graphics.DrawProceduralIndirect, SystemInfo.supportsInstancing.

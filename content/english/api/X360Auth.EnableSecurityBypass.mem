@@ -1,0 +1,3 @@
+Security bypass for Xbox LIVE whitelist.
+NOTE - It is a TRC violation to ship a title with security bypassed.
+For futher reading please see XAuth documentation from the 360 XDK.

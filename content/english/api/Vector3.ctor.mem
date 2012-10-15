@@ -1,0 +1,5 @@
+Creates a new vector with given x, y, z components.<signature>
+ctor_float_float_float
+ctor_float_float
+</signature>
+Creates a new vector with given x, y components and sets /z/ to zero.

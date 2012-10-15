@@ -1,0 +1,28 @@
+A tiny floating point value (RO).
+The smallest value that a float can have different from zero.
+
+With the following rules: 
+
+- anyValue + Epsilon = anyValue\\
+- anyValue - Epsilon = anyValue\\
+- 0 + Epsilon = Epsilon\\
+- 0 - Epsilon = -Epsilon\\
+
+A value Between any number and Epsilon will result in an arbitrary number due to
+truncating errors.
+
+SA: Mathf.Approximately
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Compares two floating point numbers and return true if they are the same number.
+	// See also Mathf.Approximately, which compares floating point numbers so you dont have 
+	// to create a function to compare them.
+
+	function isEqual(a: float, b : float) {
+		if(a >= b-Mathf.Epsilon && a <= b + Mathf.Epsilon)
+			return true;
+		else
+			return false;
+	}
+END EX

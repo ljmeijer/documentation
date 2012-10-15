@@ -1,0 +1,3 @@
+Any Image Effect with this attribute will be rendered after opaque geometry but before transparent geometry.
+This allows for effects which extensively use the depth buffer (SSAO ect) to only affect opaque pixels. This
+Attribute can be used to reduce the amount of visual artifacts in a scene with post processing.

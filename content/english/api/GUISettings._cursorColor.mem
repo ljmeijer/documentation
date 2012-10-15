@@ -1,0 +1,12 @@
+The color of the cursor in text fields.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the cursor color to Cyan.
+	var str : String = "This is a string with \n two lines of text";
+	
+	function OnGUI() { 
+		GUI.skin.settings.cursorColor = Color.cyan;
+		str = GUILayout.TextArea(str);
+	}
+END EX

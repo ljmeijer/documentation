@@ -1,0 +1,3 @@
+Returns Wii MotionPlus zero drift correction level.
+@param	chan	Remote index, in range 0...3.
+@return 		Returns a negative value when disabled. Returns a value of zero or more when enabled. This value indicates the correction level.

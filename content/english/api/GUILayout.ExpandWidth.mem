@@ -1,0 +1,11 @@
+Option passed to a control to allow or disallow horizontal expansion.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI () {
+		GUILayout.BeginVertical();
+		GUILayout.Button("Short Button", GUILayout.ExpandWidth(false));
+		GUILayout.Button("Very very long Button");
+		GUILayout.EndVertical();
+	}
+END EX

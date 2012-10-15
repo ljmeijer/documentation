@@ -1,0 +1,19 @@
+Returns the logarithm of a specified number in a specified base.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// logarithm of 6 in base 2
+	// prints 2.584963
+	print(Mathf.Log(6, 2));
+END EX<signature>
+Log_float_float
+Log_float
+</signature>
+Returns the natural (base e) logarithm of a specified number.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// natural logarithm of 10
+	// prints 4.60517
+	print(Mathf.Log(10));
+END EX

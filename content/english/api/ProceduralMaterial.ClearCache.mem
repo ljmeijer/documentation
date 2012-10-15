@@ -1,0 +1,5 @@
+Clear the Procedural cache.
+This frees up all memory used by the cache and sets all properties to not be cached anymore.
+Use this when you don't expect to make anymore changes to the Procedural properties for now.
+
+SA: ::ref::CacheProceduralProperty.

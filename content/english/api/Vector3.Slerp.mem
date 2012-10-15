@@ -1,0 +1,28 @@
+Spherically interpolates between two vectors.
+
+Interpolates between /from/ and /to/ by amount /t/.
+The returned vector's ::ref::magnitude will be interpolated between magnitudes of /from/ and /to/.
+
+/t/ is clamped between [0...1].
+SA: ::ref::Lerp function.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Animates the position in an arc between sunrise and sunset.
+
+	var sunrise : Transform;
+	var sunset : Transform;
+	
+	function Update () {
+		// The center of the arc
+		var center = (sunrise.position + sunset.position) * 0.5;
+		// move the center a bit downwards to make the arc vertical
+		center -= Vector3(0,1,0);
+
+		// Interpolate over the arc relative to center
+		var riseRelCenter = sunrise.position - center;
+		var setRelCenter = sunset.position - center;
+		transform.position = Vector3.Slerp(riseRelCenter, setRelCenter, Time.time);
+		transform.position += center;
+	}
+END EX

@@ -1,0 +1,26 @@
+Adds the function to the context menu of the component.
+in the inspector of the attached script. When the user selects the context menu,
+the function will be executed.
+
+This is most useful for automatically setting up scene data from the script.
+The function has to be non-static.
+BEGIN EX
+
+	@ContextMenu ("Do Something")
+	function DoSomething () {
+		Debug.Log ("Perform operation");
+	}
+END EX
+
+BEGIN EX
+NOCHECK
+	// C# example:
+	class ContextTesting : MonoBehaviour {
+		/// Add a context menu named "Do Something" in the inspector
+		/// of the attached script.
+		[ContextMenu ("Do Something")]
+		void DoSomething () {
+			Debug.Log ("Perform operation");
+		}
+	}
+END EX

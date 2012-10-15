@@ -1,0 +1,32 @@
+Is editor currently paused?
+Lets you change pause state programmatically, like pressing the Pause button in the main toolbar.
+
+SA: ::ref::isPlaying.
+BEGIN EX
+
+	// Simple editor Script that lets you save a scene while in play mode.
+	// WARNING: All Undo posibilities are lost after saving the scene.
+	
+	import UnityEditor;
+	
+	@MenuItem("Example/Save Scene while on play mode")
+	static function EditorPlaying() {
+		if(EditorApplication.isPlaying) {
+			var sceneName : String = EditorApplication.currentScene;
+			var path : String [] = sceneName.Split(char.Parse("/"));
+			path[path.Length -1] = "Temp_" + path[path.Length-1];
+			var tempScene = String.Join("/",path);
+	
+			EditorApplication.SaveScene(tempScene);
+			
+			EditorApplication.isPaused = false;
+			EditorApplication.isPlaying = false;
+			
+			FileUtil.DeleteFileOrDirectory(EditorApplication.currentScene);
+			FileUtil.MoveFileOrDirectory(tempScene, sceneName);
+			FileUtil.DeleteFileOrDirectory(tempScene);
+			
+			EditorApplication.OpenScene(sceneName);
+		}
+	}
+END EX

@@ -1,0 +1,7 @@
+Remove clip from the animation list.
+This willl remove the clip and any animation states based on it.<signature>
+RemoveClip_AnimationClip
+RemoveClip_string
+</signature>
+Remove clip from the animation list.
+This willl remove the animation state that match the name.

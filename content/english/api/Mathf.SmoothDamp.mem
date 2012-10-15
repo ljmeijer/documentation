@@ -1,0 +1,26 @@
+Gradually changes a value towards a desired goal over time.
+The value is smoothed by some spring-damper like function, which will never overshoot.
+The function can be used to smooth any kind of value, positions, colors, scalars.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Smooth towards the height of the target
+
+	var target : Transform;
+	var smoothTime = 0.3;
+	private var yVelocity = 0.0;
+	
+	function Update () {
+		var newPosition : float = Mathf.SmoothDamp(transform.position.y, target.position.y,
+		                             yVelocity, smoothTime);
+		transform.position = Vector3(transform.position.x, newPosition, transform.position.z);
+	}
+END EX
+
+
+@param current           The current position.
+@param target            The position we are trying to reach.
+@param currentVelocity   The current velocity, this value is modified by the function every time you call it.
+@param smoothTime        Approximately the time it will take to reach the target. A smaller value will reach the target faster.
+@param maxSpeed          Optionally allows you to clamp the maximum speed.
+@param deltaTime         The time since the last call to this function. By default Time.deltaTime.

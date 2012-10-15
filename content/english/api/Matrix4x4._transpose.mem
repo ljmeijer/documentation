@@ -1,0 +1,4 @@
+Returns the transpose of this matrix (RO).
+
+Transposed matrix is the one that has columns exchanged with rows of the
+original (i.e. flipped along main diagonal).

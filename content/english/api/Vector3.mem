@@ -1,0 +1,6 @@
+Representation of 3D vectors and points.
+This structure is used throughout Unity to pass 3D positions and directions around.
+It also contains functions for doing common vector operations.
+
+Besides the functions listed below, other classes can be used to manipulate vectors and points as well.
+For example the [[Quaternion]] and the [[Matrix4x4]] classes are useful for rotating or transforming vectors and points.

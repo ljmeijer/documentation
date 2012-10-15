@@ -1,0 +1,2 @@
+Stores keyframe based animations.
+AnimationClip is used by [[Animation]] to play back animations.

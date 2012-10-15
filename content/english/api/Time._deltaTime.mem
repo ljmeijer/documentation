@@ -1,0 +1,22 @@
+The time in seconds it took to complete the last frame (RO).
+Use this function to make your game frame rate independent.
+
+If you add or subtract to a value every frame chances are you should multiply with Time.deltaTime.
+When you multiply with Time.deltaTime you essentially express:
+I want to move this object 10 meters per second instead of 10 meters per frame.
+
+When called from inside MonoBehaviour's MonoBehaviour::pref::FixedUpdate, returns the fixed framerate
+delta time.
+
+Note that you should not rely on Time.deltaTime from inside MonoBehaviour::pref::OnGUI since OnGUI
+can be called multiple times per frame and deltaTime would hold the same value each call, until
+next frame where it would be updated again.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update () {
+		// Move the object 10 meters per second!
+		var translation : float = Time.deltaTime * 10;
+		transform.Translate (0, 0, translation);
+	}
+END EX

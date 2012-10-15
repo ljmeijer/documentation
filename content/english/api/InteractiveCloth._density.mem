@@ -1,0 +1,10 @@
+The density of the cloth.
+This sets the mass of the cloth per area. Must be greater than zero.
+Changing this property causes the cloth simulation to reset.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// This will simulate heavy cloth like "chain mail"
+
+	transform.GetComponent(InteractiveCloth).density = 50;
+END EX

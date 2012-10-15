@@ -1,0 +1,19 @@
+Create a group of controls that can be disabled.
+
+If disabled is true, the controls inside the group will be disabled.
+If false, the enabled/disabled state will not be changed.
+BEGIN EX
+
+	canJump = EditorGUILayout.Toggle ("Can Jump", canJump);
+	
+	// Disable the jumping height control if canJump is false:
+	EditorGUI.BeginDisabledGroup (canJump == false);
+	jumpHeight = EditorGUILayout.FloatField ("Jump Height", jumpHeight);
+	EditorGUI.EndDisabledGroup ();
+END EX
+
+The group cannot be used to enable controls that would otherwise be disabled to begin with.
+The groups can be nested and the controls within a child group will be disabled
+both if that child group is itself disabled or if a parent group is.
+
+@param disabled	Boolean specifying if the controls inside the group should be disabled.

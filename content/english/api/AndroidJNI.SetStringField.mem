@@ -1,0 +1,4 @@
+This function sets the value of an instance (nonstatic) field of an object.
+This is a convenience function that calls SetObjectField() with the same parameters, but performs the necessary marshalling of the string value.
+
+SA: AndroidJNI.SetObjectField

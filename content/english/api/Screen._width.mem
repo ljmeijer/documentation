@@ -1,0 +1,2 @@
+The current width of the screen window in pixels (RO).
+This is the actual width of the player window (in fullscreen it is also the current resolution)

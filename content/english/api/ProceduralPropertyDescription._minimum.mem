@@ -1,0 +1,2 @@
+If hasRange is true, minimum specifies the minimum allowed value for this Float or Vector property.
+For Vector types this applies to all the vector components.

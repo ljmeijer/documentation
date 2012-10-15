@@ -1,0 +1,65 @@
+Sets current texture coordinate (v.x,v.y,v.z) to the actual texture /unit/.
+
+In OpenGL this matches @@glMultiTexCoord@@ for the given texture unit
+if multi-texturing is available. On other graphics APIs the same
+functionality is emulated.
+
+The Z component is used only when:\\
+__1.__ You access a cubemap (which you access with a vector coordinate, hence x,y & z).\\
+__2.__ You do "projective texturing", where the X & Y coordinates are divided by Z to get the final coordinate. This would be mostly useful for water reflections and similar things.
+
+This function can only be called between GL.Begin and GL.End functions.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Changes between two textures assigned to a material
+	// When pressed space
+	var mat : Material;
+	private var flagTex : boolean = true;
+	function Update() {
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			if(flagTex) {
+				flagTex = false;
+			} else {
+				flagTex = true;
+			}
+		}
+	}
+
+	function OnPostRender() {
+		if (!mat) {
+			Debug.LogError("Please Assign a material on the inspector");
+			return;
+		}
+		GL.PushMatrix();
+		mat.SetPass(1);
+		GL.LoadOrtho();
+		GL.Begin(GL.QUADS);
+		if (flagTex) {
+			GL.MultiTexCoord(0,Vector3(0,0,0)); // main texture
+		} else {
+			GL.MultiTexCoord(1,Vector3(0,0,0)); // second texture
+		}
+		GL.Vertex3(0.25,0.25,0);
+		if (flagTex) {
+			GL.MultiTexCoord(0,Vector3(0,1,0));
+		} else {
+			GL.MultiTexCoord(1,Vector3(0,1,0));
+		}
+		GL.Vertex3(0.25,0.75,0);
+		if (flagTex) {
+			GL.MultiTexCoord(0,Vector3(1,1,0));
+		} else {
+			GL.MultiTexCoord(1,Vector3(1,1,0));
+		}
+		GL.Vertex3(0.75,0.75,0);
+		if (flagTex) {
+			GL.MultiTexCoord(0,Vector3(1,0,0));
+		} else {
+			GL.MultiTexCoord(1,Vector3(1,0,0));
+		}
+		GL.Vertex3(0.75,0.25,0);
+		GL.End();
+		GL.PopMatrix();
+	}
+END EX

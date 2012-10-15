@@ -1,0 +1,2 @@
+Returns the layer index for a named layer.
+If the named layer does not exist returns -1.

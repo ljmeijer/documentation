@@ -1,0 +1,10 @@
+Returns if the camera is currently playing
+BEGIN EX
+
+	// Tries to start the camera and outputs to the console if is was sucessful or not.
+	function Start () {
+		var webcamTexture : WebCamTexture = WebCamTexture();
+		webcamTexture.Play();
+		Debug.Log(webcamTexture.isPlaying);
+	}
+END EX

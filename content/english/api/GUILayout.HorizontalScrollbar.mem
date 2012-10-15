@@ -1,0 +1,44 @@
+<signature>
+HorizontalScrollbar_float_float_float_float_GUILayoutOptionArray
+HorizontalScrollbar_float_float_float_float_GUIStyle_GUILayoutOptionArray
+</signature>
+Make a horiztonal scrollbar.
+Scrollbars are what you use to scroll through a document. Most likely, you want to use scroll views instead.
+
+{img GUILayoutHorizontalScrollbar.png}\\
+''Horizontal Scrollbar in the Game View.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	var hSbarValue : float;
+
+	function OnGUI () {
+		hSbarValue = GUILayout.HorizontalScrollbar (hSbarValue, 1.0, 0.0, 10.0);
+                GUILayout.Label("This is a text that makes space");
+	}
+END EX
+
+__Finding extra elements:__
+
+The styles of the buttons at then end of the scrollbar are searched for in the current skin by adding "leftbutton" and "rightbutton" to the style name. 
+The name of the scrollbar thumb (the thing you drag) is found by appending "thumb" to the style name.
+BEGIN EX
+
+	var scrollPos : float = 0.5;
+	// This will use the following style names to determine the size / placement of the buttons
+	// MyScrollbarleftbutton    - Name of style used for the left button.
+	// MyScrollbarrightbutton - Name of style used for the right button.
+	// MyScrollbarthumb         - Name of style used for the draggable thumb.
+	function OnGUI() {
+		scrollPos = GUILayout.HorizontalScrollbar (scrollPos, 1, 0, 100, "MyScrollbar");
+	}
+END EX
+@param value 			The position between min and max
+@param size			How much can we see?
+@param leftValue		The value at the left end of the scrollbar
+@param rightValue		The value at the right end of the scrollbar
+@param style			The style to use for the scrollbar background. If left out, the /horizontalScrollbar/ style from the current [[GUISkin]] is used.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns the modified value. This can be changed by the user by dragging the scrollbar, or clicking the arrows at the end.

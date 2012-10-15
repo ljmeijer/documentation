@@ -1,0 +1,10 @@
+How far attached rigid bodies need to be stretched, before they will tear off.
+Must be larger then zero. Larger values make the cloth stretch further without tearing.
+Only has an affect for rigid bodies which have been attached with the tearable parameter set.
+
+SA: ::ref::AttachToCollider function.
+CONVERTEXAMPLE
+BEGIN EX
+
+	transform.GetComponent(InteractiveCloth).attachmentTearFactor = 10;
+END EX

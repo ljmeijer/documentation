@@ -1,0 +1,7 @@
+The [[Transform]] attached to this GameObject. (null if there is none attached)
+CONVERTEXAMPLE
+BEGIN EX
+
+	var other : GameObject; 
+	other.transform.Translate(1,1,1);
+END EX

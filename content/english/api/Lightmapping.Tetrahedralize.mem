@@ -1,0 +1,5 @@
+Calculates a Delaunay Tetrahedralization of the 'positions' point set - the same way the lightmapper
+tetrahedralizes the space for Light Probes. outIndices index into the array of outPositions and every
+four indices correspond to a tetrahedron. During the tetrahedralization any position duplicates
+withing some tolerance are removed (the first element is kept, subsequent are removed), so outPositions
+might have fewer elements than positions.

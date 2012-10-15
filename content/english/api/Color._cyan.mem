@@ -1,0 +1,7 @@
+Cyan. RGBA is (0, 1, 1, 1).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Assign a cyan color to this transform's material
+	transform.renderer.material.color = Color.cyan;
+END EX

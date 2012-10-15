@@ -1,0 +1,17 @@
+Set the minimum update rate for master server host information update.
+Normally host updates are only sent if something in the host information has changed (like connected players).
+The update rate defines the minimum amount of time which may elapse between host updates. The default
+value is 60 seconds minimum update rate (where a check is made for changes). So if one host update is sent and 
+then some field changes 10 seconds later then the update will possibly sent 50 seconds later (at the next change check).
+If this is set to 0 then no updates are sent, only initial registration information.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function StartServer() {
+		Network.InitializeServer(32, 25002);
+		// No host information updates after initial registration
+		MasterServer.updateRate = 0;
+		MasterServer.RegisterHost("MyUniqueGameType", 
+			"JohnDoes game", "l33t game for all");
+	}
+END EX

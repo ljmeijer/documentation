@@ -1,0 +1,14 @@
+Moves a value /current/ towards /target/.
+This is essentially the same as Mathf.Lerp but instead the function will ensure that the speed never exceeds /maxDelta/.
+Negative values of /maxDelta/ pushes the value away from /target/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var target = 20.0;
+	var speed = 5.0;
+	
+	function Update() {
+		transform.position = Vector3(Mathf.MoveTowards
+			(transform.position.x, target, speed * Time.deltaTime), 0, 0);
+	}
+END EX

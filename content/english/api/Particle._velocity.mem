@@ -1,0 +1,7 @@
+The velocity of the particle.
+
+If there is a [[wiki:class-ParticleAnimator|particle animator]] it will move the particle by the /velocity/ every frame.
+The velocity is also used by the [[wiki:class-ParticleRenderer|particle renderer]] if ''Stretch Particles'' is
+set to ParticleRenderMode.Stretch.
+
+SA: [[wiki:comp-ParticlesGroup|Particles documentation]].

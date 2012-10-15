@@ -1,0 +1,6 @@
+Shorthand for writing @@Vector3(0, 0, 0)@@
+CONVERTEXAMPLE
+BEGIN EX
+
+	transform.position = Vector3.zero;
+END EX

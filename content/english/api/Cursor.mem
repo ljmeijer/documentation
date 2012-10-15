@@ -1,0 +1,8 @@
+Cursor API for setting the cursor that is used for rendering.
+Supports Hardware Cursors on OSX and Windows, falls back to software cursors on unsupported platforms.
+
+Textures used as cursors should be marked as such in their import settings. 
+
+OSX Webplayer note: Due to sandboxing, Hardware Cursors can only be updated intermittently (when the cursor is moving)
+the best way to ensure correct behavior if to use OnMouseEnter and OnMouseExit to set the hardware cursors. This is not
+an issue for software cursors.

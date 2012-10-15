@@ -1,0 +1,12 @@
+The index of the lightmap applied to this renderer.
+
+The index refers to lightmaps array in [[LightmapSettings]] class. A value of 255 means
+no lightmap has been assigned, which is the default. A value of 254 is internally used for objects,
+that have their scale in lightmap set to 0, so behave as lightmapped, but don't have a lightmap assigned.
+The index can't be larger than 253.
+
+A scene can have several lightmaps stored in it, and Renderer can use one of those lightmaps.
+This makes it possible to use the same material on multiple objects, while
+each object can refer to a different lightmap or different portion of the same lightmap.
+
+SA: [[LightmapSettings]] class, ::ref::lightmapTilingOffset property, [[wiki:SL-Properties|ShaderLab properties]].

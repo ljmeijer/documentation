@@ -1,0 +1,2 @@
+Holds all data needed by the light probes.
+It can be swapped to a different pre-baked one at runtime.

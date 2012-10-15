@@ -1,0 +1,18 @@
+Presents a local notification immediately.
+BEGIN EX
+
+	function Start()
+	{
+		var notif = new LocalNotification();
+		notif.alertBody = "Hello!";
+		NotificationServices.PresentLocalNotificationNow(notif);
+	}
+
+	function Update()
+	{
+		if (NotificationServices.localNotificationCount > 0) {
+			Debug.Log(NotificationServices.localNotifications[0].alertBody);
+			NotificationServices.ClearLocalNotifications();
+		}
+	}
+END EX

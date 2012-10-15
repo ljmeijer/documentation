@@ -1,0 +1,4 @@
+Find [[ComputeShader]] kernel index.
+
+A single compute shader can contain many "kernels" (functions that do the computation);
+FindKernel returns kernel index given the name. If name is not found, -1 is returned.

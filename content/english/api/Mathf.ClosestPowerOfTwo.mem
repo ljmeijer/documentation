@@ -1,0 +1,10 @@
+Returns the closest power of two value.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// prints 8
+	Debug.Log(Mathf.ClosestPowerOfTwo(7));
+	
+	// prints 16
+	Debug.Log(Mathf.ClosestPowerOfTwo(19));
+END EX

@@ -1,0 +1,1 @@
+If enabled, Beast atlasing won't be run and lightmap indices, tiling and offset won't be modified on Mesh Renderers.

@@ -1,0 +1,15 @@
+Invokes the method /methodName/ in time seconds.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Launches a projectile in 2 seconds
+
+	var projectile : Rigidbody;
+
+	Invoke("LaunchProjectile", 2);
+
+	function LaunchProjectile () {
+		var instance : Rigidbody = Instantiate(projectile);
+		instance.velocity = Random.insideUnitSphere * 5;
+	}
+END EX

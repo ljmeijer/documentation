@@ -1,0 +1,2 @@
+Checks if the active operation has completed.
+@return @@true@@ if the active operation has completed, @@false@@ otherwise.

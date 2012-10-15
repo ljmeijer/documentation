@@ -1,0 +1,2 @@
+Gets a global player identificator of a friend.
+Returns an invalid /X360PlayerId/, if user is not online or /friendIndex/ is invalid.

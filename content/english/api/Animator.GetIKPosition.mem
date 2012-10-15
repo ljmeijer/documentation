@@ -1,0 +1,3 @@
+Gets the position of an IK goal
+The position is in world space
+@param goal The AvatarIKGoal that is queried

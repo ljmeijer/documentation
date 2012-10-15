@@ -1,0 +1,33 @@
+<signature>
+BeginVertical_GUILayoutOptionArray
+BeginVertical_GUIStyle_GUILayoutOptionArray
+BeginVertical_string_GUIStyle_GUILayoutOptionArray
+BeginVertical_Texture_GUIStyle_GUILayoutOptionArray
+BeginVertical_GUIContent_GUIStyle_GUILayoutOptionArray
+</signature>
+Begin a vertical control group.
+All controls rendered inside this element will be placed vertically below each other. The group must be closed with a call to EndVertical.
+
+{img GUILayoutVertical.png}\\
+''Vertical Layout.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI () {	
+		// Starts a vertical group
+		GUILayout.BeginVertical ("box");
+
+		GUILayout.Button ("I'm the top button");
+		GUILayout.Button ("I'm the bottom button");
+		
+		GUILayout.EndVertical();
+	}
+END EX
+
+@param text			Text to display on group
+@param image		[[Texture]] to display on group
+@param content		Text, image, and tooltip for this group
+@param style			The style to use for background image and padding values. If left out, the background is transparent.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight.

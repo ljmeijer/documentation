@@ -1,0 +1,39 @@
+Draw the outline of a flat disc in 3D space.
+
+{img DrawWireDisc.png}\\
+''Wire Disc in the Scene View.''
+BEGIN EX
+
+	// Create a wire disc with a ScaleValueHandle attached to the disc
+	// that lets you drag the "areaOfEffect" var in the WireDiscExample.js
+	
+	@CustomEditor (WireDiscExample)
+	class DrawWireDisc extends Editor {
+	    function OnSceneGUI () {
+	    	Handles.color = Color.red;
+	        Handles.DrawWireDisc(target.transform.position, Vector3.up, target.areaOfEffect);
+	        
+	        target.areaOfEffect =
+			Handles.ScaleValueHandle(target.areaOfEffect,
+						target.transform.position + Vector3(target.areaOfEffect,0,0),
+						Quaternion.identity,
+						2,
+						Handles.CylinderCap,
+						2);
+	    }
+	}
+END EX
+
+And the script attached to this Handle:
+BEGIN EX
+
+	//WireDiscExample.js
+	
+	var areaOfEffect : float = 5;
+END EX
+
+@param center the center of the dics
+@param normal the normal of the disc	
+@param radius the radius of the dics
+
+__Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.

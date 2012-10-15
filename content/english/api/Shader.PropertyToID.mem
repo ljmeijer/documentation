@@ -1,0 +1,8 @@
+Gets unique identifier for a shader property name.
+
+Shader property identifiers are used by [[MaterialPropertyBlock]] functions.
+
+Each name of shader property (for example, @@_MainTex@@ or @@_Color@@) is assigned an unique
+integer number in Unity, that stays the same for the whole game.
+
+SA: [[MaterialPropertyBlock]].

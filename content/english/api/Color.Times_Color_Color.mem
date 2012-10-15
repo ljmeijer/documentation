@@ -1,0 +1,7 @@
+Multiplies two colors together. Each component is multiplied separately.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// white * gray = gray
+	var grayColor: Color = Color.gray * Color.white;
+END EX

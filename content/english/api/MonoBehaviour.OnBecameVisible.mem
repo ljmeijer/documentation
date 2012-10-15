@@ -1,0 +1,15 @@
+CSNONE
+OnBecameVisible is called when the renderer became visible by any camera.
+This message is sent to all scripts attached to the renderer.
+OnBecameVisible and OnBecameInvisible is useful to avoid computations that are only necessary when the object is visible.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Enables the behaviour when it is visible
+
+	function OnBecameVisible () {
+		enabled = true;
+	}
+END EX
+OnBecameVisible can be a co-routine, simply use the yield statement in the function.
+When running in the editor, scene view cameras will also cause this function to be called.

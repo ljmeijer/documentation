@@ -1,0 +1,15 @@
+Check if this machine has a public IP address.
+It checks all the network interfaces for IPv4 public addresses and returns true if one address is found.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI() {
+		if (GUILayout.Button ("Start Server")) {
+			// Use NAT punchthrough if no public IP present
+			var useNat = !Network.HavePublicAddress();
+			Network.InitializeServer(32, 25002, useNat);
+			MasterServer.RegisterHost("MyUniqueGameType", 
+				"JohnDoes game", "l33t game for all");
+		}
+	}
+END EX

@@ -1,0 +1,11 @@
+Returns the Inverse of /rotation/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Sets this transform to have the opposite rotation of the target
+
+	var target : Transform;
+	function Update () {
+		transform.rotation = Quaternion.Inverse(target.rotation);
+	}
+END EX

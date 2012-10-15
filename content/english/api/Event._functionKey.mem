@@ -1,0 +1,15 @@
+Is the current keypress a function key? (RO)
+Returns true if the current keypress is an arrow key, page up, page down, backspace, etc. key.
+If this key needs special processing in order to work in text editing, /functionKey/ is on.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Detects if a function Key was pressed if a
+	// function key was pressed, prints its key code.
+	function OnGUI() {
+		var e : Event = Event.current;
+		if (e.functionKey){
+			Debug.Log("Pressed: " + e.keyCode);
+		}
+	}
+END EX

@@ -1,0 +1,7 @@
+How far has the upload progressed (RO).
+This is a value between zero and one; 0 means nothing is sent yet, 1 means upload
+complete.
+
+/uploadProgress/ is currently not fully implemented in the Web Player. If used in a Web Player it will report 0.5 during the upload and 1.0 when the upload is complete.
+
+Since all sending of data to the server is done before receiving data,  /uploadProgress/ will always be 1.0 when /progress/ is larger than 0.

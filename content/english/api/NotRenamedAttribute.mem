@@ -1,0 +1,24 @@
+Prevent name mangling of constructors, methods, fields and properties.
+
+When applied to a type prevents all its members of being renamed.
+
+It can be used to provide stable member names for access from handwritten ActionScript code or
+to provide .net stubs for ActionScript types when combined with [[NotConvertedAttribute]]:
+BEGIN EX
+
+	namespace flash.utils
+	{
+		using UnityEngine.Flash;
+		
+		[NotConverted]
+		[NotRenamed]
+		public class Dictionary
+		{
+			public object this[object key]
+			{
+				get { throw new System.NotSupportedException(); }
+				set { throw new System.NotSupportedException(); }
+			}
+		}
+	}
+END EX

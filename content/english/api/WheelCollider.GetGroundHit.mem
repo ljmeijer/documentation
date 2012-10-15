@@ -1,0 +1,9 @@
+Gets ground collision data for the wheel.
+
+If the wheel collides with something, returns /true/ and fills the /hit/ structure. If the wheel
+is not colliding, returns /false/ and leaves /hit/ structure unchanged.
+
+The reported hit is always the closest one. Because the tire friction model does not automatically
+respond to other [[PhysicMaterial]]s, any simulation of different ground materials must be done
+manually by adjusting ::ref::forwardFriction and ::ref::sidewaysFriction based on collider's
+material returned here.

@@ -1,0 +1,6 @@
+Returns the arc-tangent of /f/ - the angle in radians whose tangent is /f/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	print (Mathf.Atan(0.5));
+END EX

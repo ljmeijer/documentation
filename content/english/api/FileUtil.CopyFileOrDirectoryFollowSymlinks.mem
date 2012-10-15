@@ -1,0 +1,16 @@
+Copies the file or directory.
+Copies from ''from'' path to the destination, ''to'', path.
+
+In presence of symbolic links (OS X only), the actual files to
+which symbolic links point to are copied, not the symbolic links themselves.
+BEGIN EX
+
+	@MenuItem ("Example/Copy SymLink Something")
+	static function CopyAFile () {
+		// copies the file "YourFileOrFolder" from "sLPath/" to "copySL/path/"
+		FileUtil.CopyFileOrDirectoryFollowSymlinks (
+			"sLPath/YourFileOrFolder",
+			"copySL/path/YourFileOrFolder");
+	}
+END EX
+SA: FileUtil.CopyFileOrDirectory.

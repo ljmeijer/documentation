@@ -1,0 +1,2 @@
+Gets the gradient of the terrain at point <x,y>.
+The /x/ and /y/ values are normalized coordinates in the range 0..1.

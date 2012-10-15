@@ -1,0 +1,14 @@
+The other [[Collider]] the wheel is hitting.
+BEGIN EX
+
+	// When attached to the WheelCollider, modifies tire friction based on
+	// static friction of the ground material.
+	function FixedUpdate() {
+		var hit : WheelHit;
+		var wheel : WheelCollider = GetComponent(WheelCollider);
+		if( wheel.GetGroundHit( hit ) ) {
+			wheel.forwardFriction.stiffness = hit.collider.material.staticFriction;
+			wheel.sidewaysFriction.stiffness = hit.collider.material.staticFriction;
+		}
+	}
+END EX

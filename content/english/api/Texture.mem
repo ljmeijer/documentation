@@ -1,0 +1,1 @@
+Base class for texture handling. Contains functionality that is common to both [[Texture2D]] and [[RenderTexture]] classes.

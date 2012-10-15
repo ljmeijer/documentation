@@ -1,0 +1,35 @@
+<signature>
+LoadLevelAdditiveAsync_int
+LoadLevelAdditiveAsync_string
+</signature>
+Loads the level additively and asynchronously in the background.
+
+Unlike ::ref::LoadLevelAsync, LoadLevelAdditiveAsync does not destroy
+objects in the current level. Objects from the new level are added to the
+current scene. This is useful for creating continuous virtual worlds, where more
+content is loaded in as you walk through the environment.
+
+Unity will completely load all assets and all objects in the scene in a background loading thread.
+This allows you to create a completely streaming world where you constantly load and
+unload different parts of the world based on the player position, without any hiccups in game play.
+
+AsyncOperation::pref::isDone variable from the resulting [[AsyncOperation]] can be used to query
+if the level load has completed. The result of a LoadLevelAdditiveAsync can also be used to __yield__ in a coroutine.
+
+When building a player Unity automatically optimizes assets in such a way that LoadLevelAdditiveAsync will
+load them from disk linearly to avoid seek times.  Note that background loading performance in the
+Unity Editor is much lower than in the web player or standalone build. In the Editor you might also
+get more loading hiccups than in the player.
+
+This function requires __Unity Pro__.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		// Load the level named "MyAddLevel".
+		var async : AsyncOperation = Application.LoadLevelAdditiveAsync ("MyAddLevel");
+		yield async;
+		Debug.Log ("Loading complete");
+	}
+END EX
+SA: [[AsyncOperation]], Application.backgroundLoadingPriority, Application.LoadLevelAdditive, Application.LoadLevel, Application.LoadLevelAsync.

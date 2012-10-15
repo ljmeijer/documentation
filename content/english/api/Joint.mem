@@ -1,0 +1,2 @@
+Joint is the base class for all joints.
+SA: [[CharacterJoint]], [[HingeJoint]], [[SpringJoint]], [[FixedJoint]], [[ConfigurableJoint]].

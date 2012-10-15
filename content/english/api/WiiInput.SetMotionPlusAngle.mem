@@ -1,0 +1,3 @@
+Set Wii Motion Plus Angle
+@param	chan	Remote index, in range 0...3.
+@param	angle	Defines a structure with three angles (angle about the pitch axis, angle about the yaw axis, angle about the roll axis).

@@ -1,0 +1,8 @@
+Operating system name with version (RO).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints "Windows XP Service Pack 3 (5.1.2600)" on Windows XP SP3
+
+	print (SystemInfo.operatingSystem);
+END EX

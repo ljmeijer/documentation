@@ -1,0 +1,2 @@
+Gets the local player id of a signed in user.
+Returns an invalid /X360PlayerId/ if the specified user is not signed.

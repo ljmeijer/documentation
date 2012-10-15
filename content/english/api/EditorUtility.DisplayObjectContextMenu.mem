@@ -1,0 +1,2 @@
+Displays the objects context menu
+Menu is shown at position /pos/, generated from a submenu specified by /menuItemPath/ using a MenuCommand as menu context.

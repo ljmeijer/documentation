@@ -1,0 +1,17 @@
+Returns whether the given mouse button is held down.
+''button'' values are 0 for left button, 1 for right button, 2 for the middle button.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Detects clicks from the mouse and prints a message
+	// depending on the click detected.
+
+	function Update() {
+		if(Input.GetMouseButton(0))
+			Debug.Log("Pressed left click.");
+		if(Input.GetMouseButton(1))
+			Debug.Log("Pressed right click.");
+		if(Input.GetMouseButton(2))
+			Debug.Log("Pressed middle click.");
+	}
+END EX

@@ -1,0 +1,16 @@
+A special collider for vehicle wheels.
+
+Wheel collider is used to model vehicle wheels. It simulates a spring and damper suspension setup, 
+and uses a slip based tire friction model to calculate wheel contact forces.
+
+Wheel's collision detection is performed by casting a ray from ::ref::center downwards the local
+y-axis. The wheel has a ::ref::radius and can extend downwards by ::ref::suspensionDistance
+amount.
+
+The wheel is controlled with ::ref::motorTorque, ::ref::brakeTorque and ::ref::steerAngle properties.
+
+Wheel collider computes friction separately from the rest of physics engine, using a slip based
+friction model. This allows for more realistic behaviour, but makes
+wheel colliders ignore standard [[PhysicMaterial]] settings. Simulation of different road materials
+is done by changing the ::ref::forwardFriction and ::ref::sidewaysFriction
+based on what material the wheel is hitting. SA: ::ref::GetGroundHit and [[WheelFrictionCurve]].

@@ -1,0 +1,31 @@
+CSNONE
+OnPreCull is called before a camera culls the scene.
+
+Culling determines which objects are visible to the camera. OnPreCull is called just before
+this process. This message is sent to all scripts attached to the camera.
+
+If you want to change camera's viewing parameters (e.g. ::ref::fieldOfView or just transform),
+this is the place to do it. Visibility of scene objects will be determined based on camera's
+parameters after /OnPreCull/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Attach this to a camera.
+	// Inverts the vie of the camera so everything rendered by it, is flipped
+	// This will only work on  Unity - PRO
+	
+	function OnPreCull () {
+		camera.ResetWorldToCameraMatrix ();
+		camera.ResetProjectionMatrix ();
+		camera.projectionMatrix = camera.projectionMatrix * Matrix4x4.Scale(Vector3 (1, -1, 1));
+	}
+	// Set it to true so we can watch the flipped Objects
+	function OnPreRender () {
+		GL.SetRevertBackfacing (true);
+	}
+	
+	// Set it to false again because we dont want to affect all other cammeras.
+	function OnPostRender () {
+		GL.SetRevertBackfacing (false);
+	}
+END EX

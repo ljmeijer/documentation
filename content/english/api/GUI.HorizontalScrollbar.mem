@@ -1,0 +1,36 @@
+<signature>
+HorizontalScrollbar_Rect_float_float_float_float
+HorizontalScrollbar_Rect_float_float_float_float_GUIStyle
+</signature>
+Make a horizontal scrollbar. Scrollbars are what you use to scroll through a document. Most likely, you want to use scrollViews instead.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var hSbarValue : float;
+	
+	function OnGUI () {
+		hSbarValue = GUI.HorizontalScrollbar (Rect (25, 25, 100, 30), hSbarValue, 1.0, 0.0, 10.0);
+	}
+END EX
+
+<b>Finding extra elements:</b><br>
+The styles of the buttons at the end of the scrollbar are searched for in the current skin by adding "leftbutton" and "rightbutton" to the style name. 
+The name of the scrollbar thumb (the thing you drag) is found by appending "thumb" to the style name.
+BEGIN EX
+
+	var scrollPos : float = 0.5;
+	// This will use the following style names to determine the size / placement of the buttons
+	// MyScrollbarleftbutton    - Name of style used for the left button.
+	// MyScrollbarrightbutton - Name of style used for the right button.
+	// MyScrollbarthumb         - Name of style used for the draggable thumb.
+	function OnGUI() {
+		scrollPos = GUI.HorizontalScrollbar(Rect(0,0,100,20), scrollPos, 1, 0, 100, "Scroll");
+	}
+END EX
+@param position			Rectangle on the screen to use for the scrollbar.
+@param value 				The position between min and max
+@param size				How much can we see?
+@param leftValue				The value at the left end of the scrollbar
+@param rightValue			The value at the right end of the scrollbar
+@param style				The style to use for the scrollbar background. If left out, the /horizontalScrollbar/ style from the current [[GUISkin]] is used.
+@returns the modified value. This can be changed by the user by dragging the scrollbar, or clicking the arrows at the end.

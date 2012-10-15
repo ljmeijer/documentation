@@ -1,0 +1,5 @@
+The spring joint ties together 2 rigid bodies, spring forces will be automatically applied to keep the object at the given distance.
+
+The Spring attempts to maintain the distance it has when it starts out.
+So if your joint's start at a rest position where the two rigidbodies are far apart, then the joint will attempt to maintain that distance.
+The minDistance and maxDistance properties add on top of this implicit distance.

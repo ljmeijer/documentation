@@ -1,0 +1,5 @@
+Reads the buffer to "mountName:\unity.buf".
+Returns false if a storage operation is already active by checking /IsStorageOpActive/ or if file could not be written.
+/IsStorageOpActive/ will return true during the operation.
+/onComplete/ is never called if this function returns false.
+WARNING: calling WriteBuffer will NOT create a copy of the passed-in /buffer/, instead the same instance will be used. Make sure it is not deleted or modified before /onComplete/ is called.

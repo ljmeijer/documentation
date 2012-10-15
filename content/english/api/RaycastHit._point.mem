@@ -1,0 +1,2 @@
+The impact point in world space where the ray hit the collider.
+SA: Physics.Raycast, Physics.Linecast.

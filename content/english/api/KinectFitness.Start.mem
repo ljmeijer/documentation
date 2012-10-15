@@ -1,0 +1,3 @@
+Starts fitness tracking for a tracked skeleton.
+@param trackingID This value must be the ID of a valid currently tracked skeleton.
+@param userIndex The user index (0-3) of the player to start tracking. The player must be logged in.

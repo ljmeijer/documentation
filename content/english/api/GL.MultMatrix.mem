@@ -1,0 +1,7 @@
+Multiplies the current modelview matrix with the one specified.
+
+Equivalent to @@glMultMatrix(mat)@@ in OpenGL; in other graphics APIs the
+corresponding functionality is emulated.
+
+Changing modelview matrix overrides current camera's view parameters, so most
+often you want to save and restore matrix using GL.PushMatrix and GL.PopMatrix.

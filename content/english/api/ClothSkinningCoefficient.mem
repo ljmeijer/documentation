@@ -1,0 +1,4 @@
+The ClothSkinningCoefficient struct is used to set up how a [[SkinnedCloth]] component is allowed to move with respect to the [[SkinnedMeshRenderer]] it is attached to.
+This is set using the [[SkinnedCloth.coefficients]] property on the SkinnedCloth component, which is a
+per-vertex array of ClothSkinningCoefficient structs. Typically, you will not set these values from code,
+but instead, set them up in the editor which shows up when you look at the SkinnedCloth component in the inspector.

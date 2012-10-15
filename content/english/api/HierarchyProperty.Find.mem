@@ -1,0 +1,2 @@
+Find property but only search through expanded objects
+If expanded is null it will search through both expanded and unexpanded elements.

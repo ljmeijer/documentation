@@ -1,0 +1,37 @@
+<signature>
+LabelField_string_GUILayoutOptionArray
+LabelField_string_GUIStyle_GUILayoutOptionArray
+LabelField_GUIContent_GUILayoutOptionArray
+LabelField_GUIContent_GUIStyle_GUILayoutOptionArray
+LabelField_string_string_GUILayoutOptionArray
+LabelField_string_string_GUIStyle_GUILayoutOptionArray
+LabelField_GUIContent_GUIContent_GUILayoutOptionArray
+LabelField_GUIContent_GUIContent_GUIStyle_GUILayoutOptionArray
+</signature>
+Make a label field. (Useful for showing read-only info.)
+
+{img EditorGUILayoutLabel.png}\\
+''Shows a label in the editor (Label) with the seconds since the editor started (Label2).''
+BEGIN EX
+
+	// Shows a label in the editor with the seconds since the editor started
+	
+	class EditorGUILayoutLabel extends EditorWindow {	
+		@MenuItem("Examples/Editor GUILayout Label Usage")
+		static function Init() {
+			var window = GetWindow(EditorGUILayoutLabel);
+			window.Show();
+		}
+		function OnGUI() {
+			EditorGUILayout.LabelField("Time since start: ", 
+				EditorApplication.timeSinceStartup.ToString());
+			this.Repaint();
+		}
+	}
+END EX
+
+@param label Label in front of the label field.
+@param label2 The label to show to the right.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight

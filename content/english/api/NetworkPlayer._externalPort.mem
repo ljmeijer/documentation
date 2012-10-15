@@ -1,0 +1,2 @@
+Returns the external port of the network interface.
+This will only be populated after some external connection has been made.

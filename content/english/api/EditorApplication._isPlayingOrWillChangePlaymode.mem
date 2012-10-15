@@ -1,0 +1,5 @@
+Is editor either currently in play mode, or about to switch to it? (RO)
+This will return true when editor will switch to play mode after finishing some tasks (e.g. after scripts
+will be recompiled).
+
+SA: ::ref::isPlaying, ::ref::isCompiling.

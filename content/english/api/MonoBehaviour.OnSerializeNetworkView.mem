@@ -1,0 +1,23 @@
+CSNONE
+Used to customize synchronization of variables in a script watched by a network view.
+It is automatically determined if the variables being serialized should be sent or received, 
+see example below for a better description. This depends on who owns the object, i.e. the owner sends
+and all others receive.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// This objects health information
+
+	var currentHealth : int = 0;
+	
+	function OnSerializeNetworkView(stream : BitStream, info : NetworkMessageInfo) {
+		if (stream.isWriting) {
+			var healthC : int = currentHealth;
+			stream.Serialize(healthC);
+		} else {
+			var healthZ : int = 0;
+			stream.Serialize(healthZ);
+			currentHealth = healthZ;
+		}	
+	}
+END EX

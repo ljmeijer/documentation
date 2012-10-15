@@ -1,0 +1,2 @@
+Sets the minimum confidence Level
+@param level Range 0..1, the default is 0.1

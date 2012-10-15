@@ -1,0 +1,1 @@
+Top-bottom orientation of Wii Remote as obtained from accelerometer. When the remote is facing forward this unit length vector results in (1,0) value. Coordinate x is always positive and never negative. When y is positive, the Remote is facing upward, when negative, it is facing downward.

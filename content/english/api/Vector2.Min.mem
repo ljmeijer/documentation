@@ -1,0 +1,9 @@
+Returns a vector that is made from the smallest components of two vectors.
+SA: ::ref::Max function.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var a : Vector2 = Vector2 (1, 3);
+	var b : Vector2 = Vector2 (4, 2);
+	print (Vector2.Min(a,b)); // prints (1.0,2.0)
+END EX

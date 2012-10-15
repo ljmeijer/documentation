@@ -1,0 +1,21 @@
+A variant of Debug.Log that logs an error message to the console.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var memberVariable : Transform;
+	if(memberVariable == null)
+		Debug.LogError("memberVariable must be set to point to a Transform.");
+END EX<signature>
+LogError_object
+LogError_object_object
+</signature>
+A variant of Debug.Log that logs an error message to the console.
+When you select the message in the console a connection to the context object will be drawn.
+This is very useful if you want know on which object an error occurs.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var memberVariable : Transform;
+	if(memberVariable == null)
+		Debug.LogError("memberVariable must be set to point to a Transform.", transform);
+END EX

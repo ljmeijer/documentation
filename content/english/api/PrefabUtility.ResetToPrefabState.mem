@@ -1,0 +1,19 @@
+Resets the properties of the component or game object to the parent prefab state
+All overrides will be cleared. However the transform.position and rotation of a root game object in a prefab instance 
+will never be cleared.
+BEGIN EX
+
+	// Try to set the selected GameObject to a prefab state
+	
+	@MenuItem("Examples/Attempt to reset to prefab %r")
+	static function Reset() {
+		if(PrefabUtility.ResetToPrefabState(Selection.activeGameObject))
+			Debug.Log("Reseted to prefab state successfully!");
+		else
+			Debug.LogError("Couldnt reset to a prefab state " + Selection.activeGameObject.name);
+	}
+	@MenuItem("Examples/Attemp to reset to prefab %r", true)
+	static function CheckReset() {
+		return Selection.activeGameObject != null;
+	}
+END EX

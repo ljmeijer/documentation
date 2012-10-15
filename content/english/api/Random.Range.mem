@@ -1,0 +1,24 @@
+Returns a random float number between and /min/ [inclusive] and /max/ [inclusive] (RO).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Instantiates prefab somewhere between -10.0 and 10.0 on the x-z plane 
+	var prefab : GameObject;
+	function Start () {
+		var position: Vector3 = Vector3(Random.Range(-10.0, 10.0), 0, Random.Range(-10.0, 10.0));
+		Instantiate(prefab, position, Quaternion.identity);
+	}
+END EX<signature>
+Range_float_float
+Range_int_int
+</signature>
+Returns a random integer number between /min/ [inclusive] and /max/ [exclusive] (RO).
+
+If /max/ equals /min/, /min/ will be returned. The returned value will never be /max/ unless /min/ equals /max/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Loads a random level from the level list
+
+	Application.LoadLevel(Random.Range(0, Application.levelCount));
+END EX

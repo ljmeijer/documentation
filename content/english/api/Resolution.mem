@@ -1,0 +1,2 @@
+Represents a display resolution.
+Resolution structures are returned by Screen.resolutions property.

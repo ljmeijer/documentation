@@ -1,0 +1,13 @@
+Set the maximum amount of connections/players allowed.
+Setting it to 0 means no new connections can be made but the existing ones stay connected.
+Setting it to -1 means the maximum connections count is set to the same number of current open connections. In that case, if
+a players drops then the slot is still open for him. This cannot be set higher than the connection count given in
+Network.InitializeServer.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function StartGameNow() {
+		// Don't allow any more players
+		Network.maxConnections = -1;
+	}
+END EX

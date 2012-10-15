@@ -1,0 +1,16 @@
+Is the current keypress on the numeric keyboard? (RO)
+use this flag to destinguish between main & numeric keys.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Creates a Label and prints Numeric Key pad is on/off
+	// depending on the state of the numlock key.
+	function OnGUI() {
+		var e : Event = Event.current;
+		if (e.numeric) {
+			GUI.Label (Rect (10, 10, 150, 20), "Numeric Key pad is on");
+		} else {
+			GUI.Label (Rect (10, 10, 150, 20), "Numeric Key pad is off");
+		}
+	}
+END EX

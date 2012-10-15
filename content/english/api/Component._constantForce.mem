@@ -1,0 +1,6 @@
+The [[ConstantForce]] attached to this [[GameObject]] (null if there is none attached).
+CONVERTEXAMPLE
+BEGIN EX
+
+	constantForce.relativeForce = Vector3(0, 0, 1);
+END EX

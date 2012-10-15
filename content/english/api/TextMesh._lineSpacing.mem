@@ -1,0 +1,6 @@
+How much space will be in-between lines of text
+CONVERTEXAMPLE
+BEGIN EX
+
+	GetComponent(TextMesh).lineSpacing = 10;
+END EX

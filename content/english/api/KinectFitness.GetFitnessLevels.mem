@@ -1,0 +1,2 @@
+Gets the specified user accumulated fitness tracking data for the current session.
+@param trackingID This value must be the ID of a valid currently tracked skeleton.

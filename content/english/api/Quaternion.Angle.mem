@@ -1,0 +1,13 @@
+Returns the angle in degrees between two rotations /a/ and /b/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Calculates the angle (degrees) between
+	// the rotation of this transform and target.
+
+	var target : Transform;
+	
+	function Update () {
+		var angle : float = Quaternion.Angle(transform.rotation, target.rotation);
+	}
+END EX

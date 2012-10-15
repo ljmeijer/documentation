@@ -1,0 +1,19 @@
+Is Alt/Option key held down? (RO)
+On Windows, this returns true if any Alt key is held down. \\
+On Mac, this returns true if any Option key is held down.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints Option or Alt key was pressed depending the
+	// platform this script is being run.
+	function OnGUI() {
+		var e : Event = Event.current;
+		if (e.alt) {
+			if(Application.platform == RuntimePlatform.OSXEditor) {
+				Debug.Log("Option key was pressed");
+			} else if( Application.platform == RuntimePlatform.WindowsEditor) {
+				Debug.Log("Alt Key was pressed!");			
+			}
+		}
+	}
+END EX

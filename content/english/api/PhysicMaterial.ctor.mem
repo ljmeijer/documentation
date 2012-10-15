@@ -1,0 +1,28 @@
+Creates a new material.
+It is usually easier to just use collider.Collider::pref::material and modify the attached material directly.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Creates a new material and attaches it
+
+	function Start () {
+		var material = new PhysicMaterial();
+		material.dynamicFriction = 1;
+		collider.material = material;
+	}
+END EX<signature>
+ctor
+ctor_string
+</signature>
+Creates a new material named /name/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Creates a new material attaches and attaches it
+
+	function Start () {
+		var material = new PhysicMaterial("New Material");
+		material.dynamicFriction = 1;
+		collider.material = material;
+	}
+END EX

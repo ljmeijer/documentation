@@ -1,0 +1,46 @@
+Cancels all Invoke calls on this MonoBehaviour.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Starting in 2 seconds.
+	// a projectile will be launched every 0.3 seconds
+	var projectile : Rigidbody;
+	InvokeRepeating("LaunchProjectile", 2, 0.3);
+
+	// Cancels the repeating invoke call, 
+	// when the user pressed the ctrl button
+	function Update() {
+		if (Input.GetButton ("Fire1"))
+			CancelInvoke();
+	}
+
+	function LaunchProjectile () {
+		instance = Instantiate(projectile);
+		instance.velocity = Random.insideUnitSphere * 5;
+	}
+END EX<signature>
+CancelInvoke
+CancelInvoke_string
+</signature>
+Cancels all Invoke calls with name /methodName/ on this behaviour.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Starting in 2 seconds.
+	// a projectile will be launched every 0.3 seconds
+
+	var projectile : Rigidbody;
+	InvokeRepeating("LaunchProjectile", 2, 0.3);
+
+	// Cancels the repeating invoke call, 
+	// when the user pressed the ctrl button
+	function Update() {
+		if (Input.GetButton ("Fire1"))
+			CancelInvoke("LaunchProjectile");
+	}
+
+	function LaunchProjectile () {
+		instance = Instantiate(projectile);
+		instance.velocity = Random.insideUnitSphere * 5;
+	}
+END EX

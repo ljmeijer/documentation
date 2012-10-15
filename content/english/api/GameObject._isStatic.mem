@@ -1,0 +1,4 @@
+Editor only API that specifies if a game object is static.
+returns true if any of the static flags are set (SA: GameObjectUtility.SetStaticEditorFlags).
+
+setting this to true sets all the static flags (SA: GameObjectUtility.SetStaticEditorFlags).

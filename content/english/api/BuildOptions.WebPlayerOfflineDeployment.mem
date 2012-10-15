@@ -1,0 +1,2 @@
+Copy UnityObject.js alongside Web Player so it wouldn't have to be downloaded from internet.
+SA: BuildPipeline.BuildPlayer.

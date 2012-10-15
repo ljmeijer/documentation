@@ -1,0 +1,12 @@
+Moves the rigidbody to /position/.
+For kinematic rigidbodies it applies friction based on the motion of the rigidbody.
+This lets you simulate moving platforms with rigidbodies sitting on top of the elevator.
+If you want other rigidbodies to interact with the kinematic rigidbody you need to move it in the FixedUpdate function.
+CONVERTEXAMPLE
+BEGIN EX
+
+	private var speed : Vector3 = Vector3 (3, 0, 0);
+	function FixedUpdate () {
+		rigidbody.MovePosition(rigidbody.position + speed * Time.deltaTime);
+	}
+END EX

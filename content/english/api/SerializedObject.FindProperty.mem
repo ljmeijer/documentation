@@ -1,0 +1,4 @@
+Find serialized property by name.
+You can use this to find a specific property in the target object.
+
+SA: ::ref::GetIterator, [[SerializedProperty]].

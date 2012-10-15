@@ -1,0 +1,6 @@
+Pixel distance from mouse pointer to line.
+
+Calculates the screen space distance from the mouse pointer to the line between /p1/ and /p2/
+world space points.
+
+Uses the current camera to determine the distance.

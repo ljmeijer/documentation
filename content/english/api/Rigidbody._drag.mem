@@ -1,0 +1,16 @@
+The drag of the object.
+Drag can be used to slow down an object.
+The higher the drag the more the object slows down.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OpenParachute() {
+		rigidbody.drag = 20;
+	}
+	
+	function Update() {
+		if (Input.GetButton ("Space")) {
+			OpenParachute();
+		}
+	}
+END EX

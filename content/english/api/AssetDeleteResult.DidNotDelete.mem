@@ -1,0 +1,1 @@
+Tells the internal implementation that the callback did not delete the asset. The asset will be delete by the internal implementation.

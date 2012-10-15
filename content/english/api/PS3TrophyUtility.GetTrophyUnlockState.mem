@@ -1,0 +1,3 @@
+Checks the unlock state of the trophy specified by /trophyId/.
+@param	trophyId	Trophy index
+@return	__0__ if the trophy is locked, __1__ if the trophy is unlocked or a __Negative value__ if the trophy operation encountered an error

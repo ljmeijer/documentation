@@ -1,0 +1,10 @@
+A random, external acceleration applied to the cloth.
+Use this to simulate randomly changing forces on the cloth, such as wind turbulences waving a flag.
+SA: [[Cloth.externalAcceleration]], [[InteractiveCloth.AddForceAtPosition]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Simulate wind going trough the X axis.	
+
+	transform.GetComponent(Cloth).randomAcceleration = Vector3(10, 0, 0);
+END EX

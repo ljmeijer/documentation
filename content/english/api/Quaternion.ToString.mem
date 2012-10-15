@@ -1,0 +1,10 @@
+<signature>
+ToString
+ToString_string
+</signature>
+Returns a nicely formatted string of the Quaternion
+CONVERTEXAMPLE
+BEGIN EX
+
+	print(Quaternion.identity);
+END EX

@@ -1,0 +1,7 @@
+Access the r, g, b,a components using [0], [1], [2], [3] respectively.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var p : Color;
+	p[1] = 5; // the same as p.g = 5
+END EX

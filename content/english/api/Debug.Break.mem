@@ -1,0 +1,8 @@
+Pauses the editor.
+This is useful when you want to check certain values on the
+inspector and you are not able to pause it manually.
+CONVERTEXAMPLE
+BEGIN EX
+
+	Debug.Break();
+END EX

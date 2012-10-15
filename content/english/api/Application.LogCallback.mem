@@ -1,0 +1,22 @@
+Use this delegate type with RegisterLogCallback to monitor what gets logged.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var output = "";
+	var stack= "";
+
+	function OnEnable () {
+		Application.RegisterLogCallback(HandleLog);
+	}
+
+	function OnDisable () {
+		// Remove callback when object goes out of scope
+		Application.RegisterLogCallback(null);
+	}
+
+	function HandleLog (logString : String, stackTrace : String, type : LogType) {
+		output = logString;
+		stack = stackTrace;
+	}
+END EX
+SA: [[Application.RegisterLogCallback]],  [[LogType]]

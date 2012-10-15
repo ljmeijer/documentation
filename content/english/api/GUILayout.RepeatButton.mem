@@ -1,0 +1,38 @@
+<signature>
+RepeatButton_Texture_GUILayoutOptionArray
+RepeatButton_string_GUILayoutOptionArray
+RepeatButton_GUIContent_GUILayoutOptionArray
+RepeatButton_Texture_GUIStyle_GUILayoutOptionArray
+RepeatButton_string_GUIStyle_GUILayoutOptionArray
+RepeatButton_GUIContent_GUIStyle_GUILayoutOptionArray
+</signature>
+Make a repeating button. The button returns true as long as the user holds down the mouse
+
+{img GUILayoutButton.png}\\
+''Repeat Buttons in the Game View.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws a button with an image and a button with text
+	var tex : Texture;
+	function OnGUI() {
+		if(!tex) {
+			Debug.LogError("No texture found, please assign a texture on the inspector");
+		}
+
+		if(GUILayout.RepeatButton (tex)) {
+			Debug.Log("Clicked the image");
+		}
+		if(GUILayout.RepeatButton ("I am a regular Automatic Layout Button")) {
+			Debug.Log("Clicked Button");
+		}
+	}
+END EX
+@param text			Text to display on the button.
+@param image		[[Texture]] to display on the button.
+@param content		Text, image and tooltip for this button.
+@param style			The style to use. If left out, the /button/ style from the current [[GUISkin]] is used.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns /true/ when the holds down the mouse

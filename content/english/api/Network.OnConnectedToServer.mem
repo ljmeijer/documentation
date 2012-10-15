@@ -1,0 +1,10 @@
+CSNONE
+Called on the client when you have successfully connected to a server
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnConnectedToServer() {
+		Debug.Log("Connected to server");
+		// Send local player name to server ...
+	}
+END EX

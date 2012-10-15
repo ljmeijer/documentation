@@ -1,0 +1,13 @@
+Is the projection orthographic (''true'') or perspective (''false'')?
+
+When orthographic is ''true'', projection is defined by ::ref::orthographicSize.\\
+When orthographic is ''false'', projection is defined by ::ref::fieldOfView.
+SA: [[wiki:class-Projector|projector component]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start() {
+		var proj : Projector = GetComponent (Projector);
+		proj.orthographic = true;
+	}
+END EX

@@ -1,0 +1,10 @@
+Height of the texture in pixels (RO)
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Print texture size to the Console
+	var texture : Texture;
+	function Start () {
+		print("Size is " + texture.width + " by " + texture.height);
+	}
+END EX

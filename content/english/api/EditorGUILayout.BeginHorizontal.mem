@@ -1,0 +1,36 @@
+<signature>
+BeginHorizontal_GUILayoutOptionArray
+BeginHorizontal_GUIStyle_GUILayoutOptionArray
+</signature>
+Begin a horizontal group and get its rect back.
+This is an extension to GUILayout::ref::BeginHorizontal. It can be used for making compound controls
+
+{img BeginEndHorizontalExample.png}\\
+''Horizontal Compound group.''
+BEGIN EX
+
+	// Create a Horizontal Compound Button
+	
+	class BeginEndHorizontalExample extends EditorWindow {
+	
+		@MenuItem("Examples/Begin-End Horizontal usage")
+		static function Init() {
+			var window = GetWindow(BeginEndHorizontalExample);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			var r : Rect = EditorGUILayout.BeginHorizontal ("Button");
+				if (GUI.Button (r, GUIContent.none))
+					Debug.Log ("Go here");
+				GUILayout.Label ("I'm inside the button");
+				GUILayout.Label ("So am I");	
+			EditorGUILayout.EndHorizontal ();
+		}
+	}
+END EX
+
+@param style Optional [[GUIStyle]].
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight

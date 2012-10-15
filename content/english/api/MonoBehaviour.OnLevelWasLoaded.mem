@@ -1,0 +1,17 @@
+CSNONE
+This function is called after a new level was loaded.
+/level/ is the index of the level that was loaded.
+Use the menu item @@File->Build Settings...@@ to see what scene the index refers to.
+SA: Application.LoadLevel
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints "Woohoo" when level 13 is loaded.
+
+	function OnLevelWasLoaded (level : int) {
+		if (level == 13) {
+			print ("Woohoo");
+		}
+	}
+END EX
+OnLevelWasLoaded can be a co-routine, simply use the yield statement in the function.

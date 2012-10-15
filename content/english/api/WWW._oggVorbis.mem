@@ -1,0 +1,104 @@
+Load an Ogg Vorbis file into the audio clip.
+
+If the stream has not been downloaded completely, null will be returned.
+Use ::ref::isDone or /yield/ to see if the data is available.
+
+SA: [[AudioClip]], [[AudioSource]].
+BEGIN EX
+
+	var path =
+		"http://ia301106.us.archive.org/2/items/abird2005-02-10/abird2005-02-10t02.ogg";
+
+	function Start () {
+		// Start downloading
+		var download = new WWW (path);
+		// Wait for download to finish
+		yield download;
+		// Create ogg vorbis file
+		var clip : AudioClip = download.oggVorbis;
+		// Play it
+		if (clip != null) {
+			audio.clip = clip;
+			audio.Play();
+		} else { // Handle error
+			Debug.Log("Ogg vorbis download failed. (Incorrect link?)");
+		}
+	}
+
+	@script RequireComponent (AudioSource)
+END EX
+
+BEGIN EX
+
+	/// A generic stream music player.
+	/// Downloads music successively, then starts playing them randomly.
+	var downloadPath : String[] = [
+		"http://ia301106.us.archive.org/2/items/abird2005-02-10/abird2005-02-10t02.ogg"];
+	private var downloadedClips : AudioClip[];
+	private var playedSongs = new Array ();
+
+	function Start () {
+		downloadedClips = new AudioClip[downloadPath.Length];
+
+		DownloadAll ();
+
+		PlaySongs ();
+	}
+
+	function DownloadAll () {
+		for (var i = 0;i < downloadPath.length; i++) {
+			var path = downloadPath[i];
+			var download = new WWW (path);
+			yield download;
+			downloadedClips[i] = download.oggVorbis;
+
+			if (downloadedClips[i] == null)
+				Debug.Log("Failed audio download " + path);
+		}
+	}
+
+	function PickRandomSong () : AudioClip {
+		var possibleSongs = Array ();
+
+		// Build a list of all songs that completed their download
+		for (var i = 0; i < downloadedClips.length; i++) {
+			if (downloadedClips[i] != null)
+				possibleSongs.Add(i);
+		}
+
+		// No songs downloaded yet
+		if (possibleSongs.length == 0)
+			return null;
+
+		// We played all songs, pick from any song now
+		if (possibleSongs.length == playedSongs.length)
+			playedSongs.Clear();
+
+		// Remove songs that were played already from the list of songs
+		for (i = 0; i < playedSongs.length; i++)
+			possibleSongs.Remove (playedSongs[i]);
+
+		// Pick a random song
+		if (possibleSongs.length != 0) {
+			var index : int= possibleSongs[Random.Range(0, possibleSongs.length)];
+			playedSongs.Add(index);
+			return downloadedClips[index];
+		}
+		else
+			return null;
+	}
+
+	function PlaySongs () {
+		while (true) {
+			var clip : AudioClip = PickRandomSong ();
+			if (clip != null) {
+				audio.clip = clip;
+				audio.Play();
+				yield WaitForSeconds(clip.length);
+			}
+			yield;
+		}
+	}
+
+	@script RequireComponent(AudioSource)
+END EX

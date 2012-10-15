@@ -1,0 +1,2 @@
+Tells the internal implementation that the asset was not moved physically on disk by the script
+and it is safe for the internal implementation to move the asset

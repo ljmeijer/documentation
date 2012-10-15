@@ -1,0 +1,13 @@
+How to perform per-layer culling for a Camera.
+
+Normally this type of culling is performed by moving the Camera's far plane closer to the eye. By setting this
+value to true, the culling is instead based on spherical distance. The benefit is that rotating on the same spot
+does not affect which objects are visible.
+
+SA: ::ref::layerCullDistances.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Enable spherical layer culling
+	camera.layerCullSpherical = true;
+END EX

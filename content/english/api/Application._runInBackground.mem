@@ -1,0 +1,8 @@
+Should the player be running when the application is in the background?
+Default is false (application pauses when it is in background).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Make the game run even when in background
+	Application.runInBackground = true;
+END EX

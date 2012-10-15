@@ -1,0 +1,10 @@
+Force the [[Light]] to be a vertex light.
+This option is good for background or distant lighting.
+SA: [[wiki:class-Light|light component]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set light's render mode to vertex-lit
+
+	light.renderMode = LightRenderMode.ForceVertex;
+END EX

@@ -1,0 +1,5 @@
+Grows the Bounds to include the /point/.<signature>
+Encapsulate_Vector3
+Encapsulate_Bounds
+</signature>
+Grow the bounds to encapsulate the bounds.

@@ -1,0 +1,1 @@
+Class for texture handling. Use this to create textures on the fly or to modify existing [[wiki:class-Texture2D|texture assets]].

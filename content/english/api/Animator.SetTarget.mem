@@ -1,0 +1,4 @@
+Sets an AvatarTarget and a targetNormalizedTime for the current state
+Once the frame is evaluated, the position and the rotation can be queried using targetPosition and targetRotation
+@param targetIndex The avatar body part that is queried
+@param targetNormalizedTime The current state Time that is queried

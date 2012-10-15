@@ -1,0 +1,3 @@
+Sets the detail layer density map.
+The Terrain uses a detail layer density map. Each pixel in the map the amount of details objects that will be procedurally placed in the pixel area.
+The layer determines the detail prototype that will be instantiated at the location.

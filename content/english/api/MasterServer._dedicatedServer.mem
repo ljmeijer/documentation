@@ -1,0 +1,16 @@
+Report this machine as a dedicated server.
+If running as a server the connection count defines the player count and this is reported when registering on the
+master server. By default the master server assumes this instance is not a dedicated server and thus the player
+count is incremented by one (to account for the \"client\" running on the server). If this is not desired this
+variable can be set to false and then only the connection count is reported in the host data as the player count.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function StartServer() {
+		Network.InitializeServer(32, 25002);
+		// Not running a client locally
+		MasterServer.dedicatedServer = true;
+		MasterServer.RegisterHost("MyUniqueGameType", 
+			"JohnDoes game", "l33t game for all");
+	}
+END EX

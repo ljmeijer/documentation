@@ -1,0 +1,11 @@
+Returns true if your peer type is server.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI() {
+		if (Network.isServer)
+			GUILayout.Label("Running as a server");
+		else if (Network.isClient)
+			GUILayout.Label("Running as a client");
+	}
+END EX

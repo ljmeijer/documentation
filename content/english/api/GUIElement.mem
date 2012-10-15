@@ -1,0 +1,2 @@
+Base class for images & text strings displayed in a GUI.
+This class holds the base functionality for any GUI elements.

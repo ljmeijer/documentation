@@ -1,0 +1,4 @@
+Use the OS default font rendering mode. This selects [[FontRenderingMode.HintedSmooth]] on windows, and
+either [[FontRenderingMode.Smooth]] or [[FontRenderingMode.HintedRaster]] on Mac OS X, depending on Font size, and the 
+user font smoothing settings in System Preferences -> General. This mode is only available for dynamic fonts, as static fonts
+are generated at build time.

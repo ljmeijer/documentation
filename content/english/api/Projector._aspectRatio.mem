@@ -1,0 +1,14 @@
+The aspect ratio of the projection.
+
+This is projection width divided by height. An aspect ratio of 1.0
+makes the projection square; a ratio of 2.0 makes it twice as wide
+than high.
+SA: [[wiki:class-Projector|projector component]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start() {
+		var proj : Projector = GetComponent(Projector);
+		proj.aspectRatio = 2.0;
+	}
+END EX

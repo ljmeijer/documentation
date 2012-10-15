@@ -1,0 +1,16 @@
+<signature>
+Contains_Vector2
+Contains_Vector3
+</signature>
+Returns true if the /x/ and /y/ components of /point/ is a point inside this rectangle.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// prints inside when mouse is in lower left corner
+
+	function Update () {
+		var rect = Rect (0, 0, 150, 150);
+		if (rect.Contains(Input.mousePosition))
+			print("Inside");
+	}
+END EX

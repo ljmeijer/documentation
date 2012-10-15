@@ -1,0 +1,4 @@
+Creates the JNI signature string for an object parameter list.
+The generic parameter represents the method return type.
+
+@param args Array of object for which a signature is to be produced.

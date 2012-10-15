@@ -1,0 +1,11 @@
+The time of the keyframe.
+In a 2D graph you could think of this as the x-value.
+
+SA: ::ref::value.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var curve : AnimationCurve = AnimationCurve.Linear (0, 0, 5, 5);
+	// Extract the time from the first keyframe of a curve
+	Debug.Log(curve[0].time);
+END EX

@@ -1,0 +1,2 @@
+Should mip maps be generated with gamma correction?
+SA: ::ref::mipmapEnabled

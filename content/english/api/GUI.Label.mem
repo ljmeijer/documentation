@@ -1,0 +1,42 @@
+<signature>
+Label_Rect_string
+Label_Rect_Texture
+Label_Rect_GUIContent
+Label_Rect_string_GUIStyle
+Label_Rect_Texture_GUIStyle
+Label_Rect_GUIContent_GUIStyle
+</signature>
+Make a text or texture label on screen.
+Labels have no user interaction, do not catch mouse clicks and are always rendered in normal style. If you want to make a control that responds visually to user input, use a ::ref::Box control.
+
+Example: Draw the classic Hello World! string:
+
+{img GUILabel.png}\\
+''Text label on the Game View.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI () {
+		GUI.Label (Rect (10, 10, 100, 20), "Hello World!");
+	}
+END EX
+
+Example: Draw a texture on-screen. Labels are also used to display textures, instead of a string, simply pass in a texture:
+
+{img GUILabelTexture.png}\\
+''Texture Label.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	var textureToDisplay : Texture2D;
+	
+	function OnGUI () {
+		GUI.Label (Rect (10, 40, textureToDisplay.width, textureToDisplay.height),
+			textureToDisplay);
+	}
+END EX
+@param position		Rectangle on the screen to use for the label.
+@param text 			Text to display on the label.
+@param image		[[Texture]] to display on the label.
+@param content		Text, image and tooltip for this label.
+@param style			The style to use. If left out, the /label/ style from the current [[GUISkin]] is used.

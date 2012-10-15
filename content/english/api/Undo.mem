@@ -1,0 +1,22 @@
+Lets you register undo operations on specific objects you are about to perform changes on.
+
+The undo system in Unity works by saving the state of one or more objects before performing a change on those objects.
+It is similar to taking a backup. To undo the change later, the saved state is restored.
+Since this reverts the objects to the state they had before performing the change, it will be as if the change never happened.
+
+For instant changes to one or more objects, simply call functions ::ref::RegisterUndo or ::ref::RegisterSceneUndo
+before performing the change that it should be possible to undo.
+
+This is all that needs to be done. Unity will automatically handle Undo and Redo for you after that.
+::ref::PerformUndo and ::ref::PerformRedo should normally not be used unless you want to create your own
+user interface to the undo system in addition to the user interface Unity already provides.
+
+Using ::ref::RegisterUndo is most efficient for actions that change one or more objects.
+::ref::RegisterSceneUndo is slower and requires more memory, but it can be used in all cases,
+and is required for actions that create or destroy objects.
+
+Certain operations, such as dragging, consist of many small incremental changes.
+Typically it is not desired to create an undo step for each of these small changes.
+For example, if the user performs an undo after a dragging operation,
+it is expected that the object is reverted back to the state it had before the dragging started.
+The functions ::ref::SetSnapshotTarget, ::ref::CreateSnapshot, and ::ref::RegisterSnapshot are available to handle cases like this.

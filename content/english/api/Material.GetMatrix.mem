@@ -1,0 +1,7 @@
+Get a named matrix value from the shader.
+
+This is mostly used with custom shaders that need extra matrix
+parameters. Matrix parameters are not exposed in the material inspector,
+but can be set and queried with /SetMatrix/ and /GetMatrix/ from scripts.
+
+SA: ::ref::SetMatrix, [[wiki:Materials]], [[wiki:Shaders|ShaderLab documentation]].

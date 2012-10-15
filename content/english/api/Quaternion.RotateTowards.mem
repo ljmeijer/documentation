@@ -1,0 +1,3 @@
+Rotates a rotation /from/ towards /to/.
+This is essentially the same as Quaternion.Slerp but instead the function will ensure that the angular speed never exceeds /maxDegreesDelta/.
+Negative values of /maxDegreesDelta/ pushes the rotation away from /to/.

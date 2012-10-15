@@ -1,0 +1,18 @@
+Does the object exist?
+CONVERTEXAMPLE
+BEGIN EX
+
+	// check if there is a rigidbody attached to this transform
+
+	if (rigidbody) 
+	   Debug.Log("Rigidbody attached to this transform");
+END EX
+is the same as
+CONVERTEXAMPLE
+BEGIN EX
+
+	// another way to check if a rigidbody is attached to this transform
+
+	if (rigidbody != null)
+	   Debug.Log("Rigidbody attached to this transform");
+END EX

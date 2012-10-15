@@ -1,0 +1,5 @@
+Get home directory.
+BEGIN EX
+
+	Debug.Log ("Home directory is: " + NVDirectory.home);
+END EX

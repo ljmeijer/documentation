@@ -1,0 +1,3 @@
+Allow scenes to be activated as soon as it is ready.
+When used in combination with LoadLevelAsync & LoadLevelAsyncAdditive it allows you
+to delay the actual activation of the scene. (And unloading of the previous scene)

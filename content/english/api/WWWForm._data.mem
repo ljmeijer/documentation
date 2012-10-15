@@ -1,0 +1,25 @@
+(RO) The raw data to pass as the POST request body when sending the form.
+
+Usually, you just pass the WWWForm object directly to the [[WWW]] constructor, but you will
+need this variable if you want to change the request headers sent to the web server.
+
+SA: ::ref::headers variable.
+CONVERTEXAMPLE
+BEGIN EX
+
+var form = new WWWForm();
+form.AddField( "name", "value" );
+var headers = form.headers;
+var rawData = form.data;
+var url = "www.myurl.com";
+
+// Add a custom header to the request.
+// In this case a basic authentication to access a password protected resource.
+headers["Authorization"]="Basic " + System.Convert.ToBase64String(
+	System.Text.Encoding.ASCII.GetBytes("username:password"));
+
+// Post a request to an URL with our custom headers
+var www = new WWW(url, rawData, headers);
+yield www;
+//.. process results from WWW request here...
+END EX

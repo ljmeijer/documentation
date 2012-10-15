@@ -1,0 +1,18 @@
+Sets the spread angle a 3d stereo or multichannel sound in speaker space.
+0 = all sound channels are located at the same speaker location and is 'mono'. 360 = all subchannels are located at the opposite speaker location to the speaker location that it should be according to 3D position. Default = 0.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// when any AudioSource goes trough this transform, it will set it as 'mono'
+	// and will restore the value to 3D effect after exiting
+	// Make sure the audio source has a collider. 	
+	function OnTriggerEnter(other : Collider) {
+		 if(other.audio)
+			other.audio.spread = 0;
+	}
+	
+	function OnTriggerExit(other : Collider) {
+		 if(other.audio)
+			other.audio.spread = 360;
+	}
+END EX

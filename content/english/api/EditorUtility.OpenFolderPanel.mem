@@ -1,0 +1,23 @@
+Displays the "open folder" dialog and returns the selected path name.
+
+SA: ::ref::OpenFilePanel, ::ref::SaveFolderPanel functions.
+
+{img EditorUtilityOpenFolderPanel.png}\\
+''Open Folder Panel.''
+BEGIN EX
+
+	// Opens a directory dialog for copying all the png textures
+	// in the directory to where the current open scene resides
+
+	import System.IO;
+
+	@MenuItem("Examples/Load Textures to directory")
+	static function Apply () {
+
+		var path = EditorUtility.OpenFolderPanel("Load png Textures of Directory", "", "");
+		var files : String[] = Directory.GetFiles(path);
+		for(var file : String in files)
+			if(file.EndsWith(".png"))
+				File.Copy(file, EditorApplication.currentScene);
+	}
+END EX

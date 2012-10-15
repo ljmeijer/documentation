@@ -1,0 +1,1 @@
+Returns the topmost game object that has the same prefab parent as /target/

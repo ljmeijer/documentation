@@ -1,0 +1,67 @@
+Constructor for GUIContent in all shapes and sizes
+Build an empty GUIContent.<signature>
+ctor
+ctor_string
+</signature>
+Build a GUIContent object containing only text.
+When using the GUI, you don't need to create GUIContents for simple text strings - these two lines of code are functionally equivalent:
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI () {
+		GUI.Button (Rect (0, 0, 100, 20), "Click Me");
+		GUI.Button (Rect (0, 30, 100, 20), GUIContent ("Click Me"));
+	}
+END EX
+<signature>
+ctor_Texture
+</signature>
+Build a GUIContent object containing only an image.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var icon : Texture;
+
+	function OnGUI () {
+		GUI.Button (Rect (0, 0, 100, 20), GUIContent (icon));
+	}
+END EX
+<signature>
+ctor_string_Texture
+</signature>
+Build a GUIContent object containing both /text/ and an image.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var icon : Texture;
+
+	function OnGUI () {
+		GUI.Button (Rect (0,0,100,20), GUIContent ("Click me", icon));
+	}
+END EX
+<signature>
+ctor_string_string
+</signature>
+Build a GUIContent containing some /text/. When the user hovers the mouse over it, the global GUI::ref::tooltip is set to the /tooltip/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI () {
+		GUI.Button (Rect (0, 0, 100, 20), GUIContent ("Click me", "This is the tooltip"));
+		
+		// If the user hovers the mouse over the button, the global tooltip gets set
+		GUI.Label (Rect (0, 40, 100, 40), GUI.tooltip);
+	}
+END EX
+<signature>
+ctor_Texture_string
+</signature>
+Build a GUIContent containing an image. When the user hovers the mouse over it, the global GUI::ref::tooltip is set to the /tooltip/.
+<signature>
+ctor_string_Texture_string
+</signature>
+Build a GUIContent that contains both /text/, an /image/ and has a /tooltip/ defined. When the user hovers the mouse over it, the global GUI::ref::tooltip is set to the /tooltip/.
+<signature>
+ctor_GUIContent
+</signature>
+Build a GUIContent as a copy of another GUIContent.

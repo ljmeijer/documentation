@@ -1,0 +1,3 @@
+Set the scope of the network view in relation to a specific network player.
+This can be used to implement relevant sets. Either set it to true or false depending
+on if you want the player to receive updates from the network view or not.

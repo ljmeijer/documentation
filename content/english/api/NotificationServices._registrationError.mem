@@ -1,0 +1,1 @@
+Returns an error that might occur on registration for remote notifications via @@NotificationServices.RegisterForRemoteNotificationTypes@@. (RO)

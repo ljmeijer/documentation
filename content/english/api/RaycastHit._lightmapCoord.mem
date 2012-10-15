@@ -1,0 +1,4 @@
+The uv lightmap coordinate at the impact point.
+This can be used for sampling the lightmap and setting the sampled color value as the material color of a moving object
+to make it roughly match the baked lighting.
+This is simply the RaycastHit::pref::textureCoord2 transformed by Renderer::pref::lightmapTilingOffset.

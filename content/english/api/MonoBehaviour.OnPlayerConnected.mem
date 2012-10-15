@@ -1,0 +1,14 @@
+CSNONE
+Called on the server whenever a new player has successfully connected.
+CONVERTEXAMPLE
+BEGIN EX
+
+	private var playerCount : int = 0;
+
+	function OnPlayerConnected(player: NetworkPlayer) {
+		Debug.Log("Player " + playerCount + 
+			      " connected from " + player.ipAddress + 
+	              ":" + player.port);
+		// Populate a data structure with player information ...
+	}
+END EX

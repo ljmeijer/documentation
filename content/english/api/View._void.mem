@@ -1,0 +1,5 @@
+Notification so other views can respond to this.<signature>
+_void
+_void
+</signature>
+Override to resize subviews

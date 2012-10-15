@@ -1,0 +1,10 @@
+*undocumented*
+Returns whether the profiler is enabled in the current build. (RO)
+CONVERTEXAMPLE
+BEGIN EX
+
+	if ( Profiler.supported ) {
+		Profiler.logFile = "mylog.log";
+		Profiler.enabled = true;
+	}
+END EX

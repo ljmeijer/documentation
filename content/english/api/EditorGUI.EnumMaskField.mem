@@ -1,0 +1,33 @@
+<signature>
+EnumMaskField_Rect_GUIContent_Enum_GUIStyle
+EnumMaskField_Rect_string_Enum_GUIStyle
+EnumMaskField_Rect_Enum_GUIStyle
+</signature>
+Make a field for enum based masks.
+
+{img MaskField.png}\\
+''Simple window that shows the enum mask field.''
+BEGIN EX
+
+	class SimpleEnumMaskUsage extends EditorWindow {
+		@MenuItem("Examples/Mask Field Usage")
+		static function Init() {
+			var window = GetWindow(SimpleEnumMaskUsage);
+			window.Show();
+		}
+		
+		var staticFlagMask : StaticEditorFlags = 0;
+		function OnGUI() {
+			staticFlagMask = EditorGUI.EnumMaskField ( new Rect (0, 0, 300, 20), "Static Flags", staticFlagMask );
+		}
+	}
+END EX
+@param position Rectangle on the screen to use for this control.
+@param enumValue Enum to use for the flags.
+@param style Optional [[GUIStyle]].
+@returns The value modified by the user.
+<signature>
+EnumMaskField_Rect_Enum_GUIStyle_int_bool
+</signature>
+Internal version that also gives you back which flags were changed and what they were changed to.
+This is useful if you want to make the same change to multiple things.

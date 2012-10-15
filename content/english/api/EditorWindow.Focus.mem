@@ -1,0 +1,62 @@
+Moves keyboard focus to this EditorWindow.
+
+SA: ::ref::focusedWindow.
+
+{img Window1.png}\\
+''Focus one window by pressing the button on other window.''
+BEGIN EX
+
+	// Simple Editor Window that when clicked focuses another window.
+	//
+	// Usage: Open both windows (Window 1 and Window 2) and just press the button
+	// to see how the focus changes
+
+	class Window1 extends EditorWindow {
+	
+		static var instance;
+	
+		@MenuItem("Example/Show Focus Usage/Window1")
+		static function Init() {
+			var window = EditorWindow.GetWindow(Window1);
+		}
+	
+		function Window1() {
+			instance = this;
+		}
+		
+		function OnGUI() {
+			if(GUILayout.Button("Focus the other window!")) {
+				Window2.instance.Focus();
+			}
+		}
+	}
+END EX
+
+And on another file:
+BEGIN EX
+
+	// Simple Editor Window that when clicked focuses another window.
+	//
+	// Usage: Open both windows (Window 1 and Window 2) and just press the button
+	// to see how the focus changes
+	
+	class Window2 extends EditorWindow {
+		
+		static var instance;
+		
+		@MenuItem("Example/Show Focus Usage/Window2")
+		static function Init() {
+			var window = EditorWindow.GetWindow(Window2);
+		}
+		
+		function Window2() {
+			instance = this;
+		}
+		
+		function OnGUI() {
+			if(GUILayout.Button("Focus the other window!")) {
+				Window1.instance.Focus();
+			}
+		}
+	}
+END EX

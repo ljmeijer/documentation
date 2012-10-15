@@ -1,0 +1,14 @@
+<signature>
+GetAudioClip_bool
+GetAudioClip_bool_bool
+GetAudioClip_bool_bool_AudioType
+</signature>
+Returns an [[AudioClip]] generated from the downloaded data (RO).
+
+The data must be an audio clip in Ogg(Web/Standalones), MP3(phones), WAV, XM, IT, MOD or S3M format.
+
+@param threeD Use this to specify whether the clip should be a 2D or 3D clip
+the .audioClip property defaults to 3D.
+@param stream Sets whether the clip should be completely downloaded before it's ready to play (false) or the stream can be played even if only part of the clip is downloaded (true).
+The latter will disable seeking on the clip (with .time and/or .timeSamples).
+@param set the AudioType of the content your downloading. If this is not set Unity will try to determine the type from URL.

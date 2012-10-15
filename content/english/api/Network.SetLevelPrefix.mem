@@ -1,0 +1,5 @@
+Set the level prefix which will then be prefixed to all network ViewID numbers.
+This offers protection to prevent old network updates from straying from into a new level from the previous level.
+This can be set to any number and then incremented with each new level load. This doesn't add overhead to
+network traffic but just diminishes the pool of network ViewID numbers a little bit.
+The [[wiki:net-NetworkLevelLoad|Network level loading]] page has an example of how to use this function.

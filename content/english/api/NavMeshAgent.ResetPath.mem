@@ -1,0 +1,1 @@
+Clears the current path. Note that the agent will not start looking for a new path until SetDestination is called.

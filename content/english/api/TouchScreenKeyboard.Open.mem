@@ -1,0 +1,26 @@
+Opens the native keyboard provided by OS on the screen.
+The /autocorrection/ determines whether the input tracks unknown words
+and suggests a more suitable replacement candidate to the user,
+replacing the typed text automatically unless the user explicitly
+overrides the action.
+The /multiline/ determines if user can input more than one line of
+text.
+The /secure/ identifies whether the keyboard is used for password. Text
+in the input field will be hidden from the user except the recently
+typed character.
+The keyboard can be opened in the /alert/ mode too.
+The /placeholder/ string will be displayed when there is no other text
+in the input field of the keyboard.
+BEGIN EX
+
+	var inputURL : String = "http://www.unity3d.com";
+	private var keyboard : TouchScreenKeyboard;
+	// Opens native keyboard optimized for URL entry
+	function OnGUI() {
+		if (GUI.Button(Rect(0, 10, 200, 32), inputURL))
+			keyboard = TouchScreenKeyboard.Open(inputURL, TouchScreenKeyboardType.URL);
+
+		if (keyboard)
+			inputURL = keyboard.text;
+		}
+END EX

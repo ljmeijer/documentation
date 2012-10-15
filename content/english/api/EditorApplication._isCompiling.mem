@@ -1,0 +1,26 @@
+Is editor currently compiling scripts? (RO)
+
+{img FinishCompiling.png}\\
+''Editor Window that tells you if Unity is compiling scripts.''
+BEGIN EX
+
+	// Dont let the user enter in play mode if the editor is compiling the assemblies
+	
+	class FinishCompiling extends EditorWindow {
+	
+		@MenuItem("Example/Dont Let Play until finish compiling")
+		static function Init() {
+			var window : FinishCompiling = 
+				EditorWindow.GetWindowWithRect(FinishCompiling, Rect(0,0,165,40));
+			window.Show();	
+		}
+		function OnGUI () {
+			EditorGUILayout.LabelField("Compiling:", EditorApplication.isCompiling?"YES" : "No");
+		}
+		function Update() {
+			if(EditorApplication.isCompiling) {
+				EditorApplication.isPlaying = false;
+			}
+		}
+	}
+END EX

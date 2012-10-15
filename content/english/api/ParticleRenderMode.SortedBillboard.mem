@@ -1,0 +1,2 @@
+Sort the particles back-to-front and render as billboards.
+This looks better with blended particle shaders, but is slower because of the sorting.

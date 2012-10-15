@@ -1,0 +1,8 @@
+Wrapping mode of the animation.
+By default wrapMode is initialized to the value set in the [[wiki:class-Animation|Animation component's]] wrap mode.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the wrap mode of the walk animation to loop
+	animation["Walk"].wrapMode = WrapMode.Loop;
+END EX

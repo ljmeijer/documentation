@@ -1,0 +1,31 @@
+Returns the active game object. (The one shown in the inspector)
+It will also return game objects that might be prefabs or non-modifyable objects.
+BEGIN EX
+
+	// Rotates the selected Game Object +45 degrees if the user presses 'g'
+	// or -45 degrees if the user presses 'Shift + g'
+	// If no object is selected, the Menus are grayed out.
+
+	@MenuItem ("Example/Rotate Green +45 _g")
+	static function RotateGreenPlus45() {
+		var obj = Selection.activeGameObject;
+		obj.transform.Rotate(Vector3.up*45);
+	}
+
+	@MenuItem ("Example/Rotate Green +45 _g", true)
+	static function ValidatePlus45() {
+		return Selection.activeGameObject != null;
+	}
+
+
+	@MenuItem ("Example/Rotate green -45 #g")
+	static function RotateGreenMinus45() {
+		var obj = Selection.activeGameObject;
+		obj.transform.Rotate(Vector3.down*45);
+	}
+
+	@MenuItem ("Example/Rotate green -45 #g", true)
+	static function ValidateMinus45() {
+		return Selection.activeGameObject != null;
+	}
+END EX

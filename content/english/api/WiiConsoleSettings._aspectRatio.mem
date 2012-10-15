@@ -1,0 +1,16 @@
+Aspect ratio setting as chosen by the user in Wii Menu.
+For more information, please refer to SCGetAspectRatio function documentation in RVL SDK.
+BEGIN EX
+
+	function isWidescreen () : Boolean {
+		// aspect ratio property can have either of AspectRation.Apect4x3 or AspectRation.Apect16x9 value
+		if (WiiConsoleSettings.aspectRatio == WiiConsoleSettings.AspectRatio.Apect16x9) {
+			return true;
+		} else if (WiiConsoleSettings.aspectRatio == WiiConsoleSettings.AspectRatio.Apect4x3) {
+			return false;
+		}
+		
+		return false;
+	}
+END EX
+@return Aspect ratio setting.

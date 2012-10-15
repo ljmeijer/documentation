@@ -1,0 +1,3 @@
+Script interface for a [[wiki:class-LensFlare|Lens flare component]].
+
+This allows you to change the brightness and color of lens flares at runtime.

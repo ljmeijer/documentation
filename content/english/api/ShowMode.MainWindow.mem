@@ -1,0 +1,1 @@
+The Unity main window. On mac, this is the same as NormalWindow, except window doesn't have a close button.

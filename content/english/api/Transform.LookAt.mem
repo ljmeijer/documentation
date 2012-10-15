@@ -1,0 +1,32 @@
+Rotates the transform so the forward vector points at /target/'s current position.
+Then it rotates the transform to point its up direction vector in the direction hinted at by the /worldUp/ vector.
+If you leave out the /worldUp/ parameter, the function will use the world y axis.
+/worldUp/ is only a hint vector. The up vector of the rotation will only match the /worldUp/ vector if the forward direction is perpendicular to /worldUp/
+CONVERTEXAMPLE
+BEGIN EX
+
+	// This complete script can be attached to a camera to make it 
+	// continuously point at another object.
+	
+	// The /target/ variable shows up as a property in the inspector. 
+	// Drag another object onto it to make the camera look at it.
+	var target : Transform; 
+	
+	// Rotate the camera every frame so it keeps looking at the target 
+	function Update() {
+		transform.LookAt(target);
+	}
+END EX<signature>
+LookAt_Transform_Vector3
+LookAt_Vector3_Vector3
+</signature>
+Rotates the transform so the forward vector points at /worldPosition/.
+Then it rotates the transform to point its up direction vector in the direction hinted at by the /worldUp/ vector.
+If you leave out the /worldUp/ parameter, the function will use the world y axis.
+/worldUp/ is only a hint vector. The up vector of the rotation will only match the /worldUp/ vector if the forward direction is perpendicular to /worldUp/
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Point the object at the world origin
+	transform.LookAt(Vector3.zero);
+END EX

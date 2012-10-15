@@ -1,0 +1,14 @@
+Number of processors present (RO).
+
+This is number of processors as reported by the operating system. The processors could be separate processors,
+cores of the same processor, or logical processors (e.g. in case of one Hyper-Threaded CPU, this would report
+two CPUs since that's what it looks like to the system).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints "4" on a quad-core CPU.
+
+	print (SystemInfo.processorCount);
+END EX
+
+SA: SystemInfo.processorType.

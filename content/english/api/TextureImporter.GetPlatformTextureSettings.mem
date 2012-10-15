@@ -1,0 +1,5 @@
+Get platform specific texture settings<signature>
+GetPlatformTextureSettings_string_int_TextureImporterFormat_int
+GetPlatformTextureSettings_string_int_TextureImporterFormat
+</signature>
+Get platform specific texture settings

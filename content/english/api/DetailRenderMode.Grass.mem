@@ -1,0 +1,4 @@
+The detail prototype will use the grass shader. When using custom
+meshes in this mode, control the wave amount by setting vertex color's
+alpha channel. Grass will take normals from terrain directly
+underneath it, so that the shading matches the terrain.

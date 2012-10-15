@@ -1,0 +1,6 @@
+*undocumented
+Get current directory.
+BEGIN EX
+
+	Debug.Log ("Current directory is: " + NVDirectory.current);
+END EX

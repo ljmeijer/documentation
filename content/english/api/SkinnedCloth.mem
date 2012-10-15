@@ -1,0 +1,2 @@
+The SkinnedCloth component works together with the [[SkinnedMeshRenderer]] to simulate clothing on a character.
+See the SkinnedCloth [[wiki:class-SkinnedCloth|component reference]] for an extensive description on how it works.

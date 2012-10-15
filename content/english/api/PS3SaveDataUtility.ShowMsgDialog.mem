@@ -1,0 +1,4 @@
+Displays a dialog.
+
+@param type		Dialog type. Use 0 for normal message, -1 for /No HDD Space/.
+@param message	Message to be displayed

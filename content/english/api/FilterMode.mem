@@ -1,0 +1,3 @@
+Filtering mode for textures. Corresponds to the settings in a [[wiki:class-Texture2D|texture inspector]].
+
+SA: Texture.filterMode, [[wiki:class-Texture2D|texture assets]].

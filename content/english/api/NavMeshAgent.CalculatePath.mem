@@ -1,0 +1,4 @@
+Calculate a path to a specified point and store the resulting path.
+@param targetPosition The final position of the path requested.
+@param path The resulting path.
+@returns True if a path is found.

@@ -1,0 +1,15 @@
+Returns a resource at an asset path (Editor Only).
+This function always return null in the standalone player or web player.
+This is useful for quickly accessing an asset for use in the editor only.
+
+__Note:__\\
+__All__ asset names & paths in Unity use forward slashes, paths using backslashes will __not__ work.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var prefab : GameObject;
+	
+	function Start () {
+		prefab = Resources.LoadAssetAtPath("Assets/Artwork/mymodel.fbx", GameObject);
+	}
+END EX

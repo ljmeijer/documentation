@@ -1,0 +1,22 @@
+Removes all keys and values from the preferences. Use with caution.
+
+{img ClearEditorPrefs.png}\\
+''Clears all editor prefs keys.''
+BEGIN EX
+
+	// Clear all the editor prefs keys.
+	//
+	// Warning: this will also remove editor preferences as the opened projects, etc
+
+	class ClearEditorPrefs extends ScriptableObject {
+		@MenuItem ("Examples/Clear all Editor Preferences")
+		static function DoDeselect() {
+			if(EditorUtility.DisplayDialog("Delete all editor preferences?",
+				"Are you sure you want to delete all the editor preferences?,
+				this action cannot be undone.",
+				"Yes",
+				"No"))
+				EditorPrefs.DeleteAll();
+		}
+	}
+END EX

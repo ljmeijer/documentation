@@ -1,0 +1,1 @@
+Repaint all views on next tick. Used when the user changes skins in the prefs.

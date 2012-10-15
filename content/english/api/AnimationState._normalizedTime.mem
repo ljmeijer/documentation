@@ -1,0 +1,8 @@
+The normalized time of the animation.
+A value of 1 is the end of the animation. A value of 0.5 is the middle of the animation.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Fast forward to the middle of the animation
+	animation["Walk"].normalizedTime = 0.5;
+END EX

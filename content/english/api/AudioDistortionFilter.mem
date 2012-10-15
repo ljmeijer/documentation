@@ -1,0 +1,4 @@
+The Audio Distortion Filter distorts the sound from an AudioSource or
+sounds reaching the AudioListener.
+
+__Note:__ This filter is only available on the PRO version.

@@ -1,0 +1,6 @@
+Returns square root of /f/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	print(Mathf.Sqrt(10));
+END EX

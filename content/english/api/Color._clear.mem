@@ -1,0 +1,7 @@
+Completely transparent. RGBA is (0, 0, 0, 0).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// clear the color of this transform's material
+	transform.renderer.material.color = Color.clear;
+END EX

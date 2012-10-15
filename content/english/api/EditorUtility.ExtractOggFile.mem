@@ -1,0 +1,2 @@
+Saves an AudioClip or MovieTexture to a file.
+Will save an Ogg Vorbis or Ogg Theora file at the specified path.

@@ -1,0 +1,27 @@
+Transforms /direction/ from local space to world space.
+This operation is not affected by scale or position of the transform.
+The returned vector has the same length as /direction/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Calculate the x-axis relative to the camera
+	var cam : Transform = Camera.main.transform;
+	var cameraRelativeRight : Vector3 = cam.TransformDirection (Vector3.right);
+	// Apply a force relative to the camera's x-axis
+	rigidbody.AddForce (cameraRelativeRight * 10);
+END EX<signature>
+TransformDirection_Vector3
+TransformDirection_float_float_float
+</signature>
+Transforms direction /x/, /y/, /z/ from local space to world space.
+This operation is not affected by scale or position of the transform.
+The returned vector has the same length as /direction/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Calculate the x-axis relative to the camera
+	var cam : Transform = Camera.main.transform;
+	var cameraRelativeRight : Vector3 = cam.TransformDirection (1, 0, 0);
+	// Apply a force relative to the camera's x-axis
+	rigidbody.AddForce (cameraRelativeRight * 10);
+END EX

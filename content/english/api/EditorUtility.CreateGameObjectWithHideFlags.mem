@@ -1,0 +1,59 @@
+Creates a game object with [[HideFlags]] and specified components.
+
+This is very similar to creating a [[GameObject]] the usual way, except it
+sets the specified [[HideFlags]] immediately.
+
+{img EditorUtility CreateGameObjectWithHideFlags.png}
+''Editor Window that shows how does the example looks.''
+BEGIN EX
+
+	// Simple script that lets you manage the flags of an instanceID from a
+	// GameObject or lets you create a new empty GameObject with custom flags set
+
+	class GameObjectFlags extends EditorWindow {
+
+		var objName : String = "GameObject";
+		var instanceID : int = 0;
+		var create : boolean = true;
+		var go : GameObject = null;
+
+		var hideHierarchy : boolean = false;
+
+		@MenuItem("Examples/GameObject flags")
+		static function Init() {
+			var window = GetWindow(GameObjectFlags);
+			window.Show();
+		}
+
+		function OnGUI() {
+			create = EditorGUILayout.Toggle("Create a GO:", create);
+			GUI.enabled = create;
+				objName = EditorGUILayout.TextField("GameObject Name:", objName);
+				if(GUILayout.Button("Create")) {
+					var created = EditorUtility.CreateGameObjectWithHideFlags(
+							objName,
+							hideHierarchy ? HideFlags.HideInHierarchy : 0);
+					Debug.Log("Created GameObject ID: " + created.GetInstanceID());
+				}
+			GUI.enabled = !create;
+				EditorGUILayout.BeginHorizontal();
+					instanceID = EditorGUILayout.IntField("Instance ID:", instanceID);
+					if(GUILayout.Button("Search & Update flags")) {
+						go = null;
+						go = EditorUtility.InstanceIDToObject(instanceID);
+						if(go)
+							go.hideFlags = hideHierarchy ?  HideFlags.HideInHierarchy : 0;
+					}
+				EditorGUILayout.EndHorizontal();
+
+				if(!go)
+					EditorGUILayout.LabelField("Object: ","No object was found");
+				else
+					EditorGUILayout.LabelField("Object: ", go.name);
+
+			GUI.enabled = true;
+			hideHierarchy = EditorGUILayout.Toggle("HideInHierarchy", hideHierarchy);
+
+		}
+	}
+END EX

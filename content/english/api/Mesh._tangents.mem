@@ -1,0 +1,11 @@
+The tangents of the mesh.
+
+Tangents are mostly used in bump-mapped shaders. A tangent is a unit length vector that follows mesh
+surface along horizontal (U) texture direction. Tangents in Unity are represented as [[Vector4]],
+with ''x,y,z'' components defining the vector, and /w/ used to flip the binormal if needed.
+
+Unity calculates the other surface vector (binormal) by taking a cross product between normal
+and tangent, and multiplying result by tangent.w. Thus /w/ should always be 1 or -1.
+
+You should calculate tangents yourself if you plan to use bump-mapped shaders on the mesh.
+Assign tangents after assigning ::ref::normals or using ::ref::RecalculateNormals

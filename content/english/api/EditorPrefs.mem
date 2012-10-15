@@ -1,0 +1,5 @@
+Stores and accesses Unity editor preferences.
+
+On Mac OS X, EditorPrefs are stored in @@~/Library/Preferences/com.unity3d.UnityEditor.plist@@.
+
+On Windows, EditorPrefs are stored in the registry under the @@HKCU\Software\Unity Technologies\UnityEditor@@ key.

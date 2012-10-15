@@ -1,0 +1,12 @@
+Option passed to a control to give it an absolute width.
+
+{img GUILayoutWidth.png}\\
+''Fixed width for a GUI Control.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws a  button with a  fixed width
+	function OnGUI() {
+		GUILayout.Button("A Button with fixed width", GUILayout.Width(300));
+	}
+END EX

@@ -1,0 +1,10 @@
+Draw a solid box with /center/ and /size/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnDrawGizmosSelected () {
+		// Draw a semitransparent blue cube at the transforms position
+		Gizmos.color = Color (1,0,0,.5);
+		Gizmos.DrawCube (transform.position, Vector3 (1,1,1));
+	}
+END EX

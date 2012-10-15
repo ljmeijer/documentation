@@ -1,0 +1,8 @@
+Does this object cast shadows?
+CONVERTEXAMPLE
+BEGIN EX
+
+	// make the object not cast shadows
+	renderer.castShadows = false;
+END EX
+SA: ::ref::receiveShadows, Light.shadows.

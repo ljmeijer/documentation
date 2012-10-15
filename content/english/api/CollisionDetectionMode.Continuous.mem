@@ -1,0 +1,4 @@
+Continuous collision detection is on for colliding with static mesh geometry.
+Collisions will be detected for any static mesh geometry in the path of this Rigidbody, even if the collision occurs
+between two FixedUpdate steps. Static mesh geometry is any MeshCollider which does not have a Rigidbody attached.
+This also prevent Rigidbodies set to ContinuousDynamic mode from passing through this Rigidbody.

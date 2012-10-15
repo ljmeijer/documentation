@@ -1,0 +1,65 @@
+Setup a matrix for pixel-correct rendering.
+
+This sets up modelview and projection matrices so that X, Y coordinates map
+directly to pixels. The (0,0) is at the bottom left corner of current camera's
+viewport. The Z coordinate goes from -1 to +1.
+
+This function overrides current camera's parameters, so most often you want
+to save and restore matrices using GL.PushMatrix and GL.PopMatrix.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws a red triangle using pixels as coordinates to paint on.
+	var mat : Material;
+
+	function OnPostRender() {
+		if (!mat) {
+			Debug.LogError("Please Assign a material on the inspector");
+			return;
+		}
+		GL.PushMatrix();
+		mat.SetPass(0);
+		GL.LoadPixelMatrix();
+		GL.Color(Color.red);
+		GL.Begin(GL.TRIANGLES);
+		GL.Vertex3(0,0,0);
+		GL.Vertex3(0,Screen.height/2,0);
+		GL.Vertex3(Screen.width/2,Screen.height/2,0);
+		GL.End();
+		GL.PopMatrix();
+	}
+END EX<signature>
+LoadPixelMatrix
+LoadPixelMatrix_float_float_float_float
+</signature>
+Setup a matrix for pixel-correct rendering.
+
+This sets up modelview and projection matrices so that X, Y coordinates map
+directly to pixels. The (left,bottom is at the bottom left corner of current camera's
+viewport; and (top,right) is at the top right corner of current camera's viewport.
+The Z coordinate goes from -1 to +1.
+
+This function overrides current camera's parameters, so most often you want
+to save and restore matrices using GL.PushMatrix and GL.PopMatrix.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var mat : Material;
+
+	function OnPostRender() {
+		if (!mat) {
+			Debug.LogError("Please Assign a material on the inspector");
+			return;
+		}
+		GL.PushMatrix();
+		mat.SetPass(0);
+		GL.LoadPixelMatrix(10,20,10,20);
+		GL.Color(Color.red);
+		GL.Begin(GL.TRIANGLES);
+		GL.Vertex3(10,10,0);
+		GL.Vertex3(10,20,0);
+		GL.Vertex3(20,20,0);
+		GL.End();
+		GL.PopMatrix();
+	}
+END EX

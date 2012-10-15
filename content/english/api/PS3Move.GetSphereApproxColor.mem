@@ -1,0 +1,14 @@
+Returns the approximate color of the controller's sphere specified by ''controllerID''.
+SA: PS3SystemConstants.SupportedMoveControllers
+BEGIN EX
+
+		function OnGUI() {
+			if(PS3Move.IsReady(0)) {
+				GUILayout.Label("PS3Move Controller 0 is Ready! Color = " + PS3Move.GetSphereApproxColor(0));
+			}else{
+				GUILayout.Label("PS3Move Controller 0 is not Ready!");
+			}
+		}
+END EX
+@param controllerID Controller index
+@return Approximate color of the controller's sphere

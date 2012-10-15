@@ -1,0 +1,12 @@
+How and if camera generates a depth texture.
+
+A camera can build a screen-space depth texture. This is mostly useful for image post-processing
+effects. Note that generating the texture incurs a performance cost.
+
+SA: [[DepthTextureMode]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Generate a depth + normals texture
+	camera.depthTextureMode = DepthTextureMode.DepthNormals;
+END EX

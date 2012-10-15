@@ -1,0 +1,6 @@
+Calculate a path between two points and store the resulting path.
+@param sourcePosition The initial postion of the path requested.
+@param targetPosition The final position of the path requested.
+@param passableMask A mask specifying which NavMesh layers can be passed when calculating a path.
+@param path The resulting path.
+@returns True if a path is found.

@@ -1,0 +1,11 @@
+Evaluates script snippet in the containing web page __(Web Player only)__.
+
+This will execute JavaScript snippet /script/ in the web page that contains
+the web player.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Navigates to the previous page
+	Application.ExternalEval ("history.back()");
+END EX
+SA: [[wiki:Unity Web Player and Browser Communication|Browser to Unity communication]], Application.ExternalCall.

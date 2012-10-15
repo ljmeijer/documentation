@@ -1,0 +1,39 @@
+Make all ::ref::EditorGUI look like simplified outline view controls.
+
+This will make the default styles used by EditorGUI look like it does in the inspector.
+
+{img EditorGUIUtilityLookLikeInspector.png}\\
+''Editor window with "LookLikeInspector" look.''
+
+SA: ::ref::LookLikeControls
+BEGIN EX
+
+	// Simple editor window that shows the difference between
+	// Look like controls and look like inspector 
+	
+	class LookLikeControlsInspector extends EditorWindow { 
+		
+	    var integer1 : int = 0;
+	    var float1 : float = 5.5;
+	
+	    @MenuItem("Examples/Look Like Controls - Inspector")
+	    static function Init() {
+	        var window = GetWindow(LookLikeControlsInspector);
+	        window.Show();
+	    }
+	
+	    function OnGUI() {
+	    	EditorGUIUtility.LookLikeInspector ();
+	    		EditorGUILayout.TextField ("Text Field:", "Hello There");
+	    		EditorGUILayout.IntField("Int Field:", integer1);
+	    		EditorGUILayout.FloatField("Float Field:", float1);
+	    	EditorGUILayout.Space();
+	    	EditorGUIUtility.LookLikeControls();
+	    		EditorGUILayout.TextField ("Text Field", "Hello There");
+	    		EditorGUILayout.IntField("Int Field:", integer1);
+	    		EditorGUILayout.FloatField("Float Field:", float1);
+	    }
+	}
+END EX
+
+Note that calling LookLikeInspector will set the indent level to 1 if it was 0 to start with.

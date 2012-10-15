@@ -1,0 +1,14 @@
+Control of an object's position through physics simulation.
+Rigidbody components take control over an object's position - it makes the objects fall down under the influence of gravity, 
+and can calculate how objects will respond to collisions.
+
+When manipulating rigidbody parameters you should work inside the [[MonoBehaviour.FixedUpdate|FixedUpdate function]].
+Physics simulation is carried out in discrete timesteps. The [[MonoBehaviour.FixedUpdate|FixedUpdate function]] is called immediately before each step.
+
+Things to watch out for when using rigid bodies:
+
+__1. If your simulation looks like slow motion and not solid__:\\
+This is a problem of scale. When your game world is huge everything will appear to be move very slowly.
+Make sure all your models are in real world sizes. For example a car should be around 4 meters long. A character around 2 meters high.
+An object falls at the same acceleration no matter big or small, heavy or light.
+If your game world has a large scale, objects will still fall at the same acceleration. But since everything is larger, objects will appear like they fall slower.

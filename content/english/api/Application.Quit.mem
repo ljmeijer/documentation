@@ -1,0 +1,13 @@
+Quits the player application. Quit is ignored in the editor or the web player.
+__IMPORTANT:__ In most cases termination of application under iOS should be left at the user discretion.
+Consult Apple's Technical Q&A qa1561 page for further details: http://developer.apple.com/iphone/library/qa/qa2008/qa1561.html
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Quits the player when the user hits escape
+	function Update () {
+		if (Input.GetKey ("escape")) {
+			Application.Quit();
+		}
+	}
+END EX

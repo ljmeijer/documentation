@@ -1,0 +1,6 @@
+The game object this component is attached to. A component is always attached to a game object.
+CONVERTEXAMPLE
+BEGIN EX
+
+	print (gameObject.name);
+END EX

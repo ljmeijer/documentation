@@ -1,0 +1,32 @@
+<signature>
+DrawTexture_Rect_Texture_Material
+DrawTexture_Rect_Texture_int_int_int_int_Material
+DrawTexture_Rect_Texture_Rect_int_int_int_int_Material
+DrawTexture_Rect_Texture_Rect_int_int_int_int_Color_Material
+</signature>
+Draw a texture in screen coordinates.
+
+If you want to draw a texture from inside of OnGUI code, you should only do that from EventType.Repaint
+events. It's probably better to use GUI.DrawTexture for GUI code.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws a texture on the screen at 10, 10 with 100 width, 100 height.
+
+	var aTexture : Texture;
+
+	function OnGUI() {
+		if(Event.current.type.Equals(EventType.Repaint))
+			Graphics.DrawTexture(Rect(10, 10, 100, 100), aTexture);
+	}
+END EX
+
+@param screenRect	Rectangle on the screen to use for the texture. In pixel coordinates with (0,0) in the upper-left corner.
+@param texture		[[Texture]] to draw.
+@param sourceRect	Region of the texture to use. In normalized coordinates with (0,0) in the bottom-left corner.
+@param leftBorder	Number of pixels from the left that are not affected by scale.
+@param rightBorder	Number of pixels from the right that are not affected by scale.
+@param topBorder	Number of pixels from the top that are not affected by scale.
+@param bottomBorder	Number of pixels from the bottom that are not affected by scale.
+@param color		[[Color]] that modulates the output. The neutral value is (0.5, 0.5, 0.5, 0.5). Set as vertex color for the shader.
+@param mat			Custom [[Material]] that can be used to draw the texture. If null is passed, a default material with the Internal-GUITexture.shader is used.

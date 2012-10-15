@@ -1,0 +1,8 @@
+Strength of light's shadows
+SA: ::ref::shadows property, Renderer.castShadows, Renderer.receiveShadows.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// make light's shadows very faint
+	light.shadowStrength = 0.3;
+END EX

@@ -1,0 +1,4 @@
+Should tangents be split across UV seams.
+This setting is only used when tangentImportMode is set to Calculate.
+
+SA: ::ref::tangentImportMode.

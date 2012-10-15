@@ -1,0 +1,3 @@
+Release a temporary texture allocated with ::ref::GetTemporary.
+Later calls to ::ref::GetTemporary will reuse the RenderTexture created earlier if possible.
+When no one has requested the temporary RenderTexture for a few frames it will be destroyed.

@@ -1,0 +1,29 @@
+Gradually changes a vector towards a desired goal over time.
+The vector is smoothed by some spring-damper like function, which will never overshoot.
+The most common use is for smoothing a follow camera.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Smooth towards the target
+
+	var target : Transform;
+	var smoothTime = 0.3;
+	private var velocity = Vector3.zero;
+	
+	function Update () {
+		// Define a target position above and behind the target transform
+		var targetPosition : Vector3 = target.TransformPoint(Vector3(0, 5, -10));
+		
+		// Smoothly move the camera towards that target position
+		transform.position = Vector3.SmoothDamp(transform.position, targetPosition,
+		                             velocity, smoothTime);
+	}
+END EX
+
+
+@param current           The current position.
+@param target            The position we are trying to reach.
+@param currentVelocity   The current velocity, this value is modified by the function every time you call it.
+@param smoothTime        Approximately the time it will take to reach the target. A smaller value will reach the target faster.
+@param maxSpeed          Optionally allows you to clamp the maximum speed.
+@param deltaTime         The time since the last call to this function. By default Time.deltaTime.

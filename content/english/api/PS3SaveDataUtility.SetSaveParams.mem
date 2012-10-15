@@ -1,0 +1,7 @@
+Sets the Save parameters.
+SA: PS3SaveDataUtility.Init, PS3SaveDataUtility.DoAutoSave, [[wiki:ps3-building]]
+@param	saveSlot		Savegame slot. Value between 0 and Save Game Slots. Save game directory is calculated as <TITLEID>-SAVEDATA<SLOT>
+@param	iconFilename	Path where of the icon to be used for the savegame. Set it to "../ICON0.PNG" to use the icon specified in the Player Settings.
+@param	titleName		Save game title. (max 128 characters).
+@param	subtitleName	Save game short description. (max 128 characters).
+@param	detail			Save game detailed description. (max 1024 characters).

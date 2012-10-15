@@ -1,0 +1,8 @@
+The font used for the text.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Assign manually a font from the inspector to the GUIText
+	var font : Font;
+	guiText.font = font;
+END EX

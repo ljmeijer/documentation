@@ -1,0 +1,18 @@
+This class provides functionality to create and enumerate directories; also to change /current/ directory. Internally this class uses asynchronuous functions. This reflects the way this class is used as all calls are implemented as coroutines.
+BEGIN EX
+
+function ListDirectory (path:String)
+{
+	var dir:NVDirectory = new NVDirectory();
+
+	// continue after reading completes
+	yield dir.Read (path);
+	
+	// if operation was successful, print out the content
+	if (dir.success) {
+		var content:Array = dir.GetDirectoryContent ();		
+		for (var e:String in content)
+			Debug.Log (e);
+	}
+}
+END EX

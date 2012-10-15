@@ -1,0 +1,10 @@
+Fully load all shaders to prevent future performance hiccups.
+
+Usually graphics drivers do not actually prepare shaders until they are first needed.
+However when some object is first rendered with a previously unused shader, there
+can be a hiccup because the driver is compiling/optimizing the shader. This can be quite
+noticeable on mobile platforms.
+
+Calling this function will perform dummy one-invisible-triangle rendering
+with all permutations of all currently loaded shaders. This can take some time but helps
+to avoid hiccups in the future.

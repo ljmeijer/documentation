@@ -1,0 +1,14 @@
+Sets profiler output file in built players.
+Use it with Profiler.enabled to produce profiling information
+outside of the Unity Editor.
+Setting this property is not supported in the WebPlayer. The WebPlayer will output the profiling information next to your webplayer logfile.
+This produces a file with framerate
+SA: Profiler.enabled
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		Profiler.logFile = "mylog.log";
+		Profiler.enabled = true;
+	}
+END EX

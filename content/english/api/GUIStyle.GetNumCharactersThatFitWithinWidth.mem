@@ -1,0 +1,1 @@
+Returns number of characters that can fit within width, returns -1 if fails due to missing font

@@ -1,0 +1,17 @@
+Logs /message/ to the Unity Console.
+CONVERTEXAMPLE
+BEGIN EX
+
+	Debug.Log ("Hello");
+END EX<signature>
+Log_object
+Log_object_object
+</signature>
+Logs /message/ to the Unity Console.
+When you select the message in the console a connection to the context object will be drawn.
+This is very useful if you want know on which object an error occurs.
+CONVERTEXAMPLE
+BEGIN EX
+
+	Debug.Log ("Hello", gameObject);
+END EX

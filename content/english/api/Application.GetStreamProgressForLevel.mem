@@ -1,0 +1,43 @@
+How far has the download progressed? [0...1]
+In the webplayer this returns the progress of this level.
+
+SA: ::ref::CanStreamedLevelBeLoaded function.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Print on a guiText how much has been streamed level at index 1
+	// When finished streaming, print "Level 1 has been fully streamed!"
+	var percentageLoaded : float = 0;
+
+	function Update() {
+		if(Application.GetStreamProgressForLevel(1) == 1) {
+			guiText.text = "Level at index 1 has been fully streamed!";
+		} else {
+			percentageLoaded = Application.GetStreamProgressForLevel(1) * 100;
+			guiText.text = percentageLoaded.ToString();
+		}
+	}
+END EX<signature>
+GetStreamProgressForLevel_int
+GetStreamProgressForLevel_string
+</signature>
+How far has the download progressed? [0...1]
+In the webplayer this returns the progress of this level.
+
+SA: ::ref::CanStreamedLevelBeLoaded function.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Print on a guiText how much has been streamed "Level1"
+	// When finished streaming, print "Level1 has been fully streamed!"
+	var percentageLoaded : float = 0;
+
+	function Update() {
+		if(Application.GetStreamProgressForLevel("Level1") == 1) {
+			guiText.text = "Level 1 has been fully streamed!";
+		} else {
+			percentageLoaded = Application.GetStreamProgressForLevel("Level1") * 100;
+			guiText.text = percentageLoaded.ToString();
+		}
+	}
+END EX

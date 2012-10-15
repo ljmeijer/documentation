@@ -1,0 +1,10 @@
+CSNONE
+This function is called when the scriptable object will be destroyed.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnDestroy () {
+		print("Script was destroyed");
+	}
+END EX
+OnDestroy cannot be a co-routine.

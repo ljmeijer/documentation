@@ -1,0 +1,22 @@
+Makes a script execute in edit mode.
+
+By default, script components are only executed in play mode.
+By adding this attribute, each script component will also have its callback functions executed while the Editor is not in playmode.
+
+The functions are not called constantly like they are in play mode.\\
+- [[MonoBehaviour.Update|Update]] is only called when something in the scene changed.\\
+- [[MonoBehaviour.OnGUI|OnGUI]] is called when the Game View recieves an [[Event]].\\
+- [[MonoBehaviour.OnRenderObject|OnRenderObject]] and the other rendering callback functions are called on every repaint of the Scene View or Game View.
+CONVERTEXAMPLE
+BEGIN EX
+
+// Make the script also execute in edit mode.
+@script ExecuteInEditMode()
+
+// Just a simple script that looks at the target transform.
+var target : Transform;
+function Update () {
+	if (target)
+		transform.LookAt(target);
+}
+END EX

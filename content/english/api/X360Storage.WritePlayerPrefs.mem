@@ -1,0 +1,4 @@
+PlayerPrefs hook: writes PlayerPrefs to "mountName:\player.prefs".
+Returns false if a storage operation is already active by checking /IsStorageOpActive/ or if file could not be written.
+/IsStorageOpActive/ will return true and PlayerPrefs will be inaccessible during the operation.
+/onComplete/ is never called if this function returns false.

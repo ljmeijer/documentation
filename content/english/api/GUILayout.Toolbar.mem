@@ -1,0 +1,32 @@
+<signature>
+Toolbar_int_stringArray_GUILayoutOptionArray
+Toolbar_int_TextureArray_GUILayoutOptionArray
+Toolbar_int_GUIContentArray_GUILayoutOptionArray
+Toolbar_int_stringArray_GUIStyle_GUILayoutOptionArray
+Toolbar_int_TextureArray_GUIStyle_GUILayoutOptionArray
+Toolbar_int_GUIContentArray_GUIStyle_GUILayoutOptionArray
+</signature>
+Make a toolbar
+
+{img GUILayoutToolbar.png}\\
+''Toolbar in the Game View.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	var toolbarInt : int = 0;
+	var toolbarStrings : String[] = ["Toolbar1", "Toolbar2", "Toolbar3"];
+
+	function OnGUI () {
+		toolbarInt = GUILayout.Toolbar (toolbarInt, toolbarStrings);
+	}
+END EX
+
+@param selected				The index of the selected button
+@param texts					An array of strings to show on the buttons.
+@param images				An array of textures on the buttons.
+@param contents				An array of text, image and tooltips for the button.
+@param style					The style to use. If left out, the /button/ style from the current [[GUISkin]] is used.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The index of the selected button.

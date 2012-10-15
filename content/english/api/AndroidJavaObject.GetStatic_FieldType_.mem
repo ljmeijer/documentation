@@ -1,0 +1,13 @@
+Get the value of a static field in an object type.
+The generic parameter determines the field type.
+BEGIN EX
+
+	// Create an object of user provided class org.example.StaticFields,
+	// and get the string value of field 'globalName'.
+	function Start() {
+		var jo = new AndroidJavaObject("org.example.StaticFields");
+		var globalName = jo.Get.<string>("globalName");
+	}
+END EX
+
+@param fieldName The name of the field (e.g. <i>int counter;</i> would have fieldName = "counter")

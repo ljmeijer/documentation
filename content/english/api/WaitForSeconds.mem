@@ -1,0 +1,12 @@
+Suspends the coroutine execution for the given amount of seconds.
+WaitForSeconds can only be used with a /yield/ statement in coroutines.
+CONVERTEXAMPLE
+BEGIN EX
+
+// Prints 0
+print (Time.time);
+// Waits 5 seconds
+yield WaitForSeconds (5);
+// Prints 5.0
+print (Time.time);
+END EX

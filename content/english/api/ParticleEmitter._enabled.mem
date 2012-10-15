@@ -1,0 +1,12 @@
+Turns the ParticleEmitter on or off.
+A ParticleEmitter which is not enabled will not emit any particles, and the emitted particles will not animate.
+So, this value allows you to pause a particle emitter.
+
+The default value is true.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Pause particle emitter.
+
+	particleEmitter.enabled = false;
+END EX

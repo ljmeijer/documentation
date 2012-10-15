@@ -1,0 +1,6 @@
+The actual unfiltered selection from the Scene returned as instance ids instead of ::ref::objects.
+Only objects from the Scene or Hierarchy will be returned, not from the Project View. You can also assign objects to the selection.
+
+The instance ID of an object is always guaranteed to be unique.
+
+SA: Selection.objects, Object.GetInstanceID

@@ -1,0 +1,5 @@
+Removes a transform which should be animated.
+You can only pass transforms that have been added through ::ref::AddMixingTransform function. If transform has been 
+added as /recursive/, then it will be removed as /recursive/. Once you remove all mixing transforms added to 
+animation state all curves become animated again.
+SA: ::ref::AddMixingTransform function.

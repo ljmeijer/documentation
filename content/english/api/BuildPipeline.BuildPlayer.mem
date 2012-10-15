@@ -1,0 +1,19 @@
+Builds a player __(Unity Pro only)__.
+
+Use this function to programatically create a build of your project.
+Note that any references to GameObjects acquired in the editor script /before/ the BuildPlayer call will be invalid after it and will need to be reacquired.
+BEGIN EX
+
+	// Build a folder containing unity3d file and html file
+	@MenuItem ("Build/BuildWebplayer")
+	static function MyBuild(){
+		var levels : String[] = ["Assets/Scene1.unity", "Assets/Scene2.unity"];
+		BuildPipeline.BuildPlayer( levels, "WebPlayerBuild", 
+					   BuildTarget.WebPlayer, BuildOptions.None); 
+	}
+END EX
+@param levels The scenes to be included in the build. If empty, the currently open scene will be built. Paths are relative to the project folder (Assets/MyLevels/MyScene.unity).
+@param locationPathName The path where the application will be built.
+@param target The [[BuildTarget]] to build.
+@param options Additional [[BuildOptions]], like whether to run the built player.
+@return an error message if an error occurred.

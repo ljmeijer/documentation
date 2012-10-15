@@ -1,0 +1,8 @@
+Determines how the bounciness is combined.
+Traditionally bounciness properties are dependent on the combination of the two materials in contact.
+This is however impractical in a game. Instead you can use the combine mode to tune how the bounciness values of two materials are combined.
+CONVERTEXAMPLE
+BEGIN EX
+
+	collider.material.bounceCombine = PhysicMaterialCombine.Average;
+END EX

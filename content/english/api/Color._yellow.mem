@@ -1,0 +1,7 @@
+Yellow. RGBA is (1, 0.92, 0.016, 1), but the color is nice to look at!
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Assign a yellow color to this transform's material
+	transform.renderer.material.color = Color.yellow;
+END EX

@@ -1,0 +1,11 @@
+Pixel offset to apply to the content of this GUIstyle
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints the value of contentOffset inside customStyles[0]
+	
+	function OnGUI() {
+		if(GUI.skin.customStyles.Length > 0)
+			Debug.Log(GUI.skin.customStyles[0].contentOffset);
+	}
+END EX

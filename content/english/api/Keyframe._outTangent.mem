@@ -1,0 +1,26 @@
+Describes the tangent when leaving this point towards the next point in the curve.
+
+SA: ::ref::inTangent.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Make an object follow a line among the X axis
+	// Notice how the tangents modify the behaviour of the animation
+	
+	private var ks : Keyframe[] = new Keyframe[3];
+	private var anim : AnimationCurve ;
+
+	function Start() {
+		ks[0] = Keyframe(0, 0);
+		ks[0].outTangent = 0;
+		ks[1] = Keyframe(4, 0);
+		ks[1].outTangent = 45;
+		ks[2] = Keyframe(8, 0);
+		ks[2].outTangent = 90;
+		anim = AnimationCurve(ks);
+	}
+	
+	function Update() {
+		transform.position = Vector3(Time.time,anim.Evaluate(Time.time),0); 
+	}
+END EX

@@ -1,0 +1,6 @@
+The version of the Unity runtime used to play the content.
+CONVERTEXAMPLE
+BEGIN EX
+
+	print ("Version of the runtime: " + Application.unityVersion);
+END EX

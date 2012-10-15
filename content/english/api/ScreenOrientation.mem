@@ -1,0 +1,5 @@
+Describes screen orientation.
+
+Currently this is only relevant on mobile devices.
+
+SA: Screen.orientation.

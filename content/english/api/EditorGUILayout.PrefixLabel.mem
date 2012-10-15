@@ -1,0 +1,31 @@
+<signature>
+PrefixLabel_string_GUIStyle
+PrefixLabel_string_GUIStyle_GUIStyle
+PrefixLabel_GUIContent_GUIStyle
+PrefixLabel_GUIContent_GUIStyle_GUIStyle
+</signature>
+Make a label in front of some control.
+
+{img SimplePrefixLabelUsage.png}\\
+''Simple window that shows the prefix label.''
+BEGIN EX
+
+	class SimplePrefixLabelUsage extends EditorWindow {
+
+		@MenuItem("Examples/PrefixLabel Usage")
+		static function Init() {
+			var window = GetWindow(SimplePrefixLabelUsage);
+			window.Show();
+		}
+
+		function OnGUI() {
+			var ammo : int = 0;
+			EditorGUILayout.BeginHorizontal();
+			EditorGUILayout.PrefixLabel("Ammo");
+			target = EditorGUILayout.IntField(ammo);
+			EditorGUILayout.EndHorizontal();
+		}
+	}
+END EX
+
+@param label Label to show in front of the control.

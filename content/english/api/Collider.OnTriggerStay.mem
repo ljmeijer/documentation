@@ -1,0 +1,17 @@
+CSNONE
+OnTriggerStay is called ''almost'' all the frames for every [[Collider]] __other__ that is touching the [[class-BoxCollider|trigger]].
+This message is sent to the trigger and the collider that touches the trigger.
+Note that trigger events are only sent if one of the colliders also has a rigidbody attached.
+
+__Note:__ OnTriggerStay function is on the physics timer so it wont necessary run every frame.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Applies an upwards force to all rigidbodies that enter the trigger.
+
+	function OnTriggerStay (other : Collider) {
+		if (other.attachedRigidbody) {
+			other.attachedRigidbody.AddForce(Vector3.up * 10);
+		}
+	}
+END EX

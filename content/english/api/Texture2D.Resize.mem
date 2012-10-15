@@ -1,0 +1,21 @@
+Resizes the texture.
+
+Changes size of texture to /width/ by /height/, format to /textureFormat/ and optionally creates mip maps.
+After resizing, texture pixels will be undefined. This function is very similar to the texture constructor,
+except it works on existing texture object.
+
+Call ::ref::Apply to actually upload the changed pixels to the graphics card.
+
+The texture has to have __Is Readable__ flag set in the import settings.<signature>
+Resize_int_int_TextureFormat_bool
+Resize_int_int
+</signature>
+Resizes the texture.
+
+Changes size of texture to /width/ by /height/.
+After resizing, texture pixels will be undefined. This function is very similar to texture constructor,
+except it works on existing texture object.
+
+Call ::ref::Apply to actually upload the changed pixels to the graphics card.
+
+The texture has to have __Is Readable__ flag set in the import settings.

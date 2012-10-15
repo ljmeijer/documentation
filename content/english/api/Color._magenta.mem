@@ -1,0 +1,7 @@
+Magenta. RGBA is (1, 0, 1, 1).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Assign a magenta color to this transform's material
+	transform.renderer.material.color = Color.magenta;
+END EX

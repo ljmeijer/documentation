@@ -1,0 +1,9 @@
+Contains the path to a temporary data / cache directory (RO).
+
+The value is a directory path where temporary data can be stored.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// print the path to the temporary data folder
+	print (Application. temporaryCachePath);
+END EX

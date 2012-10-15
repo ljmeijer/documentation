@@ -1,0 +1,3 @@
+Constructs an exception object from the specified class with the <tt>message</tt> specified by message and causes that exception to be thrown.
+
+SA: <a href="http://download.oracle.com/javase/1.5.0/docs/guide/jni/spec/jniTOC.html">Java Native Interface Specification (Oracle)</a>

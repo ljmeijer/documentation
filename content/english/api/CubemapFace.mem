@@ -1,0 +1,3 @@
+[[Cubemap]] face.
+
+Used by Cubemap.GetPixel and Cubemap.SetPixel.

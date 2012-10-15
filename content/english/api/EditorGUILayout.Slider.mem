@@ -1,0 +1,54 @@
+<signature>
+Slider_float_float_float_GUILayoutOptionArray
+Slider_string_float_float_float_GUILayoutOptionArray
+Slider_GUIContent_float_float_float_GUILayoutOptionArray
+</signature>
+Make a slider the user can drag to change a value between a min and a max.
+
+{img EditorGUILayoutSlider.png}\\
+''Scale the selected object between a range.''
+BEGIN EX
+
+	// Editor script that lets you scale the selected GameObject between 1 and 100
+	
+	class EditorGUILayoutSlider extends EditorWindow {
+	
+		var scale : float = 0.0;
+	
+		@MenuItem("Examples/Editor GUILayout Slider usage")
+		static function Init() {
+			var window = GetWindow(EditorGUILayoutSlider);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			scale = EditorGUILayout.Slider(scale,1, 100);
+		}
+		function OnInspectorUpdate() {
+			if(Selection.activeTransform)
+				Selection.activeTransform.localScale = Vector3(scale, scale, scale);
+		}
+	}
+END EX
+
+@param label Optional label in front of the slider.
+@param value The value the slider shows. This determines the position of the draggable thumb.
+@param leftValue The value at the left end of the slider.
+@param rightValue The value at the right end of the slider.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The value that has been set by the user.
+<signature>
+Slider_SerializedProperty_float_float_GUILayoutOptionArray
+Slider_SerializedProperty_float_float_string_GUILayoutOptionArray
+Slider_SerializedProperty_float_float_GUIContent_GUILayoutOptionArray
+</signature>
+Make a slider the user can drag to change a value between a min and a max.
+@param label Optional label in front of the slider.
+@param property The value the slider shows. This determines the position of the draggable thumb.
+@param leftValue The value at the left end of the slider.
+@param rightValue The value at the right end of the slider.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight

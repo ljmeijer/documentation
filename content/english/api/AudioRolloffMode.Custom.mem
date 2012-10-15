@@ -1,0 +1,14 @@
+Use this when you want to use a custom rolloff.
+
+__Note:__ Currently is not possible to modify the volume curve via scripting.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Sets the rolloff of the audio source attached to
+	// this script to custom.
+	
+	@script RequireComponent(AudioSource)
+	function Start() {
+		audio.rolloffMode = AudioRolloffMode.Custom;
+	}
+END EX

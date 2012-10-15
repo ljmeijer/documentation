@@ -1,0 +1,2 @@
+Status flag indicating that the room is very colorful and may interfere with tracking.
+SA: PS3SystemUtility.SystemNotificationDelegate /status/

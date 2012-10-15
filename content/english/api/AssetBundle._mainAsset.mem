@@ -1,0 +1,13 @@
+Main asset that was supplied when building the asset bundle (RO).
+This is a convenience function that makes it easy to find the primary asset of a bundle.
+For example you might want to have a prefab of a character and include all textures, materials, meshes and animations files with it.
+But the fully rigged prefab of the character would be your mainAsset and can easily be accessed.
+BEGIN EX
+
+	function Start () {
+		var www = WWW ("http://myserver/myBundle.unity3d");
+		yield www;
+		// Get the designated main asset and instantiate it.
+		Instantiate(www.assetBundle.mainAsset);
+	}
+END EX

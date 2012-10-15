@@ -1,0 +1,10 @@
+A plane primitive
+SA: GameObject.CreatePrimitive
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Creates a plane primitive
+	function Start () {
+		var plane : GameObject = GameObject.CreatePrimitive(PrimitiveType.Plane);
+	}
+END EX

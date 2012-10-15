@@ -1,0 +1,17 @@
+Returns a unique path in the Temp folder within your current project.
+The returned path is relative to the project folder.
+
+The returned path is of a form @@Temp/UnityTempFile-''uniqueID''@@, where uniqueID is guaranteed to be
+unique over space and time.
+
+You can use it to create temporary files/folders and be sure that
+you are not overriding somebody else's files, plus you don't have to
+keep track of the unique IDs yourself.
+BEGIN EX
+
+	@MenuItem ("Example/Get Unique Path")
+	static function GetUniqueProjectPath () {
+		// Prints the unique path
+		Debug.Log (FileUtil.GetUniqueTempPathInProject ());
+	}
+END EX

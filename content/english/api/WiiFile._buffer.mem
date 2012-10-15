@@ -1,0 +1,1 @@
+Return AlignedBuffer object passed to ReadAsync. Set to null if you want GC to collect AlignedBuffer object while having a reference to WiiFile.

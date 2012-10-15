@@ -1,0 +1,10 @@
+A cube primitive
+SA: GameObject.CreatePrimitive
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Creates a cube primitive
+	function Start () {
+		var cube : GameObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
+	}
+END EX

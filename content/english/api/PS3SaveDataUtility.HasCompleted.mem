@@ -1,0 +1,3 @@
+Checks if the active operation has completed.
+SA: PS3SaveDataUtility.Init
+@return @@true@@ if the active operation has completed, @@false@@ otherwise.

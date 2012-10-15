@@ -1,0 +1,2 @@
+Animation generation options for [[ModelImporter]].
+SA: ModelImporter.normalImportMode, ModelImporter.tangentImportMode.

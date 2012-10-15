@@ -1,0 +1,10 @@
+The default maximimum angular velocity permitted for any rigid bodies (default 7). Must be positive.
+The angular velocity of rigidbodies is clamped to maxAngularVelocity to avoid numerical instability with fast rotating bodies.
+Because this may prevent intentional fast rotations on objects such as wheels, you can override this value per rigidbody using Rigidbody.maxAngularVelocity.
+
+This value is usually changed in @@Edit->Project Settings->Physics@@ inspector instead of from scripts.
+CONVERTEXAMPLE
+BEGIN EX
+
+	Physics.maxAngularVelocity = 10;
+END EX

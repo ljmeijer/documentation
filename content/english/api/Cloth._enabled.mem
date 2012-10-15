@@ -1,0 +1,9 @@
+Is this cloth enabled?
+This is the same as the checkbox next to the component label in the inspector.
+A disabled cloth component will not update it's physics simulation, so you can use this to suspend the simulation of cloth
+objects when they are not needed, as cloth simulation is a very CPU-intensive task.
+CONVERTEXAMPLE
+BEGIN EX
+
+	GetComponent(InteractiveCloth).enabled = false;
+END EX

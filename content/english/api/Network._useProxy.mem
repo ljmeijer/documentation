@@ -1,0 +1,84 @@
+Indicate if proxy support is needed, in which case traffic is relayed through the proxy server.
+
+The proxy server is a solution to connectivity problems with servers
+as well as clients. When a machine has an non NAT punchthrough capable
+router his connectivity options are limited. A game cannot be hosted
+as nobody external can connect to him (only clients on the local network can).
+By using the proxy server the machine can be fully connectable but with
+the extra cost of having all traffic relayed through another server.
+A non NAT punchthrough capable client can connect to any server through 
+the proxy server, as long as the proxy server is set up properly.
+
+Unity Technologies does not provide a proxy server for public use, so to
+use this feature you will need to set up your own proxy server. Of course
+it is advisable to set up a proxy server with a public IP address and
+a lot of available bandwidth.
+
+When running as a client, just enabling Network.useProxy is all you have
+to do. Connect to the server as usual with Network.Connect(). All traffic 
+will be relayed through the proxy server. The servers external IP and internal
+IP still work as usual. So clients can connect to him directly without
+the proxy in case they are located on the same network.
+
+When running as a server OnServerInitialized(NetworkPlayer) returns a
+NetworkPlayer structure which indicates what the game servers relayed
+IP/port is, i.e. what port the proxy server allocated to the game server. 
+This is the IP/port others can use to connect to. When connecting to the
+server, the clients don't treat the server any differently than other servers.
+Technically speaking, they don't need to know at all that the game server
+is getting help from a proxy server. 
+
+When using the master server you can no longer only rely on the IP/port he
+registers for servers when using proxy support. The proxy server IP address
+and port which the server is using can be placed in the comment field of
+the data sent to the master server. A client which received host information
+from the master server can peek into the comment field and find out if
+he can use an alternative IP/port for that host.
+
+IMPORTANT: You should never enable proxy support for both the server and
+the client connecting to him. Unexpected things are bound to happen.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var imaserver: boolean;
+	var serverIP: String;
+	var serverPort: int;
+	var serverUsesNAT: boolean;
+	
+	function Awake() {
+		// Set custom proxy server address
+		Network.proxyIP = "1.1.1.1";
+		Network.proxyPort = 1111;
+	
+		if (imaserver)
+			StartServerWithProxy();
+		else
+			ConnectToServerWithProxy();
+	}
+	
+	function StartServerWithProxy() {
+		Network.useProxy = true;
+		Network.InitializeServer(2,25000, false);
+	}
+	
+	function OnServerInitialized(player: NetworkPlayer) {
+		if (Network.useProxy)
+			Debug.Log ("Successfully started server with proxy support. We are connectable through "
+				+ player.ipAddress + ":" + player.port);
+	}
+
+	function OnFailedToConnect(msg: NetworkConnectionError) {
+		if (Network.useProxy && imaserver) {
+			Debug.LogError("Failed to connect to proxy server: " + msg);
+		}
+	}
+
+	function ConnectToServerWithProxy() {
+		Network.useProxy = true;
+		Network.Connect(serverIP, serverPort);
+	}
+
+	function OnConnectedToServer() {
+		Debug.Log("Connected successfully to server");
+	}
+END EX

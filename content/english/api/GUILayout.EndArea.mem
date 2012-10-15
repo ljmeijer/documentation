@@ -1,0 +1,15 @@
+Close a GUILayout block started with BeginArea
+
+{img GUILayoutArea.png}\\
+''Explained Area of the example.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI () {
+		GUILayout.BeginArea (Rect (10,10,100,100));
+		GUILayout.Button ("Click me");
+		GUILayout.Button ("Or me");
+		// Ends the area started above
+		GUILayout.EndArea ();
+	}
+END EX

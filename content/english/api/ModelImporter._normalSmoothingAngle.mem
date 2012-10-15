@@ -1,0 +1,5 @@
+Smoothing angle for calculating normals.
+How sharp the edge has to be to be turned into a hard edge when calculating normals.
+This setting is only used when normalImportMode is set to Calculate.
+
+SA: ::ref::normalImportMode.

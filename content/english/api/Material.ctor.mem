@@ -1,0 +1,68 @@
+Create a temporary material from a shader source string.
+
+If you have a script which implements a custom special effect, you implement all the graphic setup
+using shaders & materials. Use this function to create a custom shader & material inside your script.
+After creating the material, use ::ref::SetColor, ::ref::SetTexture, ::ref::SetFloat,
+::ref::SetVector, ::ref::SetMatrix to populate the shader property values.
+BEGIN EX
+
+	// Creates an additive-blended material and uses it for rendering
+	var color = Color.white;
+	function Start () {
+		var shaderText =
+			"Shader \"Alpha Additive\" {" +
+			"Properties { _Color (\"Main Color\", Color) = (1,1,1,0) }" +
+			"SubShader {" +
+			"	Tags { \"Queue\" = \"Transparent\" }" +
+			"	Pass {" +
+			"		Blend One One ZWrite Off ColorMask RGB" +
+			"		Material { Diffuse [_Color] Ambient [_Color] }" +
+			"		Lighting On" +
+			"		SetTexture [_Dummy] { combine primary double, primary }" +
+			"	}" +
+			"}" +
+			"}";
+		renderer.material = new Material( shaderText );
+		renderer.material.color = color;
+	}
+END EX
+
+NOTE: Creating materials this way supports only simple shaders (fixed function ones). If you need
+a surface shader, or vertex/pixel shaders, you'll need to create shader asset in the editor
+and use that.
+
+SA: [[wiki:Shaders|ShaderLab documentation]].<signature>
+ctor_string
+ctor_Shader
+</signature>
+Create a temporary Material from a [[Shader]].
+
+If you have a script which implements a custom special effect, you implement all the graphic setup
+using shaders & materials. Use this function to create a custom shader & material inside your script.
+After creating the material, use ::ref::SetColor, ::ref::SetTexture, ::ref::SetFloat,
+::ref::SetVector, ::ref::SetMatrix to populate the shader property values.
+BEGIN EX
+
+	// Creates a material from shader&texture references
+	var shader : Shader;
+	var texture : Texture;
+	var color : Color;
+	function Start () {
+		renderer.material = new Material (shader);
+		renderer.material.mainTexture = texture;
+		renderer.material.color = color;
+	}
+END EX
+
+BEGIN EX
+
+	// Creates a cube and assigns a material with a builtin Specular shader.
+	function Start () {
+		var cube = GameObject.CreatePrimitive (PrimitiveType.Cube);
+		cube.renderer.material = new Material (Shader.Find("Specular"));
+	}
+END EX
+<signature>
+ctor_Material
+</signature>
+Create a temporary Material by copying the shader and all properties from the /source/ Material.

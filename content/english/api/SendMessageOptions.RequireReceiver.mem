@@ -1,0 +1,2 @@
+A receiver is required for SendMessage.
+If no receiver is found, an error is printed to the console. (This is the default value.)

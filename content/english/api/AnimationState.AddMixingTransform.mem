@@ -1,0 +1,27 @@
+Adds a transform which should be animated. This allows you to reduce the number of animations you have to create.
+For example you might have a handwaving animation.
+You might want to play the hand waving animation on a idle character or on a walking character.
+Either you have to create 2 hand waving animations one for idle, one for walking.
+By using mixing the hand waving animation will have full control of the shoulder. But the lower body will not be affected by it, and continue playing the idle or walk animation.
+Thus you only need one hand waving animation.
+
+If /recursive/ is true all children of the /mix/ transform will also be animated.
+If you don't call AddMixingTransform, all animation curves will be used.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start() {
+		var shoulder : Transform;
+		animation["wave_hand"].AddMixingTransform(shoulder);
+	}
+END EX
+Another example using a path.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		// Adds a mixing transform using a path instead
+		var mixTransform : Transform = transform.Find("root/upper_body/left_shoulder");
+		animation["wave_hand"].AddMixingTransform(mixTransform);
+	}
+END EX

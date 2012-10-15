@@ -1,0 +1,13 @@
+Style used by default for GUI::ref::Button controls.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Modifies only the button style of the current GUISkin
+
+	var style : GUIStyle;
+
+	function OnGUI() {
+		GUI.skin.button = style;
+		GUILayout.Button("This is a button.");
+	}
+END EX

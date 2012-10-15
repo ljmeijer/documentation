@@ -1,0 +1,2 @@
+Draw the gizmo if it is selected.
+It is recommended to always use GizmoType.SelectedOrChild instead.

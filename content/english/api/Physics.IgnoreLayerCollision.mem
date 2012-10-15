@@ -1,0 +1,3 @@
+Makes the collision detection system ignore all collisions between any collider in /layer1/ and any collider in /layer2/.
+You can set the default values for your project for any layer combinations in the Physics inspector.
+SA: [[Physics.GetIgnoreLayerCollision]],[[Physics.IgnoreCollision]]

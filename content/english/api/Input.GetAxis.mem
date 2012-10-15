@@ -1,0 +1,46 @@
+Returns the value of the virtual axis identified by /axisName/.
+The value will be in the range -1...1 for keyboard and joystick input.
+If the axis is setup to be delta mouse movement, the mouse delta is multiplied by the axis
+sensitivity and the range is not -1...1.
+
+This is frame-rate independent; you do not need to be concerned about varying frame-rates when using this value.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// A very simplistic car driving on the x-z plane.
+
+	var speed : float = 10.0;
+	var rotationSpeed : float = 100.0;
+
+	function Update () {
+		// Get the horizontal and vertical axis.
+		// By default they are mapped to the arrow keys.
+		// The value is in the range -1 to 1
+		var translation : float = Input.GetAxis ("Vertical") * speed;
+		var rotation : float = Input.GetAxis ("Horizontal") * rotationSpeed;
+		
+		// Make it move 10 meters per second instead of 10 meters per frame...
+		translation *= Time.deltaTime;
+		rotation *= Time.deltaTime;
+		
+		// Move translation along the object's z-axis
+		transform.Translate (0, 0, translation);
+		// Rotate around our y-axis
+		transform.Rotate (0, rotation, 0);
+	}
+END EX
+
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Performs a mouse look.
+
+	var horizontalSpeed : float = 2.0;
+	var verticalSpeed : float = 2.0;
+	function Update () {
+		// Get the mouse delta. This is not in the range -1...1
+		var h : float = horizontalSpeed * Input.GetAxis ("Mouse X");
+		var v : float = verticalSpeed * Input.GetAxis ("Mouse Y");
+		transform.Rotate (v, h, 0);
+	}
+END EX

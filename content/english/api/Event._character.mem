@@ -1,0 +1,15 @@
+The character typed.
+Used in EventType.KeyDown event. Note that EventType.KeyUp events might not contain
+a character, only Event.keyCode.
+
+SA: Event.keyCode.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI() {
+		var e : Event = Event.current;
+		if (e.isKey) {
+			Debug.Log("Detected character: " + e.character);
+		}
+	}
+END EX

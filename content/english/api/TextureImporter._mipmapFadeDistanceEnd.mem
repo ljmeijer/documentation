@@ -1,0 +1,2 @@
+Mip level where texture is faded out completely.
+SA: ::ref::mipmapEnabled, ::ref::fadeout, ::ref::mipmapFadeDistanceStart.

@@ -1,0 +1,10 @@
+Is the animation named /name/ playing?
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Plays an animation only if we are not playing it already.
+	function OnMouseEnter() {
+		if (!animation.IsPlaying("mouseOverEffect"))
+			animation.Play("mouseOverEffect");
+	}
+END EX

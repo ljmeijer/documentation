@@ -1,0 +1,2 @@
+If set, Renderer will use this Transform's position to find the interpolated light probe;
+otherwise the center of Renderer's AABB will be used.

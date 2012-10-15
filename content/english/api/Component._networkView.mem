@@ -1,0 +1,6 @@
+The [[NetworkView]] attached to this [[GameObject]] (RO). (null if there is none attached)
+CONVERTEXAMPLE
+BEGIN EX
+
+	networkView.RPC("MyFunction", RPCMode.All, "someValue");
+END EX

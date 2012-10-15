@@ -1,0 +1,7 @@
+The indexed list of available Quality Settings
+CONVERTEXAMPLE
+BEGIN EX
+
+	var names : String[];
+	names = QualitySettings.names;
+END EX

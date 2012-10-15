@@ -1,0 +1,9 @@
+Returns the type of Internet reachability currently possible on the device.
+
+This property is mostly useful on handhelds to distinguish fast and
+cheap WiFi connection from carrier networking.
+
+Note: Do not use this property to determine the actual connectivity.
+E.g. the device can be connected to a hot spot, but not have the actual
+route to the network. Non-handhelds are considered to always be capable
+of [[NetworkReachability.ReachableViaLocalAreaNetwork]].

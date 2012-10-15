@@ -1,0 +1,2 @@
+Base class for all /yield/ instructions.
+See [[WaitForSeconds]], [[WaitForFixedUpdate]], [[Coroutine]] and MonoBehaviour.StartCoroutine for more information.

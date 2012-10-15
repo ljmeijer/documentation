@@ -1,0 +1,9 @@
+Allows you to override the solver iteration count per rigidbody.
+The solverIterationCount determines how accuratly joints and contacts are resolved. 
+If you are having trouble with jointed bodies oscillating and behaving erratically setting 
+a higher solver iteration count may improve their stability.
+CONVERTEXAMPLE
+BEGIN EX
+
+	rigidbody.solverIterationCount = 10;
+END EX

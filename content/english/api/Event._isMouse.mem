@@ -1,0 +1,12 @@
+Is this event a mouse event? (RO)
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Detects any mouse event
+	function OnGUI() {
+		var e : Event = Event.current;
+		if (e.isMouse){
+			Debug.Log("Detected a mouse event!");
+		}
+	}
+END EX

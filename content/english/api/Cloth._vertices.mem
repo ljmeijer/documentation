@@ -1,0 +1,5 @@
+The current vertex positions of the cloth object.
+This gives you read access to the vertex positions of the cloth object, so you can analyse it's current simulation state.
+Note that the vertex indices may not necessarily correspond to the indices of the source mesh - especially when triangle stripping
+or UV seams are used in the source mesh (ie, multiple indices for the same vertex), cloth vertices will be different, as the cloth
+simulation only uses a single index for each vertex.

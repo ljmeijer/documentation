@@ -1,0 +1,21 @@
+Style used by default for Window controls (SA GUI::ref::Window).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Modifies only the window style of the current GUISkin
+
+	var style : GUIStyle;
+	var windowRect : Rect = Rect (20, 20, 120, 50);
+
+	function OnGUI() {
+		GUI.skin.window = style;
+		windowRect = GUILayout.Window (0, windowRect, DoMyWindow, "My Window");
+	}
+
+	// Make the contents of the window
+	function DoMyWindow (windowID : int) {
+		 // This button will size to fit the window
+		if (GUILayout.Button ("Hello World"))
+			print ("Got a click");
+	}
+END EX

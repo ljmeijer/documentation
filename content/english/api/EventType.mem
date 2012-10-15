@@ -1,0 +1,3 @@
+Types of UnityGUI input and processing events.
+
+SA: Event.type, [[Event]], [[wiki:GUI Scripting Guide|GUI Scripting Guide]].

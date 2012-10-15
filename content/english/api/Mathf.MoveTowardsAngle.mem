@@ -1,0 +1,15 @@
+Same as ::ref::MoveTowards but makes sure the values interpolate correctly when they wrap around 360 degrees.
+Variables /current/ and /target/ are assumed to be in degrees.
+For optimization reasons, negative values of /maxDelta/ are not supported and may cause oscillation. To push /current/ away from a target angle, add 180 to that angle instead.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var target = 270.0;
+	var speed = 45.0;
+
+	function Update () {
+		var angle : float = Mathf.MoveTowardsAngle
+			(transform.eulerAngles.y, target, speed * Time.deltaTime);
+		transform.eulerAngles = Vector3(0, angle, 0);
+	}
+END EX

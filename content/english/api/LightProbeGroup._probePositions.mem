@@ -1,0 +1,35 @@
+Editor only function to access and modify probe positions.
+Probe positions are specified in local space relative to the parent object.
+
+At runtime this function will return an empty Vector3 array and setting it will have no effect.
+BEGIN EX
+
+	// Create four probe positions which will form a tetrahedron.
+	
+	class LightProbePositions extends EditorWindow {
+
+		var lightProbes : LightProbeGroup = null;
+		
+		@MenuItem ("Examples/Set Probe Positions")
+		static function Init () {
+			var window = GetWindow (LightProbePositions);
+			window.Show ();
+		}
+		
+		function OnGUI () {
+			lightProbes = EditorGUILayout.ObjectField (
+				"Find Dependency",
+				lightProbes,
+				LightProbeGroup,
+				true);
+		
+			if (lightProbes) {
+				if (GUILayout.Button ("Set Probe Positions")) {
+					lightProbes.probePositions = [ Vector3 (0,0,0), Vector3 (1,0,0), Vector3 (0,1,0), Vector3 (1,1,1) ];
+				}
+			} else {
+				EditorGUILayout.LabelField ("Missing:", "Please select an object first!");
+			}
+		}
+	}
+END EX

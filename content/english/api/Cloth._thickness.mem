@@ -1,0 +1,11 @@
+The thickness of the cloth surface.
+This is the distance kept between any cloth vertex and and other collider (or other cloth vertex if self-collision is enabled). 
+Any object closer then this distance will collide with the cloth. If this value is too low, you may see the edges of objects
+intersecting the cloth surface. If this value is too high, you may see noticable distance between the cloth surface and colliding
+objects or stiffness in cloth motion if self-collision is enabled.
+Must be larger then zero.
+CONVERTEXAMPLE
+BEGIN EX
+
+	transform.GetComponent(Cloth).thickness = 0.2;
+END EX

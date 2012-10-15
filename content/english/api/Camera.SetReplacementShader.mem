@@ -1,0 +1,8 @@
+Make the camera render with shader replacement.
+
+See [[wiki:SL-ShaderReplacement|Rendering with Replaced Shaders]] page for details.
+
+After calling this function, camera will render its view with shader replacement. Call
+::ref::ResetReplacementShader to reset it back to normal rendering.
+
+SA: [[wiki:SL-ShaderReplacement|Rendering with Replaced Shaders]], ::ref::ResetReplacementShader, ::ref::RenderWithShader.

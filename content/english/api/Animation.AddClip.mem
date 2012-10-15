@@ -1,0 +1,22 @@
+Adds a /clip/ to the animation with name /newName/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var walkClip : AnimationClip;
+	animation.AddClip(walkClip, "walk");
+END EX<signature>
+AddClip_AnimationClip_string
+AddClip_AnimationClip_string_int_int_bool
+</signature>
+Adds /clip/ to the only play between /firstFrame/ and /lastFrame/. The new clip will also be added to the animation with name /newName/.
+addLoopFrame: Should an extra frame be inserted at the end that matches the first frame? Turn this on if you are making a looping animation.
+If a clip with that name already exists it will be replaced with the new clip.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Split the default clip into a shoot, walk and idle animation
+	animation.AddClip(animation.clip, "shoot", 0, 10);
+	// walk and idle will add an extra looping frame at the end
+	animation.AddClip(animation.clip, "walk", 11, 20, true);
+	animation.AddClip(animation.clip, "idle", 21, 30, true);
+END EX

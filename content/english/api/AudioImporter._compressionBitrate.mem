@@ -1,0 +1,13 @@
+Compression bitrate.
+This value is in bits/second, e.g. 128000 would be 128 kbps.
+BEGIN EX
+
+	// Prints the bitrate of the imported audio files
+	
+	class BitrateLogger extends AssetPostprocessor {
+	    function OnPreprocessAudio () {
+	    	var audioImporter : AudioImporter = assetImporter;	
+	        Debug.Log(assetPath + " - " + audioImporter.compressionBitrate + " bits/second");
+	    }
+	}
+END EX

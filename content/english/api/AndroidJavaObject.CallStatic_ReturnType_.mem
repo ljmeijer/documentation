@@ -1,0 +1,14 @@
+Call a static Java method on a class.
+
+To call a static method with a non-void return type, use the generic version.
+BEGIN EX
+
+	// Create a java.lang.String object, and call static method valueOf(float value).
+	function Start() {
+		var jo = new AndroidJavaObject("java.lang.String");
+		var valueString = jo.CallStatic.<string>("valueOf", 42.f);
+	}
+END EX
+
+@param methodName Specifies which method to call.
+@param args An array of parameters passed to the method.

@@ -1,0 +1,8 @@
+The AnimationState gives full control over animation blending.
+In most cases the [[Animation]] interface is sufficient and easier to use.
+Use the AnimationState if you need full control over the animation blending any playback process.
+
+The AnimationState interface allows you to modify speed, weight, time and layers while any animation is playing.
+You can also setup animation mixing and wrapMode.
+
+The Animation

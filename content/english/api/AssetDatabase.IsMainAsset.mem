@@ -1,0 +1,7 @@
+<signature>
+IsMainAsset_object
+IsMainAsset_int
+</signature>
+Is asset a main asset in the project window?
+For example an imported model has a game object as its root and several Meshes and child game objects
+in expanded state. The root game object is the main asset in this case.

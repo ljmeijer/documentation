@@ -1,0 +1,5 @@
+Animation is disabled when Animation::ref::localBounds are not visible.
+When this type of culling is used Animation::ref::localBounds will be based on bounds of attached clips
+which are precalculated on import. This culling method works better 
+than BasedOnRenderers, because animation can push itself into the camera frustum.
+SA: ::ref::BasedOnUserBounds, Animation::ref::localBounds property, AnimationClip::ref::localBounds property

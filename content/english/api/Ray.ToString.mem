@@ -1,0 +1,5 @@
+<signature>
+ToString
+ToString_string
+</signature>
+Returns a nicely formatted string for this ray.

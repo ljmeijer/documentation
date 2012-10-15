@@ -1,0 +1,4 @@
+Generic helper - use this when creating a layoutgroup. It will make sure everything is wired up correctly.
+@param style 	The style of the group
+@param options	The layout options to apply to it
+@param LayoutType	The type of layout group to create.

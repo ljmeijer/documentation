@@ -1,0 +1,4 @@
+Set clamp values for Control Stick data of the Nunchuk.
+For information, please refer to KPADSetFSStickClamp function documentation in RVL SDK.
+@param	min	Lower clamping value.
+@param	max	Upper clamping value.

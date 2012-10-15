@@ -1,0 +1,16 @@
+Makes vectors normalized and orthogonal to each other.
+
+Normalizes /normal/.
+Normalizes /tangent/ and makes sure it is orthogonal to /normal/ (that is, angle between them is 90 degrees).
+
+SA: ::ref::Normalize function.<signature>
+OrthoNormalize_Vector3_Vector3
+OrthoNormalize_Vector3_Vector3_Vector3
+</signature>
+Makes vectors normalized and orthogonal to each other.
+
+Normalizes /normal/.
+Normalizes /tangent/ and makes sure it is orthogonal to /normal/.
+Normalizes /binormal/ and makes sure it is orthogonal to both /normal/ and /tangent/.
+
+SA: ::ref::Normalize function.

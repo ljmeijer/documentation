@@ -1,0 +1,2 @@
+Navigation mesh obstacle.
+Affects the avoidance of nearby [[NavMeshAgent]]s.

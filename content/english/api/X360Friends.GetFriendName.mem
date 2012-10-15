@@ -1,0 +1,2 @@
+Gets a friend name.
+Returns an empty string, if user is not online or /friendIndex/ is invalid.

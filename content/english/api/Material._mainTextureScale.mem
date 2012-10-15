@@ -1,0 +1,14 @@
+The texture scale of the main texture.
+The same as using ::ref::GetTextureScale or ::ref::SetTextureScale with @@"_MainTex"@@ name.
+
+SA: ::ref::SetTextureScale, ::ref::GetTextureScale.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update () {
+		// Animates main texture scale in a funky way!
+		var scaleX : float = Mathf.Cos (Time.time) * 0.5 + 1;
+		var scaleY : float = Mathf.Sin (Time.time) * 0.5 + 1;
+		renderer.material.mainTextureScale = Vector2 (scaleX,scaleY);
+	}
+END EX

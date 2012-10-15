@@ -1,0 +1,54 @@
+<signature>
+Foldout_Rect_bool_string_GUIStyle
+Foldout_Rect_bool_string_bool_GUIStyle
+Foldout_Rect_bool_GUIContent_GUIStyle
+Foldout_Rect_bool_GUIContent_bool_GUIStyle
+</signature>
+Make a label with a foldout arrow to the left of it.
+This is useful for creating tree or folder like structures where child objects are only shown if the parent is folded out.
+
+{img EditorGUIFoldout.png}\\
+''Foldout in an Editor Window.''
+BEGIN EX
+
+	// Create a foldable menu that hides/shows the selected transform
+	// position.
+	// if no Transform is selected, the Foldout item will be folded until
+	// a transform is selected.
+	
+	class EditorGUIFoldout extends EditorWindow {
+		var showPosition : boolean = true;
+		var status : String = "Select a GameObject";
+		@MenuItem("Examples/Foldout Usage")
+		static function Init() {
+			var window = GetWindow(EditorGUIFoldout);
+			window.position = Rect(0, 0, 150, 60);
+			window.Show();
+		}
+	
+		function OnGUI() {
+			showPosition = EditorGUI.Foldout(Rect(3,3,position.width-6,15),showPosition, status);
+			if(showPosition)
+				if(Selection.activeTransform) {
+					Selection.activeTransform.position = 
+					EditorGUI.Vector3Field(Rect(3,25,position.width -6 ,40),
+							"Position", 
+							Selection.activeTransform.position);
+					status = Selection.activeTransform.name;
+				}
+			if(!Selection.activeTransform) {
+				status = "Select a GameObject";
+				showPosition = false;	
+			}
+		}
+		function OnInspectorUpdate() {
+			this.Repaint();
+		}
+	}
+END EX
+
+@param position Rectangle on the screen to use for the arrow and label.
+@param foldout The shown foldout state.
+@param content The label to show.
+@param style Optional [[GUIStyle]].
+@returns The foldout state selected by the user. If true, you should render sub-objects.

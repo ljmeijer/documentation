@@ -1,0 +1,46 @@
+Show the default iOS banner when achievements are completed.
+This only works on iOS 5.0+ and does nothing on older versions.
+Javascript code example:
+BEGIN EX
+
+		function Start () {
+			GameCenterPlatform.ShowDefaultAchievementCompletionBanner(true);
+			Social.localUser.Authenticate( function(success) {
+				if (success)
+					ReportAchievement();
+				else
+					Debug.Log ("Failed to authenticate");
+			});
+		}
+		
+		function ReportAchievement() {
+			Social.ReportProgress( "Achievement01", 100, function(result) {
+				Debug.Log ( result ? "Reported achievement" : "Failed to report achievement");
+			});
+		}
+END EX
+C# example:
+BEGIN EX
+
+		using UnityEngine;
+		using UnityEngine.SocialPlatforms.GameCenter;
+		
+		public class DoAchievement : MonoBehaviour {
+			void Start () {
+				GameCenterPlatform.ShowDefaultAchievementCompletionBanner(true);
+				Social.localUser.Authenticate( success => {
+					if (success)
+						ReportAchievement();
+					else
+						Debug.Log ("Failed to authenticate");
+				});
+			}
+			
+			void ReportAchievement() {
+				Social.ReportProgress( "Achievement01", 100, (result) => {
+					Debug.Log ( result ? "Reported achievement" : "Failed to report achievement");
+				});
+		
+			}	
+		}
+END EX

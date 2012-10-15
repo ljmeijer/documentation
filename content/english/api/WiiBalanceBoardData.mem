@@ -1,0 +1,1 @@
+Structure describing Wii Balance Board measurements. The structure maps directly to values read from the KPAD library.

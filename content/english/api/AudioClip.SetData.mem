@@ -1,0 +1,16 @@
+Set sample data in a clip. The samples should be floats ranging from 0.0f to 1.0f (exceeding these limits will lead to artifacts and undefined behaviour).
+The sample count is determined by the length of the float array.
+Use offsetSamples to write into a random position in the clip. If the length from the offset is longer than the clip length, the write will wrap around
+and write the remaining samples from the start of the clip.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Read all the samples from the clip and half the gain
+	function Start () {
+			var samples = new float[audio.clip.samples * audio.clip.channels];
+			audio.clip.GetData(samples, 0);
+			for (var i = 0; i < samples.Length; ++i)
+				samples[i] = samples[i] * 0.5f;
+			audio.clip.SetData(samples, 0);
+	}
+END EX

@@ -1,0 +1,11 @@
+The type of [[NetworkStateSynchronization]] set for this network view.
+It is your repsonsibility to ensure that NetworkView's across all machines use the same reliability method.
+Do not change state reliability on the fly after state synchronization has already happened.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Awake () {
+		// Start by switching state synch mode (before any networking is started).
+		networkView.stateSynchronization = NetworkStateSynchronization.Unreliable;
+	}
+END EX

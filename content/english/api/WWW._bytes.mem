@@ -1,0 +1,6 @@
+Returns the contents of the fetched web page as a byte array (RO).
+
+If the object has not finished downloading the data, it will return an empty byte array.
+Use ::ref::isDone or /yield/ to see if the data is available.
+
+SA: ::ref::bytes property.

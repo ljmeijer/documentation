@@ -1,0 +1,9 @@
+Delete all AssetBundle content that has been cached by the current application.
+This function is not available to WebPlayer applications that use the shared cache.
+
+@returns True when cache cleaning succeeded, false if cache was in use.
+BEGIN EX
+
+if (GUILayout.Button("Uninstall Game"))
+	Caching.CleanCache ();
+END EX

@@ -1,0 +1,2 @@
+Returns true if application integrity can be confirmed.
+Otherwise returns false.

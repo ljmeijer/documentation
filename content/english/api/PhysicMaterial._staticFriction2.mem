@@ -1,0 +1,6 @@
+If anisotropic friction is enabled, staticFriction2 will be applied along frictionDirection2.
+CONVERTEXAMPLE
+BEGIN EX
+
+	collider.physicMaterial.staticFriction2 = 0;
+END EX

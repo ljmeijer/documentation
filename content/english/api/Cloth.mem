@@ -1,0 +1,1 @@
+Base class used to simulate cloth physics - shared by both [[InteractiveCloth]] and [[SkinnedCloth]]

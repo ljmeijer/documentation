@@ -1,0 +1,2 @@
+*undocumented*
+When reloading domains, serialize this value and restore it. Also sets the value to null after writing it. In all other cases, it will be ignored.

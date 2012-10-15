@@ -1,0 +1,10 @@
+Shortcut for an empty GUIStyle.
+This style contains no decoration and just renders everything in the default font.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI () {
+		// Make a button with no decoration
+		GUI.Button(Rect(0,0,250,100), "I'm very bare", GUIStyle.none);
+	}
+END EX

@@ -1,0 +1,6 @@
+AABB of this Animation animation component in local space.
+By default it is computed based on animation states (i.e. attached animation clips), unless user overrides it by setting
+value to localBounds. You can switch back to precomputed bounds by setting ::ref::cullingType to AnimationCullingType::ref::BasedOnClipBounds.
+Value of localBounds is undefined when cullingType is not set to [[AnimationCullingType.BasedOnClipBounds]] or [[AnimationCullingType.BasedOnUserBounds]].
+When setting localBounds cullingType will be set to [[AnimationCullingType.BasedOnUserBounds]] automatically.
+SA: AnimationClip::ref::localBounds property, ::ref::cullingType, [[AnimationCullingType.BasedOnClipBounds]].

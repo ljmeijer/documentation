@@ -1,0 +1,3 @@
+XAvatarCreateNuiMapper
+Returns a IXAvatarNuiMapper. Release() it once it's not required anymore.
+Note: This is a temporary solution and will change in the future.

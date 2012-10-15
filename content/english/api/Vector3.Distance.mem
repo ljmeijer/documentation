@@ -1,0 +1,11 @@
+Returns the distance between /a/ and /b/.
+@@Vector3.Distance(a,b)@@ is the same as @@(a-b).magnitude@@
+CONVERTEXAMPLE
+BEGIN EX
+
+	var other : Transform;
+	if (other) {
+		var dist = Vector3.Distance(other.position, transform.position);
+		print ("Distance to other: " + dist);
+	}
+END EX

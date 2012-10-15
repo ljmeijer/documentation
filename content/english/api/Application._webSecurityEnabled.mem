@@ -1,0 +1,5 @@
+Indicates whether Unity's webplayer security model is enabled.
+In the web player, this will always return true.
+In the Unity editor, it will return true if web security emulation is enabled (Menu->Edit->Project Settings->Editor) and false if the emulation is disabled.
+On all other platforms, this will return false;
+This property can only be read.

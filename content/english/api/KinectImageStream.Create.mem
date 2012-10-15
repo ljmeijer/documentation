@@ -1,0 +1,34 @@
+Creates a new KinectImageStream
+BEGIN EX
+
+		var currentState : int = 0;
+		var stream : KinectImageStream = null;
+		var streamTexture : Texture = null;
+
+		function Start() {
+			KinectCore.Start(KinectSyncMode.Lazy);
+		}
+
+		function Update () {
+			switch (currentState) {
+			case 0:
+				if (KinectCore.IsInitialized()) {
+					stream = KinectImageStream.Create(KinectImageStreamType.Color);
+					currentState++;
+				}
+				break;
+			case 1:
+				if (stream != null) {
+					streamTexture = stream.GetTexture();
+				}
+				break;
+			}
+		}
+
+		function OnGUI () {
+			if (streamTexture != null) {
+				GUI.DrawTexture(new Rect(25, 505, 640, -480), streamTexture);
+			}
+		}
+END EX
+Creates a Image stream based on the stream type

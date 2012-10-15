@@ -1,0 +1,18 @@
+Server IP address
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Requests info from the master server and prints
+	// the ip of each host.
+
+	function Start() {
+		var hostData : HostData[] = MasterServer.PollHostList();
+		for(var element : HostData in hostData) {
+			var tmpIp : String = "";
+			for(var i : int = 0; i < element.ip.Length; i++) {
+				tmpIp = element.ip[i] + " ";
+			}
+			Debug.Log(element.gameName + " ip: " + tmpIp + ":" + element.port);
+		}
+	}
+END EX

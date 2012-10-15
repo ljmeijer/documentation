@@ -1,0 +1,1 @@
+Specifies which NavMesh layers are passable (bitfield). Changing /walkableMask/ will make the path stale (see ::ref::isPathStale)

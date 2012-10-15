@@ -1,0 +1,15 @@
+Is this transform a child of /parent/?
+Returns a boolean value that indicates whether the transform is a child of a given transform.
+true if this transform is a child, deep child (child of a child) or identical to this transform, otherwise false.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnTriggerEnter (col : Collider) {
+		// Ignore trigger events if between this collider and colliders in children
+		// Eg. when you have a complex character with multiple triggers colliders.
+		if (col.transform.IsChildOf(transform))
+			return;
+		
+		print("Do something here");
+	}
+END EX

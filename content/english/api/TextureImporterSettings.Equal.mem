@@ -1,0 +1,2 @@
+Test texture importer settings for equality.
+Objects are reported equal if either the references or the values are equal.

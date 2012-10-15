@@ -1,0 +1,11 @@
+The infamous ''3.14159265358979...'' value (RO).
+CONVERTEXAMPLE
+BEGIN EX
+
+	var radius : float = 5;
+
+	function Start() {
+		var perimeter : float = 2 * Mathf.PI * radius;
+		Debug.Log("The perimeter of the circle is: " + perimeter);
+	}
+END EX

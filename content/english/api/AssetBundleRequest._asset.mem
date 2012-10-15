@@ -1,0 +1,3 @@
+Asset object being loaded (RO).
+
+Note that accessing asset before AsyncOperation::pref::isDone is true will stall the loading process.

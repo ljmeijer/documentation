@@ -1,0 +1,6 @@
+Returns the index buffer for the submesh.
+
+The layout of indices depends on the topology of a submesh, for example
+for triangular mesh each triangle will result in three indices.
+
+SA: ::ref::subMeshCount, ::ref::GetTopology, [[MeshTopology]] enum.

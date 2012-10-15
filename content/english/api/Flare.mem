@@ -1,0 +1,14 @@
+A flare asset. Read more about flares in the [[wiki:class-Flare|components reference]].
+
+The flare class has no properties. It needs to be [[wiki:class-Flare|setup]] up in the inspector.
+You can reference flares and assign them to a [[Light]] at runtime.
+CONVERTEXAMPLE
+BEGIN EX
+
+// Expose a reference to a flare in the inspector
+var newFlare : Flare;
+
+// Assign the flare
+light.flare = newFlare;
+END EX
+SA: [[wiki:class-Flare|Flare assets]], [[LensFlare]] class.

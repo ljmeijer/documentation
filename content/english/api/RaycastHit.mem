@@ -1,0 +1,2 @@
+Structure used to get information back from a raycast.
+SA: Physics.Raycast, Physics.Linecast, Physics.RaycastAll.

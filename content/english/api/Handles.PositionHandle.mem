@@ -1,0 +1,45 @@
+Make a 3D Scene view position handle.
+This will behave like the built-in move tool in Unity. 
+If you have assigned something to Undo.SetSnapshotTarget, it will work fully with Undo. 
+If you have assigned a non-null value to ignoreRaycastObjects, the center handle will support full raycast placement.
+To control the orientation of the handle, set Handles.matrix prior to calling this function.
+
+{img PositionHandle.png}\\
+''Make the object look always to the position handle.''
+BEGIN EX
+
+	//Create a position handle that always looks at "lookAtPoint" in LookAtPoint.js
+	
+	
+	@CustomEditor (LookAtPoint)
+	class PositionHandleJS extends Editor {
+		function OnSceneGUI () {
+		target.lookAtPoint = 
+			Handles.PositionHandle (target.lookAtPoint, Quaternion.identity);
+		if (GUI.changed)
+			EditorUtility.SetDirty (target);
+		}
+	}
+END EX
+
+And the Script attached to this handle:
+BEGIN EX
+
+	// LookAtPoint.js
+	// This Script has to be outside of the editor folder.
+	//
+	// Usage: Just Place this script on the object you want to work the handle with.
+	
+	@script ExecuteInEditMode()
+	
+	var lookAtPoint = Vector3.zero;
+	
+	function Update () {
+	    transform.LookAt (lookAtPoint);
+	}
+END EX
+
+@param position Center of the handle in 3D space
+@return the new position. If the user has not performed any operation, it will return the same value as you passed it in postion.
+
+__Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.

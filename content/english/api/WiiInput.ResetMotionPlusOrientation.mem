@@ -1,0 +1,11 @@
+Reset Wii Motion Plus orientation.
+Same as calling:
+WiiMotionPlusDirData dirBase = {
+1.0f, 0.0f, 0.0f,
+0.0f, 1.0f, 0.0f,
+0.0f, 0.0f, 1.0f
+} ;
+SetMotionPlusAngle (chan, 0.0f, 0.0f, 0.0f);
+SetMotionPlusDirection (chan, dirBase);
+SetMotionPlusDirReviseBase (chan, dirBase);
+@param	chan	Remote index, in range 0...3.

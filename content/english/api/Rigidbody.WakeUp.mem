@@ -1,0 +1,8 @@
+Forces a rigidbody to wake up.
+CONVERTEXAMPLE
+BEGIN EX
+
+	rigidbody.WakeUp();
+END EX
+
+See [[wiki:RigidbodySleeping|Rigidbody Sleeping]] for more information.

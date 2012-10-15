@@ -1,0 +1,38 @@
+Create a new empty texture.
+The texture will be /width/ by /height/ size, with an ARGB32 [[TextureFormat]], with mipmaps and in sRGB color space.
+
+Usually you will want to set the colors of the texture after creating it, using
+::ref::SetPixel, ::ref::SetPixels and ::ref::Apply functions.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		// Create a new texture and assign it to the renderer's material
+		var texture = new Texture2D (128, 128);
+		renderer.material.mainTexture = texture;
+	}
+END EX
+SA: ::ref::SetPixel, ::ref::SetPixels, ::ref::Apply functions.<signature>
+ctor_int_int
+ctor_int_int_TextureFormat_bool
+</signature>
+Create a new empty texture.
+The texture will be /width/ by /height/ size, with a given /format/, with mipmaps
+or without and in either the linear or sRGB color space.
+
+Usually you will want to set the colors of the texture after creating it, using
+::ref::SetPixel, ::ref::SetPixels and ::ref::Apply functions.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		// Create a new texture and assign it to the renderer's material
+		var texture = new Texture2D(128, 128, TextureFormat.ARGB32, false);
+		renderer.material.mainTexture = texture;
+	}
+END EX
+SA: ::ref::SetPixel, ::ref::SetPixels, ::ref::Apply functions.
+<signature>
+ctor_int_int_TextureFormat_bool_bool
+</signature>
+SA: ::ref::SetPixel, ::ref::SetPixels, ::ref::Apply functions.

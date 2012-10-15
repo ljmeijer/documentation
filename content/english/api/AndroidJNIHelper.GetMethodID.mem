@@ -1,0 +1,22 @@
+Scans a particular Java class for a method matching a name and a signature.
+The signature comparison is done to allow sub-/base-classes of a class types.
+If no signature is provided the first method with the correct name will be returned.
+
+SA: AndroidJNIHelper.GetSignature, AndroidJNIHelper.GetConstructorID, AndroidJNIHelper.GetFieldID
+
+@param javaClass Raw JNI Java class object (obtained by calling AndroidJNI.FindClass).
+@param methodName Name of the method as declared in Java.
+@param signature Method signature (e.g. obtained by calling AndroidJNIHelper.GetSignature).
+@param isStatic  Set to <tt>true</tt> for static methods; <tt>false</tt> for instance (nonstatic) methods.<signature>
+GetMethodID_IntPtr_string_string_bool
+GetMethodID_IntPtr_string_objectArray_bool
+</signature>
+Get a JNI method ID based on calling arguments.
+Generic parameter represents the method return type, and the regular method assumes 'void' return type.
+Scans a particular Java class for a method matching a signature based on passed arguments.
+The signature comparison is done to allow for sub-/base-classes of the class types.
+
+@param javaClass Raw JNI Java class object (obtained by calling AndroidJNI.FindClass).
+@param methodName Name of the method as declared in Java.
+@param args Array with parameters to be passed to the method when invoked.
+@param isStatic  Set to <tt>true</tt> for static methods; <tt>false</tt> for instance (nonstatic) methods.

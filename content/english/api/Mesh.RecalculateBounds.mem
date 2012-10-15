@@ -1,0 +1,11 @@
+Recalculate the bounding volume of the mesh from the vertices.
+After modifying vertices you should call this function to ensure the bounding volume is correct.
+Assigning ::ref::triangles will automatically Recalculate the bounding volume.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		var mesh : Mesh = GetComponent(MeshFilter).mesh;
+		mesh.RecalculateBounds();
+	}
+END EX

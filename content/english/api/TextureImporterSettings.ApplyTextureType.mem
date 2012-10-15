@@ -1,0 +1,3 @@
+Configure parameters to import a texture for a purpose of ''type'', as described [[TextureImporterType|here]].
+@param	type		Texture type. See [[TextureImporterType]].
+@param	applyAll	If @@false@@, change only specific properties. Exactly which, depends on ''type''.

@@ -1,0 +1,14 @@
+Add a new key to the curve.
+Smooth tangents are automatically computed for the key.
+Returns the index of the added key.
+If no key could be added because there is already another keyframe at the same time -1 will be returned.
+
+SA: ::ref::keys variable.<signature>
+AddKey_float_float
+AddKey_Keyframe
+</signature>
+Add a new key to the curve.
+Returns the index of the added key.
+If no key could be added because there is already another keyframe at the same time -1 will be returned.
+
+SA: ::ref::keys variable, [[Keyframe]] struct.

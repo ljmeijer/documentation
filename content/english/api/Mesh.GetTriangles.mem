@@ -1,0 +1,5 @@
+Returns the triangle list for the submesh.
+A submesh is simply a separate triangle list. When the mesh renderer uses multiple materials, you should
+ensure that there are as many submeshes as materials.
+
+SA: ::ref::subMeshCount.

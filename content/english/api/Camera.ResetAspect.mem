@@ -1,0 +1,7 @@
+Revert the aspect ratio to the screen's aspect ratio.
+Call this to end the effect of setting ::ref::aspect.
+CONVERTEXAMPLE
+BEGIN EX
+
+	camera.ResetAspect();
+END EX

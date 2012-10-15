@@ -1,0 +1,42 @@
+Draw a camera-facing Rectangle. Pass this into handle functions.
+__Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.
+
+{img RectangleCap.png}\\
+''Rectangle Cap in the Scene View.''
+BEGIN EX
+
+	// Draw one Rectangle on each axis of any GameObject 
+	// that has the "DummyRectangleCapScript.js" script attached.
+	
+	@CustomEditor (DummyRectangleCapScript)
+	class RectangleCap extends Editor {
+		
+		var rectangleSize : float = 1;
+	
+	    function OnSceneGUI () {
+	    	Handles.color = Color.red;
+	    	Handles.RectangleCap(0,
+	 			target.transform.position + Vector3(5,0,0),
+	 			target.transform.rotation,
+	 			rectangleSize);
+	    	Handles.color = Color.green;
+	    	Handles.RectangleCap(0,
+	 			target.transform.position + Vector3(0,5,0),
+	 			target.transform.rotation,
+	 			rectangleSize);    	
+	    	Handles.color = Color.blue;
+	    	Handles.RectangleCap(0,
+	 			target.transform.position + Vector3(0,0,5),
+	 			target.transform.rotation,
+	 			rectangleSize);
+	    }
+	}
+END EX
+
+And the script attached to this Handle:
+BEGIN EX
+
+	//DummyRectangleCapScript.js
+	
+	Debug.Log("I have RectangleCap Handles attached to this transform!");
+END EX

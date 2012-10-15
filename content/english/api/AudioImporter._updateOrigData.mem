@@ -1,0 +1,1 @@
+*undocumented* Update/cache audio info. important to call this before any of the next. you only need to call it once per audiofile

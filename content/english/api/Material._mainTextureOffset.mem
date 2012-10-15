@@ -1,0 +1,16 @@
+The texture offset of the main texture.
+The same as using ::ref::GetTextureOffset or ::ref::SetTextureOffset with @@"_MainTex"@@ name.
+
+SA: ::ref::SetTextureOffset, ::ref::GetTextureOffset.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Scroll main texture based on time
+
+	var scrollSpeed : float = 0.5;
+
+	function Update() {
+		var offset : float = Time.time * scrollSpeed;
+		renderer.material.mainTextureOffset = Vector2 (offset, 0);
+	}
+END EX

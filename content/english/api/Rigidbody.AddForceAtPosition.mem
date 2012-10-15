@@ -1,0 +1,12 @@
+Applies /force/ at /position/. As a result this will apply a torque and force on the object.
+For realistic effects /position/ should be approximately in the range of the surface of the rigidbody.
+This is most commonly used for explosions. When applying explosions it is best to apply forces over several frames instead of just one.
+Note that when /position/ is far away from the center of the rigidbody the applied torque will be unrealistically large.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function ApplyForce (body : Rigidbody) {
+		var direction : Vector3 = body.transform.position - transform.position;
+		body.AddForceAtPosition(direction.normalized, transform.position);
+	}
+END EX

@@ -1,0 +1,5 @@
+The result code of the asynchronuous command itself.
+BEGIN EX
+
+	Debug.Log ("Async result: " + file.asyncResult);
+END EX

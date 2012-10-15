@@ -1,0 +1,3 @@
+Returns whether or not the specified aspect ratio is enabled.
+
+Aspect Ratios selectable in the Resolution Dialog will be monitor-supported resolutions of enabled items from this list.

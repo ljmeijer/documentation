@@ -1,0 +1,3 @@
+Get raw pressure value. Sample this over 2 seconds for zero-point values.
+@param	corner	Pressure sensor index of the Balance Board.
+@return Raw pressure value.

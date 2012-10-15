@@ -1,0 +1,4 @@
+Set icons rendered as part of [[GUIContent]] to be rendered at a specific size.
+Set the size to Vector2.zero to use the default behaviour where the size is determined by the available space.
+
+SA: ::ref::GetIconSize.

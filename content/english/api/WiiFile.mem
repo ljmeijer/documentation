@@ -1,0 +1,2 @@
+This class allows direct access files on Wii.
+For example, having a project at /UnityProjects/Example, create /UnityProjects/Example/Assets/StreamingAssets directory and put files (possibly with directories) there. So if we create /UnityProjects/Example/Assets/StreamingAssets/readme.txt, it can be accessed by creating WiiFile object passing Application.dataPath + "/StreamingAssets/readme.txt" as a file name, in both the editor and on the Wii.

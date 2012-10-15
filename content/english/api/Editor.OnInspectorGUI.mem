@@ -1,0 +1,19 @@
+Implement this function to make a custom inspector.
+Inside this function you can add your own custom GUI for the inspector of a specific object class.
+
+__Note:__ This function has to be overrided in order to work. Check the example:
+
+SA: Editor.DrawDefaultInspector
+BEGIN EX
+
+	//Creates a custom Label on the inspector for all the scripts named ScriptName
+
+	// Make sure you have a ScriptName script in your
+	// project, else this will not work.
+	@CustomEditor(ScriptName)
+	class TestOnInspector extends Editor {
+		override function OnInspectorGUI () {
+			GUILayout.Label ("This is a Label in a Custom Editor");
+		}
+	}
+END EX

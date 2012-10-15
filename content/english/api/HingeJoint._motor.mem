@@ -1,0 +1,21 @@
+The motor will apply a force up to a maximum force to achieve the target velocity in degrees per second.
+
+The motor tries to reach /motor.targetVelocity/ angular velocity in degrees per second.
+The motor will only be able to reach /motor.targetVelocity/, if /motor.force/ is sufficiently large.
+If the joint is spinning faster than /motor.targetVelocity/ the motor will break.
+A negative /motor.targetVelocity/ will make the motor spin in the opposite direction.
+
+The /motor.force/ is the maximum torque the motor can exert. If it is zero the motor is disabled.
+
+The motor will brake when it is spinning faster than /motor.targetVelocity/ only, if /motor.freeSpin/ is false.
+If /motor.freeSpin/ is true the motor will not brake.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Make the hinge motor rotate with 90 degrees per second and a strong force.
+
+	hingeJoint.motor.force = 100;
+	hingeJoint.motor.targetVelocity = 90;
+	hingeJoint.motor.freeSpin = false;
+END EX
+Modifying the motor automatically enables the motor by setting HingeJoint.useMotor to true.

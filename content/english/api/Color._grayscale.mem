@@ -1,0 +1,7 @@
+The grayscale value of the color (RO)
+CONVERTEXAMPLE
+BEGIN EX
+
+	var color : Color = Color (.3, .4, .6);
+	print(color.grayscale);
+END EX

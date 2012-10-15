@@ -1,0 +1,5 @@
+Current file pointer position. This is result of ::ref::Tell or ::ref::Seek methods.
+BEGIN EX
+
+	Debug.Log ("File pointer value is: " + file.position);
+END EX

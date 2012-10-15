@@ -1,0 +1,11 @@
+Render the camera manually.
+
+This will render the camera. It will use the camera's clear flags, target texture and all other settings.
+
+The camera will send MonoBehaviour::pref::OnPreCull, MonoBehaviour::pref::OnPreRender &
+MonoBehaviour::pref::OnPostRender to any scripts attached, and render any eventual image filters.
+
+This is used for taking precise control of render order. To make use of this feature, create a 
+camera and disable it. Then call Render on it.
+
+SA: ::ref::RenderWithShader.

@@ -1,0 +1,9 @@
+Returns true if the vectors are equal.
+This will also return true for vectors that are really close to being equal.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var other : Transform;
+	if (other && transform.position == other.position)
+		print ("I'm at the same place as the other transform!");
+END EX

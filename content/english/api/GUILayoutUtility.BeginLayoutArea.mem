@@ -1,0 +1,3 @@
+Generic helper - use this when creating a layoutgroup. It will make sure everything is wired up correctly.
+style: 		the style of the group
+LayoutType:	The type of layout group to create.

@@ -1,0 +1,3 @@
+Returns spherical harmonics coefficients of a light probe at the given position. The light probe is interpolated from the light probes baked
+for the scene. The coefficients represent a 3-band RGB spherical harmonics probe, with a total of 27 floats laid out: rgbrgbrgb...
+Renderer is only needed to speed up the search for the current tetrahedron, as it caches the index of the tetrahedron it was in the last frame.

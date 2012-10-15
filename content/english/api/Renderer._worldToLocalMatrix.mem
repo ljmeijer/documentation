@@ -1,0 +1,2 @@
+Matrix that transforms a point from world space into local space (RO).
+This property MUST be used instead of Transform.worldToLocalMatrix, if you're setting shader parameters.

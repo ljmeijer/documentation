@@ -1,0 +1,14 @@
+Style used by default for GUI::ref::TextArea controls.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Modifies only the textArea style of the current GUISkin
+
+	var style : GUIStyle;
+	private var str : String = "A string...\nWith two lines.";
+
+	function OnGUI() {
+		GUI.skin.textArea = style;
+		str = GUILayout.TextArea(str);
+	}
+END EX

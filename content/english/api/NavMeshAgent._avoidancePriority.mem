@@ -1,0 +1,3 @@
+The avoidance priority level.
+When the agent is performing avoidance, agents of lower priority are ignored.
+The valid range is from 0 to 99.

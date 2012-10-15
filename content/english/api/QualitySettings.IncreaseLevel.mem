@@ -1,0 +1,11 @@
+Increase the current quality level.
+CONVERTEXAMPLE
+BEGIN EX
+
+	QualitySettings.IncreaseLevel(false);
+END EX
+::ref::IncreaseLevel and ::ref::DecreaseLevel functions only apply anti-aliasing if applyExpensiveChanges is true.
+
+SA: ::ref::DecreaseLevel, [[wiki:class-QualitySettings|Quality Settings]].
+
+@param applyExpensiveChanges should expensive changes be applied (Anti-aliasing etc)

@@ -1,0 +1,10 @@
+A sphere primitive
+SA: GameObject.CreatePrimitive
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Creates a sphere primitive
+	function Start () {
+		var sphere : GameObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+	}
+END EX

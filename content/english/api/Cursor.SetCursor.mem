@@ -1,0 +1,24 @@
+Change the mouse cursor to the set texture OnMouseEnter.
+Reset the cursor to default OnMouseExit.
+BEGIN EX
+
+	var cursorTexture : Texture2D;
+	var cursorMode : CursorMode = CursorMode.Auto;
+	var hotSpot : Vector2 = Vector2.zero;
+
+	function OnMouseEnter () {
+		Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+	}
+
+	function OnMouseExit () {
+		Cursor.SetCursor(null, Vector2.zero, cursorMode);
+	}
+END EX<signature>
+SetCursor_Texture2D_CursorMode
+SetCursor_Texture2D_Vector2_CursorMode
+</signature>
+Specify a custom cursor that you wish to use as a cursor.
+
+@param texture	The texture to use for the cursor
+@param hotspot	The offset from the top left of the texture to use as the target point
+@param cursorMode	Allow this cursor to render as a hardware cursor on supported platforms, or force software cursor

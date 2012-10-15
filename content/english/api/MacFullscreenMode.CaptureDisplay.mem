@@ -1,0 +1,3 @@
+Capture the display.
+In this mode Unity will capture the display and change the hardware resolution to the requested mode.
+No other UI content can appear, and it is not possible to switch to other applications while in fullscreen mode.

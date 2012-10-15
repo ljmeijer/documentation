@@ -1,0 +1,1 @@
+An average weight over approximately 2 seconds with temperature and gravity corrections applied. Usually this value should be passed to GetTGCorrectedWeight

@@ -1,0 +1,2 @@
+DEBUG: Get garbage collected memory size.
+Only works in development builds.

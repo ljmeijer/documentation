@@ -1,0 +1,14 @@
+Draw this GUIStyle on to the screen, internal version
+Draw plain GUIStyle without text nor image.<signature>
+Draw_Rect_bool_bool_bool_bool
+Draw_Rect_string_bool_bool_bool_bool
+</signature>
+Draw the GUIStyle with a text string inside.
+<signature>
+Draw_Rect_Texture_bool_bool_bool_bool
+</signature>
+Draw the GUIStyle with an image inside. If the image is too large to fit within the content area of the style it is scaled down.
+<signature>
+Draw_Rect_GUIContent_bool_bool_bool_bool
+</signature>
+Draw the GUIStyle with text and an image inside. If the image is too large to fit within the content area of the style it is scaled down.

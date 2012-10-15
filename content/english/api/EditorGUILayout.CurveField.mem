@@ -1,0 +1,96 @@
+<signature>
+CurveField_AnimationCurve_GUILayoutOptionArray
+CurveField_string_AnimationCurve_GUILayoutOptionArray
+CurveField_GUIContent_AnimationCurve_GUILayoutOptionArray
+CurveField_AnimationCurve_Color_Rect_GUILayoutOptionArray
+CurveField_string_AnimationCurve_Color_Rect_GUILayoutOptionArray
+CurveField_GUIContent_AnimationCurve_Color_Rect_GUILayoutOptionArray
+</signature>
+Make a field for editing an [[AnimationCurve]].
+
+{img FollowCurve.png}\\
+''Create an animation on the different axis and assign it to a GameObject.''
+BEGIN EX
+
+	// Makes the selected GameObject follow the animation curve.
+	//
+	// Usage: Generate the curves for X,Y and Z axis of your desired GameObject
+	// Select an Object and click Generate Curve.
+	// Press Play and see your object moving.
+	
+	
+	class FollowCurve extends EditorWindow {
+	
+	
+		var curveX : AnimationCurve = AnimationCurve.Linear(0,0,10,10);
+		var curveY : AnimationCurve = AnimationCurve.Linear(0,0,10,10);
+		var curveZ : AnimationCurve = AnimationCurve.Linear(0,0,10,10);
+		
+	
+		@MenuItem("Examples/Create Curve For Object")
+		static function Init() {
+			var window = GetWindow(FollowCurve);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			curveX = EditorGUILayout.CurveField("Animation on X", curveX);
+			curveY = EditorGUILayout.CurveField("Animation on Y", curveY);
+			curveZ = EditorGUILayout.CurveField("Animation on Z", curveZ);
+			
+			if(GUILayout.Button("Generate Curve"))
+				AddCurveToSelectedGameObject();
+		}
+		
+		function  AddCurveToSelectedGameObject() {
+			if(Selection.activeGameObject) {
+				var comp : FollowAnimationCurve = 
+					Selection.activeGameObject.AddComponent(FollowAnimationCurve);
+				comp.SetCurves(curveX, curveY, curveZ);
+			} else {
+				Debug.LogError("No Game Object selected for adding an animation curve");
+			}
+		}
+	}
+END EX
+
+And the script that works with the example:
+BEGIN EX
+
+	// This script has to go outside of the Editor Folder.
+	
+	var curveX : AnimationCurve;
+	var curveY : AnimationCurve;
+	var curveZ : AnimationCurve;
+	
+	function SetCurves(xC : AnimationCurve, yC : AnimationCurve, zC : AnimationCurve) {
+		curveX = xC;
+		curveY = yC;
+		curveZ = zC;
+	}
+	function Update() {
+		transform.position = Vector3(curveX.Evaluate(Time.time),
+									curveY.Evaluate(Time.time),
+									curveZ.Evaluate(Time.time));
+	}
+END EX
+
+@param label Optional label to display in front of the field.
+@param value The curve to edit.
+@param color The color to show the curve with.
+@param ranges Optional rectangle that the curve is restrained within.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The curve edited by the user.
+<signature>
+CurveField_SerializedProperty_Color_Rect_GUILayoutOptionArray
+</signature>
+Make a field for editing an [[AnimationCurve]].
+
+@param property The curve to edit.
+@param color The color to show the curve with.
+@param ranges Optional rectangle that the curve is restrained within.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight

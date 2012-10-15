@@ -1,0 +1,15 @@
+Creates a rotation that looks along /forward/ with the the head upwards along /upwards/
+Logs an error if the forward direction is zero.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Most of the time you can use:
+	// transform.LookAt instead
+
+	var target : Transform;
+	function Update () {
+		var relativePos = target.position - transform.position;
+		var rotation = Quaternion.LookRotation(relativePos);
+		transform.rotation = rotation;
+	}
+END EX

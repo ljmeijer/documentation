@@ -1,0 +1,8 @@
+The tag of this game object.
+A tag can be used to identify a game object.
+Tags must be declared in the tag manager before using them.
+CONVERTEXAMPLE
+BEGIN EX
+
+	gameObject.tag = "Player";
+END EX

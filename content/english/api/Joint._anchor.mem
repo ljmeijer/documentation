@@ -1,0 +1,7 @@
+The Position of the anchor around which the joints motion is constrained.
+The Position is defined in local space.
+CONVERTEXAMPLE
+BEGIN EX
+
+	hingeJoint.anchor = Vector3 (2, 0, 0);
+END EX

@@ -1,0 +1,56 @@
+<signature>
+TagField_Rect_string_GUIStyle
+TagField_Rect_string_string_GUIStyle
+TagField_Rect_GUIContent_string_GUIStyle
+</signature>
+Make a tag selection field.
+
+{img EditorGUITagField.png}\\
+''Tag field in an Editor window.''
+BEGIN EX
+
+	// Change the Tag and/or the layer of the selected GameObjects.
+	
+	class EditorGUITagLayerField extends EditorWindow {
+	
+		var selectedTag : String = "";
+		var selectedLayer : int = 0;
+		
+		@MenuItem("Examples/Tag - Layer for Selection")
+		static function Init() {
+			var window = GetWindow(EditorGUITagLayerField);
+			window.position = Rect(0,0,350,70);
+			window.Show();
+		}
+	
+		function OnGUI() {
+			selectedTag = EditorGUI.TagField(
+				Rect(3,3,position.width/2 - 6, 20),
+				"New Tag:",
+				selectedTag);
+			selectedLayer = EditorGUI.LayerField(
+				Rect(position.width/2 + 3,3, position.width/2 - 6, 20),
+				"New Layer:",
+				selectedLayer);
+				
+			if(Selection.activeGameObject) {
+				if(GUI.Button(Rect(3,25,90,17),"Change Tags"))
+					for(var go : GameObject in Selection.gameObjects)
+						go.tag = selectedTag;			
+				if(GUI.Button(Rect(position.width-96, 25,90,17),"Change Layers"))
+					for(var go : GameObject in Selection.gameObjects)
+						go.layer = selectedLayer;
+			}
+		}
+		
+		function OnInspectorUpdate() {
+			Repaint();
+		}
+	}
+END EX
+
+@param position Rectangle on the screen to use for the field.
+@param label Optional label in front of the field.
+@param tag The tag the field shows.
+@param style Optional [[GUIStyle]].
+@returns The tag selected by the user.

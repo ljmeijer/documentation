@@ -1,0 +1,50 @@
+Make an X, Y & Z field for entering a [[Vector3]].
+
+{img EditorGUILayoutVector3Field.png}\\
+''Measure the distance between 2 GameObjects or 2 positions in 3D space.''
+BEGIN EX
+
+	// Simple Script that measures the distance between 2 GameObjects
+	// or measure the distance between 2 positions in 3D space
+	
+	class EditorGUILayoutVector3Field extends EditorWindow {
+		
+		var distance : float = 0;
+		var obj1 : Vector3;
+		var obj2 : Vector3;
+	
+		@MenuItem("Examples/Measure Distance between 2 objects")
+		static function Init() {
+			var window = GetWindow(EditorGUILayoutVector3Field);
+			window.Show();
+		}
+		function OnGUI() {
+			GUILayout.Label("Select an object in the Hierarchy view and click 'Capture Position'");
+			EditorGUILayout.BeginHorizontal();
+				obj1 = EditorGUILayout.Vector3Field("GameObject 1:", obj1);
+				if(GUILayout.Button("Capture Position"))
+					obj1 = Selection.activeTransform.position;
+			EditorGUILayout.EndHorizontal();
+			
+			EditorGUILayout.BeginHorizontal();
+				obj2 = EditorGUILayout.Vector3Field("GameObject 2:", obj2);
+				if(GUILayout.Button("Capture Position"))
+					obj2 = Selection.activeTransform.position;
+			EditorGUILayout.EndHorizontal();
+			EditorGUILayout.LabelField("Distance:", distance.ToString());
+			if(GUILayout.Button("Close"))
+				this.Close();		
+		}
+		function OnInspectorUpdate() {
+			distance = Vector3.Distance(obj1,obj2);
+			this.Repaint();
+		}
+	}
+END EX
+
+@param label Label to display above the field.
+@param value The value to edit.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The value entered by the user.

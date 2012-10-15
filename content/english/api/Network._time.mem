@@ -1,0 +1,28 @@
+Get the current network time (seconds).
+This can, for example, be used to compare with the time returned in [[NetworkMessageInfo]]. The example
+script needs to be attached to an object with a network view and have the network view observe the script.
+It measures the time it took to send a message which synchronizes the X postion value of the objects transform.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var something : float;
+	var transitTime: double;
+	function OnSerializeNetworkView (stream : BitStream, 
+		info : NetworkMessageInfo) {
+		var horizontalInput : float = 0.0;
+		if (stream.isWriting) {
+			// Sending
+			horizontalInput = transform.position.x;
+			stream.Serialize (horizontalInput);
+		} else {
+			// Receiving
+			transitTime = Network.time - info.timestamp;
+			stream.Serialize (horizontalInput);
+			something = horizontalInput;
+		}
+	}
+
+	function OnGUI() {
+		GUILayout.Label("Last transmission time: "+ transitTime);
+	}
+END EX

@@ -1,0 +1,3 @@
+How many simultaneous render targets (MRTs) are supported? (RO)
+
+SA: [[Graphics.SetRenderTarget]].

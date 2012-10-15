@@ -1,0 +1,42 @@
+Convert a color from RGB to HSV color space.
+All values are in the 0-1 range
+
+SA: ::ref::HSVToRGB
+BEGIN EX
+
+	// Simple script that shows the color info on 
+	// RGB (Red Green Blue) values and
+	// HSV (Hue Saturation Value) values.
+	
+	class RGBHSVInfo extends Editor{
+			
+		@MenuItem("Examples/Color Info")
+		static function CheckColor() {
+			var h : float = 0;
+			var s : float = 0;
+			var v : float = 0;		
+			var objColor : Color = Color.white;
+		
+			var obj = Selection.activeGameObject.renderer;
+			if(!obj.renderer.material) {
+				Debug.LogError("Selected Object doesnt have a material.");
+				return;
+			}
+			objColor = obj.renderer.sharedMaterial.color;
+			EditorGUIUtility.RGBToHSV(objColor,h,s,v);
+			objColor = EditorGUIUtility.HSVToRGB(h,s,v);
+			Debug.Log("RGB: " + objColor.r + "," + objColor.g + "," + objColor.b);
+			Debug.Log("HSV: " + h + "," + s + "," + v);
+		}
+		
+		@MenuItem("Examples/Color Info", true)
+		static function ValidateCheckColor() {
+			return Selection.activeGameObject != null;
+		}
+	}
+END EX
+
+@param rgbColor the color to convert from.
+@param H The hue of the color is written to this variable.
+@param S The saturation of the color is written to this variable.
+@param V The value of the color is written to this variable.

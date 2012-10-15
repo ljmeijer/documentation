@@ -1,0 +1,4 @@
+Creates an empty WWWForm object.
+Use the ::ref::AddField and ::ref::AddBinaryData methods to insert data into the form.
+
+SA: [[WWW]] class.

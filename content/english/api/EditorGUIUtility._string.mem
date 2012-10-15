@@ -1,0 +1,45 @@
+The system copy buffer.
+Use this to make Copy and Paste work for your own stuff.
+
+{img EditorGUIUtilitySystemCopyBuffer.png}\\
+''have more than 1 saved "copy" command.''
+BEGIN EX
+
+	// Simple editor Window that lets you have more than 1 saved "copy" command
+	
+	class EditorGUISystemCopyBuffer extends EditorWindow {
+	
+		var savedCopies : String[] = new String[5];
+		var load = false;
+		
+		@MenuItem("Examples/Improved copy buffer")
+		static function Init() {
+			var window = GetWindow(EditorGUISystemCopyBuffer);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			load = EditorGUILayout.Toggle("Load:", load);
+			EditorGUILayout.BeginHorizontal();
+			for(var i = 0; i < savedCopies.Length; i++)
+				if(GUILayout.Button(i.ToString()))
+					if(load)
+						EditorGUIUtility.systemCopyBuffer = savedCopies[i];
+					else
+						savedCopies[i] = EditorGUIUtility.systemCopyBuffer;
+			EditorGUILayout.EndHorizontal();
+			
+			for(var j = 0; j < savedCopies.Length; j++)
+				EditorGUILayout.LabelField("Saved " + j, savedCopies[j]);
+			
+			EditorGUILayout.LabelField("Current buffer:", EditorGUIUtility.systemCopyBuffer);
+			if(GUILayout.Button("Clear all saves"))
+				for(var s : String in savedCopies)
+					s = "";
+		}
+		
+		function OnInspectorUpdate() {
+			this.Repaint();
+		}
+	}
+END EX

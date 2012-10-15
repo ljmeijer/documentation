@@ -1,0 +1,5 @@
+Priority of a thread.
+
+Lower priority means a background operation will run less often and will take up less time, but will progress more slowly.
+
+SA: Application.backgroundLoadingPriority, WWW.threadPriority.

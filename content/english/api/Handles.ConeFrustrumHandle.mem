@@ -1,0 +1,5 @@
+Make a Scene View cone frustrum handle
+
+@param rotation Orientation of the handle
+@param position Center of the handle in 3D space
+@param radiusAngleRange Vector3 containing radius in .x, angle in .y and range in .z

@@ -1,0 +1,29 @@
+Sets a new graphics quality level.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI ()
+	{
+		var names = QualitySettings.names;
+		GUILayout.BeginVertical ();
+		for (var i = 0; i < names.Length; i++)
+		{
+			if (GUILayout.Button (names[i]))
+				QualitySettings.SetQualityLevel (i, true);
+		}
+		GUILayout.EndVertical ();
+	}
+END EX
+Note that changing the quality level can be an expensive operation if the new level
+has different anti-aliasing setting. It's fine to change the level when applying in-game
+quality options, but if you want to dynamically adjustquality level at runtime, pass
+false to applyExpensiveChanges so that expensive changes are not always applied.
+
+When building a player quality levels that are not used for that platform are stripped.
+You should not expect a given quality setting to be at a given index. It's best to query
+the available quality settings and use the returned index.
+
+SA: ::ref::GetQualityLevel
+
+@param index quality index to set
+@param applyExpensiveChanges should expensive changes be applied (Anti-aliasing etc)

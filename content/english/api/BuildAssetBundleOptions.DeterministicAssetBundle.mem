@@ -1,0 +1,8 @@
+Builds an asset bundle using a hash for the id of the object stored in the asset bundle.
+This allows you to rebuild an asset bundle and reference assets in it directly.
+When rebuilding the asset bundle the objects in it are guaranteed to have the same id
+after rebuilding the asset bundle.
+Due to it being a 32 bit hash space, if you have a lot of objects in the asset bundle it will increase the potential for hash conflicts. Unity will give an error and not build the asset bundle in that case.
+The hash is based on the GUID of the asset and the local id of the object in the asset.
+DeterministicAssetBundle are also slower to load from than normal asset bundles, this is because the threaded background loading API usually expects objects to be ordered in a way that makes reading reduce seeking.
+With DeterministicAssetBundles that is not possible.

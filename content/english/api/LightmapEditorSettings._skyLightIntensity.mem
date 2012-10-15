@@ -1,0 +1,4 @@
+Sky light intensity.
+
+Sky light can give very good results in outdoor scenes but
+also significantly increases bake time. Value of 0 disables sky light.

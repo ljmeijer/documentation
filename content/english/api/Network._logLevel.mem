@@ -1,0 +1,9 @@
+Set the log level for network messages (default is Off).
+For a description of the different log levels have a look at the [[NetworkLogLevel]] enum.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		Network.logLevel = NetworkLogLevel.Full;
+	}
+END EX

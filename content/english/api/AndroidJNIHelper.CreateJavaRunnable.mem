@@ -1,0 +1,5 @@
+Creates a UnityJavaRunnable object (implements java.lang.Runnable).
+
+SA: AndroidJavaRunnable
+
+@param runnable A delegate representing the java.lang.Runnable.

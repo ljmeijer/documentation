@@ -1,0 +1,3 @@
+Render all ingame cameras.
+@param cameraRect the device coordinates to render all game cameras into.
+@param gizmos Show gizmos as well

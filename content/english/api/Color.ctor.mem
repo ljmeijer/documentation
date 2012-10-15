@@ -1,0 +1,15 @@
+Constructs a new Color with given r,g,b,a components.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var color : Color = Color(0.2, 0.3, 0.4, 0.5);
+END EX<signature>
+ctor_float_float_float_float
+ctor_float_float_float
+</signature>
+Constructs a new Color with given r,g,b components and sets /a/ to 1.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var color : Color = Color(0.2, 0.3, 0.4);
+END EX

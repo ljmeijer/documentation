@@ -1,0 +1,3 @@
+The border defines the number of pixels from the edge that are not affected by scale.
+
+SA: [[RectOffset]], [[wiki:class-GuiTexture|GUI texture component]].

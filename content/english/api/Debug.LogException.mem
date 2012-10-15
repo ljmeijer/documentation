@@ -1,0 +1,29 @@
+A variant of Debug.Log that logs an error message from an exception to the console.
+BEGIN EX
+
+	try
+	{
+		// Do something that can throw an exception
+	}
+	catch (Exception e)
+	{
+		Debug.LogException(e);
+	}
+END EX<signature>
+LogException_Exception
+LogException_Exception_object
+</signature>
+A variant of Debug.Log that logs an error message to the console.
+When you select the message in the console a connection to the context object will be drawn.
+This is very useful if you want know on which object an error occurs.
+BEGIN EX
+
+	try
+	{
+		// Do something that can throw an exception
+	}
+	catch (Exception e)
+	{
+		Debug.LogException(e, this);
+	}
+END EX

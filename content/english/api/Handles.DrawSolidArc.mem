@@ -1,0 +1,45 @@
+Draw a circular sector (pie piece) in 3D space.
+
+{img DrawSolidArc.png}\\
+''Solid Arc in the Scene View.''
+BEGIN EX
+
+	// Create a 180 degrees wire arc with a ScaleValueHandle attached to the disc
+	// that lets you modify the "shieldArea" var in the WireArcExample.js
+	
+	@CustomEditor (SolidArcExample)
+	class DrawSolidArc extends Editor {
+	    function OnSceneGUI () {
+	    	Handles.color = Color(1,1,1,0.2);
+	        Handles.DrawSolidArc(target.transform.position, 
+	        		target.transform.up, 
+	        		-target.transform.right, 
+	        		180, 
+	        		target.shieldArea);
+	        Handles.color = Color.white;
+	        target.shieldArea = 
+			Handles.ScaleValueHandle(target.shieldArea,
+	        				target.transform.position + target.transform.forward*target.shieldArea,
+	        				target.transform.rotation,
+	        				1,
+	        				Handles.ConeCap,
+	        				1);
+	    }
+	}
+END EX
+
+And the script attached to this Handle:
+BEGIN EX
+
+	// SolidArcExample.js
+	
+	var shieldArea : float = 5;
+END EX
+
+@param center the center of the circle
+@param normal the normal of the circle	
+@param from the direction of the point on the circumference, relative to the center, where the sector begins
+@param angle the angle of the sector, in degrees
+@param radius the radius of the circle
+
+__Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.

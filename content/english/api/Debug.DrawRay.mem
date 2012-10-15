@@ -1,0 +1,22 @@
+Draws a line from /start/ to /start/ + /dir/ with color for a duration of time and with or without depth testing. If duration is 0 then the line is rendered 1 frame.
+The line will be drawn in the scene view of the editor. If gizmo drawing is enabled in the game view, the line will also be drawn there.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Frame update example: Draws a 10 meter long green line from the position for 1 frame.
+	function Update () {
+		var forward : Vector3 = transform.TransformDirection(Vector3.forward) * 10;
+		Debug.DrawRay (transform.position, forward, Color.green);
+	}
+END EX
+CONVERTEXAMPLE
+BEGIN EX
+
+	
+	// Event callback example: Debug-draw all contact points and normals for 2 seconds.
+	function OnCollisionEnter(collision : Collision) {
+		for (var contact : ContactPoint in collision.contacts) {
+			Debug.DrawRay(contact.point, contact.normal, Color.green, 2, false);
+		}
+	}
+END EX

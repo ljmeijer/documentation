@@ -1,0 +1,4 @@
+The size of the particle.
+This is particle's size in meters in world space.
+
+SA: [[wiki:comp-ParticlesLegacy|Particles documentation]].

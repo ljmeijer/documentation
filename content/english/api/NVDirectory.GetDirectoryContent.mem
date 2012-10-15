@@ -1,0 +1,29 @@
+*undocumented
+Get the requested (SA: ::ref::Read) directory content -- file and directory names as a string array.
+BEGIN EX
+
+	function GetDirectories (dir: NVDirectory, filtered: Array) {
+		var sys: NVSystem = new NVSystem ();
+		var res: Array = new Array ();
+		var cnt: String[] = dir.GetDirectoryContent ();
+		for (var name: String in cnt) {
+			yield sys.GetType (name);
+			if (sys.success && sys.type == WiiNand.NodeType.Directory) {
+				filtered.Push (name);
+			}
+		}
+	}
+
+	function Start () {
+		var d: NVDirectory = new NVDirectory ();
+		
+		yield d.Read (".");
+		var dirs: Array = new Array ();
+		yield GetDirectories (d, dirs);
+		
+		for (var d: String in dirs) {
+			Debug.Log (d);
+		}
+	}
+END EX
+@return	String array containing file and directory names. List includes "." and "..").

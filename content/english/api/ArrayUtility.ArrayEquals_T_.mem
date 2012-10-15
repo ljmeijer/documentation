@@ -1,0 +1,2 @@
+compares two arrays
+@return true if both have the same number of elements and the contents are equal

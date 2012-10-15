@@ -1,0 +1,9 @@
+The controller that hit the collider
+CONVERTEXAMPLE
+BEGIN EX
+
+	// CharacterControllers we touch, disable collision detection.
+	function OnControllerColliderHit(hit : ControllerColliderHit) {
+		hit.controller.detectCollisions = false;
+	}
+END EX

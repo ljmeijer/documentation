@@ -1,0 +1,4 @@
+Check if the user has authorized use of the webcam or microphone in the Web Player.
+This is used to check the result of a previous call to [[Application.RequestUserAuthorization]].
+Explicit user consent to use features is only needed in the Web Player. In other build
+targets, this function will always return true.

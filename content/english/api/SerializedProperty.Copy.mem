@@ -1,0 +1,2 @@
+Returns a copy of the SerializedProperty iterator in its current state. This is useful if you want to keep a reference to the current property but continue with the iteration.
+Note that if you keep a reference to an array property and that array is subsequently resized then the stored reference is no longer reliable and should not be used.

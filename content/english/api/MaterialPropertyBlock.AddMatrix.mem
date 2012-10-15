@@ -1,0 +1,47 @@
+<signature>
+AddMatrix_string_Matrix4x4
+AddMatrix_int_Matrix4x4
+</signature>
+Add a matrix material property.
+
+Function variant that takes /nameID/ is faster. If you are adding properties with the same name repeatedly,
+use Shader.PropertyToID to get unique identifier for the name, and pass the identifier to AddMatrix.
+BEGIN EX
+
+	var rotateSpeed = 30;
+	var texture : Texture;
+	var aMesh : Mesh;
+
+	// Create a new material with a shader
+	// that rotates the texture. Texture rotation
+	// is performed with a _Rotation matrix.
+	var m : Material = new Material (
+		"Shader \"Rotating Texture\" {" +
+			"Properties { _MainTex (\"Base\", 2D) = \"white\" {} }" +
+			"SubShader {" +
+			"    Pass {" +
+			"        Material { Diffuse (1,1,1,0) Ambient (1,1,1,0) }" +
+			"        Lighting On" +
+			"        SetTexture [_MainTex] {" +
+			"            matrix [_Rotation]" +
+			"            combine texture * primary double, texture" +
+			"        }" +
+			"    }" +
+			"}" +
+		"}"
+	);
+	m.mainTexture = texture;
+
+
+	function Update() {
+		var materialProperty : MaterialPropertyBlock = new MaterialPropertyBlock();
+		// Construct a rotation matrix and set it for the shader
+		var rot : Quaternion = Quaternion.Euler (0, 0, Time.time * rotateSpeed);
+		var mtrx : Matrix4x4 = Matrix4x4.TRS (Vector3.zero, rot, Vector3(1,1,1) );
+
+		// Update the rotation matrix.
+		materialProperty.AddMatrix ("_Rotation", mtrx);
+		Graphics.DrawMesh(aMesh, Vector3(-5,0,0), Quaternion.identity,
+				  m, 0, null, 0, materialProperty);
+	}
+END EX

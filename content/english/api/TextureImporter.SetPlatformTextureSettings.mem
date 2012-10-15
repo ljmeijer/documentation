@@ -1,0 +1,5 @@
+Set specific target platform settings<signature>
+SetPlatformTextureSettings_string_int_TextureImporterFormat_int
+SetPlatformTextureSettings_string_int_TextureImporterFormat
+</signature>
+Set specific target platform settings

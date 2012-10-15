@@ -1,0 +1,20 @@
+The default [[AudioClip]] to play
+CONVERTEXAMPLE
+BEGIN EX
+
+	@script RequireComponent(AudioSource)
+	public var otherClip: AudioClip;
+
+	// Play default sound
+	function Start()
+	{
+		audio.Play();	
+
+		// Wait for the audio to have finished
+		yield WaitForSeconds (audio.clip.length);
+
+		// Assign the other clip and play it
+		audio.clip = otherClip;
+		audio.Play();
+	}
+END EX

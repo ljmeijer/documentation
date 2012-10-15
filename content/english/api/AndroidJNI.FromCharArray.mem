@@ -1,0 +1,3 @@
+Convert a Java array of <tt>char</tt> to a managed array of System.Char.
+
+SA: AndroidJNI.GetCharArrayElement, AndroidJNI.GetArrayLength

@@ -1,0 +1,16 @@
+Copy properties from other material into this material.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Attach this to a gameObject that has a renderer.
+	// Copies any property mat has and assigns it to this transform material
+
+	var mat : Material;
+
+	if (!mat) {
+		Debug.LogError("Assign a material on the inspector.");
+		return;
+	}
+
+	renderer.material.CopyPropertiesFromMaterial(mat);
+END EX

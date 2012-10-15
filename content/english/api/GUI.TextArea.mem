@@ -1,0 +1,22 @@
+<signature>
+TextArea_Rect_string
+TextArea_Rect_string_int
+TextArea_Rect_string_GUIStyle
+TextArea_Rect_string_int_GUIStyle
+</signature>
+Make a Multi-line text area where the user can edit a string.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var stringToEdit : String = "Hello World\nI've got 2 lines...";
+
+	function OnGUI () {
+		// Make a multiline text area that modifies stringToEdit.
+		stringToEdit = GUI.TextArea (Rect (10, 10, 200, 100), stringToEdit, 200);
+	}
+END EX
+@param position	Rectangle on the screen to use for the text field.
+@param text 			Text to edit. The return value of this function should be assigned back to the string as shown in the example.
+@param maxLength		The maximum length of the string. If left out, the user can type for ever and ever.
+@param style			The style to use. If left out, the /textArea/ style from the current [[GUISkin]] is used.
+@return the edited string.

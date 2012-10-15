@@ -1,0 +1,8 @@
+The text contained.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI () {
+		GUI.Button (Rect (0, 30, 100, 20), GUIContent ("Click Me"));
+	}
+END EX

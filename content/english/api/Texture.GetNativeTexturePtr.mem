@@ -1,0 +1,16 @@
+Retrieve native ('hardware') pointer to a texture.
+
+Use this function to retrieve a pointer/handle corresponding to a particular texture
+as it is represented on the native graphics device level.
+This can be used to enable texture manipulation from [[wiki:NativePluginInterface|native code plugins]].
+
+On Direct3D-like devices this returns a pointer to the base texture type (IDirect3DBaseTexture9
+on D3D9, ID3D11Resource on D3D11). On OpenGL-like devices the texture "name" is returned;
+cast the pointer to integer type to get it. On platforms that do not support native code plugins,
+this function always returns NULL.
+
+Note that calling this function when using multi-threaded rendering will synchronize with the rendering
+thread (a slow operation), so best practice is to set up needed texture pointers only at initialization
+time.
+
+SA: [[wiki:NativePluginInterface|Native code plugins]].

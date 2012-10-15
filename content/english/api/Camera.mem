@@ -1,0 +1,11 @@
+A Camera is a device through which the player views the world.
+
+A screen space point is defined in pixels. The bottom-left of the screen is (0,0); the right-top
+is (::ref::pixelWidth,::ref::pixelHeight). The z position is in world units from the camera.
+
+A viewport space point is normalized and relative to the camera. The bottom-left of the camera is
+(0,0); the top-right is (1,1). The z position is in world units from the camera.
+
+A world space point is defined in global coordinates (eg. Transform.position).
+
+SA: [[wiki:class-Camera|camera component]].

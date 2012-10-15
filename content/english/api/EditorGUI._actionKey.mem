@@ -1,0 +1,36 @@
+Is the platform-dependent "action" modifier key held down? (RO)
+The key is Command on Mac OS X, Control on Windows.
+
+{img EditorGUIActionKey.png}\\
+''Action Key usage, key not pressed/key pressed.''
+BEGIN EX
+
+	// Shows a password field with some "hidden" text.
+	// When the user presses the action key the password field becomes a text field.
+	
+	class EditorGUIActionKey extends EditorWindow {
+	
+		var text : String = "This is some text";
+	
+		@MenuItem("Examples/Show Hide password")
+		static function Init() {
+			var window = GetWindow(EditorGUIActionKey);
+			window.position = Rect(0, 0, 250, 60);
+			window.Show();
+		}
+		function OnGUI() {
+			// Show the contents
+			if(EditorGUI.actionKey) {
+				text = EditorGUI.TextField(Rect(0, 5, 245, 20), "Shown  Text:", text);
+			} else {
+			// show the pasword field
+				text = EditorGUI.PasswordField(Rect(0, 5, 245, 20), "Hidden Text:", text);	
+			}
+			if(GUI.Button(Rect(0,30, 250, 20),"Close"))
+				this.Close();
+		}
+		function OnInspectorUpdate() {
+			Repaint();
+		}
+	}
+END EX

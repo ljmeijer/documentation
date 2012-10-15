@@ -1,0 +1,16 @@
+Samples an animation at a given time for any animated properties.
+It is recommended to use the [[Animation]] interface instead for performance reasons.
+This will sample /animation/ at the given /time/.
+Any component properties that are animated in the clip will be replaced with the sampled value.
+Most of the time you want to use Animation.Play instead. SampleAnimation is useful when you need to jump between frames in an unordered way or
+based on some special input.
+SA: [[Animation]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Plays an animation clip backwards by sampling it every frame.
+	var clip : AnimationClip;
+	function Update() {
+		gameObject.SampleAnimation(clip, clip.length - Time.time);
+	}
+END EX

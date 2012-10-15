@@ -1,0 +1,4 @@
+Matrix that transforms a point from local space into world space (RO).
+If you're not familiar with using matrices for coordinate transformations, use Transform.TransformPoint instead.
+
+__IMPORTANT:__ If you're setting shader parameters you MUST use Renderer.localToWorldMatrix instead.

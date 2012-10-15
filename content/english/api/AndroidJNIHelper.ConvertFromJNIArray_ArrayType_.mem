@@ -1,0 +1,5 @@
+Creates a managed array from a Java array
+
+SA: AndroidJNIHelper.ConvertToJNIArray
+
+@param array Java array object to be converted into a managed array.

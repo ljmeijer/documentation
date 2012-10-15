@@ -1,0 +1,12 @@
+Creates a wizard.
+
+When the user hits the Create button ::ref::OnWizardCreate function will be called.
+DisplayWizard will only show one wizard for every wizard class.
+
+
+@param T The class implementing the wizard. It has to derive from [[ScriptableWizard]].
+@param title The title shown at the top of the wizard window.
+@param class The class implementing the wizard. It has to derive from [[ScriptableWizard]].
+@param createButtonName The text shown on the create button.
+@param otherButtonName The text shown on the optional other button. Leave this parameter out to leave the button out.
+@returns The wizard.

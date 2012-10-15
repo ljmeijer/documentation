@@ -1,0 +1,15 @@
+*undocumented
+Request file length information. Upon success, file length can be accessed through ::ref::length property.
+BEGIN EX
+
+	var file: NVFile = new NVFile ();
+	yield file.Open ("/tmp/test", WiiNand.Access.Read);
+	if (file.success) {
+		yield file.GetLength ();
+		if (file.success)
+			Debug.Log ("File length is: " + file.length);
+		else
+			Debug.Log ("Failed to get file length");
+		yield file.Close();
+	}
+END EX

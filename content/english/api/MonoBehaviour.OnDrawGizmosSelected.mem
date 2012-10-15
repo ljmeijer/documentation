@@ -1,0 +1,16 @@
+CSNONE
+Implement this OnDrawGizmosSelected if you want to draw gizmos only if the object is selected.
+[[Gizmos]] are drawn only when the object is selected. Gizmos are not pickable.
+This is used to ease setup. For example an explosion script could draw a sphere
+showing the explosion radius.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var explosionRadius : float = 5.0;
+
+	function OnDrawGizmosSelected () {
+		// Display the explosion radius when selected
+		Gizmos.color = Color.white;
+		Gizmos.DrawSphere (transform.position, explosionRadius);
+	}
+END EX

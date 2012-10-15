@@ -1,0 +1,12 @@
+Creates a scaling matrix.
+
+Returned matrix is such that scales along coordinate axes by a vector /v/.
+The matrix looks like this:
+BEGIN EX
+NOCHECK
+	v.x 0   0   0
+	0   v.y 0   0
+	0   0   v.z 0
+	0   0   0   1
+END EX
+SA: ::ref::TRS function.

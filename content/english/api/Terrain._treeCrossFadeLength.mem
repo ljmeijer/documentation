@@ -1,0 +1,10 @@
+Total distance delta that trees will use to transition from billboard orientation to mesh orientation.
+Decreasing this value makes the transition happen faster.
+Setting it to 0 will produce a visible pop when switching from mesh to billboard representation
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		Terrain.activeTerrain.treeCrossFadeLength = 20;
+	}
+END EX

@@ -1,0 +1,2 @@
+Sets the skeleton tracking id of the locally signed-in player who will be in control of the dialogs.
+Set /trackingId/ to zero to require players to wave before using a dialog.

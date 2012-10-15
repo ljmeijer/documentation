@@ -1,0 +1,18 @@
+CSNONE
+OnMouseEnter is called when the mouse entered the [[GUIElement]] or [[Collider]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Attach this script to a mesh to make
+	// it red when the mouse is over the mesh
+
+	function OnMouseEnter () {
+		renderer.material.color = Color.red;
+	}
+END EX
+This function is not called on objects that belong to Ignore Raycast layer.
+
+OnMouseEnter can be a co-routine, simply use the yield statement in the function.
+This event is sent to all scripts attached to the [[Collider]] or [[GUIElement]].
+
+__IMPORTANT:__ This function has no effect on iPhone.

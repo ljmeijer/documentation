@@ -1,0 +1,42 @@
+Emit a number of particles.
+Makes the emitter spit out a random number of particles, as set by the ::ref::minEmission
+and ::ref::maxEmission properties.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Emit a random amount of particles between min and max emission now.
+
+	particleEmitter.Emit();
+END EX<signature>
+Emit
+Emit_int
+</signature>
+Emit /count/ particles immediately
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Emit 10 particles
+
+	particleEmitter.Emit(10);
+END EX
+<signature>
+Emit_Vector3_Vector3_float_float_Color
+</signature>
+Emit a single particle with given parameters.
+BEGIN EX
+
+	// Emit one particle at the origin, shooting straight up.
+	// The size of the particle is 0.2 and it will live 2 seconds long.
+	particleEmitter.Emit(Vector3.zero, Vector3.up, 0.2, 2, Color.yellow);
+END EX
+
+@param pos		The position of the particle.
+@param velocity	The velocity of the particle.
+@param size		The size of the particle.
+@param energy	The remaining lifetime of the particle.
+@param color	The color of the particle.
+<signature>
+Emit_Vector3_Vector3_float_float_Color_float_float
+</signature>
+@param rotation	The initial rotation of the particle in degrees.
+@param angularVelocity	The angular velocity of the particle in degrees per second.

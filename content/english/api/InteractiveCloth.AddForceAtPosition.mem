@@ -1,0 +1,3 @@
+Adds force /force/ to all vertices of the cloth mesh which are with /radius/ distance of /position/.
+
+SA: [[Cloth.externalAcceleration]], [[Cloth.randomAcceleration]]

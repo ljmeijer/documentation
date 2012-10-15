@@ -1,0 +1,8 @@
+Linearly interpolates between two vectors.
+
+Interpolates between /from/ and /to/ by amount /t/.
+
+/t/ is clamped between [0...1].
+When /t/ = 0 returns /from/.
+When /t/ = 1 returns /to/.
+When /t/ = 0.5 returns the average of /from/ and /to/.

@@ -1,0 +1,6 @@
+How far should the text be offset from the transform.position.z when drawing
+CONVERTEXAMPLE
+BEGIN EX
+
+	GetComponent(TextMesh).offsetZ = 5;
+END EX

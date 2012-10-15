@@ -1,0 +1,31 @@
+Creates a new game object, named __name__.
+A [[Transform]] is always added to the game object.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Creates a game object named "Player" and 
+	// adds a rigidbody and box collider to it.
+	var player : GameObject;
+	player = new GameObject ("Player");
+	player.AddComponent ("Rigidbody");
+	player.AddComponent ("BoxCollider");
+END EX<signature>
+ctor_string
+ctor
+</signature>
+Creates a new game object.
+A [[Transform]] is always added to the game object.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Creates a game object with no name and
+	// adds a rigidbody and box collider to it.
+	var player : GameObject;
+	player = new GameObject ();
+	player.AddComponent ("Rigidbody");
+	player.AddComponent ("BoxCollider");
+END EX
+<signature>
+ctor_string_TypeArray
+</signature>
+Creates a game object and attaches the specified components.

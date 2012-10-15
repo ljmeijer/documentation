@@ -1,0 +1,9 @@
+Can GUI elements of this style be stretched horizontally for better layouting?
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI() {
+		if(GUI.skin.customStyles.Length > 0)
+			GUI.skin.customStyles[0].stretchWidth = true;
+	}
+END EX

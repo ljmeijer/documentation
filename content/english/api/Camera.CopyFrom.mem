@@ -1,0 +1,8 @@
+Makes this camera's settings match other camera.
+
+This will copy all camera's variables (field of view, clear flags, culling mask, ...) from the /other/
+camera. It will also set this camera's transform to match the other camera, as well as this camera's
+layer to match the layer of the other camera.
+
+This can be useful if you want one camera to match the other camera's setup, when doing custom
+rendering effects. For example when using ::ref::RenderWithShader.

@@ -1,0 +1,2 @@
+CollisionFlags is a bitmask returned by CharacterController.Move.
+It gives you a broad overview of where your character collided with any other objects.

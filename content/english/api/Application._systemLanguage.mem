@@ -1,0 +1,9 @@
+The language the user's operating system is running in.
+
+You can use this to automatically pick a localization for your content based on the user's system language.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints to a guiText the actual language that the system is using.
+	guiText.text = Application.systemLanguage.ToString();
+END EX

@@ -1,0 +1,12 @@
+Sets a global texture property for all shaders.
+
+Global properties are used if a shader needs them but the material does
+not have them defined (for example, if the shader does not expose them
+in /Properties/ block).
+
+Usually this is used if you have a set of custom shaders that all use
+the same "global" texture (for example, custom diffuse-lighting cubemap).
+Then you can set the global property from script and don't have to setup
+the same texture in all materials.
+
+SA: ::ref::SetGlobalColor, ::ref::SetGlobalFloat; [[Material]] class, [[wiki:Shaders|ShaderLab documentation]].

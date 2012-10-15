@@ -1,0 +1,35 @@
+<signature>
+VerticalScrollbar_Rect_float_float_float_float
+VerticalScrollbar_Rect_float_float_float_float_GUIStyle
+</signature>
+Make a vertiical scrollbar. Scrollbars are what you use to scroll through a document. Most likely, you want to use scrollViews instead.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var vSbarValue : float;
+
+	function OnGUI () {
+		vSbarValue = GUI.VerticalScrollbar(Rect (25, 25, 100, 30), vSbarValue, 1.0, 10.0, 0.0);
+	}
+END EX
+<b>Finding extra elements:</b><br>
+The styles of the buttons at then end of the scrollbar are searched for in the current skin by adding "upbutton" and "downbutton" to the style name. 
+The name of the scrollbar thumb (the thing you drag) is found by appending "thumb" to the style name.
+BEGIN EX
+
+	var scrollPos : float = 0.5;
+	// This will use the following style names to determine the size / placement of the buttons
+	// MyVertScrollbarupbutton    - Name of style used for the up button.
+	// MyVertScrollbardownbutton - Name of style used for the down button.
+	// MyVertScrollbarthumb         - Name of style used for the draggable thumb.
+	function OnGUI() {
+		scrollPos = GUI.VerticalScrollbar(Rect(0,0,100,20), scrollPos, 1, 0, 100, "Scroll");
+	}
+END EX
+@param position			Rectangle on the screen to use for the scrollbar.
+@param value 				The position between min and max
+@param size				How much can we see?
+@param topValue				The value at the top of the scrollbar
+@param bottomValue			The value at the bottom of the scrollbar
+@param style				The style to use for the scrollbar background. If left out, the /horizontalScrollbar/ style from the current [[GUISkin]] is used.
+@returns the modified value. This can be changed by the user by dragging the scrollbar, or clicking the arrows at the end.

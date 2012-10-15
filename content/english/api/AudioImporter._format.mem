@@ -1,0 +1,16 @@
+Format of imported audio.
+SA: [[AudioImporterFormat]].
+BEGIN EX
+
+	// Prints when an imported audio is compressed
+	
+	class CompressionLogger extends AssetPostprocessor {
+	    function OnPreprocessAudio () {
+	    	var audioImporter : AudioImporter = assetImporter;
+	        
+	        if (audioImporter.format == AudioImporterFormat.Compressed) {
+	            Debug.Log(assetPath + " Is compressed");
+	        }
+	    }
+	}
+END EX

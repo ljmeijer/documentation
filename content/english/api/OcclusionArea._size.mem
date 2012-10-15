@@ -1,0 +1,10 @@
+Size that the occlusion area will have
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Sets an Occlusion area of 10 units in x, 20 units in y and 30 units in z
+
+	@script RequireComponent(OcclusionArea)
+
+	transform.GetComponent(OcclusionArea).size = Vector3(10,20,30);
+END EX

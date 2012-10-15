@@ -1,0 +1,4 @@
+*undocumented*
+Does this machine support vertex programs? (RO)
+
+Returns /true/ if the graphics card supports vertex programs, /false/ if not.

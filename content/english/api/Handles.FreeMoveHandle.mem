@@ -1,0 +1,43 @@
+Make an unconstrained movement handle.
+This can move freely in all directions. Hold down CMD to snap, CMD-SHIFT to raysnap agains colliders in the scene.
+
+{img FreeMoveHandle.png}\\
+''Free Move handle on the Scene View.''
+BEGIN EX
+
+	// Create a simple move handle (Twice as big) on the 
+	// target object that lets you freely move the Object
+	// Without having the "Move" button selected
+	
+	@CustomEditor (FreeMove)
+	class FreeMoveHandleJS extends Editor {
+		function OnSceneGUI () {
+	        target.pos = Handles.FreeMoveHandle(target.pos, 
+	        				Quaternion.identity,
+	        				2.0,
+	        				Vector3.zero, 
+	        				Handles.DrawRectangle);
+	        if (GUI.changed)
+	            EditorUtility.SetDirty (target);
+	    }
+	}
+END EX
+
+And the script attached to this handle:
+BEGIN EX
+
+	@script ExecuteInEditMode()
+	
+	var pos : Vector3 = Vector3(0,0,0);
+	
+	function Update () {
+		transform.position = pos;
+	}
+END EX
+
+@param position the position of the handle
+@param rotation the rotation of the handle. this defines the space along
+@param size the size of the handle. 
+@param capFunc the function to use for drawing the handle, eg, Handles.RectangleCap
+
+__Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.

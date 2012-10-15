@@ -1,0 +1,13 @@
+<signature>
+GetAspectRect_float
+GetAspectRect_float_GUIStyle
+GetAspectRect_float_GUILayoutOptionArray
+GetAspectRect_float_GUIStyle_GUILayoutOptionArray
+</signature>
+Reserve layout space for a rectangle with a specific aspect ratio.
+@param aspect		The aspect ratio of the element (width / height)
+@param style			An optional style. If specified, the style's /padding/ value will be added to the sizes of the returned rectangle & the style's /margin/ values will be used for spacing.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight.
+@returns the rect for the control.

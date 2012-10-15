@@ -1,0 +1,4 @@
+Build a compressed asset bundle that contains streamed scenes loadable with the WWW class.
+This allows you to on demand load scenes and their assets when needed instead of a simple linear progressing download.
+The best way to build a streamed scene asset bundle is to use BuildPipeline.BuildStreamedSceneAssetBundle
+SA: BuildPipeline.BuildPlayer.

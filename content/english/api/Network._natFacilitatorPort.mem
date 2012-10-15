@@ -1,0 +1,9 @@
+The port of the NAT punchthrough facilitator.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function ResetIP() {
+		Network.natFacilitatorIP = "127.0.0.1";
+		Network.natFacilitatorPort = 10001;
+	}
+END EX

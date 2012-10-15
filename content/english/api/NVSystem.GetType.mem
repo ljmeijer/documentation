@@ -1,0 +1,14 @@
+Request type of a node at specific path.
+BEGIN EX
+
+	function PrintType (name:String) {
+		var s:NVSystem = new NVSystem ();
+		yield s.GetType (name);
+		if (!s.success)
+			Debug.Log ("Get type failed");
+		else
+			Debug.Log ("Node type is: " + s.type);
+	}
+END EX
+@param	name	Path to the node to get type of.
+Result will be available in ::ref::type property.

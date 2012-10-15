@@ -1,0 +1,12 @@
+Stretching stiffness of the cloth.
+Must be greater than zero and smaller or equal to one.\\
+In many cases, when you want a cloth to be more stiff, actually reducing the number of vertices
+will get you better results - and performance.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the stretching Stiffness to 1 regardless if the cloth
+	// is a Skinned Cloth or Interactive.
+
+	transform.GetComponent(Cloth).stretchingStiffness = 1;
+END EX

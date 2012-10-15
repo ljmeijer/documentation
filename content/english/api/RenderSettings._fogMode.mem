@@ -1,0 +1,7 @@
+Fog mode to use.
+BEGIN EX
+
+	// Use linear fog
+	RenderSettings.fogMode = FogMode.Linear;
+END EX
+SA: RenderSettings.fog, [[wiki:class-RenderSettings|Render Settings manager]]

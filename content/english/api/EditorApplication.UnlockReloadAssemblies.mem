@@ -1,0 +1,3 @@
+Must be called after LockReloadAssemblies, to reenable loading of assemblies.
+
+SA: EditorApplication.LockReloadAssemblies

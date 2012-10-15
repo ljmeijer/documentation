@@ -1,0 +1,2 @@
+Force record property modifications by comparing against the parent prefab.
+This is done automatically and you will not have to call this function manually.

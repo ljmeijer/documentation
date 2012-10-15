@@ -1,0 +1,2 @@
+Attempt to acquire a new path if the existing path becomes invalid
+or if the agent reaches the end of a partial and stale path.

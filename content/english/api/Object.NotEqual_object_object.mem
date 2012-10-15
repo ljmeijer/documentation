@@ -1,0 +1,12 @@
+Compares if two objects refer to a different object
+CONVERTEXAMPLE
+BEGIN EX
+
+	var target : Transform;
+	function Update () {
+		// the target object does not refer to the same object as our transform
+		if (target != transform) {
+			print("Another object");			
+		}
+	}
+END EX

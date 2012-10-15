@@ -1,0 +1,1 @@
+This control can get keyboard focus on Windows, but not on Mac. Used for buttons, checkboxes and other "pressable" things.

@@ -1,0 +1,6 @@
+Helper function for doing arrows.
+@param src the source point of the drag
+@param dest the destination point of the drag
+@param srcPosition the 3D position the dragged object had at /src/ ray.
+@param constraintDir 3D direction of constrained movement
+@returns the distance travelled along constraintDir

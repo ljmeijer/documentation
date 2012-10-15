@@ -1,0 +1,6 @@
+Shorthand for writing @@Vector3(0, 0, 1)@@
+CONVERTEXAMPLE
+BEGIN EX
+
+	transform.position += Vector3.forward * Time.deltaTime;
+END EX

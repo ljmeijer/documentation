@@ -1,0 +1,7 @@
+Automatically adjust the gameobject position and rotation so that the AvatarTarget reaches the matchPosition when the current state is at the specified progress
+@param matchPosition The position we want the body part to reach
+@param matchRotation The rotation in which we want the body part to be
+@param targetBodyPart The body part that is involved in the match
+@param weightMask Structure that contains weights for matching position and rotation
+@param startNormalizedTime Start time within the animation clip (0 - beginning of clip, 1 - end of clip)
+@param targetNormalizedTime End time within the animation clip (0 - beginning of clip, 1 - end of clip)

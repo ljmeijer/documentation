@@ -1,0 +1,62 @@
+Returns the value corresponding to /key/ in the preference file if it exists.
+If it doesn't exist, it will return /defaultValue/.
+
+{img ScriptAdder.png}\\
+''Add one or more script to the selected GameObjects''
+BEGIN EX
+
+	// Simple Editor Script that adds one or more scripts
+	// to the selected GameObjects
+
+	class ScriptAdder extends EditorWindow {
+		var numComponents = 1;
+		var componentsToAdd : MonoScript[];
+		@MenuItem("Examples/Script Adder")
+		static function Init() {
+			var window = GetWindow(ScriptAdder);
+			window.Show();
+		}
+		function Awake() {
+			numComponents = EditorPrefs.GetInt("NumberOfComponents", 1);
+			componentsToAdd = new MonoScript[numComponents];
+		}
+		function OnDestroy() {
+			EditorPrefs.SetInt("NumberOfComponents", numComponents);
+		}
+		function OnGUI() {
+			if(GUILayout.Button("Clear all components"))
+				for(var c : MonoScript in componentsToAdd)
+					c = null;
+			EditorGUILayout.BeginHorizontal();
+				if(GUILayout.Button("-")) IncreaseDecreaseComponents(-1);
+				if(GUILayout.Button("+")) IncreaseDecreaseComponents(1);
+			EditorGUILayout.EndHorizontal();
+
+			for(var i = 0; i < numComponents; i++)
+				componentsToAdd[i] =
+					EditorGUILayout.ObjectField("Component", componentsToAdd[i], MonoScript);
+
+			if(GUILayout.Button("Add to selection"))
+				if(Selection.activeGameObject)
+					for(var go : GameObject in Selection.gameObjects)
+						for(var c : MonoScript in componentsToAdd)
+							go.AddComponent(c.GetClass());
+		}
+		function IncreaseDecreaseComponents(num : int) {
+			if(numComponents + num == 0) {
+				numComponents = 1;
+				return;
+			}
+			numComponents += num ;
+			var newArray : MonoScript[] = new MonoScript[numComponents];
+			var count = 0;
+			if(num > 0)
+				for(count = 0; count < componentsToAdd.Length; count++)
+					newArray[count] = componentsToAdd[count];
+			else
+				for(count = 0; count < newArray.Length; count++)
+					newArray[count] = componentsToAdd[count];
+			componentsToAdd = newArray;
+		}
+	}
+END EX

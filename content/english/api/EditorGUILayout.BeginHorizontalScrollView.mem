@@ -1,0 +1,8 @@
+Begin an automatically layouted scrollview.
+These work just like GUILayout.BeginScrollview but feel more application-like and should be used in the editor
+@param scrollPosition			The position to use display.
+@param alwayShowHorizontal	Optional parameter to always show the horizontal scrollbar. If false or left out, it is only shown when the content inside the ScrollView is wider than the scrollview itself.
+@param alwayShowVertical		Optional parameter to always show the vertical scrollbar. If false or left out, it is only shown when content inside the ScrollView is taller than the scrollview itself.
+@param horizontalScrollbar		Optional [[GUIStyle]] to use for the horizontal scrollbar. If left out, the /horizontalScrollbar/ style from the current [[GUISkin]] is used.
+@param verticalScrollbar			Optional [[GUIStyle]] to use for the vertical scrollbar. If left out, the /verticalScrollbar/ style from the current [[GUISkin]] is used.
+@returns						The modified scrollPosition. Feed this back into the variable you pass in, as shown in the example.

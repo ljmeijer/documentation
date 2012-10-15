@@ -1,0 +1,3 @@
+Show the editor window in the auxiliary window.
+The single auxiliary window can be re-used by different editor windows at different times.
+Showing an editor window in the auxiliary window can be useful to avoid clutter of many small windows.

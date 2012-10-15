@@ -1,0 +1,14 @@
+How far cloth vertices need to be stretched, before the cloth will tear.
+If this is set to zero, tearing is disabled. For values greater than zero, 
+larger values make the cloth stretch further without tearing.
+This property can be changed dynamically, but turning it on or off completely 
+(by setting it to zero or non-zero), will cause the cloth simulation to reset.
+
+SA: ::ref::isTeared variable.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Simulate a really thin/aged and fragile cloth that will tear with anything
+
+	transform.GetComponent(InteractiveCloth).tearFactor = 0.1;
+END EX

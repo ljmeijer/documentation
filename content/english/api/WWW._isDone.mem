@@ -1,0 +1,4 @@
+Is the download already finished? (RO)
+
+You should not write loops that spin until download is done; use coroutines instead.
+An empty loop that waits for /isDone/ will block in the web player.

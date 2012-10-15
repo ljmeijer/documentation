@@ -1,0 +1,2 @@
+Check if an async command has completed successfully on a specified channel.
+@param	chan	Remote index, in range 0...3.

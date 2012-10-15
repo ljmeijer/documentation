@@ -1,0 +1,13 @@
+The object will not appear in the hierarchy and will not show up in the project view if it is stored in an asset.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Creates 5 planes and hides them from the Hierarchy in the Editor.
+	
+	function Start() {
+		for(var i : int = 0; i < 5; i++) {
+			var createdGO : GameObject = GameObject.CreatePrimitive(PrimitiveType.Plane);
+			createdGO.hideFlags = HideFlags.HideInHierarchy;
+		}
+	}
+END EX

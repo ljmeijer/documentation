@@ -1,0 +1,13 @@
+The velocity vector of the rigidbody.
+In most cases you should not modify the velocity directly, as this can result in unrealistic behaviour.
+Don't set the velocity of an object every physics step, this will lead to unrealistic physics simulation.
+A typical example where you would change the velocity is when jumping in a first person shooter, because you want an immediate change in velocity.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function FixedUpdate () {
+		if (Input.GetButtonDown ("Jump")) {
+			rigidbody.velocity = Vector3(0,10,0);
+		}
+	}
+END EX

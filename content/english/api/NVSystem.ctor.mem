@@ -1,0 +1,5 @@
+Constructor.
+BEGIN EX
+
+	var sys: NVSystem = new NVSystem ();
+END EX

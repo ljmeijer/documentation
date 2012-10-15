@@ -1,0 +1,42 @@
+Switches the screen resolution.
+
+A /width/ by /height/ resolution will be used.
+If no matching resolution is supported, the closest one will be used.
+
+If /preferredRefreshRate/ is 0 (default) Unity will switch to the highest refresh rate supported by the monitor.\\
+If /preferredRefreshRate/ is not 0 Unity will use it if the monitor supports it, otherwise will choose
+the highest supported one.
+
+In the web player you may only switch resolutions after the user has clicked on the content.
+The recommended way of doing it is to switch resolutions only when the user clicks on a designated button.
+
+On Android /fullscreen/ controls the SYSTEM_UI_FLAG_LOW_PROFILE flag to View.setSystemUiVisibility(), on
+devices running Honeycomb (OS 3.0 / API 11) or later.
+
+A resolution switch does not happen immediately; it will actually happen when the current frame is finished.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Switch to 640 x 480 fullscreen
+
+	Screen.SetResolution (640, 480, true);
+END EX
+
+Another Example:
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Switch to 640 x 480 fullscreen at 60 hz
+
+	Screen.SetResolution (640, 480, true, 60);
+END EX
+
+Another Example:
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Switch to 800 x 600 windowed
+
+	Screen.SetResolution (800, 600, false);
+END EX
+SA: ::ref::resolutions property.

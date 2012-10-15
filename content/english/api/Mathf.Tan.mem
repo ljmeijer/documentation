@@ -1,0 +1,6 @@
+Returns the tangent of angle /f/ in radians.
+CONVERTEXAMPLE
+BEGIN EX
+
+	print (Mathf.Tan(0.5));
+END EX

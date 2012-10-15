@@ -1,0 +1,8 @@
+Controls enabling and disabling of IME input composition.
+Some languages use complex input methods which involve opening windows to insert characters.
+Typically, this is not desirable while playing a game, as games may just interpret key strokes
+as game input, not as text. By default, Unity will enable IME composition when in text fields,
+and disable it otherwise. However, when you want to implement your own input GUI, you may want
+to have control over this yourself, which is possible using the imeCompositionMode property. Set
+it to /Auto/ for the default behavior, or /On/ or /Off/ to explicitly enable or disable IME
+composition.

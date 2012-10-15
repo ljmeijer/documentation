@@ -1,0 +1,38 @@
+Calls a function in the containing web page __(Web Player only)__.
+
+This will call JavaScript function /functionName/ in the web page that contains
+the web player, passing given arguments to it. Supported argument types are the
+primitive types (string, int, float, char) and arrays of them. Any other objects
+are converted to string (using ''ToString'' method) and passed as strings.
+
+The function is called non-blocking, i.e. ExternalCall immediately returns without waiting for the function that was called to complete.
+
+The number of passed arguments can be varying:
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Calls MyFunction1 in web page with no arguments
+	Application.ExternalCall ("MyFunction1");
+
+	// Calls MyFunction2 in web page with a string
+	Application.ExternalCall ("MyFunction2", "Hello from Unity!");
+
+	// Calls MyFunction3 in web page with several arguments of different types
+	Application.ExternalCall ("MyFunction3", "one", 2, 3.0);
+END EX
+The functions to be called are just declared in the HTML page using standard
+syntax, for example:
+BEGIN EX
+NOCHECK
+	<script language="JavaScript" type="text/javascript">
+	<!--
+	// Using the above call from Unity, this will receive
+	// "Hello from Unity!" as the argument.
+	function MyFunction2( arg )
+	{
+		alert( arg );
+	}
+	-->
+	</script>
+END EX
+SA: [[wiki:Unity Web Player and Browser Communication|Browser to Unity communication]], Application.ExternalEval.

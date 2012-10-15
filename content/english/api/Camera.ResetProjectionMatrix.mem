@@ -1,0 +1,8 @@
+Make the projection reflect normal camera's parameters.
+
+Call this to end the effect of setting ::ref::projectionMatrix.
+CONVERTEXAMPLE
+BEGIN EX
+
+	camera.ResetProjectionMatrix();
+END EX

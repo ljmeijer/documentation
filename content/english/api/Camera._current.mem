@@ -1,0 +1,5 @@
+The camera we are currently rendering with, for low-level render control only (Read Only).
+
+Most of the time you will want to use Camera.main instead.
+Use this function only when implementing one of the following events:
+MonoBehaviour.OnRenderImage, MonoBehaviour.OnPreRender, MonoBehaviour.OnPostRender.

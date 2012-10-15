@@ -1,0 +1,5 @@
+HandleDelayedDrag can be used to start a drag and drop
+from a rect that has a built-in delay for extra polish.
+The function may share events with other functionality.
+It should be supplied the same id as that other functionality.
+The function will not use an event but will return true if the event should be used.

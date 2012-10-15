@@ -1,0 +1,19 @@
+Calls the method named /methodName/ on every [[MonoBehaviour]] in this game object and on every ancestor of the behaviour
+The receiving method can choose to ignore the argument by having zero arguments.
+if options is set to SendMessageOptions.RequireReceiver an error is printed when the message is not picked up by any component.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Calls the function ApplyDamage with a value of 5
+	SendMessageUpwards ("ApplyDamage", 5.0);
+	
+	// Every script attached to the game object 
+	// that has a ApplyDamage function will be called.
+	function ApplyDamage (damage : float) {
+		print (damage);
+	}
+END EX<signature>
+SendMessageUpwards_string_object_SendMessageOptions
+SendMessageUpwards_string_SendMessageOptions
+</signature>
+*undocumented* Function is for convenience and avoid coming mistakes.

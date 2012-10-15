@@ -1,0 +1,12 @@
+The [[wiki:class-Flare|flare asset]] to use for this light.
+
+SA: LensFlare.flare, [[wiki:class-Light|Light component]] and [[wiki:class-Flare|flare asset]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Expose a reference to a flare in the inspector
+	var newFlare : Flare;
+
+	// Assign the flare
+	light.flare = newFlare;
+END EX

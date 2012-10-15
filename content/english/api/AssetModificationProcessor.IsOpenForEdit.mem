@@ -1,0 +1,4 @@
+CSNONE
+This is called by Unity when inspecting an asset to determine if an editor should be disabled.
+This can also be called by custom editor scripts.
+Requires Team License

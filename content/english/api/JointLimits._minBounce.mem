@@ -1,0 +1,9 @@
+The bounciness of the joint when hitting the lower limit of the joint.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the joint to bounce off when hitting the lower limit
+	var limits = hingeJoint.limits;
+	limits.minBounce = 1;
+	hingeJoint.limits = limits;
+END EX

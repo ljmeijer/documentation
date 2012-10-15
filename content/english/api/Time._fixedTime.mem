@@ -1,0 +1,3 @@
+The time the latest MonoBehaviour::pref::FixedUpdate has started (RO). This is the time in seconds since the start of the game.
+Fixed time is updated in regular intervals (equal to ::ref::fixedDeltaTime) until 
+::ref::time property is reached.

@@ -1,0 +1,3 @@
+Class internally used to pass layout options into [[GUILayout]] functions. You don't use these directly, but construct them with the layouting functions in the [[GUILayout]] class.
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight.

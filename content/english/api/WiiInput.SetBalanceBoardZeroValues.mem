@@ -1,0 +1,3 @@
+Reset Wii Balance Board values zero-point values.
+For sampling interval and procedure explanation of when to call this function, please refer to WBCSetZEROPoint function documentation in RVL SDK.
+@param average	Weight averages for each corner over two-seconds or so of the Balance board.

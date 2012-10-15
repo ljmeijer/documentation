@@ -1,0 +1,3 @@
+The [[Collider]] that was hit.
+This property is null if hit nothing and not-null if you hit anything.
+SA: Physics.Raycast, Physics.Linecast, Physics.RaycastAll.

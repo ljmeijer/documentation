@@ -1,0 +1,5 @@
+Returns a block of the listener (master)'s output data<signature>
+GetOutputData_int_int
+GetOutputData_floatArray_int
+</signature>
+Returns a block of the listener (master)'s output data

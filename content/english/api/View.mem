@@ -1,0 +1,1 @@
+Baseclass for all views in Unity. Implements the view hierarchy, but doesn't really do much else.

@@ -1,0 +1,17 @@
+Sets pixel color at coordinates (face, x, y).
+
+Call ::ref::Apply to actually upload the changed pixels to the graphics card.
+Uploading is an expensive operation, so you'll want to change as many pixels
+as possible between /Apply/ calls.
+
+This function works only on /ARGB32/, /RGB24/ and /Alpha8/ texture formats.
+For other formats /SetPixel/ is ignored.
+SA: ::ref::Apply function.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the pixel at (0,0) of the +X face red.
+	var c : Cubemap;
+	c.SetPixel(CubemapFace.PositiveX, 0, 0, Color.red);
+	c.Apply(); // Apply the color to the face.
+END EX

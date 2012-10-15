@@ -1,0 +1,26 @@
+Returns the current selection filtered by type and mode.
+For a selected GameObject that has multiple Components of /type/, only the first one will be included in the results. \\
+if /type/ is a subclass of [[Component]] or [[GameObject]] the full SelectionMode is supported. \\
+if /type/ does not subclass from [[Component]] or [[GameObject]] (eg. [[Mesh]] or [[ScriptableObject]]) only SelectionMode.ExcludePrefab and SelectionMode.Editable are supported.
+BEGIN EX
+
+	// C# Example
+	// Menu Item that lets you mark a selection of Objects enabled or
+	// disabled recursively.
+
+	using UnityEngine;
+	using UnityEditor;
+
+	public class ToggleActiveRecursively : ScriptableObject {
+		[MenuItem ("Example/Toggle Active Recursively of Selected %i")]
+		static void DoToggle() {
+			Object[] activeGOs =
+				Selection.GetFiltered(
+					typeof(GameObject),
+					SelectionMode.Editable | SelectionMode.TopLevel);
+
+			foreach (GameObject activeGO in activeGOs)
+				activeGO.SetActiveRecursively(!activeGO.active);
+		}
+	}
+END EX

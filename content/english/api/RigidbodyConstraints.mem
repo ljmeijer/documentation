@@ -1,0 +1,2 @@
+Use these flags to constrain motion of Rigidbodies.
+SA: [[Rigidbody.constraints]].

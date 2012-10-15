@@ -1,0 +1,2 @@
+Sets the name of an Object.
+If the object is an Asset, renames the asset and file names to match the object.

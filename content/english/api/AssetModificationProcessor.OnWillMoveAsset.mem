@@ -1,0 +1,6 @@
+CSNONE
+This is called by Unity when it is about to move an asset on disk.
+If this is implemented, it allows you to move the asset yourself but do remember to return the correct enum or do some other processing and let Unity move the file
+The moving of the asset can be prevented by returning AssetMoveResult.FailedMove
+You should not call any Unity AssetDatabase api from within this callback, preferably keep to file operations or VCS apis.
+Requires Team License

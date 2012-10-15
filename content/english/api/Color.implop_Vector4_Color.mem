@@ -1,0 +1,7 @@
+Colors can be implicitly converted to and from [[Vector4]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Convert a white color to a vector4
+	var aVector4 : Vector4 = Color.white;
+END EX

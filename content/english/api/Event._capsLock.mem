@@ -1,0 +1,16 @@
+Is Caps Lock on? (RO)
+Returns true if Caps Lock is switched on.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Creates a Label and prints CapsLock on/off
+	// depending on the state of the capslock key.
+	function OnGUI() {
+		var e : Event = Event.current;
+		if (e.capsLock) {
+			GUI.Label (Rect (10, 10, 100, 20), "CapsLock on.");
+		} else {
+			GUI.Label (Rect (10, 10, 100, 20), "CapsLock off.");
+		}
+	}
+END EX

@@ -1,0 +1,9 @@
+The color of the fog.
+BEGIN EX
+
+	// Set the fog color to be blue
+	RenderSettings.fogColor = Color.blue;
+	// And enable fog
+	RenderSettings.fog = true;
+END EX
+SA: [[wiki:class-RenderSettings|Render Settings manager]]

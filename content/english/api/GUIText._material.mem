@@ -1,0 +1,11 @@
+The [[Material]] to use for rendering.
+Assing a new material to change how the rendering is handled. Change this material to change the
+font used for all rendering.
+If you assign /null/ to /material/, the built-in basic font is selected.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Change the material to display green text.
+	guiText.material.color = Color.green;
+END EX
+SA: ::ref::font variable.

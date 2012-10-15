@@ -1,0 +1,2 @@
+Status flag indicating that the most recent calibration failed because the sphere could not be found in the camera image.
+SA: PS3SystemUtility.SystemNotificationDelegate /status/

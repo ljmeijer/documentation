@@ -1,0 +1,2 @@
+Get the state of a Wii Balance Board connected to 3 channel. Balance Board must be connected.
+@return A structure describing Balance Board's state.

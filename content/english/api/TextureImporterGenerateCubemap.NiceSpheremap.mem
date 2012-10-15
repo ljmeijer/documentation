@@ -1,0 +1,2 @@
+Generate cubemap from spheremap texture.
+SA: TextureImporter.generateCubemap.

@@ -1,0 +1,7 @@
+Blue component of the color.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var color : Color = Color.white;
+	color.b = 0;
+END EX

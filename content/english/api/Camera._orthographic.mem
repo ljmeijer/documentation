@@ -1,0 +1,21 @@
+Is the camera orthographic (''true'') or perspective (''false'')?
+
+When ortho is ''true'', camera's viewing volume is defined by ::ref::orthographicSize.\\
+When orthographic is ''false'', camera's viewing volume is defined by ::ref::fieldOfView.
+
+SA: [[wiki:class-Camera|camera component]], ::ref::transparencySortMode.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the camera to be orthograpghic
+
+	camera.orthographic = true;
+END EX
+Specifically for the main camera:
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the main camera to be orthographic
+
+	Camera.main.orthographic = true;
+END EX

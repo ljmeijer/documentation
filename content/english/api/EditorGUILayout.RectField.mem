@@ -1,0 +1,62 @@
+<signature>
+RectField_Rect_GUILayoutOptionArray
+RectField_string_Rect_GUILayoutOptionArray
+RectField_GUIContent_Rect_GUILayoutOptionArray
+</signature>
+Make an X, Y, W & H field for entering a [[Rect]].
+
+{img MoveResizeSelectedWindow.png}\\
+''Modify Another's window position and size values.''
+BEGIN EX
+
+	// Simple Script that lets you modify another's window position value
+	//
+	// To use this script you need to open first the DummyWindow window.
+	
+	class MoveResizeSelectedWindow extends EditorWindow {
+	
+		var pos : Rect;
+	
+		@MenuItem("Examples/Move - Resize other window")
+		static function Init() {
+			var window = GetWindow(MoveResizeSelectedWindow);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			DummyWindow.instance.position = 
+				EditorGUILayout.RectField("Window's position:", 
+											DummyWindow.instance.position);
+			if(GUILayout.Button("Reset position"))
+				DummyWindow.instance.position = Rect(0,0,200,200);	
+			if(GUILayout.Button("Close"))
+				this.Close();
+		}
+	}
+END EX
+
+And the script that works with the example:
+BEGIN EX
+
+	// Dummy window that is going to be moved.
+	
+	class DummyWindow extends EditorWindow {
+	
+		static var instance;
+		@MenuItem("Examples/Dummy Window")
+		static function Init() {
+			var window = GetWindow(DummyWindow);
+			window.Show();
+		}
+		function DummyWindow() {
+			instance = this;
+		}
+	}
+END EX
+
+@param label Label to display above the field.
+@param value The value to edit.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The value entered by the user.

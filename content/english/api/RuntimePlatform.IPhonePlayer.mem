@@ -1,0 +1,8 @@
+In the player on the iPhone.
+SA: Platform dependent Compilation.
+CONVERTEXAMPLE
+BEGIN EX
+
+	if (Application.platform == RuntimePlatform.IPhonePlayer)
+		Debug.Log("Do something special here!");
+END EX

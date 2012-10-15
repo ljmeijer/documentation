@@ -1,0 +1,7 @@
+Given an asset __pathName__, returns the list of all assets it depends on.
+The list returned will also include the input path name itself.<signature>
+GetDependencies_string
+GetDependencies_stringArray
+</signature>
+Given an array of __pathNames__, returns the list of all assets that the assets depend on.
+The list returned will also include the input guid themselves.

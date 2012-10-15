@@ -1,0 +1,40 @@
+<signature>
+DropShadowLabel_Rect_string
+DropShadowLabel_Rect_GUIContent
+DropShadowLabel_Rect_string_GUIStyle
+DropShadowLabel_Rect_GUIContent_GUIStyle
+</signature>
+Draws a label with a drop shadow.
+Not superfast, so use with caution.
+
+{img EditorGUIDropShadowLabel.png}\\
+''Shadow Label in and editor window.''
+BEGIN EX
+
+	// Write some text using a Shadow Label.
+	
+	class EditorGUIDropShadowLabel extends EditorWindow {
+	
+		var text : String = "This is some text with a Shadow Label";
+	
+		@MenuItem("Examples/Shadow Label")
+		static function Init() {
+			var window = GetWindow(EditorGUIDropShadowLabel);
+			window.position = Rect(0, 0, 250, 60);
+			window.Show();
+		}
+		function OnGUI() {
+			EditorGUI.DropShadowLabel(Rect(0, 5, 245, 20), text);	
+	
+			if(GUI.Button(Rect(0,30, 250, 20),"Close"))
+				this.Close();
+		}
+		function OnInspectorUpdate() {
+			Repaint();
+		}
+	}
+END EX
+
+@param position where to show the label
+@param content text to show
+@style style to use

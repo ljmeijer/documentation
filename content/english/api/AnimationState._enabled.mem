@@ -1,0 +1,10 @@
+Enables / disables the animation.
+For the animation to take any effect the weight also needs to be set to a value higher than zero.
+If the animation is disabled, time will be paused until the animation is enabled again.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Enable the walk cycle
+	animation["Walk"].enabled = true;
+	animation["Walk"].weight = 1.0;
+END EX

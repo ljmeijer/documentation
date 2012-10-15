@@ -1,0 +1,2 @@
+Values for Camera.clearFlags, determining what to clear when rendering a [[Camera]].
+SA: [[wiki:class-Camera|camera component]].

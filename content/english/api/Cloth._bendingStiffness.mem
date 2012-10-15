@@ -1,0 +1,12 @@
+Bending stiffness of the cloth.
+Must be between zero and one. Setting the value to zero disables bending stiffness simulation.\\
+In many cases, when you want a cloth to be more stiff, actually reducing the number of vertices
+will get you better results - and performance.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the bending Stiffness to 1 regardless if the cloth
+	// is a Skinned Cloth or Interactive.
+
+	transform.GetComponent(Cloth).bendingStiffness = 1;
+END EX

@@ -1,0 +1,8 @@
+Brake torque. Must be positive.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// brake the wheel
+
+	collider.brakeTorque = 1000;
+END EX

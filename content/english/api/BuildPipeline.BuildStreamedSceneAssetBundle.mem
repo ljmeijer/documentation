@@ -1,0 +1,44 @@
+Builds one or more scenes and all their dependencies into a compressed asset bundle.
+The scene AssetBundle can be built for any target platform and always creates a single compressed unity3d file.
+
+The scene can be downloaded and loaded using the WWW class.
+You can use WWW.LoadFromCacheOrDownload to cache the downloaded scene after it has been downloaded.
+BEGIN EX
+
+	// Build a streamed unity3d file. This contain one scene that can be downloaded
+	// on demand and loaded once its asset bundle has been loaded.
+
+	@MenuItem ("Build/BuildWebplayerStreamed")
+	static function MyBuild(){
+		var levels : String[] = ["Assets/Level1.unity"];
+		BuildPipeline.BuildStreamedSceneAssetBundle( levels, "Streamed-Level1.unity3d", BuildTarget.WebPlayer); 
+	}
+END EX
+When downloading the built compressed file, you need to call WWW.assetBundle in order to make the scene available to the Application.LoadLevel() and Application.LoadLevelAdditive() functions.
+BEGIN EX
+
+	function Start () {
+		// Download compressed scene. If version 5 of the file named "Streamed-Level1.unity3d" was previously downloaded and cached.
+		// Then Unity will completely skip the download and load the decompressed scene directly from disk.
+		var download = WWW.LoadFromCacheOrDownload ("http://myWebSite.com/Streamed-Level1.unity3d", 5);
+		yield download;
+		
+		// Handle error
+		if (download.error != null)
+		{
+			Debug.LogError(download.error);
+			return;
+		}
+		
+		// In order to make the scene available from LoadLevel, we have to load the asset bundle.
+		// The AssetBundle class also lets you force unload all assets and file storage once it is no longer needed.
+		var bundle = download.assetBundle;
+		
+		// Load the level we have just downloaded
+		Application.LoadLevel ("Level1");
+	}
+END EX
+@param levels	Pathnames of levels to include in the asset bundle.
+@param locationPath	Pathname for the output asset bundle.
+@param target	Runtime platform on which the asset bundle will be used.
+@return String with an error message, empty on success.

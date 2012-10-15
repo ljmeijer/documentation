@@ -1,0 +1,4 @@
+Scale the movie until the movie fills the entire screen. Content at
+the edges of the larger of the two dimensions is clipped so that the
+other dimension fits the screen exactly. The aspect ratio of the movie is
+preserved.

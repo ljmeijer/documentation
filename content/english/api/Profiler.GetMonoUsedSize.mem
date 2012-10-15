@@ -1,0 +1,15 @@
+Returns the used size from mono
+This is the amount of allocated memory for non collected objects in Mono memory
+always call GC.Collect before this call, as non referenced objects will still
+take up space untill they are collected. If not Collecting, this will display an 
+ever growing number untill Collect is called elsewhere
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update() { 
+		#if ENABLE_PROFILER
+			System.GC.Collect();
+			Debug.Log("Mono used size" + Profiler.GetMonoUsedSize() + "Bytes");
+		#endif
+	}
+END EX

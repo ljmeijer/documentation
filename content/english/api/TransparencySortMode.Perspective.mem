@@ -1,0 +1,4 @@
+Perspective sorting mode.
+Transparent objects will be sorted based on distance from camera position to the object center.
+
+SA: Camera.transparencySortMode.

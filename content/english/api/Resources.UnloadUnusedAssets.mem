@@ -1,0 +1,3 @@
+Unloads assets that are not used.
+An asset is deemed to be unused if it isn't reached after walking the whole game object hierarchy, including script components. Static variables are also examined.
+@return object on which you can yield to wait until the operation completes.

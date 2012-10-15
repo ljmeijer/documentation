@@ -1,0 +1,47 @@
+<signature>
+TextField_Rect_string_GUIStyle
+TextField_Rect_string_string_GUIStyle
+TextField_Rect_GUIContent_string_GUIStyle
+</signature>
+Make a text field.
+This works just like GUI.TextField, but correctly responds to select all, copy, paste etc. in the editor,
+and it can have an optional label in front.
+
+{img EditorGUITextField.png}\\
+''Text field in an Editor Window.''
+BEGIN EX
+
+	// Changes the name of the selected Objects to the one typed in the text field
+	
+	class EditorGUITextField extends EditorWindow {
+	
+		var objNames : String = "";
+	
+		@MenuItem("Examples/Bulk Name change")
+		static function Init() {
+			var window = GetWindow(EditorGUITextField);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			EditorGUI.DropShadowLabel(Rect(0, 0, position.width, 20), 
+			"Select the objects to rename.");
+			objNames = EditorGUI.TextField(Rect(10,25,position.width - 20, 20),
+						"New Names:", 
+						objNames);
+			if(Selection.activeTransform)
+				if(GUI.Button(Rect(0, 50, position.width, 30), "Bulk rename!"))
+					for(var t : Transform in Selection.transforms)
+						t.name = objNames;
+		}
+		function OnInspectorUpdate() {
+			Repaint();
+		}
+	}
+END EX
+
+@param position Rectangle on the screen to use for the text field.
+@param label Optional label to display in front of the text field.
+@param text The text to edit.
+@param style Optional [[GUIStyle]].
+@returns The text entered by the user.

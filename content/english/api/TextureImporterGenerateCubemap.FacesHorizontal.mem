@@ -1,0 +1,2 @@
+Generate cubemap from texture with horizontally arranged faces in following order: +x,-x, +y, -y, +z, -z
+SA: TextureImporter.generateCubemap.

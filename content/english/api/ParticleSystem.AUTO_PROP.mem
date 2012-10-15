@@ -1,0 +1,79 @@
+Start delay in seconds.
+Use this to delay when the playback starts on the system.<signature>
+AUTO_PROP
+AUTO_PROP
+</signature>
+Is the particle system playing right now ?
+<signature>
+AUTO_PROP
+</signature>
+Is the particle system stopped right now ?
+<signature>
+AUTO_PROP
+</signature>
+Is the particle system paused right now ?
+<signature>
+AUTO_PROP
+</signature>
+Is the particle system looping?
+If you disable looping on a playing particle system, it will stop after the end of the current loop.
+<signature>
+AUTO_PROP
+</signature>
+If set to true, the particle system will automatically start playing on startup.
+<signature>
+AUTO_PROP
+</signature>
+Playback position in seconds.
+Use this to read current playback time or to seek to a new playback time.
+<signature>
+AUTO_PROP
+</signature>
+The duration of the particle system in seconds (Read Only)
+<signature>
+AUTO_PROP
+</signature>
+The playback speed of the particle system. 1 is normal playback speed.
+
+A negative playback speed is not supported.
+<signature>
+AUTO_PROP
+</signature>
+The current number of particles (Read Only).
+<signature>
+AUTO_PROP
+</signature>
+When set to false, the particle system will not emit particles
+<signature>
+AUTO_PROP
+</signature>
+The rate of emission
+<signature>
+AUTO_PROP
+</signature>
+The initial speed of particles when emitted. When using curves, this values acts as a scale on the curve.
+<signature>
+AUTO_PROP
+</signature>
+The initial size of particles when emitted. When using curves, this values acts as a scale on the curve.
+<signature>
+AUTO_PROP
+</signature>
+The initial color of particles when emitted.
+<signature>
+AUTO_PROP
+</signature>
+The initial rotation of particles when emitted. When using curves, this values acts as a scale on the curve.
+<signature>
+AUTO_PROP
+</signature>
+The total lifetime in seconds that particles will have when emitted. When using curves, this values acts as a scale on the curve. This value is set in the particle when it is create by the particle system.
+<signature>
+AUTO_PROP
+</signature>
+Scale being applied to the gravity defined by [[Physics.gravity]].
+SA: Physics.gravity
+<signature>
+AUTO_PROP
+</signature>
+Random seed used for the particle system emission. If set to 0, it will be assigned a random value on awake.

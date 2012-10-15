@@ -1,0 +1,16 @@
+The borders of all background images.
+This corresponds to the border settings for GUITextures. It only affects the rendering of the background image and has no effect on positioning.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints the left, right, top and down values of the GUIStyle border
+
+	private var bdr : RectOffset;
+	function OnGUI() {
+		if(GUI.skin.customStyles.Length > 0) {
+			bdr = GUI.skin.customStyles[0].border;
+			Debug.Log("Left: " + bdr.left + " Right: " + bdr.right);
+			Debug.Log("Top: " + bdr.top + " Bottom: " + bdr.bottom);
+		}
+	}
+END EX

@@ -1,0 +1,23 @@
+Returns the active transform. (The one shown in the inspector)
+This will never return prefabs or non-modifyable objects.
+BEGIN EX
+
+	// C# Example
+	// Duplicates the selected object and places it at the origin
+
+	using UnityEngine;
+	using UnityEditor;
+
+	public class SelectionActiveTransform : ScriptableObject {
+		[MenuItem ("Example/Duplicate at Origin _d")]
+		static void DuplicateSelected() {
+			Instantiate(Selection.activeTransform, Vector3.zero, Quaternion.identity);
+		}
+
+		//The menu item will be disabled if nothing, is selected.
+		[MenuItem ("Example/Duplicate at Origin _d", true)]
+		static bool ValidateSelection () {
+			return Selection.activeTransform != null;
+		}
+	}
+END EX

@@ -1,0 +1,9 @@
+The tiling & offset used for lightmap.
+
+A scene can have several lightmaps stored in it, and Renderer can use one of those lightmaps.
+This makes it possible to use the same material on multiple objects, while
+each object can refer to a different lightmap or different portion of the same lightmap.
+
+The vector's /x/ and /y/ refers to the lightmap scale, while /z/ and /w/ refers to the lightmap offset.
+
+SA: [[LightmapSettings]] class, ::ref::lightmapIndex property, [[wiki:SL-Properties|ShaderLab properties]].

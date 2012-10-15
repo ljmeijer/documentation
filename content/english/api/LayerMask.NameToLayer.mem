@@ -1,0 +1,6 @@
+Given a layer name, returns the layer index as defined by either a Builtin or a User Layer in the [[wiki:class-TagManager|Tag Manager]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	Debug.Log(LayerMask.NameToLayer("TransparentFX"));
+END EX

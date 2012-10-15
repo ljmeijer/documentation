@@ -1,0 +1,42 @@
+CSNONE
+Called whenever the selection has changed.
+
+{img SelectionChange.png}\\
+''Saves the current selection and load it later with a simple click.''
+BEGIN EX
+
+	// Simple example that lets you save the current selection and load it.
+	
+	class SelectionChange extends EditorWindow {
+		var selectionIDs : int[];
+		@MenuItem("Example/Selection Saver")
+		static function Init() {
+			var window = GetWindow(SelectionChange);
+			window.Show();
+		}
+		function OnGUI() {
+			if(GUILayout.Button("Save"))
+				SaveSelection();
+			if(GUILayout.Button("Load"))
+				LoadLastSavedSelection();
+		}
+		function OnSelectionChange() {
+			selectionIDs = Selection.instanceIDs;
+		}
+		function SaveSelection() {
+			var saveStr = "";
+			for(var i : int in selectionIDs)
+				saveStr += i.ToString() + ";";
+			saveStr = saveStr.TrimEnd(char.Parse(";"));
+			EditorPrefs.SetString("SelectedIDs",saveStr);
+		}
+		function LoadLastSavedSelection() {
+			var strIDs : String[] = EditorPrefs.GetString("SelectedIDs").Split(char.Parse(";"));
+	
+			var ids : int[] = new int[strIDs.Length];
+			for(var i = 0; i < strIDs.Length; i++)
+				ids[i] = parseInt(strIDs[i]);
+			Selection.instanceIDs = ids;
+		}
+	}
+END EX

@@ -1,0 +1,55 @@
+CSNONE
+Called every frame when the wizard is visible.
+
+Use this to draw wizard [[Gizmos]] in the scene view while
+creating your wizard.
+
+SA: Gizmos class.
+
+{img ScriptableWizardOnDrawGizmos.png}\\
+''Draws a sphere to visualize how it will be before creating the actual "Sphere" game object''
+BEGIN EX
+
+	// C#
+	// Creates a sphere where the gizmo is painted in the scene view. 
+	
+	using UnityEngine;
+	using UnityEditor;
+	
+	public class ScriptableWizardOnDrawGizmos : ScriptableWizard {
+	
+		public Vector3 spherePosition = Vector3.zero;
+		public float sphereRadius = 1;
+		
+		[MenuItem ("Example/OnDrawGizmos example")]
+		static void CreateWindow() {
+			ScriptableWizard.DisplayWizard(
+				"Create a Sphere", 
+				typeof(ScriptableWizardOnDrawGizmos), 
+				"Create!");	
+		}
+			
+		void OnWizardUpdate() {
+			helpString = 
+				"Set the sphere position and the sphere radius to draw the gizmo in the scene view";
+			if(sphereRadius > 0) {
+				errorString = "";
+				isValid = true;
+			} else {
+				errorString = "Radius has to be greater than 0";
+				isValid = false;
+			}
+		}
+		
+		void OnDrawGizmos () {
+	    	Gizmos.color = Color.red;
+		    Gizmos.DrawSphere (spherePosition, sphereRadius);
+		}
+		
+		void OnWizardCreate() {
+			GameObject createdSphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+			createdSphere.transform.position = spherePosition;
+			createdSphere.transform.localScale = new Vector3(sphereRadius, sphereRadius, sphereRadius);
+		}	
+	}
+END EX

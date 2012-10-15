@@ -1,0 +1,3 @@
+The object is an instance of an imported 3D model, but the connection is broken.
+For example, adding or removing a component from the instance breaks connection between the instance and the prefab.
+SA: EditorUtility.GetPrefabType.

@@ -1,0 +1,2 @@
+Defines a single modified property.
+Used by the prefab system to track any changes applied to an instance.

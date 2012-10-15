@@ -1,0 +1,8 @@
+The identifier code of the graphics device vendor (RO).
+
+This is the PCI vendor ID of the user's graphics card. This number uniquely identifies a
+particular graphics card maker. The number is the same across operating systems and driver versions.
+
+See <a href="http://www.pcidatabase.com">pcidatabase.com</a> for a list of vendor IDs.
+
+SA: SystemInfo.graphicsDeviceID, SystemInfo.graphicsDeviceVendor.

@@ -1,0 +1,3 @@
+Locate the closest NavMesh edge.
+@param hit Holds the properties of the resulting location.
+@returns True if a nearest edge is found.

@@ -1,0 +1,7 @@
+English spelling for ::ref::gray. RGBA is the same (0.5, 0.5, 0.5, 1).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Assign a grey color to this transform's material
+	transform.renderer.material.color = Color.grey;
+END EX

@@ -1,0 +1,8 @@
+Returns a representation of the main window javascript object. Use this to interface with javascript code inside the browser view
+BEGIN EX
+
+	function Back() {
+		if (webView)
+			webView.windowScriptObject.EvalJavaScript("document.history.back()");
+	}
+END EX

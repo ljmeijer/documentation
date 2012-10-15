@@ -1,0 +1,3 @@
+The direction of the ray.
+Direction is always a normalized vector. If you assign a vector of non unit length, it will
+be normalized.

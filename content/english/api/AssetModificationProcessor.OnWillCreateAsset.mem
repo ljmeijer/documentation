@@ -1,0 +1,2 @@
+CSNONE
+This is called by Unity when it is about to create an asset not imported by the user, eg. ".meta" files

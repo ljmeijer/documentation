@@ -1,0 +1,25 @@
+Adds a force to the rigidbody. As a result the rigidbody will start moving.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Adds a force upwards in the global coordinate system
+
+	function FixedUpdate () {
+		rigidbody.AddForce (Vector3.up * 10);
+	}
+END EX<signature>
+AddForce_Vector3_ForceMode
+AddForce_float_float_float_ForceMode
+</signature>
+Adds a force to the rigidbody.  As a result the rigidbody will start moving.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Adds a force upwards in the global coordinate system
+
+	function FixedUpdate () {
+		rigidbody.AddForce (0, 10, 0);
+	}
+END EX
+
+If you want to apply a force over several frames you should apply it inside FixedUpdate instead of Update.

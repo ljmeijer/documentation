@@ -1,0 +1,17 @@
+Fade the cloth simulation in or out, and enabled or disable the SkinnedCloth.
+This function lets you enable or disabe the SkinnedCloth component, by setting the /enabled/ parameter.
+Unlike setting the /Cloth.enabled/ property directly, this will delay the action, and smoothly
+interpolate the mesh between the normal skinned mesh and the cloth simulation over a time of
+/interpolationTime/ seconds. This helps you to turn on and off clothing simulation on characters without
+letting users notice the transition. Turning on and off clothing simulation is useful for managing the performance
+of your game, as cloth simulation is rather expensive.
+Calling this function repeatedly with the same parameters has no additional effect.
+CONVERTEXAMPLE
+BEGIN EX
+
+	/// Smoothly turn cloth simulation on or off depending on distance to camera.
+	var simulateCloth = true;
+	if ((transform.position - Camera.main.transform.position).sqrMagnitude > 20.0f * 20.0f)
+		simulateCloth = false;
+	GetComponent(SkinnedCloth).SetEnabledFading (simulateCloth);
+END EX

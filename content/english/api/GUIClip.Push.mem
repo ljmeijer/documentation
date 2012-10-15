@@ -1,0 +1,7 @@
+Push a clip rect to the stack with pixel offsets.
+This is the low-level function for doing clipping rectangles. Unless you're working with embedded
+temporary render buffers, this is most likely not what you want.
+/absoluteRect/ is the absolute device coordinates this element will be mapped to.
+/scrollOffset/ is a scrolling offset to apply. Used to make scrollviews - otherwise pass in Vector2.zero
+/renderOffset/ is the rendering offset of the absoluteRect from source to destination. Used to map from an on-screen rectangle to a 
+destination inside a render buffer.

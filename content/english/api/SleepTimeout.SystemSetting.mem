@@ -1,0 +1,3 @@
+Set the sleep timeout to whatever user has specified in the system
+settings. Useful when restoring back to the state the system was in
+before running your app.

@@ -1,0 +1,12 @@
+Set the line width at the start and at the end.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Adds a lineRenderer to this transform and
+	// Converts the line Renderer into a triangle.
+
+	function Start() {
+		var lineRenderer : LineRenderer = gameObject.AddComponent(LineRenderer);
+		lineRenderer.SetWidth(0,3);
+	}
+END EX

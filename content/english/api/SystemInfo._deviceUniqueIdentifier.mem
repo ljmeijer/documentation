@@ -1,0 +1,2 @@
+A unique device identifier. It is guaranteed to be unique for every device (RO).
+On iOS devices this does not call into any iOS API.

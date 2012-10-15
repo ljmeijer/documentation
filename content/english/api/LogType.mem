@@ -1,0 +1,3 @@
+The type of the log message in the delegate registered with Application.RegisterLogCallback.
+
+SA: Application.RegisterLogCallback.

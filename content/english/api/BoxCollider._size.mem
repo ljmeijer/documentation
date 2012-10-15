@@ -1,0 +1,7 @@
+The size of the box, measured in the object's local space.
+The box size will be scaled by the transform's scale
+BEGIN EX
+
+	// Make the box collider long
+	collider.size = Vector3(10, 1, 1);
+END EX

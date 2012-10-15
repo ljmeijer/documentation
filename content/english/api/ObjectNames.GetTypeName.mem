@@ -1,0 +1,1 @@
+Like GetClassName but handles folders, scenes, GUISkins, and other default assets as separate types.

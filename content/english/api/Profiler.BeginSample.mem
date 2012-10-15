@@ -1,0 +1,16 @@
+<signature>
+BeginSample_string
+BeginSample_string_object
+</signature>
+Begin profiling a piece of code with a custom label.
+This will show up in the Profiler hierarchy.
+Profiler.BeginSample is conditionally compiled away using ConditionalAttribute.
+Thus it will have zero overhead, when it is deployed in non-Development Build.
+CONVERTEXAMPLE
+BEGIN EX
+
+	Profiler.BeginSample ("MyPieceOfCode");
+	// do something that takes a lot of time
+	Profiler.EndSample ();
+END EX
+SA: Profiler.EndSample, [[wiki:Profiler]].

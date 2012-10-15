@@ -1,0 +1,17 @@
+Send a user-defined event to a native code plugin.
+
+Rendering in Unity can be multithreaded if the platform and number
+of available CPUs will allow for it. When multithreaded rendering is
+used, the rendering API commands happen on a thread which is
+completely separate from the one that runs the scripts. Consequently,
+it is not possible for your plugin to start rendering immediately,
+since it might interfere with what the render thread is doing at the time.
+
+In order to do any rendering from the plugin, you should call
+GL.IssuePluginEvent from your script, which will cause your native
+plugin to be called from the render thread. For example, if you
+call GL.IssuePluginEvent from the camera's OnPostRender function, you'll
+get a plugin callback immediately after the camera has finished rendering.
+
+See [[wiki:NativePluginInterface|Native Plugin Interface]] for more details
+and an example.

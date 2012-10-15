@@ -1,0 +1,13 @@
+Style used by default for the thumb that is dragged in GUI::ref::HorizontalScrollbar controls.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Modifies only the horizontal scrollbar thumb of the current GUISkin
+	var hSbarValue : float;
+	var style : GUIStyle;
+
+	function OnGUI () {
+		GUI.skin.horizontalScrollbarThumb = style;
+		hSbarValue = GUILayout.HorizontalScrollbar (hSbarValue, 1.0, 0.0, 10.0);
+	}
+END EX

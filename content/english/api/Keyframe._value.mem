@@ -1,0 +1,11 @@
+The value of the curve at keyframe.
+In a 2D graph you could think of this as the y-value.
+
+SA: ::ref::time.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var curve : AnimationCurve = AnimationCurve.Linear (0, 0, 5, 5);
+	// Extract the value from the first keyframe of a curve
+	Debug.Log(curve[0].value);
+END EX

@@ -1,0 +1,3 @@
+Gets the state of wave gesture recognition
+@param tracked1 player 1
+@param tracked2 player 2

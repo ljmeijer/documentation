@@ -1,0 +1,14 @@
+Transforms /position/ from world space into screen space.
+
+Screenspace is defined in pixels. The bottom-left of the screen is (0,0); the right-top
+is (::ref::pixelWidth,::ref::pixelHeight). The z position is in world units from the camera.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var target : Transform;
+
+	function Update () {
+		var screenPos : Vector3 = camera.WorldToScreenPoint (target.position);
+		print ("target is " + screenPos.x + " pixels from the left");
+	}
+END EX

@@ -1,0 +1,6 @@
+The object being inspected.
+
+For editors that support multi-object editing, the target property should not be used inside ::ref::OnInspectorGUI since it only refers to the first of the edited objects.
+It should still be used in ::ref::OnSceneGUI and ::ref::OnPreviewGUI, which will be called once for each of the selected objects with the target property referring to each of them in turn.
+
+SA: ::ref::targets, ::ref::serializedObject, [[Editor]] class

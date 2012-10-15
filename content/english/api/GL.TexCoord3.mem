@@ -1,0 +1,39 @@
+Sets current texture coordinate (x,y,z) for all texture units.
+
+In OpenGL this matches @@glMultiTexCoord@@ for all texture units or @@glTexCoord@@
+when no multi-texturing is available. On other graphics APIs the same
+functionality is emulated.
+
+The Z component is used only when:\\
+__1.__ You access a cubemap (which you access with a vector coordinate, hence x,y & z).\\
+__2.__ You do "projective texturing", where the X & Y coordinates are divided by Z to get the final coordinate. This would be mostly useful for water reflections and similar things.
+
+This function can only be called between GL.Begin and GL.End functions.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws a Quad in the middle of the screen and
+	// Adds the material's Texture to it.
+
+	var mat : Material;
+	function OnPostRender() {
+		if (!mat) {
+			Debug.LogError("Please Assign a material on the inspector");
+			return;
+		}
+		GL.PushMatrix();
+		mat.SetPass(1);
+		GL.LoadOrtho();
+		GL.Begin(GL.QUADS);
+		GL.TexCoord3(0,0,0);
+		GL.Vertex3(0.25,0.25,0);
+		GL.TexCoord3(0,1,0);
+		GL.Vertex3(0.25,0.75,0);
+		GL.TexCoord3(1,1,0);
+		GL.Vertex3(0.75,0.75,0);
+		GL.TexCoord3(1,0,0);
+		GL.Vertex3(0.75,0.25,0);
+		GL.End();
+		GL.PopMatrix();
+	}
+END EX

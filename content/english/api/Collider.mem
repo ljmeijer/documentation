@@ -1,0 +1,4 @@
+A base class of all colliders.
+SA: [[BoxCollider]], [[SphereCollider]], [[CapsuleCollider]], [[MeshCollider]], [[PhysicMaterial]], [[Rigidbody]].
+
+If you intend to move the collider around a lot it is recommended to also attach a kinematic rigidbody to it.

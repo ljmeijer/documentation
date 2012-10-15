@@ -1,0 +1,7 @@
+Distance a vertex is allowed to travel from the skinned mesh vertex position.
+The SkinnedCloth component makes sure
+that the cloth vertices stay within maxDistance from the skinned mesh vertex positions. 
+If maxDistance is zero, the vertex is not simulated but set to the skinned mesh vertex position.
+This behavior is useful for attaching the cloth vertex to the skin of an animated character.	
+Default: 0.2
+Range: [0, inf)

@@ -1,0 +1,5 @@
+User initiated asset import.
+This should be passed when asset import is caused by the user (e.g. by clicking Reimport).
+Non-user initiated import happens when the asset modification time changes.
+
+SA: AssetDatabase.ImportAsset, AssetDatabase.Refresh.

@@ -1,0 +1,25 @@
+Determines if an object is stored on disk.
+
+Typically assets like prefabs, textures, audio clips, animation clips, materials are stored on disk.
+
+Returns false if the object lives in the scene. Typically this is a game object or component but
+it could also be a material that was created from code and not stored in an asset but instead
+stored in the scene.
+BEGIN EX
+
+	// Tells if an Object is stored on disk or not.
+
+	class PersistentInfo extends EditorWindow {
+
+		@MenuItem("Examples/Object on Disk?")
+		static function CheckPersistent() {
+			var persistent : boolean = EditorUtility.IsPersistent(Selection.activeObject);
+			Debug.Log(Selection.activeObject.name + ": " + persistent?"Stored on disk":"Not on disk");
+		}
+
+		@MenuItem("Examples/Object on Disk?", true)
+		static function ValidateCheckPersistent() {
+			return Selection.activeObject != null;
+		}
+	}
+END EX

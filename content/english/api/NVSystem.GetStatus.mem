@@ -1,0 +1,8 @@
+*undocumented
+Get NVStatus structure, describing owner id, group id, attribute and permission of a file or a directory. After successful completion of the command, the result is available through ::ref::status property.
+BEGIN EX
+
+	var sys: NVSystem = new NVSystem ();
+	yield sys.GetStatus ("/tmp");
+END EX
+@param	name	File or directory name.

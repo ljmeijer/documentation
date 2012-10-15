@@ -1,0 +1,8 @@
+The current IME composition string being typed by the user.
+In some languages such as Chinese, Japanese or Korean, text is input by typing multiple keys to generate
+one or multiple characters. These characters are visually composed on the screen as the user types.
+When using Unity's built in GUI system for text input, Unity will take care of displaying the composition
+strings as the users types. If you want to implement your own GUI, however, you need to take care of
+displaying the string at the current cursor position. The composition string is only updated when IME
+compositing is used. See [[Input.imeCompositionMode]] for more info.
+SA: [[Input.imeCompositionMode]], [[Input.compositionCursorPos]]

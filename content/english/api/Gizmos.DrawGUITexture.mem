@@ -1,0 +1,14 @@
+<signature>
+DrawGUITexture_Rect_Texture_Material
+DrawGUITexture_Rect_Texture_int_int_int_int_Material
+</signature>
+Draw a texture in screen coordinates. Useful for GUI backgrounds.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var myTexture : Texture;
+
+	function OnDrawGizmos () {
+	 	Gizmos.DrawGUITexture(Rect(10, 10, 20, 20), myTexture);
+	}
+END EX

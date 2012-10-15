@@ -1,0 +1,3 @@
+Returns the path name relative to the project folder where the asset is stored
+All paths are relative to the project folder. Like: "Assets/MyTextures/hello.png"
+When a game object is part of a scene, the scene path is returned.

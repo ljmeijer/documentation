@@ -1,0 +1,5 @@
+Generate mipmap levels?
+
+When set to /true/, rendering into this render texture will create and generate mipmap levels. By default
+render textures don't have mipmaps. This flag can be used only on render textures
+that have power-of-two size.

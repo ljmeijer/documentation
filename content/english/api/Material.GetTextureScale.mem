@@ -1,0 +1,13 @@
+Gets the placement scale of texture /propertyName/.
+
+Common texture names used by Unity's builtin shaders: \\
+@@"_MainTex"@@ is the main diffuse texture. This can also be accessed via ::ref::mainTextureScale property. \\
+@@"_BumpMap"@@ is the normal map. \\
+@@"_Cube"@@ is the reflection cubemap.
+
+SA: ::ref::mainTextureScale property, ::ref::SetTextureScale.
+CONVERTEXAMPLE
+BEGIN EX
+
+	print(renderer.material.GetTextureScale("_MainTex"));
+END EX

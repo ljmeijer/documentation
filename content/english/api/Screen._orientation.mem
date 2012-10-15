@@ -1,0 +1,21 @@
+Specifies logical orientation of the screen.
+
+Default value is taken from the 'Default Orientation' in [[class-PlayerSettings|Player Settings]].
+As an example, if we take 480x320 resolution on iPhone, horizontal
+orientation is treated as 480x320 resolution and vertical orientation
+as 320x480.
+
+Note: logical orientation affects not only screen orientation, but
+also touch coordinates. You should expect drastic changes in the touch
+positions after changing logical orientation, since touch positions
+will be rotated clockwise or counter-clockwise to match screen
+coordinates.
+
+Currently screen orientation is only relevant on mobile platforms.
+BEGIN EX
+
+	// Start in landscape mode
+	function Start () {
+		Screen.orientation = ScreenOrientation.LandscapeLeft;
+	}
+END EX

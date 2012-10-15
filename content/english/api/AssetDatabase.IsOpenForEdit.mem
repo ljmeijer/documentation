@@ -1,0 +1,11 @@
+<signature>
+IsOpenForEdit_object
+IsOpenForEdit_string
+IsOpenForEdit_object_string
+IsOpenForEdit_string_string
+</signature>
+Use IsOpenForEdit to determine if the asset is open for edit by the version control.
+Used to disable editor controls.
+@param assetPath is the path to the asset on disk relative to project folder.
+@param message used to give reason for not open.
+@returns true is the asset can be edited.

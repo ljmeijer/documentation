@@ -1,0 +1,11 @@
+If set to true, the audio source will automatically start playing on awake
+CONVERTEXAMPLE
+BEGIN EX
+
+		@script RequireComponent(AudioSource)
+		function Start() {
+			if(!audio.playOnAwake) {
+				audio.Play(); // Play the clip if it wasn't set to play on awake
+		}
+	}
+END EX

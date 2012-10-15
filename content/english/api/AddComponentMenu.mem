@@ -1,0 +1,18 @@
+The AddComponentMenu attribute allows you to place a script anywhere in the "Component" menu, instead of just the "Component->Scripts" menu.
+You use this to organize the Component menu better, this way improving workflow when adding scripts.
+Important notice: You need to restart
+BEGIN EX
+
+// Javascript example
+@script AddComponentMenu ("Transform/Follow Transform")
+class FollowTransform extends MonoBehaviour {
+}
+END EX
+BEGIN EX
+NOCHECK
+// C# example:
+[AddComponentMenu("Transform/Follow Transform")]
+public class FollowTransform : MonoBehaviour
+{
+}
+END EX

@@ -1,0 +1,4 @@
+*undocumented*
+Is the height of this element dependant of its allocated width, or can we get everything we need to know at once?
+This is important to know for the automatic layouting of text elements - if they are dependant,
+we need to do it in 2 passes (first figuring out how much width, before asking about height.

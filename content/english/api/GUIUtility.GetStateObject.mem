@@ -1,0 +1,2 @@
+Get a state object from a controlID.
+This will return a recycled state object that is unique for /controlID/. If there is none already, A new one will be created and hooked up to the ControlID

@@ -1,0 +1,33 @@
+<signature>
+SelectionGrid_int_stringArray_int_GUILayoutOptionArray
+SelectionGrid_int_TextureArray_int_GUILayoutOptionArray
+SelectionGrid_int_GUIContentArray_int_GUILayoutOptionArray
+SelectionGrid_int_stringArray_int_GUIStyle_GUILayoutOptionArray
+SelectionGrid_int_TextureArray_int_GUIStyle_GUILayoutOptionArray
+SelectionGrid_int_GUIContentArray_int_GUIStyle_GUILayoutOptionArray
+</signature>
+Make a Selection Grid
+
+{img GUILayoutSelectionGrid.png}\\
+''Selection grid in the Game View.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	var selGridInt : int = 0;
+	var selStrings : String[] = ["Grid 1", "Grid 2", "Grid 3", "Grid 4"];
+
+	function OnGUI () {
+		selGridInt = GUILayout.SelectionGrid (selGridInt, selStrings, 2);
+	}
+END EX
+
+@param selected				The index of the selected button
+@param texts					An array of strings to show on the buttons.
+@param images				An array of textures on the buttons.
+@param contents				An array of text, image and tooltips for the button.
+@param xCount				How many elements to fit in the horizontal direction. The elements will be scaled to fit unless the style defines a fixedWidth to use. The height of the control will be determined from the number of elements.
+@param style					The style to use. If left out, the /button/ style from the current [[GUISkin]] is used.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The index of the selected button.

@@ -1,0 +1,4 @@
+Representation of four-dimensional vectors.
+
+This structure is used in some places to represent four component vectors (e.g. mesh tangents,
+parameters for shaders). In the majority of other cases a [[Vector3]] is used.

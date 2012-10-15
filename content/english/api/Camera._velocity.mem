@@ -1,0 +1,9 @@
+Get the world-space speed of the camera (RO).
+This camera's motion in units per second as it was during the last frame.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update () {
+		print ("Camera moving at " + camera.velocity.magnitude + " m/s");
+	}
+END EX

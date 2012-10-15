@@ -1,0 +1,9 @@
+Register a delegate to be called on log messages.
+The only difference between this function and
+RegisterLogCallback is that this function gets __called__ from a
+different thread.
+
+__Note:__ You should *only* use this function if you know what you
+are doing, else just use Application.RegisterLogCallback.
+
+SA: [[Application.LogCallback]], [[Application.RegisterLogCallback]], [[LogType]].

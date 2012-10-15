@@ -1,0 +1,2 @@
+Returns a boolean value that indicates whether an accelerometer is
+available on the device.

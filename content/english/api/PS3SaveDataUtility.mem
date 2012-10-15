@@ -1,0 +1,2 @@
+Helper class to access the PS3 Load/Save API.
+For sample usage please import the /Save Load/ unity package located in the application menu at @@Assets->Import Package->PS3 Samples->Save Load@@

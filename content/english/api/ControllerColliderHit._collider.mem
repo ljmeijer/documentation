@@ -1,0 +1,9 @@
+The collider that was hit by the controller
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Paint red the collider we hit.
+	function OnControllerColliderHit(hit : ControllerColliderHit) {
+		hit.collider.renderer.material.color = Color.red;
+	}
+END EX

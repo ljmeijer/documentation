@@ -1,0 +1,8 @@
+Softness of directional light's soft shadows
+SA: ::ref::shadows, ::ref::shadowSoftnessFade properties.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// make light's shadows very soft
+	light.shadowSoftness = 8.0;
+END EX

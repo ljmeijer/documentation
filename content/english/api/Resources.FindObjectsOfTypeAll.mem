@@ -1,0 +1,26 @@
+Returns a list of all objects of Type /type/.
+This function can return any type of Unity object that is loaded, including game objects, prefabs, materials, meshes, textures, etc. It will also list internal stuff, therefore please be ''extra'' careful the way you handle the returned objects.
+Contrary to Object::ref::FindObjectsOfType this function will also list disabled objects.
+
+Please note that this function is very slow and is not recommended to be used every frame.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// This script displays the number of allocated Unity objects by type.
+	// This is useful for finding leaks. Knowing the type of object
+	// (mesh, texture, sound clip, game object) that is getting leaked is
+	// the first step. You could then print the names  of all leaked assets of that type.
+
+	function OnGUI () {
+		GUILayout.Label("All " + Resources.FindObjectsOfTypeAll(typeof(UnityEngine.Object)).Length);
+		GUILayout.Label("Textures " + Resources.FindObjectsOfTypeAll(typeof(Texture)).Length);
+		GUILayout.Label("AudioClips " + Resources.FindObjectsOfTypeAll(typeof(AudioClip)).Length);
+		GUILayout.Label("Meshes " + Resources.FindObjectsOfTypeAll(typeof(Mesh)).Length);
+		GUILayout.Label("Materials " + Resources.FindObjectsOfTypeAll(typeof(Material)).Length);
+		GUILayout.Label("GameObjects " + Resources.FindObjectsOfTypeAll(typeof(GameObject)).Length);
+		GUILayout.Label("Components " + Resources.FindObjectsOfTypeAll(typeof(Component)).Length);
+	}
+END EX
+
+@param	type	Type of the class to match while searching.
+@return An array of objects whose class is ''type'' or is derived from ''type''.

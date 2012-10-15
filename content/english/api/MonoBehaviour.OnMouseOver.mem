@@ -1,0 +1,18 @@
+CSNONE
+OnMouseOver is called every frame while the mouse is over the [[GUIElement]] or [[Collider]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Fades the red component of the material to zero 
+	// while the mouse is over the mesh
+
+	function OnMouseOver () {
+		renderer.material.color -= Color(0.1, 0, 0) * Time.deltaTime;
+	}
+END EX
+This function is not called on objects that belong to Ignore Raycast layer.
+
+OnMouseOver can be a co-routine, simply use the yield statement in the function.
+This event is sent to all scripts attached to the [[Collider]] or [[GUIElement]].
+
+__IMPORTANT:__ This function has no effect on iPhone.

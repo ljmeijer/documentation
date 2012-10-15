@@ -1,0 +1,16 @@
+Contact information for the wheel, reported by [[WheelCollider]].
+
+Friction for the [[WheelCollider]] is computed separately from the rest of the physics, using
+a slip based tire friction model. This allows for more realistic behaviour, but makes
+wheel colliders ignore standard [[PhysicMaterial]] settings.
+
+The way to simulate different ground materials is to query [[WheelCollider]] for its collision
+information (see WheelCollider.GetGroundHit). Usually you get the other ::ref::collider the wheel
+is hitting, and modify wheel's WheelCollider::pref::forwardFriction and WheelCollider::pref::sidewaysFriction
+based on ground's Collider::pref::material.
+
+The other members of WheelHit structure are usually queried for information purposes or special
+effects. E.g. a "slipping tire" sound can be played if ::ref::forwardSlip or ::ref::sidewaysSlip
+exceed some threshold.
+
+SA: WheelCollider.GetGroundHit.

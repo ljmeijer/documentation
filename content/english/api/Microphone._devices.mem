@@ -1,0 +1,13 @@
+Gives you a list microphone devices, identified by name.
+Use this name to start and stop a recording.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Get list of Microphone devices and print the names to the log
+	function Start () {
+		for (var device in Microphone.devices)
+		{
+			Debug.Log("Name: " + device);
+		}	
+	}
+END EX

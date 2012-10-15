@@ -1,0 +1,2 @@
+Fog mode to use.
+SA: RenderSettings.fogMode, [[wiki:class-RenderSettings|Render Settings manager]].

@@ -1,0 +1,33 @@
+Insert a flexible space element.
+Flexible spaces use up any leftover space in a layout. 
+
+__Note:__ This will override the GUILayout.ExpandWidth and GUILayout.ExpandHeight
+
+{img GUILayoutFlexibleSpace.png}\\
+''Flexible Space in a GUILayout Area.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	var sliderValue : float = 1.0;
+
+	function OnGUI() {
+		// Wrap everything in the designated GUI Area
+		GUILayout.BeginArea (Rect (0,0,200,60));
+		// Begin the singular Horizontal Group
+		GUILayout.BeginHorizontal();
+		// Place a Button normally
+		GUILayout.RepeatButton ("A button with\ntwo lines");
+		// Place a space between the button and the vertical area
+		// so it fits the whole area
+		GUILayout.FlexibleSpace();
+		// Arrange two more Controls vertically beside the Button
+		GUILayout.BeginVertical();	
+		GUILayout.Box("Value:" + Mathf.Round(sliderValue));
+		sliderValue = GUILayout.HorizontalSlider (sliderValue, 0.0, 10);
+
+		// End the Groups and Area
+		GUILayout.EndVertical();
+		GUILayout.EndHorizontal();
+		GUILayout.EndArea();
+	}
+END EX

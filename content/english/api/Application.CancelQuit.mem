@@ -1,0 +1,38 @@
+Cancels quitting the application. This is useful for showing a splash screen at the end of a game.
+This function only works in the player and does nothing in the web player or editor.
+__IMPORTANT:__ This function has no effect on iPhone. Application can not prevent termination under iPhone OS.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Delays quitting for 2 seconds and
+	// loads the finalsplash level during that time.
+
+	var showSplashTimeout : float = 2.0;
+	private var allowQuitting : boolean = false;
+
+	function Awake () {
+		// This game object needs to survive multiple levels
+		DontDestroyOnLoad (this);
+	}
+
+	function OnApplicationQuit () {
+		// If we haven't already load up the final splash screen level
+		if (Application.loadedLevelName.ToLower() != "finalsplash")
+			StartCoroutine("DelayedQuit");
+
+		// Don't allow the user to exit until we got permission in
+		if (!allowQuitting)
+			Application.CancelQuit();
+	}
+
+	function DelayedQuit () {
+		Application.LoadLevel("finalsplash");
+
+		// Wait for showSplashTimeout
+		yield WaitForSeconds(showSplashTimeout);
+
+		// then quit for real
+		allowQuitting = true;
+		Application.Quit();
+	}
+END EX

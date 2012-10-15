@@ -1,0 +1,26 @@
+Allows for fine grained control of the selection type using the [[SelectionMode]] bitmask.
+BEGIN EX
+
+	// C# Example
+	// Creates a new parent for the selected transforms
+
+	using UnityEngine;
+	using UnityEditor;
+
+	public class CreateParentForTransforms : ScriptableObject {
+	    [MenuItem ("Example/Create Parent For Selection _p")]
+	    static void MenuInsertParent() {
+	        Transform[] selection =  Selection.GetTransforms(
+			SelectionMode.TopLevel | SelectionMode.Editable);
+	        GameObject newParent = new GameObject("Parent");
+
+	        foreach(Transform t in selection)
+	        	t.parent = newParent.transform;
+		}
+		// Disable the menu if there is nothing selected
+		[MenuItem ("Example/Create Parent For Selection _p", true)]
+		static bool ValidateSelection() {
+			return	Selection.activeGameObject != null;
+		}
+	}
+END EX

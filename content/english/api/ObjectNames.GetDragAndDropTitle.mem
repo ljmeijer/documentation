@@ -1,0 +1,3 @@
+Drag and drop title for an object.
+
+SA: ObjectNames.GetInspectorTitle, ObjectNames.GetClassName.

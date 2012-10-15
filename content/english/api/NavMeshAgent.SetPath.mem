@@ -1,0 +1,3 @@
+Assign path to the agent.
+@param path New path to follow.
+@returns True if succesfully assigned.

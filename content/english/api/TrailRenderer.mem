@@ -1,0 +1,2 @@
+The trail renderer is used to make trails behind objects in the scene as they move about.
+This class is a script interface for a [[wiki:class-TrailRenderer|trail renderer]] component.

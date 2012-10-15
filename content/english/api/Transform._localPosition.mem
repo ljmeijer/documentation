@@ -1,0 +1,14 @@
+Position of the transform relative to the parent transform.
+If the transform has no parent, it is the same as Transform.position.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Move the object to the same position as the parent:
+	transform.localPosition = Vector3(0, 0, 0);
+	
+	// Get the y component of the position relative to the parent
+	// and print it to the Console
+	print(transform.localPosition.y);
+END EX
+Note that the parent transform's world rotation and scale are applied to the local position when calculating the world position.
+This means that while 1 unit in Transform.position is always 1 unit, 1 unit in Transform.localPosition will get scaled by the scale of all ancestors.

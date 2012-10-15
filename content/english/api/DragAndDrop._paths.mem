@@ -1,0 +1,5 @@
+The file names being dragged.
+
+Never returns null. If no paths are available returns an empty array.
+
+SA: ::ref::objectReferences, ::ref::PrepareStartDrag, ::ref::StartDrag.

@@ -1,0 +1,7 @@
+Clear with a background color.
+SA: Camera.clearFlags property, [[wiki:class-Camera|camera component]], Camera.backgroundColor property.
+CONVERTEXAMPLE
+BEGIN EX
+
+	camera.clearFlags = CameraClearFlags.SolidColor;
+END EX

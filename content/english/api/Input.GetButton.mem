@@ -1,0 +1,22 @@
+Returns true while the virtual button identified by /buttonName/ is held down.
+Think auto fire - this will return true as long as the button is held down.
+
+Use this only when implementing action like events IE: shooting a weapon.\\
+Use Input.GetAxis for any kind of movement behaviour.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Instantiates a projectile every 0.5 seconds,
+	// if the Fire1 button (default is Ctrl) is pressed.
+
+	var projectile : GameObject;
+	var fireRate : float = 0.5;
+	private var nextFire : float = 0.0;
+	function Update () {
+		if (Input.GetButton ("Fire1") && Time.time > nextFire) {
+			nextFire = Time.time + fireRate;
+			var clone : GameObject = 
+				Instantiate(projectile, transform.position, transform.rotation) as GameObject;
+		}
+	}
+END EX

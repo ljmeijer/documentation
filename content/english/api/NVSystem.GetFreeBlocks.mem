@@ -1,0 +1,12 @@
+Request information about total number of free bytes and free inodes on the NAND file system. Upon successful request completion, information will be available through ::ref::freeBytes and ::ref::freeNodes properties.
+BEGIN EX
+
+	function Start () {
+		var s:NVSystem = new NVSystem ();
+		yield s.GetFreeBlocks ();
+		if (s.success)
+			Debug.Log ("Free bytes: " + s.freeBytes + ", blocks: " + s.freeNodes);
+		else
+			Debug.Log ("Request for free space failed: " + s.asyncResult);
+	}
+END EX

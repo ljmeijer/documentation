@@ -1,0 +1,2 @@
+Matrix to transform the mesh with before combining
+SA: Mesh.CombineMeshes, ::ref::mesh, ::ref::subMeshIndex.

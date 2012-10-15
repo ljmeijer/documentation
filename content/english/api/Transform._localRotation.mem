@@ -1,0 +1,10 @@
+The rotation of the transform relative to the parent transform's rotation.
+
+Unity stores rotations as Quaternions internally. To rotate an object, use Transform.Rotate.
+Use Transform.localEulerAngles for modifying the rotation as euler angles.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the rotation to be the same as the parent
+	transform.localRotation = Quaternion.identity;
+END EX

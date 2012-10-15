@@ -1,0 +1,4 @@
+If enabled, the two connected rigidbodies will be swapped, as if the joint was attached to the other body.
+Prior to Unity 3.4, this was wrongfully applied to all ConfigurableJoints with the /configuredInWorldSpace/
+property set. If you want to restore the behaviour of older Unity versions and you are using	
+/configuredInWorldSpace/, enable this property.

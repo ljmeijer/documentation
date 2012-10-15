@@ -1,0 +1,11 @@
+The point of contact.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Print how many points are colliding this transform 
+	// And print the first point that is colliding.
+	function OnCollisionEnter(other : Collision) {
+		print("Points colliding: " + other.contacts.Length);
+		print("First point that collided: " + other.contacts[0].point);
+	}
+END EX

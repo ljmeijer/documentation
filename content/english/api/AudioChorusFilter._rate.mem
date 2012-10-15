@@ -1,0 +1,13 @@
+Chorus modulation rate in hz. 0.0 to 20.0. Default = 0.8 hz.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the rate on the chorus filter to 15hz.
+	
+	@script RequireComponent(AudioSource)
+	@script RequireComponent(AudioChorusFilter)
+	
+	function Start() {
+		GetComponent(AudioChorusFilter).rate = 15;
+	}
+END EX

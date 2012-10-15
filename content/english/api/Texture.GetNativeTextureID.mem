@@ -1,0 +1,10 @@
+Retrieve native ('hardware') handle to a texture.
+
+Use this function to retrieve an ID/handle corresponding to a particular texture
+as it is represented on the native graphics device level.
+This can be used to enable texture manipulation from [[wiki:NativePluginInterface|native code plugins]].
+
+This function is only supported on OpenGL-like devices; for a better cross-platform
+approach use ::ref::GetNativeTexturePtr.
+
+SA: ::ref::GetNativeTexturePtr function, [[wiki:NativePluginInterface|Native code plugins]].

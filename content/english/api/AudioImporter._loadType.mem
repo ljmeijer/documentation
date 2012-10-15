@@ -1,0 +1,14 @@
+Set/get the way Unity is loading the Audio data.
+BEGIN EX
+
+	// C#: If an imported audio contains the "DL_" string
+	// in its filename, it sets the loadType to DecompressOnLoad.
+	class MyAudioPostprocessor extends AssetPostprocessor {
+		function OnPreprocessAudio () {
+			if (assetPath.Contains("DL_")) {
+				var audioImporter : AudioImporter = assetImporter;
+				audioImporter.loadType = AudioImporterLoadType.DecompressOnLoad;
+			}
+		}
+	}
+END EX

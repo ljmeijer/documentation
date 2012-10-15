@@ -1,0 +1,8 @@
+This lets you set whether the Audio Listener should be updated in the fixed or dynamic update.
+Make sure this is set to update in the same update loop as the Audio Listener is moved in if you are experiencing problems with Doppler effect simulation.
+The default setting will automatically set the listener to be updated in the fixed update loop if it is attached to a rigidbody, and dynamic otherwise.
+CONVERTEXAMPLE
+BEGIN EX
+
+	audio.velocityUpdateMode = AudioVelocityUpdateMode.Fixed;
+END EX

@@ -1,0 +1,8 @@
+Subtracts one vector from another.
+Subtracts each component of /b/ from /a/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// prints (-5.0,-3.0,-1.0)
+	print (Vector3(1,2,3) - Vector3(6,5,4));
+END EX

@@ -1,0 +1,2 @@
+Sensor values for each corner, converted into weights.
+@return Momentary weight of the specified corner.

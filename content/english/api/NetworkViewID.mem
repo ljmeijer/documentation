@@ -1,0 +1,3 @@
+The NetworkViewID is a unique identifier for a network view instance in a multiplayer game.
+It is imporatant that this is a unique number accross all clients and that they can generate
+these numbers themselves, or else network synchronization will break.

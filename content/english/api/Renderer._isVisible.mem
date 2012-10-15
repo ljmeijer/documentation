@@ -1,0 +1,13 @@
+Is this renderer visible in any camera? (RO)
+CONVERTEXAMPLE
+BEGIN EX
+
+	if (renderer.isVisible)
+		ProcessData.AndDoSomeComplexEffect();
+END EX
+Note that object is considered visible when it needs to be rendered in the scene. It
+might not be actually visible by any camera, but still need to be rendered for shadows
+for example. Also, when running in the editor, the scene view cameras will also
+cause this value to be true.
+
+SA: ::ref::OnBecameVisible, ::ref::OnBecameInvisible.

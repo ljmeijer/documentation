@@ -1,0 +1,24 @@
+<signature>
+GetWindow_T_
+GetWindow_T__bool
+GetWindow_T__bool_string
+GetWindow_T__string
+GetWindow_T__string_bool
+GetWindow_T__bool_string_bool
+</signature>
+Returns the first EditorWindow of type /T/ which is currently on the screen.
+If there is none, creates and shows new window and returns the instance of it.
+@param T the type of the window. Must derive from EditorWindow.
+@param utility set this to true, to create a floating utility window, false to create a normal window.
+@param title if GetWindow creates a new window, it will get this title. If this value is null, use the class name as title.
+<signature>
+GetWindow_T__TypeArray
+GetWindow_T__string_TypeArray
+GetWindow_T__string_bool_TypeArray
+</signature>
+Returns the first EditorWindow of type /T/ which is currently on the screen.
+If there is none, creates and shows new window and returns the instance of it.
+The created window will attempt to be docked next to the first founds specified window type.
+@param T the type of the window. Must derive from EditorWindow.
+@param title if GetWindow creates a new window, it will get this title. If this value is null, use the class name as title.
+@param desiredDockNextTo An array of EditorWindow types that the window will attempt to dock onto

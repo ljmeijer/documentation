@@ -1,0 +1,13 @@
+Combines rotations /lhs/ and /rhs/.
+
+Rotating a point first with /lhs/ and then with /rhs/ is the same as rotating the point by the combined rotation.
+Note that rotations are not commutative: ''lhs * rhs'' does not equal to ''rhs * lhs''.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Applies the rotation of
+	// extraRotation to the current rotation
+
+	var extraRotation : Transform;
+	transform.rotation *= extraRotation.rotation;
+END EX

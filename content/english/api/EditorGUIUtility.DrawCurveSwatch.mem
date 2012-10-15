@@ -1,0 +1,12 @@
+<signature>
+DrawCurveSwatch_Rect_AnimationCurve_SerializedProperty_Color_Color
+DrawCurveSwatch_Rect_AnimationCurve_SerializedProperty_Color_Color_Rect
+</signature>
+Draw a curve swatch.
+Pass in the curve to draw either with the curve parameter or with the property parameter.
+@param position The rectangle to draw the color swatch within.
+@param curve The curve to draw.
+@param property The curve to draw as a SerializedProperty.
+@param color The color to draw the curve with.
+@param bgColor The color to draw the background with.
+@param curveRanges Optional parameter to specify the range of the curve which should be included in swatch.

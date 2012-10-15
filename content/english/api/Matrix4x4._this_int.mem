@@ -1,0 +1,5 @@
+Access element at sequential index (0..15 inclusive).
+
+A matrix is 4x4 array of numbers (16 numbers in total). You can access
+the individual elements using "flattened" index with this.
+The /index/ is @@row+column*4@@.

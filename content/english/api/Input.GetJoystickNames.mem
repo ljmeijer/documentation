@@ -1,0 +1,19 @@
+Returns an array of strings describing the connected joysticks.
+This can be useful in user input configuration screens
+- this way, instead of showing labels like "Joystick 1", you can show more meaningful names like "Logitech WingMan".
+To read values from different joysticks, you need to assign respective axes for the number of joysticks you 
+want to support in the input manager.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints a joystick name if movement is detected.
+
+	function Update () {
+		// requires you to set up axes "Joy0X" - "Joy3X" and "Joy0Y" - "Joy3Y" in the Input Manger
+		for (var i : int = 0; i < 4; i++) {
+			if (Mathf.Abs(Input.GetAxis("Joy"+i+"X")) > 0.2 
+				|| Mathf.Abs(Input.GetAxis("Joy"+i+"Y")) > 0.2)
+				Debug.Log (Input.GetJoystickNames()[i]+" is moved");
+		}
+	}
+END EX

@@ -1,0 +1,2 @@
+If this is enabled, the actual font will be embedded into the asset for Dynamic fonts.
+When you disable this, the user must have the font installed in his system to use it.

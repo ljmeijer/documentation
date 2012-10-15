@@ -1,0 +1,4 @@
+The network class is at the heart of the network implementation and provides the core functions.
+This class configures the network interface and all the network parameters. You use it to set up a
+server or connect to one and have a row of helper functions to help you with those tasks. 
+For more information on what is exposed in the editor see the [[wiki:class-NetworkManager|Network Manger component reference]].

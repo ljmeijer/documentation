@@ -1,0 +1,39 @@
+<signature>
+RegisterUndo_object_string
+RegisterUndo_objectArray_string
+</signature>
+Register the state of one or more objects so the user can later undo back to that state.
+
+Note that only the actual objects passed as parameters are saved.
+For example, passing a game object will not save all its components or child objects.
+If you need to save the state of an entire game object, you can use EditorUtility::ref::CollectDeepHierarchy
+on the game object to get all the objects that it contains and pass all those objects as objects to undo.
+
+SA: Undo.RegisterSceneUndo.
+BEGIN EX
+
+	// Moves the selected game object(s) to (0, 0, 0).
+	// Keyboard shortcut: cmd-0 (Mac), ctrl-0 (Windows).
+	// and in case you regret moving them, you can undo the action.
+
+	using UnityEditor;
+	using UnityEngine;
+
+	class MoveToOrigin {
+		[MenuItem ("Example/Move To Origin %0")]
+		static void MenuMoveToOrigin () {
+			foreach (Transform t in Selection.transforms) {
+				Undo.RegisterUndo(t, "Move " + t.name);
+				t.position = Vector3.zero;
+			}
+		}
+		//The menu item will be disabled if no transform is selected.
+		[MenuItem ("Example/Move To Origin %0", true)]
+		static bool ValidateMoveToOrigin () {
+			return Selection.activeTransform != null;
+		}
+	}
+END EX
+
+@param objectToUndo The object(s) you want to save undo info for.
+@param name The name of the action to undo. Think "Undo ...." in the main menu.

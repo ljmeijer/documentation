@@ -1,0 +1,4 @@
+Get the first serialized property.
+You can use this to go over all properties of the target object.
+
+SA: ::ref::FindProperty, [[SerializedProperty]].

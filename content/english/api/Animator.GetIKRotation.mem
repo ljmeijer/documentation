@@ -1,0 +1,2 @@
+Gets the rotation of an IK goal
+@param goal The AvatarIKGoal that is is queried

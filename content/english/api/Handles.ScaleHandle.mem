@@ -1,0 +1,46 @@
+Make a Scene view scale handle
+This will behave like the built-in scale tool
+
+{img ScaleHandle.png}\\
+''Scale handle that will appear whenever you select the GameObject.''
+BEGIN EX
+
+	// Creates a "Big" (5 times size) Scale handle that will be present whenever
+	// you select the target Game Object
+	
+	@CustomEditor (ScaleAtPoint)
+	class ScaleHandleJS extends Editor {
+		function OnSceneGUI () {
+	        target.sc = Handles.ScaleHandle (target.sc, 
+	    					target.transform.position,
+	    					target.transform.rotation,
+	    					5.0);
+	        Debug.Log(target.sc);
+	        if (GUI.changed)
+	            EditorUtility.SetDirty (target);
+	    }
+	}
+END EX
+
+And the script Attached to this Handle:
+BEGIN EX
+
+	// ScaleAtPoint.js
+	// Usage: Place this script on the Game Object you want to use the
+	// editor-created scale handle.
+	
+	@script ExecuteInEditMode()
+	
+	var sc : Vector3 = Vector3(1,1,1);
+	
+	function Update () {
+		transform.localScale = sc;
+	}
+END EX
+
+@param scale scale to modify
+@param position the position of the handle
+@param rotation the rotation of the handle
+@return the new scale vector.
+
+__Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.

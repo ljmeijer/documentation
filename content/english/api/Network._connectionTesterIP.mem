@@ -1,0 +1,9 @@
+The IP address of the connection tester used in Network.TestConnection.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function ResetIP() {
+		Network.connectionTesterIP = "127.0.0.1";
+		Network.connectionTesterPort = 10000;
+	}
+END EX

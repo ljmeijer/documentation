@@ -1,0 +1,84 @@
+Starts a coroutine.
+The execution of a coroutine can be paused at any point using the yield statement.
+The yield return value specifies when the coroutine is resumed.
+Coroutines are excellent when modelling behaviour over several frames.
+Coroutines have virtually no performance overhead.
+StartCoroutine function always returns immediately, however you can yield the result.
+This will wait until the coroutine has finished execution.
+
+When using JavaScript it is not necessary to use StartCoroutine, the compiler will do this for you.
+When writing C# code you must call StartCoroutine.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// In this example we show how to invoke a coroutine and continue executing
+	// the function in parallel.
+
+	function Start() {
+		// - After 0 seconds, prints "Starting 0.0"
+		// - After 0 seconds, prints "Before WaitAndPrint Finishes 0.0"
+		// - After 2 seconds, prints "WaitAndPrint 2.0"
+		print ("Starting " + Time.time);
+		// Start function WaitAndPrint as a coroutine. And continue execution while it is running
+	
+		// this is the same as WaitAndPrint(2.0) as the compiler does it for you automatically
+		StartCoroutine(WaitAndPrint(2.0)); 
+		print ("Before WaitAndPrint Finishes " + Time.time);
+	}
+
+	function WaitAndPrint (waitTime : float) {
+		// suspend execution for waitTime seconds
+		yield WaitForSeconds (waitTime);
+		print ("WaitAndPrint "+ Time.time);
+	}
+END EX
+Another Example:
+CONVERTEXAMPLE
+BEGIN EX
+
+	// In this example we show how to invoke a coroutine and wait until it 
+	// is completed
+	
+	function Start() {
+		// - After 0 seconds, prints "Starting 0.0"
+		// - After 2 seconds, prints "WaitAndPrint 2.0"
+		// - After 2 seconds, prints "Done 2.0"
+		print ("Starting " + Time.time);
+		// Start function WaitAndPrint as a coroutine. And wait until it is completed.
+		// the same as yield WaitAndPrint(2.0);
+		yield StartCoroutine(WaitAndPrint(2.0));
+		print ("Done " + Time.time);
+	}
+
+	function WaitAndPrint (waitTime : float) {
+		// suspend execution for waitTime seconds
+		yield WaitForSeconds (waitTime);
+		print ("WaitAndPrint "+ Time.time);
+	}
+END EX<signature>
+StartCoroutine_IEnumerator
+StartCoroutine_string_object
+</signature>
+Starts a coroutine named /methodName/.
+In most cases you want to use the StartCoroutine variation above.
+However StartCoroutine using a string method name allows you to use MonoBehaviour::pref::StopCoroutine with a specific method name.
+The downside is that the string version has a higher runtime overhead to start the coroutine and you can pass only one parameter
+CONVERTEXAMPLE
+BEGIN EX
+
+	// In this example we show how to invoke a coroutine using a string name and stop it
+
+	function Start () {
+		StartCoroutine("DoSomething", 2.0);
+		yield WaitForSeconds(1);
+		StopCoroutine("DoSomething");
+	}
+
+	function DoSomething (someParameter : float) {
+		while (true) {
+			print("DoSomething Loop");
+			// Yield execution of this coroutine and return to the main loop until next frame
+			yield;
+		}
+	}
+END EX

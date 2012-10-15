@@ -1,0 +1,10 @@
+Create a WebCamTexture
+Note that if you want to use WebCamTextures in the web player, you need to get the user's
+permission to do so. Call [[Application.RequestUserAuthorization]] before creating a
+WebCamTexture.
+@param deviceName the name of the video input device to be used. Use [[WebCamTexture.devices]] to get a list of supported devices. 
+If no device is supplied by either using one of the constructors which don't have this parameter, or by passing null, the first device
+to be found will be used.
+@param requestedWidth the requested width of the texture. The real width may be different, and will match the closest width supported by the device.
+@param requestedHeight the requested height of the texture. The real height may be different, and will match the closest height supported by the device.
+@param requestedFPS the requested frame rate of the texture. The real frame rate may be different, and will match the closest frame rate supported by the device.

@@ -1,0 +1,7 @@
+Will the cloth collide with itself?
+Enable this only where needed, as it has a big impact on cloth performance.
+CONVERTEXAMPLE
+BEGIN EX
+
+	GetComponent(InteractiveCloth).selfCollision = false;
+END EX

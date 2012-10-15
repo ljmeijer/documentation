@@ -1,0 +1,1 @@
+This lets you add a MonoScript to a game object directly without any type checks or requiring the .NET representation to be loaded already.

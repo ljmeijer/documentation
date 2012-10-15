@@ -1,0 +1,20 @@
+CSNONE
+OnParticleCollision is called when a particle hits a collider (legacy particle system only).
+This can be used to apply damage to a game object when hit by particles.
+This message is sent to all scripts attached to the /WorldParticleCollider/ and to the [[Collider]] that was hit.
+The message is only sent if you enable /sendCollisionMessage/ in the inspector of the /WorldParticleCollider/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Applies a force to all rigid bodies that are hit by the particle.
+
+	function OnParticleCollision (other : GameObject) {
+		var body : Rigidbody = other.rigidbody;
+		if (body) {
+			var direction : Vector3 = other.transform.position - transform.position;
+			direction = direction.normalized;
+			body.AddForce (direction * 5);
+		}
+	}
+END EX
+OnParticleCollision can be a co-routine, simply use the yield statement in the function.

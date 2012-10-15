@@ -1,0 +1,12 @@
+The color of the selection rect in text fields.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Sets the selection color to cyan
+	var str : String = "This is a string with \n two lines of text";
+	
+	function OnGUI() { 
+		GUI.skin.settings.selectionColor = Color.cyan;
+		str = GUILayout.TextArea(str);
+	}
+END EX

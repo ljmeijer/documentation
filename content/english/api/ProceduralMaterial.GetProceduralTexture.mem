@@ -1,0 +1,4 @@
+Get a named Procedural texture property.
+Used for Procedural properties of type Texture.
+
+SA: ::ref::GetProceduralPropertyDescriptions, ::ref::SetProceduralTexture.

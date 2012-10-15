@@ -1,0 +1,5 @@
+Get the frequency capabilities of a device.
+if minFreq and maxFreq is 0, any frequency is supported.
+@param deviceName the name of the device. Passing null or an empty string will pick the default device. Get device names with [[Microphone.devices|Microphone.devices]]
+@param out minFreq
+@param out maxFreq

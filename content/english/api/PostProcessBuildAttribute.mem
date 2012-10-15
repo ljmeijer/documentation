@@ -1,0 +1,28 @@
+Add this attribute to a method to get a notification just after building the player.
+'target' The platform the build targetted.
+'pathToBuiltProject' The file path to the build project.
+BEGIN EX
+NOCHECK
+	// C# example:
+	// Automatically creates a game object with a primitive mesh renderer and appropriate collider.
+	using UnityEngine;
+	using UnityEditor;
+	using UnityEditor.Callbacks;
+	
+	public class MyBuildPostprocessor {
+		[PostProcessBuild]
+		public static void OnPostprocessBuild(BuildTarget target, string pathToBuiltProject) {
+			Debug.Log( pathToBuiltProject );
+    	}
+	}
+	
+	// Javascript example:
+    #pragma strict
+
+    import UnityEditor.Callbacks;
+
+    @PostProcessBuild
+    static function OnPostprocessBuild( target : BuildTarget, pathToBuiltProject : String ) {
+		Debug.Log( pathToBuiltProject );
+	}
+END EX

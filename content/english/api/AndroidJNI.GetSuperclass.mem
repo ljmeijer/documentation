@@ -1,0 +1,4 @@
+If <tt>clazz</tt> represents any class other than the class <tt>Object</tt>, then this function returns the object that represents the superclass of the class specified by <tt>clazz</tt>.
+If <tt>clazz</tt> specifies the class <tt>Object</tt>, or <tt>clazz</tt> represents an interface, this function returns <tt>NULL</tt>.
+
+SA: <a href="http://download.oracle.com/javase/1.5.0/docs/guide/jni/spec/jniTOC.html">Java Native Interface Specification (Oracle)</a>

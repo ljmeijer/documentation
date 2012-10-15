@@ -1,0 +1,2 @@
+An array of font names, to be used when includeFontData is set to false.
+The first font in the array available on the OS will be used.

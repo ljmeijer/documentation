@@ -1,0 +1,9 @@
+Pixel distance from mouse pointer to a 3D section of a disc.
+
+Calculates the screen space distance from the mouse pointer to the disc section at given world
+space /position/ with the given /radius/ and /normal/. The disc section is defined by
+/from/ vector and the /angle/ in degrees.
+
+Uses the current camera to determine the distance.
+
+SA: ::ref::DistanceToDisc, ::ref::DistanceToCircle.

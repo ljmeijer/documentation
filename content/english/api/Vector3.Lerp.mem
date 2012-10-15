@@ -1,0 +1,34 @@
+Linearly interpolates between two vectors.
+
+Interpolates between /from/ and /to/ by amount /t/.
+
+/t/ is clamped between [0...1].
+When /t/ = 0 returns /from/.
+When /t/ = 1 returns /to/.
+When /t/ = 0.5 returns the average of /from/ and /to/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Animates the position to move from start to end within one second
+
+	var start : Transform;
+	var end : Transform;
+	function Update () {
+		transform.position = Vector3.Lerp(start.position, end.position, Time.time);
+	}
+END EX
+
+Another Example
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Follows the target position like with a spring
+
+	var target : Transform;
+	var smooth = 5.0;
+	function Update () {
+		transform.position = Vector3.Lerp (
+			transform.position, target.position,
+			Time.deltaTime * smooth);
+	}
+END EX

@@ -1,0 +1,33 @@
+Displays the "open file" dialog and returns the selected path name.
+
+SA: ::ref::SaveFilePanel function.
+
+{img EditorUtilityOpenFilePanel.png}\\
+''Open File Panel.''
+BEGIN EX
+
+	// Opens a file selection dialog for a PNG file and overwrites any
+	// selected texture with the contents.
+
+	class EditorUtilityOpenFilePanel {
+		@MenuItem("Examples/Overwrite Texture")
+		static function Apply () {
+			var texture : Texture2D = Selection.activeObject;
+			if (texture == null) {
+				EditorUtility.DisplayDialog(
+					"Select Texture",
+					"You Must Select a Texture first!",
+					"Ok");
+				return;
+			}
+			var path = EditorUtility.OpenFilePanel(
+					"Overwrite with png",
+					"",
+					"png");
+			if (path.Length != 0) {
+				var www = WWW("file:///" + path);
+				www.LoadImageIntoTexture(texture);
+			}
+		}
+	}
+END EX

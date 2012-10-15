@@ -1,0 +1,11 @@
+Mouse emulation. Mouse button mapping to Wii Remote's buttons. Note however, that Input.mousePosition reflects IR Sensor position only on Wii.
+BEGIN EX
+
+	function Start () {
+		// Use '1' and '2' buttons as left and right mouse buttons respectively.
+		WiiInput.SetMouseButtonMapping (0, WiiButton.Button1);
+		WiiInput.SetMouseButtonMapping (1, WiiButton.Button2);
+	}
+END EX
+@param	mouseButton	Index of mouse button to emulate: 0 - left, 1 - right.
+@param	wiiButton	Remote's button to poll, WiiButton enumeration.

@@ -1,0 +1,4 @@
+Restrict standalone players to a single concurrent running instance.
+
+This detects at startup whether another instance of the same player is already running,
+and aborts with an error message if so.

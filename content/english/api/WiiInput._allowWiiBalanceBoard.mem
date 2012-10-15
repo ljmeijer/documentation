@@ -1,0 +1,2 @@
+Allow/deny Wii Balance Board connection on port number 4.
+Note: If Wii Balance Board is allowed to connect, only it will be able to connect to 4th port.

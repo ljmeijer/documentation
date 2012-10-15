@@ -1,0 +1,2 @@
+Is this a linear texture or an sRGB texture (Only used when performing linear rendering)
+The default value is sRGB

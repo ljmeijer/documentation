@@ -1,0 +1,63 @@
+Render web content in Editor GUI.
+GUI utility class that wraps a web view for embedding HTML content inside the Unity Editor GUI.
+
+This class differs from the stateless GUI widgets in GUI and GUILayout, as it maintains a state inside an object instance.
+
+Following is a simple Editor Window class that shows a single web view:
+BEGIN EX
+
+class UnityAnswersWindow extends EditorWindow {
+	var webView : WebView;
+		
+	// Add menu named "Unity Answers" to the Help menu
+	@MenuItem ("Help/Unity Answers")
+	static function Init () {
+		// Get existing open window or if none, make a new one:
+		var window : UnityAnswersWindow = EditorWindow.GetWindow (UnityAnswersWindow);
+		window.InitWebView();
+		window.Show ();
+	}
+	
+	// Create a web view instance and point it to the correct URL
+	function InitWebView() {
+    
+        // Create a new web view instance
+		webView = new WebView(position.width, position.height, true, true);
+        
+        // Don't save it
+		webView.hideFlags=HideFlags.HideAndDontSave;
+        
+        // Tell the webView to send page events to this window
+		webView.SetDelegateObject(this); 
+        
+        // Load the URL
+		webView.LoadURL("http://answers.unity3d.com/"); 
+	}
+	
+	// Called on every GUI event
+	function OnGUI () {
+		if ( ! webView ) // Create the web view if  it doesn't exist yet.
+			InitWebView();
+		webView.DoGUI(position); // Render the web view at the same size as the window itself
+	}
+
+	// Query needsRepaint every frame to make sure that the web view contents are updated
+	function Update() {
+		if ( webView && webView.needsRepaint)
+			Repaint();
+	}
+
+    // Update the window title based on the <title> tag in the web view
+    function OnReceiveTitle(newTitle : String, frameName : String) {
+        title=newTitle;
+    }
+    
+    // Make sure we clean up the web view when we close the window
+    // This is important since the webView manages external resources that 
+	// need to be deallocated.
+    function OnDestroy() {
+		DestroyImmediate( webView );
+	}
+
+}
+END EX

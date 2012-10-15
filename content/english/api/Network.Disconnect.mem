@@ -1,0 +1,17 @@
+Close all open connections and shuts down the network interface.
+The /timeout/ parameter indicates how much time in milliseconds the network interface gets to signal to others that it is disconnecting.
+The network state, like security and password, is also reset.
+
+Note that if you set the timeout to 0 the network interface will shut down before the disconnect notification can
+be sent to the remote party. For a client this could mean he cannot reconnect to the server as the server thinks
+he is still connected (after a certain interval the connection will be detected as dropped).
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI() {
+		if (GUILayout.Button ("Disconnect")) {
+			Network.Disconnect();
+			MasterServer.UnregisterHost();
+		}
+	}
+END EX

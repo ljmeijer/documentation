@@ -1,0 +1,8 @@
+A random speed along X, Y, and Z that is added to the velocity.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Spread random velocity mainly along x-z axis
+
+	particleEmitter.rndVelocity = Vector3(2, 0.1, 2);
+END EX

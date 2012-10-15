@@ -1,0 +1,2 @@
+Matrix for all handle operations
+To make all Handle routines work in an Object's local coordinate space, set this to Transform.localToWorldMatrix

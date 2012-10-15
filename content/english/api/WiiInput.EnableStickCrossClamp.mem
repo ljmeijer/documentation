@@ -1,0 +1,2 @@
+Switch clamp processing mode on Nunchuk or Classic Controller to Cross clamping.
+For more information, please refer to KPADEnableStickCrossClamp function documentation in RVL SDK.

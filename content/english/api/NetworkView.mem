@@ -1,0 +1,5 @@
+The network view is the binding material of multiplayer games.
+With this you can define exactly what is to be synchronized over the network and how
+it should be done. Game objects can have NetworkView components which can be
+configured to watch other components for the object. 
+For more information see the [[wiki:net-NetworkView| Network View manual page]] and the [[wiki:class-NetworkView|component reference page]].

@@ -1,0 +1,7 @@
+The linear velocity, below which objects start going to sleep. (Default 0.14) range { 0, infinity }
+See [[wiki:RigidbodySleeping|Rigidbody Sleeping]] for more information.
+CONVERTEXAMPLE
+BEGIN EX
+
+	rigidbody.sleepVelocity = 0.1;
+END EX

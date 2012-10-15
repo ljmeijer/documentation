@@ -1,0 +1,9 @@
+The default send rate of network updates for all Network Views.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Awake () {
+		// Increase default send rate
+		Network.sendRate = 25;
+	}
+END EX

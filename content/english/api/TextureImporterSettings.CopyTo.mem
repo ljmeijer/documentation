@@ -1,0 +1,2 @@
+Copy parameters into another TextureImporterSettings object.
+@param	target	TextureImporterSettings object to copy settings to.

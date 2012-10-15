@@ -1,0 +1,3 @@
+Sets the relative playback speed of video
+If the fPlaySpeed parameter is anything other than 1.0f, audio is completely suspended. 
+Negative values for this parameter cause the video to rewind.

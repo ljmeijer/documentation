@@ -1,0 +1,112 @@
+Make a label in front of some control.
+
+{img EditorGUIPrefixLabel.png}\\
+''Prefix Label in an Editor Window.''
+BEGIN EX
+
+	// Inflates a mesh
+	//
+	// Usage: Select a mesh and drag it to the object field.
+	// Press calculate and after finishing just press play and see your mesh growing.
+	//
+	// Note: To control the ratio of inflation just change the increaseRatio 
+	// var in the "InflateMesh.js" sript
+	
+	class InflateMeshEditor extends EditorWindow {
+	
+		var object : MeshFilter;
+	
+		@MenuItem("Examples/Inflate Mesh")
+		static function Init() {
+			var window = GetWindow(InflateMeshEditor);
+			window.Show();
+		}
+	
+		function OnGUI() {
+			EditorGUI.PrefixLabel(Rect(3,3,position.width-6, 15),
+				0,
+				GUIContent("Select a mesh"));
+			object = EditorGUI.ObjectField(Rect(3,20,position.width-6,20),
+					"Calculate:",
+					object,
+					MeshFilter);
+			
+			EditorGUI.BeginDisabledGroup (!object);
+			if(GUI.Button(Rect(3,45,position.width-6,25),"Calculate!"))
+				Calculate();
+			EditorGUI.EndDisabledGroup ();
+		}
+		
+		function Calculate() {
+			var finalNormals = new Vector3[0];
+			var mesh = object.sharedMesh;
+			var vertices = mesh.vertices;
+			var normals = mesh.normals;
+	
+			// Find identical vertices	
+			// this will hold an ID for each vertex, vertices at 
+			// the same position will share the same ID!
+			var vertexIDs = new int[vertices.length]; 
+			var counter : int = 0;
+
+			for (var i = 0; i < vertices.length; i++) {
+				for (var j = 0; j < vertices.length; j++) {
+	 				if(vertexIDs[i] == 0) {
+	  					counter++;
+	  					vertexIDs[i] = counter;
+	 				}
+	 				if(i != j)
+	  					if(vertices[i] == vertices[j] && vertices[i] != 0)
+	   						vertexIDs[j] = vertexIDs[i];
+				}
+			}
+	
+			finalNormals = normals;
+			calculated = 0.5;
+			// Calcualte average normals		
+			// counter is the highest vertexID, now go through all the groups and collect normal data
+			for(var k = 1; k <= counter; k++) { 
+				var curAvgNormal : Vector3 = Vector3.zero;
+				for(var l = 0; l < vertexIDs.length; l++)
+		 			if(vertexIDs[l] == k) {
+		 				// Add up all the normals of the vertices with identical positions
+	  					curAvgNormal += normals[l]; 
+					}
+				curAvgNormal.Normalize(); //Normalize the result
+				for(var m = 0; m < vertexIDs.length; m++)
+	 				if(vertexIDs[m] == k) 
+	 					finalNormals[m] = curAvgNormal;
+			}
+			object.gameObject.AddComponent("InflateMesh").fNormals = finalNormals;
+			Debug.Log("Done Adding Component, press play and see your mesh being inflated!");
+		}
+	}
+END EX
+
+And the script attached to the editor script:
+BEGIN EX
+
+	// InflateMesh.js
+	private var mesh : Mesh;
+	private var vertices = new Vector3[0];
+	private var normals = new Vector3[0];
+	var fNormals = new Vector3[0];
+	var increaseRatio = 0.005;
+	function Start () {
+		mesh = GetComponent(MeshFilter).mesh;
+		vertices = mesh.vertices;
+		normals = mesh.normals;
+	}
+	
+	function Update () {
+		for (var i = 0; i < vertices.length; i++) {
+			vertices[i] += fNormals[i]  * Time.deltaTime * increaseRatio;
+		}
+		mesh.vertices = vertices;
+	}
+END EX
+
+@param totalPosition Rectangle on the screen to use in total for both the label and the control.
+@param id The unique ID of the control.
+@param label Label to show in front of the control.
+@returns Rectangle on the screen to use just for the control itself.

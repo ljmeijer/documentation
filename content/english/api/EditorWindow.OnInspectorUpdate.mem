@@ -1,0 +1,55 @@
+CSNONE
+OnInspectorUpdate is called at 10 frames per second to give the inspector a chance to update
+
+{img AlignPosition.png}\\
+''Align position of the selected objects.''
+BEGIN EX
+
+	// Simple script that aligns the position of several selected GameObjects
+	// with the first selected one.
+	
+	class AlignPosition extends EditorWindow {
+		var alignToX = true;var alignToY = true; var alignToZ = true;
+		var selected = "";
+		var alignTo = "";
+	
+		@MenuItem("Example/Align position")
+		static function Init() {		
+			var window = GetWindow(AlignPosition);
+			window.Show();
+		}
+		function OnInspectorUpdate() {
+			// Call Repaint on OnInspectorUpdate as it repaints the windows
+			// less times as if it was OnGUI/Update
+			Repaint();
+		}	
+		function OnGUI() {
+			GUILayout.Label("Select various Objects in the Hierarchy view");
+			selected = Selection.activeTransform ? Selection.activeTransform.name : "";
+			for(var t : Transform in Selection.transforms)
+				if(t.GetInstanceID() != Selection.activeTransform.GetInstanceID())
+					alignTo += t.name + " ";	
+			EditorGUILayout.LabelField("Align: ", alignTo);
+			alignTo = "";
+			EditorGUILayout.LabelField("With: ", selected);
+			
+			alignToX = EditorGUILayout.Toggle("X", alignToX);
+			alignToY = EditorGUILayout.Toggle("Y", alignToY);
+			alignToZ = EditorGUILayout.Toggle("Z", alignToZ);
+			if(GUILayout.Button("Align"))
+				Align();
+		}
+		function Align() {
+			if(selected == "" || alignTo == "")
+				Debug.LogError("No objects selected to align");
+			for(var t : Transform in Selection.transforms) {
+				var alignementPosition = Selection.activeTransform.position;
+				var newPosition : Vector3;
+				newPosition.x = alignToX ? alignementPosition.x : t.position.x;
+				newPosition.y = alignToY ? alignementPosition.y : t.position.y;
+				newPosition.z = alignToZ ? alignementPosition.z : t.position.z;
+				t.position = newPosition;	
+			}
+		}
+	}
+END EX

@@ -1,0 +1,8 @@
+In the web player on Mac OS X.
+SA: Platform dependent Compilation.
+CONVERTEXAMPLE
+BEGIN EX
+
+	if (Application.platform == RuntimePlatform.OSXWebPlayer)
+		Debug.Log("Do something special here!");
+END EX

@@ -1,0 +1,3 @@
+Create WiiFile object and open a handle to a file (on authoring platform) or fetch DVDFileInfo (CNTFileInfo on WiiWare) structure (on Wii) for a file with the name passed.
+While authoring, files are read prepending ''project-directory''/WiiDisk to file name passed; on Wii path is passed without modifications.
+@param	fileName	File name.

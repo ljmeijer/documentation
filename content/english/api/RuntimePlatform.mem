@@ -1,0 +1,8 @@
+The platform application is running. Returned by Application.platform.
+
+__Note:__ The difference between using RuntimePlatform and Platform dependent Compilation
+is that using RuntimePlatform is evaluated at runtime while Platform dependent Compilation is
+evaluated at compile time. So if you can use platform dependent compilation, don't hesitate to use it. In most cases, you can
+get the same functionality using both, and using the defines will produce smaller and faster code, as you don't need to check at runtime. 
+There are some cases where RuntimePlatform is needed, for example: if you need to check which platform you are running a webplayer you may check this
+at runtime.

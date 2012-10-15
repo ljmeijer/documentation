@@ -1,0 +1,7 @@
+The size of the area light. Editor only.
+SA: [[wiki:class-Light|Light component]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	light.areaSize = Vector2(5, 2);
+END EX

@@ -1,0 +1,2 @@
+The object was an instance of a prefab, but the original prefab could not be found.
+SA: EditorUtility.GetPrefabType.

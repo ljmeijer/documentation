@@ -1,0 +1,47 @@
+<signature>
+DrawAAPolyLine_Vector3Array
+DrawAAPolyLine_float_Vector3Array
+DrawAAPolyLine_Texture2D_Vector3Array
+DrawAAPolyLine_float_int_Vector3Array
+DrawAAPolyLine_Texture2D_float_Vector3Array
+</signature>
+Draw anti-aliased line specified with point array and width.
+__Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.
+
+{img DrawAAPolyLine.png}\\
+''Anti-Aliased line in the Scene View.''
+BEGIN EX
+
+	// Draw lines to the connected game objects that a script has.
+	// if the target object doesnt have any game objects attached
+	// then it draws a line from the Last checked object to 0,0,0
+	
+	@CustomEditor (ConnectedAAPolyLine)
+	class ConnectedAAPolyLineHandle extends Editor {
+		
+		var positions : Vector3[];
+		
+	    function OnSceneGUI () {
+	    	if(target.polyLineObjs.Length > 0)
+	    		positions = new Vector3[target.polyLinesObjs.Length];
+	    	for(var i = 0; i < target.polyLineObjs.Length; i++)
+	    		if(target.polyLineObjs[i])
+	    			positions[i] = target.polyLineObjs[i].transform.position;
+	    		else
+	    			positions[i] = Vector3.zero;		
+	    	Handles.DrawAAPolyLine(positions);
+	    }
+	}
+END EX
+
+And the script attached to this Handle:
+BEGIN EX
+
+	//ConnectedAAPolyLine.js
+	
+	var polyLineObjs : GameObject[];
+END EX
+
+@param lineTex The AA texture used for rendering. To get an anti-aliased effect use a texture that is 1x2 pixels with one transparent white pixel and one opaque white pixel.
+@param width The width of the line. __Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.
+@param points List of points to build the line from.

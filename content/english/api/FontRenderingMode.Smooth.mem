@@ -1,0 +1,2 @@
+Use Anti-Aliased Font rendering. When using dynamic fonts, this is the mode which is fastest in rendering font textures.
+This mode looks very similar to the font rendering on Mac OS X.

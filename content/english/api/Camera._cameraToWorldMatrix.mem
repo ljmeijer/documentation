@@ -1,0 +1,21 @@
+Matrix that transforms from camera space to world space (RO).
+Use this to calculate where in the world a specific camera space point is.
+
+Note that camera space matches OpenGL convention: camera's forward is the negative
+Z axis. This is different from Unity's convention, where forward is the positive Z
+axis.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draw a yellow sphere in scene view at /distance/
+	// units along camera's viewing direction.
+	
+	var distance : float = -1.0;
+	
+	function OnDrawGizmosSelected () {
+		var m : Matrix4x4 = camera.cameraToWorldMatrix;
+		var p : Vector3 = m.MultiplyPoint (Vector3(0,0,distance));
+		Gizmos.color = Color.yellow;
+		Gizmos.DrawSphere (p, 0.2);
+	}
+END EX

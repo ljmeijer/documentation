@@ -1,0 +1,6 @@
+<signature>
+SetCamera_Camera
+SetCamera_Rect_Camera
+</signature>
+Set the current camera so all Handles and Gizmos are draw with its settings.
+Sets Camera.current to be /camera/ and sets its pixelRect.. This does not draw the camera, only sets it to be "active". To draw it use ::ref::DrawCamera.

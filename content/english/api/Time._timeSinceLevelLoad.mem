@@ -1,0 +1,9 @@
+The time this frame has started (RO). This is the time in seconds since the last level has been loaded.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Sets the gui text to the time it took the player to complete the level
+	function PlayerCompletedGame() {
+		guiText.text = Time.timeSinceLevelLoad.ToString();
+	}
+END EX

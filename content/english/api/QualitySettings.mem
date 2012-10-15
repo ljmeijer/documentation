@@ -1,0 +1,5 @@
+Script interface for [[wiki:class-QualitySettings|Quality Settings]].
+
+There can be an arbitrary number of quality settings. The details of each are set up
+in the project's [[wiki:class-QualitySettings|Quality Settings]]. At run time, the
+current quality level can be changed using this class.

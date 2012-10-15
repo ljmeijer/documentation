@@ -1,0 +1,2 @@
+Constructs a new <tt>java.lang.String</tt> object from an array of characters in modified UTF-8 encoding.
+SA: <a href="http://download.oracle.com/javase/1.5.0/docs/guide/jni/spec/jniTOC.html">Java Native Interface Specification (Oracle)</a>

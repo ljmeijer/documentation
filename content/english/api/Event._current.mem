@@ -1,0 +1,8 @@
+The current event that's being processed right now.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI() {
+		 Debug.Log("Current detected event: " + Event.current);
+	}
+END EX

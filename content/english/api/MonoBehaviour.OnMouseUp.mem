@@ -1,0 +1,20 @@
+CSNONE
+OnMouseUp is called when the user has released the mouse button.
+Note that OnMouseUp is called even if the mouse is not over the same [[GUIElement]] or [[Collider]] as the has mouse has been pressed down on. 
+For button-like behavior see: ::ref::OnMouseUpAsButton.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Register when mouse dragging has ended. OnMouseUp is called 
+	// when the mouse button is released. SA: ::ref::OnMouseDown, ::ref::OnMouseDrag.
+
+	function OnMouseUp () {
+		Debug.Log("Drag ended!");
+	}
+END EX
+This function is not called on objects that belong to Ignore Raycast layer.
+
+OnMouseUp can be a co-routine, simply use the yield statement in the function.
+This event is sent to all scripts attached to the [[Collider]] or [[GUIElement]].
+
+__IMPORTANT:__ This function has no effect on iPhone.

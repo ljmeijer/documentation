@@ -1,0 +1,4 @@
+Modify pathfinding cost for the link.
+When the costOverride value is non-negative the cost of moving over the OffMeshLink
+is equivalent to the costOverride value times the Euclidean distance
+between OffMeshLink end points.

@@ -1,0 +1,8 @@
+Is Caching enabled?
+WebPlayer users may disable Caching for all WebPlayer applications by right-clicking on the WebPlayer content, selecting "Setup...", and checking the 'Disable all caching' checkbox. If caching is disabled, WWW.LoadFromCacheOrDownload() will continue to function, but will never cache downloaded AssetBundles.
+Caching is always enabled for PC/Mac Standalone and iOS/Android player builds.
+BEGIN EX
+
+if (!Caching.enabled)
+	GUILayout.Label ("Please enable Caching for the best gameplay experience.");
+END EX

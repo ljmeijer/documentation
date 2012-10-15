@@ -1,0 +1,2 @@
+The InteractiveCloth component is used to simulate objects with cloth physics.
+This is used together with the [[ClothRenderer]] component to visualize cloth objects in the scene.

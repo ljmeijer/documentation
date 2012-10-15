@@ -1,0 +1,2 @@
+Transfers PlayerPrefs content to and from an array of bytes. Can be useful to implement save/load game functionality.
+Note: accessing /rawData/ returns different data in the editor than on the Wii due different implementations of PlayerPrefs and thus, it is not interchangeable.

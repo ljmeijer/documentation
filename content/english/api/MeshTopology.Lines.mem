@@ -1,0 +1,4 @@
+Mesh is made from lines.
+Each two indices in the mesh index buffer form a line.
+
+SA: Mesh.SetIndices function.

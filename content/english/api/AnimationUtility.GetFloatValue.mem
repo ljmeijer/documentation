@@ -1,0 +1,2 @@
+Retrieves the current float value by sampling a curve value on a specific game object
+Useful for recording keyframes

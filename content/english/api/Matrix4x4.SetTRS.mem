@@ -1,0 +1,4 @@
+Sets this matrix to a translation, rotation and scaling matrix.
+
+The current matrix is modified so that places things at position /pos/,
+oriented in rotation /q/ and scaled by /s/.

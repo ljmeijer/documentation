@@ -1,0 +1,2 @@
+An estimate of the floor position (in meters).
+If the floor is not visible, the result will be Vector4.zero;

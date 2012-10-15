@@ -1,0 +1,7 @@
+The scale of the transform relative to the parent.
+CONVERTEXAMPLE
+BEGIN EX
+
+	 // Widen the object by 0.1
+	transform.localScale += Vector3(0.1,0,0);
+END EX

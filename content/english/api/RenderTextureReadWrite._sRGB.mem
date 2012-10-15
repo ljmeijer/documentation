@@ -1,0 +1,3 @@
+sRGB reads and writes to this render texture
+
+SA: RenderTexture.sRGB, [[RenderTexture]] class.

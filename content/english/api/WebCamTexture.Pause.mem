@@ -1,0 +1,26 @@
+Pauses the camera.
+Note that if you want to use WebCamTextures in the web player, you need to get the user's
+permission to do so. Call [[Application.RequestUserAuthorization]] before creating a
+WebCamTexture.
+BEGIN EX
+
+	// Starts a camera and assigns the texture to the current renderer.
+	// It pauses the camera when the "Pause" button is released
+	function Start () {
+		var webcamTexture : WebCamTexture = WebCamTexture();
+		renderer.material.mainTexture = webcamTexture;
+		webcamTexture.Play();
+	}
+	function OnGUI() {
+		if(webcamTexture.isPlaying) {
+			if(GUILayout.Button("Pause")){
+				webcamTexture.Pause();
+			}
+		}
+		else {
+			if(GUILayout.Button("Play")){
+				webcamTexture.Play();
+			}
+		}
+	}
+END EX

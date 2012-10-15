@@ -1,0 +1,13 @@
+<signature>
+BoundsField_Bounds_GUILayoutOptionArray
+BoundsField_string_Bounds_GUILayoutOptionArray
+BoundsField_GUIContent_Bounds_GUILayoutOptionArray
+</signature>
+Make Center & Extents field for entering a [[Bounds]].
+
+@param label Label to display above the field.
+@param value The value to edit.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The value entered by the user.

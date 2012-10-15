@@ -1,0 +1,5 @@
+Returns a row of the matrix.
+
+The i-th row is returned as a [[Vector4]]. /i/ must be from 0 to 3 inclusive.
+
+SA: ::ref::SetRow.

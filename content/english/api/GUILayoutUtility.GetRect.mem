@@ -1,0 +1,59 @@
+<signature>
+GetRect_GUIContent_GUIStyle
+GetRect_GUIContent_GUIStyle_GUILayoutOptionArray
+</signature>
+Reserve layout space for a rectangle for displaying some contents with a specific style.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Shows the button rect properties in a label when the mouse is over it
+	var buttonText : GUIContent = new GUIContent("some button"); 
+	var buttonStyle : GUIStyle = GUIStyle.none; 
+	
+	function OnGUI() { 
+		var rt : Rect = GUILayoutUtility.GetRect(buttonText, buttonStyle); 
+		if (rt.Contains(Event.current.mousePosition)) { 
+			GUI.Label(Rect(0,20,200,70), "PosX: " + rt.x + "\nPosY: " + rt.y + 
+				  "\nWidth: " + rt.width + "\nHeight: " + rt.height);
+		} 
+		GUI.Button(rt, buttonText, buttonStyle); 
+	}
+END EX
+
+@param content	The content to make room for displaying
+@param style	The [[GUIStyle]] to layout for. 
+@param options	An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight.
+@returns A rectangle that is large enough to contain content when rendered in style.
+<signature>
+GetRect_float_float
+GetRect_float_float_GUIStyle
+GetRect_float_float_GUILayoutOptionArray
+GetRect_float_float_GUIStyle_GUILayoutOptionArray
+</signature>
+Reserve layout space for a rectangle with a fixed content area.
+@param width		The width of the area you want.
+@param height		The height of the area you want.
+@param style		An optional [[GUIStyle]] to layout for. If specified, the style's /padding/ value will be added to your sizes & its /margin/ value will be used for spacing.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight.
+@returns The rectanlge to put your control in.
+<signature>
+GetRect_float_float_float_float
+GetRect_float_float_float_float_GUIStyle
+GetRect_float_float_float_float_GUILayoutOptionArray
+GetRect_float_float_float_float_GUIStyle_GUILayoutOptionArray
+</signature>
+Reserve layout space for a flexible rect.
+The rectangle's size will be between the min & max values.
+@param minWidth		The minimum width of the area passed back.
+@param maxWidth		The maximum width of the area passed back.
+@param minHeight		The minimum width of the area passed back.
+@param maxHeight		The maximum width of the area passed back.
+@param style			An optional style. If specified, the style's /padding/ value will be added to the sizes requested & the style's /margin/ values will be used for spacing.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight.
+@returns a rectangle with size between minWidth & maxWidth on both axes

@@ -1,0 +1,2 @@
+Dockarea we're inside.
+Null if we're getting created. In that case, Show() will create a window to put us in.

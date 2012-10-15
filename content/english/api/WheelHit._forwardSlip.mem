@@ -1,0 +1,13 @@
+Tire slip in the rolling direction. Acceleration slip is negative, braking slip is positive.
+BEGIN EX
+
+	// Prints "braking slip!" when tire slips badly.
+	function FixedUpdate() {
+		var hit : WheelHit;
+		var wheel : WheelCollider = GetComponent(WheelCollider);
+		if( wheel.GetGroundHit( hit ) ) {
+			if( hit.forwardSlip > 0.5 )
+				print ("braking slip!");
+		}
+	}
+END EX

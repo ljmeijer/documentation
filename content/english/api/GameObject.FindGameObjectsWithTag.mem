@@ -1,0 +1,46 @@
+Returns a list of active GameObjects tagged /tag/. Returns null if no GameObject was found.
+Tags must be declared in the tag manager before using them.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Instantiates respawnPrefab at the location 
+	// of all game objects tagged "Respawn".
+
+	var respawnPrefab : GameObject;
+	var respawns;
+	function Start()
+	{
+		if (respawns == null)
+			GameObject.FindGameObjectsWithTag ("Respawn");
+		for (var respawn in respawns)
+			Instantiate (respawnPrefab, respawn.transform.position, respawn.transform.rotation);
+	}
+END EX
+
+Another Example
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Print the name of the closest enemy
+	print(FindClosestEnemy().name); 
+	
+	// Find the name of the closest enemy
+	function FindClosestEnemy () : GameObject {
+		// Find all game objects with tag Enemy
+		var gos : GameObject[];
+		gos = GameObject.FindGameObjectsWithTag("Enemy"); 
+		var closest : GameObject; 
+		var distance = Mathf.Infinity; 
+		var position = transform.position; 
+		// Iterate through them and find the closest one
+		for (var go : GameObject in gos)  { 
+			var diff = (go.transform.position - position);
+			var curDistance = diff.sqrMagnitude; 
+			if (curDistance < distance) { 
+				closest = go; 
+				distance = curDistance; 
+			} 
+		} 
+		return closest;	
+	}
+END EX

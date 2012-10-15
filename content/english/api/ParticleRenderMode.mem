@@ -1,0 +1,2 @@
+The rendering mode for legacy particles.
+This is used by the [[ParticleRenderer]] to determine how to render the particles.

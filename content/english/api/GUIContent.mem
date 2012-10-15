@@ -1,0 +1,4 @@
+The contents of a GUI element.
+This works closely in relation with [[GUIStyle]]. GUIContent defines /what/ to render and [[GUIStyle]] defines /how/ to render it.
+
+SA: [[GUIStyle]]

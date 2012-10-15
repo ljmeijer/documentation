@@ -1,0 +1,3 @@
+Convert a Java array of <tt>long</tt> to a managed array of System.Int64.
+
+SA: AndroidJNI.GetLongArrayElement, AndroidJNI.GetArrayLength

@@ -1,0 +1,40 @@
+Creates a new RenderTexture object.
+
+The render texture is created with /width/ by /height/ size, with a depth buffer
+of /depth/ bits (depth can be 0, 16 or 24), and in /format/ format and with sRGB read / write on or off.
+
+Note that constructing a RenderTexture object does not create the hardware representation immediately.
+The actual render texture is created upon first use or when ::ref::Create is called manually. So after
+constructing the render texture, it is possible to set additional variables, like ::ref::format,
+::ref::isCubemap and so on.
+
+SA: ::ref::format variable.<signature>
+ctor_int_int_int_RenderTextureFormat_RenderTextureReadWrite
+ctor_int_int_int_RenderTextureFormat
+</signature>
+Creates a new RenderTexture object.
+
+The render texture is created with /width/ by /height/ size, with a depth buffer
+of /depth/ bits (depth can be 0, 16 or 24), and in /format/ format.
+
+Note that constructing a RenderTexture object does not create the hardware representation immediately.
+The actual render texture is created upon first use or when ::ref::Create is called manually. So after
+constructing the render texture, it is possible to set additional variables, like ::ref::format,
+::ref::isCubemap and so on.
+
+SA: ::ref::format variable.
+<signature>
+ctor_int_int_int
+</signature>
+Creates a new RenderTexture object.
+
+The render texture is created with /width/ by /height/ size, with a depth buffer
+of /depth/ bits (depth can be 0, 16 or 24). The render texture is set to be
+in [[RenderTextureFormat.Default|color format]] by default.
+
+Note that constructing a RenderTexture object does not create the hardware representation immediately.
+The actual render texture is created upon first use or when ::ref::Create is called manually. So after
+constructing the render texture, it is possible to set additional variables, like ::ref::format,
+::ref::isCubemap and so on.
+
+SA: ::ref::format variable.

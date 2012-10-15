@@ -1,0 +1,4 @@
+Add a continuous force to the rigidbody, using its mass.
+Apply the force in each FixedUpdate over a duration of time. This mode depends on the mass of rigidbody so more force must be applied to push or twist higher-mass objects the same amount as lower-mass objects.
+This mode is useful for setting up realistic physics where it takes more force to move heavier objects.
+In this mode, the unit of the force parameter is applied to the rigidbody as mass*distance/time^2.

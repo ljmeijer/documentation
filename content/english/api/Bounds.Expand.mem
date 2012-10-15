@@ -1,0 +1,5 @@
+Expand the bounds by increasing its /size/ by /amount/ along each side.<signature>
+Expand_float
+Expand_Vector3
+</signature>
+Expand the bounds by increasing its /size/ by /amount/ along each side.

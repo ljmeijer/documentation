@@ -1,0 +1,8 @@
+The angular drag of the object.
+Angular drag can be used to slow down the rotation of an object.
+The higher the drag the more the rotation slows down
+CONVERTEXAMPLE
+BEGIN EX
+
+	rigidbody.angularDrag = 10;
+END EX

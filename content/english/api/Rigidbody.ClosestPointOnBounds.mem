@@ -1,0 +1,22 @@
+The closest point to the bounding box of the attached colliders.
+This can be used to calculate hit points when applying explosion damage.
+Or calculating explosion forces that act on a point on the surface of the rigidbody
+CONVERTEXAMPLE
+BEGIN EX
+
+	var hitPoints : float = 10.0;
+	function ApplyHitPoints (explosionPos : Vector3, radius : float) {
+		// The distance from the explosion position to the surface of the rigidbody
+		var closestPoint : Vector3 = rigidbody.ClosestPointOnBounds(explosionPos);
+		var distance : float = Vector3.Distance(closestPoint, explosionPos);
+
+		// The hit points we apply fall decrease with distance from the hit point
+		var damage : float  = 1.0 - Mathf.Clamp01(distance / radius);
+		
+		// This is the final hitpoints we want to apply. 10 at maximum.
+		damage *= 10;
+		
+		// Apply the damage
+		hitPoints -= damage;
+	}
+END EX

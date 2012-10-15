@@ -1,0 +1,2 @@
+Gets the gamer picture of a local user.
+Note: a new texture is created each time this function is called.

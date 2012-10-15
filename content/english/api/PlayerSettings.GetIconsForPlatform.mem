@@ -1,0 +1,2 @@
+Note: If an empty list is returned, no icons are assigned specifically to the specified platform at this point,
+but platform may still use the platform-neutral default icon if one is supplied.

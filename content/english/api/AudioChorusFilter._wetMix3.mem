@@ -1,0 +1,15 @@
+Volume of 3rd chorus tap. This tap is 90 degrees out of phase of the second tap. 0.0 to 1.0. Default = 0.5.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Produce random mixes with the Chorus filter.
+
+	@script RequireComponent(AudioSource)
+	@script RequireComponent(AudioChorusFilter)
+	
+	function Update() {
+		GetComponent(AudioChorusFilter).wetMix1 = Mathf.Sin(Time.time)*0.5 + 0.5;
+		GetComponent(AudioChorusFilter).wetMix2 = Mathf.Cos(Time.time)*0.5 + 0.5;
+		GetComponent(AudioChorusFilter).wetMix3 = Random.Range(0.0,1.0);;
+	}
+END EX

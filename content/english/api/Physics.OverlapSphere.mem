@@ -1,0 +1,2 @@
+Returns an array with all colliders touching or inside the sphere.
+NOTE: Currently this only checks against the bounding volumes of the colliders not against the actual colliders.

@@ -1,0 +1,52 @@
+<signature>
+Popup_Rect_int_stringArray_GUIStyle
+Popup_Rect_int_GUIContentArray_GUIStyle
+Popup_Rect_string_int_stringArray_GUIStyle
+Popup_Rect_GUIContent_int_GUIContentArray_GUIStyle
+</signature>
+Make a generic popup selection field.
+Takes the currently selected index as a parameter and returns the index selected by the user.
+
+{img EditorGUIPopup.png}\\
+''Popup in and Editor Window.''
+BEGIN EX
+
+	// Adds a component to the selected GameObjects
+	
+	class EditorGUIPopup extends EditorWindow {
+		var options : String[] = ["Rigidbody", "Box Collider", "Sphere Collider"];
+		var index : int = 0;
+		
+		@MenuItem("Examples/Editor GUI Popup usage")
+		static function Init() {
+			var window = GetWindow(EditorGUIPopup);
+			window.position = Rect(0,0,180,80);
+			window.Show();
+		}
+		function OnGUI() {
+			index = EditorGUI.Popup(
+				Rect(0,0,position.width, 20),
+				"Component:",
+				index, 
+				options);
+				
+			if(GUI.Button(Rect(0,25,position.width, position.height - 26),"Add Component"))
+				AddComponentToObjects();
+		}
+		function AddComponentToObjects() {
+			if(!Selection.activeGameObject) {
+				Debug.LogError("Please select at least one GameObject first");
+				return;
+			}
+			for(var go : GameObject in Selection.gameObjects)
+				go.AddComponent(options[index]);
+		}
+	}
+END EX
+
+@param position Rectangle on the screen to use for the field.
+@param label Optional label in front of the field.
+@param selectedIndex The index of the option the field shows.
+@param displayedOptions An array with the options shown in the popup.
+@param style Optional [[GUIStyle]].
+@returns The index of the option that has been selected by the user.

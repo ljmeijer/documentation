@@ -1,0 +1,14 @@
+Currently connected players
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Requests info from the master server and prints
+	// the number of players playing on each host
+
+	function Start() {
+		var hostData : HostData[] = MasterServer.PollHostList();
+		for(var element : HostData in hostData) {
+			Debug.Log(element.connectedPlayers + " are connected to " + element.gameName);
+		}
+	}
+END EX

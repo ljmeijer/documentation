@@ -1,0 +1,11 @@
+The parameters of wheel's suspension. The suspension attempts to reach a target position
+by adding spring and damping forces.
+
+The /suspensionSpring.spring/ force attempts to reach the target position. A larger value makes the suspension reach the target position faster.
+
+The /suspensionSpring.damper/ force dampens the suspension velocity. A larger value makes the suspension reach the goal slower.
+
+The suspension tries to reach /suspensionSpring.targetPosition/, which is the rest length of
+the suspension along the /suspensionDistance/. Zero value maps to full extension along the
+suspension travel, a value of one maps to fully compressed suspension.
+Default value is zero, which matches the behavior of regular car's suspension.

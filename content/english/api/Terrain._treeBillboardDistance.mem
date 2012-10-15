@@ -1,0 +1,10 @@
+Distance from the camera where trees will be rendered as billboards only.
+Decreasing this value improves performance but makes the transition look worse
+because the difference between billboards and trees will be more obvious.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		Terrain.activeTerrain.treeBillboardDistance = 100;
+	}
+END EX

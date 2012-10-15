@@ -1,0 +1,4 @@
+DEBUG: Configure forced swap (TCR 022)
+Front buffer Swap is inserted during multi-threaded rendering if frame time exceeds limits imposed by TCR #022.
+This functionality can be controlled in case the behavior is not desired or causes graphical artifacts (in which case you should submit a repro case).
+Defaults to ON.

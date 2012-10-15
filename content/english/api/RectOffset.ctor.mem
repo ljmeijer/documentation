@@ -1,0 +1,10 @@
+<signature>
+ctor
+ctor_int_int_int_int
+</signature>
+Creates a new rectangle with offsets.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var rect = RectOffset (0, 10, 0, 10);
+END EX

@@ -1,0 +1,23 @@
+Clears drag & drop data.
+
+Clears everything stored in the drag & drop object and prepares it so you can write into it for initiating a drag operation.
+
+SA: ::ref::StartDrag, ::ref::paths, ::ref::objectReferences.
+BEGIN EX
+
+	function OnGUI () {
+		if (Event.current.type == EventType.MouseDrag) {
+			// Clear out drag data
+			DragAndDrop.PrepareStartDrag ();
+
+			// Set up what we want to drag
+			DragAndDrop.paths = [ "/Users/joe/myPath.txt" ];
+
+			// Start the actual drag
+			DragAndDrop.StartDrag ("Dragging title");
+
+			// Make sure no one uses the event after us
+			Event.current.Use();
+		}
+	}
+END EX

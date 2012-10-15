@@ -1,0 +1,95 @@
+Waits until the end of the frame after all cameras and GUI is rendered, just before displaying the frame on screen.
+You can use it to read the display into a texture, encode it as an image file (see Texture2D.ReadPixels and Texture2D.EncodeToPNG) and send it somewhere.
+CONVERTEXAMPLE
+BEGIN EX
+
+yield new WaitForEndOfFrame ();
+END EX
+
+Another Example:
+CONVERTEXAMPLE
+BEGIN EX
+
+// Saves screenshot as PNG file.
+import System.IO;
+
+// Take a shot immediately
+function Start() {
+	UploadPNG();
+}
+
+function UploadPNG() {
+	// We should only read the screen bufferafter rendering is complete
+	yield WaitForEndOfFrame();
+	
+	// Create a texture the size of the screen, RGB24 format
+	var width = Screen.width;
+	var height = Screen.height;
+	var tex = new Texture2D( width, height, TextureFormat.RGB24, false );
+	// Read screen contents into the texture
+	tex.ReadPixels( Rect(0, 0, width, height), 0, 0 );
+	tex.Apply();
+
+	// Encode texture into PNG
+	var bytes = tex.EncodeToPNG();
+	Destroy( tex );
+
+	// For testing purposes, also write to a file in the project folder
+	// File.WriteAllBytes(Application.dataPath + "/../SavedScreen.png", bytes);
+
+
+	// Create a Web Form
+	var form = new WWWForm();
+	form.AddField("frameCount", Time.frameCount.ToString());
+	form.AddBinaryData("fileUpload",bytes);
+
+	// Upload to a cgi script	
+	var w = WWW("http://localhost/cgi-bin/env.cgi?post", form);
+	yield w;
+	if (w.error != null)
+		print(w.error);	
+	else
+		print("Finished Uploading Screenshot");	
+}
+END EX
+
+CONVERTEXAMPLE
+BEGIN EX
+
+// Shows alpha channel contents in the game view.
+
+private var mat : Material;
+
+// After the frame is completely rendered, we'll
+// draw a full screen quad that extracts the alpha channel.
+function Start() {
+	while (true) {
+		yield WaitForEndOfFrame();
+		
+		if( !mat ) {
+			mat = new Material( "Shader \"Hidden/Alpha\" {" +
+				"SubShader {" +
+				"    Pass {" +
+				"        ZTest Always Cull Off ZWrite Off" +
+				"        Blend DstAlpha Zero" +
+				"        Color (1,1,1,1)" +
+				"    }" +
+				"}" +
+				"}"
+			);
+		}
+		GL.PushMatrix ();
+		GL.LoadOrtho ();
+		for (var i = 0; i < mat.passCount; ++i) {
+			mat.SetPass (i);
+			GL.Begin( GL.QUADS );
+			GL.Vertex3( 0, 0, 0.1 );
+			GL.Vertex3( 1, 0, 0.1 );
+			GL.Vertex3( 1, 1, 0.1 );
+			GL.Vertex3( 0, 1, 0.1 );
+			GL.End();
+		}
+		GL.PopMatrix ();    
+	}
+}
+END EX

@@ -1,0 +1,9 @@
+Clamps the texture to the last pixel at the border.
+This is useful for preventing wrapping artifacts when mapping an image onto an object and you don't want the texture to tile.
+UV coordinates will be clamped to the range 0...1. When UVs are larger than 1 or smaller than 0, the last pixel at the border will be used.
+SA: Texture.wrapMode, [[wiki:class-Texture2D|texture assets]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	renderer.material.mainTexture.wrapMode = TextureWrapMode.Clamp;
+END EX

@@ -1,0 +1,3 @@
+Batch shader parameter.
+/batchIndex/ must be less than /batchCount/
+/paramIndex/ must be less than 20 (XAVATAR_SHADER_INSTANCE_MAX_PARAMS)

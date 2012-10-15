@@ -1,0 +1,3 @@
+The correct color space for the current position in the rendering pipeline
+
+SA: RenderTexture.sRGB, [[RenderTexture]] class.

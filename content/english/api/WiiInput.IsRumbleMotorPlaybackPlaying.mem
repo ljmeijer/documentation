@@ -1,0 +1,9 @@
+Check if Rumble Motor playback is active.
+BEGIN EX
+
+	function OnGUI () {
+		GUI.Label (Rect (20,20,150,50), IsRumbleMotorPlaybackPlaying (0) ? "Playing" : "Stopped");
+	}
+END EX
+@param	chan	Remote index, in range 0...3.
+@return Function returns true if playback is playing for a specified remote.

@@ -1,0 +1,9 @@
+Prefetch the webplayer socket security policy from a non-default port number.
+Socket connections attempted in a webplayer need to be validated by a socket policy. 
+When the policy is hosted on a port different than the default port number (843) it needs to 
+be explicitly fetched with this API call before any socket connections are attempted.
+The timeout argument is in milliseconds.
+
+The return value indicates if a policy was successfully retrieved or not.
+
+See more about the [[wiki:Security Sandbox|webplayer security sandbox]] in the manual.

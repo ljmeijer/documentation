@@ -1,0 +1,2 @@
+Access a return code of an async call.
+@param	chan	Remote index, in range 0...3.

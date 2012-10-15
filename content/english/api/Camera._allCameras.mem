@@ -1,0 +1,7 @@
+Returns all enabled cameras in the scene.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var count : int = Camera.allCameras.Length;
+	print ("We've got " + count + " cameras");
+END EX

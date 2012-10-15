@@ -1,0 +1,8 @@
+Generate a depth + normals texture.
+
+Will generate a screen-space depth and view space normals texture as seen from this camera.
+Texture will be in RenderTextureFormat.ARGB32 format and will be set as @@_CameraDepthNormalsTexture@@
+global shader property. Depth and normals will be specially encoded, see [[wiki:SL-CameraDepthTexture|Camera
+Depth Texture]] page for details.
+
+SA: Camera.depthTextureMode.

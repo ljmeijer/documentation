@@ -1,0 +1,8 @@
+How much world-space movement of the character will affect cloth vertices.
+The higher this value is, the more the cloth will move as a reaction to world space movement of the GameObject.
+Basically, this defines the air friction of the SkinnedCloth.
+CONVERTEXAMPLE
+BEGIN EX
+
+	GetComponent(SkinnedCloth).worldVelocityScale = 0.5;
+END EX

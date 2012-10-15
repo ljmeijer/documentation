@@ -1,0 +1,6 @@
+Get rendering info for a specific character
+Note: You should only ever need to use this when you want to implement your own text rendering.
+If the character /ch/ with the specified /size/ and /style/ is present in the font texture, then this method will
+return true, and info will contain the texture placement information for that character. If the character is not
+present, this method returns false. If /size/ is zero, it will use the default size for the font.
+SA: [[characterInfo]]

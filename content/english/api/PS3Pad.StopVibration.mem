@@ -1,0 +1,7 @@
+Stops the vibartion of controller specified by ''controllerID''
+BEGIN EX
+
+		function OnGUI() {
+			PS3Pad.StopVibration (0);
+		}
+END EX

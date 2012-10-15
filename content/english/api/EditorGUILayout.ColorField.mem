@@ -1,0 +1,44 @@
+<signature>
+ColorField_Color_GUILayoutOptionArray
+ColorField_string_Color_GUILayoutOptionArray
+ColorField_GUIContent_Color_GUILayoutOptionArray
+</signature>
+Make a field for selecting a [[Color]].
+
+{img MassiveColorChange.png}\\
+''Change the color of the selected GameObjects.''
+BEGIN EX
+
+	// Change The color of the selected Game Objects
+	
+	class MassiveColorChange extends EditorWindow {
+		
+		var matColor : Color = Color.white;
+		
+		@MenuItem("Examples/Massive Color Change")
+		static function Init() {
+			var window = GetWindow(MassiveColorChange);
+			window.Show();
+		}
+		function OnGUI() {
+			matColor = EditorGUILayout.ColorField("New Color", matColor);
+			
+			if(GUILayout.Button("Change!"))
+				ChangeColors();
+		}
+		
+		function ChangeColors() {
+			if(Selection.activeGameObject)
+				for(var t in Selection.gameObjects)
+					if(t.renderer)
+						t.renderer.sharedMaterial.color = matColor;
+		}
+	}
+END EX
+
+@param label Optional label to display in front of the field.
+@param value The color to edit.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The color selected by the user.

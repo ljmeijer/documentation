@@ -1,0 +1,10 @@
+Extrapolation will predict the position of the rigidbody based on the current velocity.
+If you have fast moving objects this can lead to rigidbodies passing 
+through colliders for one frame and then snapping back.
+
+SA: Rigidbody.interpolation variable.
+CONVERTEXAMPLE
+BEGIN EX
+
+	rigidbody.interpolation = RigidbodyInterpolation.Extrapolate;
+END EX

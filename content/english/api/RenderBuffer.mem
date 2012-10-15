@@ -1,0 +1,10 @@
+Color or depth buffer part of a [[RenderTexture]].
+
+A single [[RenderTexture]] object represents both color and depth buffers,
+but many complex rendering algorithms require using the same depth buffer
+with multiple color buffers or vice versa.
+
+This class represents either a color or a depth buffer part of a RenderTexture.
+
+SA: RenderTexture.colorBuffer, RenderTexture.depthBuffer, Graphics.activeColorBuffer,
+Graphics.activeDepthBuffer, Graphics.SetRenderTarget.

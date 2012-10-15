@@ -1,0 +1,12 @@
+Rendering settings for when the mouse is hovering over the control
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints the text color that customStyles[0] is using
+	// when the mouse is hovering over a control
+
+	function OnGUI() {
+		if(GUI.skin.customStyles.Length > 0)
+			Debug.Log(GUI.skin.customStyles[0].hover.textColor);
+	}
+END EX

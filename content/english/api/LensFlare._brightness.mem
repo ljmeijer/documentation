@@ -1,0 +1,18 @@
+The strength of the flare.
+
+This controls the size and brightness of the flare elements.
+
+SA: [[wiki:class-LensFlare|Lens flare component]], [[wiki:class-Flare|flare assets]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Increments the strenght of the Lensflare lf when the Transform tr
+	// gets closer to the Lens flare
+
+	var lf : LensFlare;
+	var tr : Transform;
+
+	function Update() {
+		lf.brightness = 1/Vector3.Distance(lf.transform.position, tr.position);
+	}
+END EX

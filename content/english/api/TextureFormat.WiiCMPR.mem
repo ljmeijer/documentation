@@ -1,0 +1,2 @@
+Compressed Wii texture format. 4 bits/texel, ~RGB8A1 (Outline alpha is not currently supported).
+SA: Texture2D.format, [[wiki:class-Texture2D|texture assets]].

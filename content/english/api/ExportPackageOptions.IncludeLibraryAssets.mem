@@ -1,0 +1,6 @@
+The exported package will include all library assets, ie. the project settings located in the Library folder of the project.
+This is useful for exporting an entire project in a single unitypackage:
+BEGIN EX
+
+	AssetDatabase.ExportPackage("Assets/", "Entire Project.unitypackage", ExportPackageOptions.Recurse | ExportPackageOptions.IncludeLibraryAssets );
+END EX

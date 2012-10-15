@@ -1,0 +1,2 @@
+Wii performance indicators, metrics and memory usage.
+Performance metrics and indicators are  disabled by default. When enabled you can either use values from the scripts and/or enable head-up display to show CPU/GPU utilization bars on screen. As enabling performance measurement might slightly affect performance, enable it only when needed.

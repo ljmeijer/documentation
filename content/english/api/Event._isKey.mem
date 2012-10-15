@@ -1,0 +1,12 @@
+Is this event a keyboard event? (RO)
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Detects any keyboard event
+	function OnGUI() {
+		var e : Event = Event.current;
+		if (e.isKey){
+			Debug.Log("Detected a keyboard event!");
+		}
+	}
+END EX

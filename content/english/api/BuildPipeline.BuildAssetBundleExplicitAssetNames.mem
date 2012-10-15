@@ -1,0 +1,9 @@
+Builds an asset bundle, with custom names for the assets __(Unity Pro only)__.
+Creates a compressed unity3d file that contains a collection of /assets/. AssetBundles can contain any asset found in the project folder.
+In the /assetNames/ parameter, supply an array of strings of the same size as the number of assets.
+These will be used as asset names, which you can then pass to AssetBundle.Load to load a specific asset.
+Use ::ref::BuildAssetBundle to just use the asset's path names instead.
+The compressed asset bundle file will be saved at /pathName/.
+/options/ allows you to automatically include dependencies or always include complete assets instead of just the exact referenced objects.
+
+SA: ::ref::BuildAssetBundle, [[AssetBundle]] class, WWW.assetBundle.

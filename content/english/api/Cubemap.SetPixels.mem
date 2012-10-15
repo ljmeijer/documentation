@@ -1,0 +1,26 @@
+Sets pixel colors of a cubemap face.
+
+This function takes a color array and changes the pixel colors of the whole
+cubemap face. Call ::ref::Apply to actually upload the changed
+pixels to the graphics card.
+
+The /colors/ array is a flattened 2D array, where pixels are laid out right to left,
+top to bottom (i.e. row after row). Array size must be at least width by height of the mip level used.
+The default mip level is zero (the base texture) in which case the size is just the size of the texture.
+In general case, mip level size is @@mipSize=max(1,width>>miplevel)@@.
+
+This function works only on /ARGB32/, /RGB24/ and /Alpha8/ texture formats.
+For other formats /SetPixels/ is ignored.
+
+SA: ::ref::GetPixels, ::ref::Apply, Texture2D::pref::mipmapCount.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// copy a texture to the +X face of a cubemap
+	var c : Cubemap;
+	private var CubeMapColors : Color[];
+	var t : Texture2D;
+	CubeMapColors = t.GetPixels();
+	c.SetPixels(CubeMapColors,CubemapFace.PositiveX);
+	c.Apply(); //Apply changes to the face of the Cubemap
+END EX

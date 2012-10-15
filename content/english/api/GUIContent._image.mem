@@ -1,0 +1,14 @@
+The icon image contained.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var icon : Texture;
+
+	function OnGUI () {
+		if(!icon) {
+			Debug.LogError("Add a texture on the inspector first");
+			return;
+		}
+		GUI.Button (Rect (0, 0, 100, 20), GUIContent (icon));
+	}
+END EX

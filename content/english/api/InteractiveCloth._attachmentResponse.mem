@@ -1,0 +1,14 @@
+How much force will be applied to attached rigidbodies?
+The higher this value is, the greater the forces applied to attached rigidbodies are. 
+It is recommended to start out with small values (like 0.2) for best results.
+Only has an affect for rigid bodies which have been attached with the twoWayInteraction parameter set.
+
+SA: ::ref::AttachToCollider function.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Make it behave like india rubber, increase the value to increase
+	// the force applied back to the colliders
+
+	transform.GetComponent(InteractiveCloth).attachmentResponse = 10;
+END EX

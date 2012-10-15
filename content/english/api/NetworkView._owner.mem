@@ -1,0 +1,9 @@
+The [[NetworkPlayer]] who owns this network view.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnNetworkInstantiate (info : NetworkMessageInfo) {
+		if (!networkView.isMine)
+			Debug.Log("New object instantiated by " + networkView.owner);
+	}
+END EX

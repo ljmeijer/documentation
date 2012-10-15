@@ -1,0 +1,15 @@
+Volume of original signal to pass to output. 0.0 to 1.0. Default = 1.0.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Listen to only Echo (not the original audio source)
+	// Set the wet mix to 0 and you will disable the echo.
+
+	@script RequireComponent(AudioSource)
+	@script RequireComponent(AudioEchoFilter)
+	
+	function Start() {
+		GetComponent(AudioEchoFilter).wetMix = 1.0;
+		GetComponent(AudioEchoFilter).dryMix = 0.0;
+	}
+END EX

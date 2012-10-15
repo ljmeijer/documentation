@@ -1,0 +1,2 @@
+Applies the animation to an X360AvatarPose.
+/weight/ specifies a number from 0.0 to 1.0 describing how strongly it should be blended with the existing pose data in /pose/.

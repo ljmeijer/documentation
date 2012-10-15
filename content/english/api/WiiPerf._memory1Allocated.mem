@@ -1,0 +1,3 @@
+Query memory1 usage.
+Returns number of bytes allocated by the engine from available Mem1 heap including all the bookkeeping overhead.
+@return Number of bytes allocated.

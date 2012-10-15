@@ -1,0 +1,12 @@
+Request information about bytes and i-node count that are used under ::ref::home directory. Upon successful request completion, information will be available through ::ref::homeDirBlocks and ::ref::homeDirNodes properties.
+BEGIN EX
+
+	var sys: NVSystem = new NVSystem ();
+	yield sys.GetHomeDirUsage ();
+	if (sys.success)
+		Debug.Log ("Home directory usage, blocks: "
+			+ sys.homeDirBlocks + ", nodes: " + sys.homeDirNodes);
+	else
+		Debug.Log ("Failed to successfully complete request, asyncResult: "
+			+ sys.asyncResult);
+END EX

@@ -1,0 +1,24 @@
+Specifies if input process was finished (RO)
+Keyboard input process can be finished either by user tapping "Done"
+button or script setting /active/ property to false. Note that keyboard
+might be temporarily inactive (either by sliding in/out due to
+orientation change or by appearance of another keyboard), however it's
+input process might still be not finished and will be resumed
+automatically.
+BEGIN EX
+
+	// Opens a keyboard and shows what has been typed.
+
+	private var keyboard : TouchScreenKeyboard;
+	var text : String = "";
+
+	function Start() {
+		keyboard = TouchScreenKeyboard.Open(text, TouchScreenKeyboardType.Default);
+	}
+	function Update() {
+		if (keyboard.done)
+			print ("User input is: " + text);
+		if(keyboard)
+			text = keyboard.text;
+	}
+END EX

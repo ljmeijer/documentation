@@ -1,0 +1,3 @@
+Draw a color swatch.
+@param position The rectangle to draw the color swatch within.
+@param color The color to draw.

@@ -1,0 +1,15 @@
+*undocumented
+Get current file pointer position. Upon success, current file pointer position can be accessed through ::ref::position property.
+BEGIN EX
+
+	var file: NVFile = new NVFile ();
+	yield file.Open ("/tmp/test", WiiNand.Access.Read);
+	if (file.success) {
+		yield file.Tell ();
+		if (file.success)
+			Debug.Log ("File pointer position is: " + file.position);
+		else
+			Debug.Log ("Failed to get file pointer position");
+		yield file.Close();
+	}
+END EX

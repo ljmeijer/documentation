@@ -1,0 +1,34 @@
+Set whether the renderer's wireframe will be hidden when the renderer's gameobject is selected
+
+{img EditorUtilitySetSelectedWireframeHidden.png}\\
+''Cube with the wireframe hidden/shown.''
+BEGIN EX
+
+	// Shows / hides the wireframe of the objects in the scene.
+
+	// SetSelectedWireFrameHidden
+
+	class ShowHideWireFrame extends Editor {
+
+		@MenuItem("Examples/Show WireFrame %s")
+		static function Show() {
+			for (var s : GameObject in Selection.gameObjects)
+				if(s.renderer)
+					EditorUtility.SetSelectedWireframeHidden(s.renderer, false);
+		}
+		@MenuItem("Examples/Show WireFrame %s", true)
+		static function CheckShow() {
+			return Selection.activeGameObject != null;
+		}
+		@MenuItem("Examples/Hide WireFrame %h")
+		static function Hide() {
+			for (var h : GameObject in Selection.gameObjects)
+				if(h.renderer)
+					EditorUtility.SetSelectedWireframeHidden(h.renderer, true);
+		}
+		@MenuItem("Examples/Hide WireFrame %h", true)
+		static function CheckHide() {
+			return Selection.activeGameObject != null;
+		}
+	}
+END EX

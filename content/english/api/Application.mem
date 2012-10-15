@@ -1,0 +1,2 @@
+Access to application run-time data.
+This class contains static methods for looking up information about and controlling the run-time data.

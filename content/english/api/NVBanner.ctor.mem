@@ -1,0 +1,9 @@
+Constructor.
+BEGIN EX
+
+	var banner : NVBanner = new NVBanner (
+		NVBanner.Flags.Bounce, "My Game", "The start of the game");
+END EX
+@param	flags	Any combination of NVBanner.Flags.
+@param	title	Banner title.
+@param	comment	Banner comment.

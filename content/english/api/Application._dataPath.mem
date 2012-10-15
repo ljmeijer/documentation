@@ -1,0 +1,18 @@
+Contains the path to the game data folder (RO).
+
+The value depends on which platform you are running on:
+<table>
+<tr><th>Unity Editor:</th><td><i>&lt;path tp project folder&gt;</i>/Assets</td></tr>
+<tr><th>Mac player:</th><td><i>&lt;path to player app bundle&gt;</i>/Contents</td></tr>
+<tr><th>iPhone player:</th><td><i>&lt;path to player app bundle&gt;</i>/&lt;AppName.app&gt;/Data</td></tr>
+<tr><th>Win player:</th><td><i>&lt;path to </i>executablename<i>_Data folder&gt;</i></td></tr>
+<tr><th>Web player:</th><td>The absolute url to the player data file folder (without the actual data file name)</td></tr>
+<tr><th>Flash:</th><td>The absolute url to the player data file folder (without the actual data file name)</td></tr>
+</table>
+Note that the string returned on a PC will use a forward slash as a folder separator.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// print the path to the data folder
+	print (Application.dataPath);
+END EX

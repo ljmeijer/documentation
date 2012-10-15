@@ -1,0 +1,15 @@
+Call a Java method on an object.
+
+To call a Java method with a non-void return type, use the generic version.
+BEGIN EX
+
+	// Create a java.lang.String object holding the string "some string",
+	// and retrieve it's hash code.
+	function Start() {
+		var jo = new AndroidJavaObject("java.lang.String", "some string");
+		var hash = jo.Call.<int>("hashCode");
+	}
+END EX
+
+@param methodName Specifies which method to call.
+@param args An array of parameters passed to the method.

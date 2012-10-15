@@ -1,0 +1,6 @@
+Pointer to the raw memory of the buffer.
+BEGIN EX
+
+	var buffer: AlignedBuffer = new AlignedBuffer (1024, AlignedBuffer.Memory.Mem1, 32);
+	Debug.Log ("Buffer ptr: " + buffer.ptr);
+END EX

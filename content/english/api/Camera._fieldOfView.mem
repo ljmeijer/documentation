@@ -1,0 +1,19 @@
+The field of view of the camera in degrees.
+
+This is the vertical field of view; horizontal
+FOV varies depending on the viewport's aspect ratio.
+Field of view is ignored when camera is orthographic (see ::ref::orthographic).
+SA: [[wiki:class-Camera|camera component]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the camera's FOV attached to the same game object to 60
+	camera.fieldOfView = 60;
+END EX
+Another example using specifically the main camera.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set the main camera's field of view to 80
+	Camera.main.fieldOfView = 80;
+END EX

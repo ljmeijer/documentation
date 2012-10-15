@@ -1,0 +1,14 @@
+Set the value of a static field in an object type.
+The generic parameter determines the field type.
+BEGIN EX
+
+	// Create an object of user provided class org.example.StaticFields,
+	// and set the value of field 'globalName'.
+	function Start() {
+		var jo = new AndroidJavaObject("org.example.StaticFields");
+		jo.Set.<string>("globalName", "this_is_the_name");
+	}
+END EX
+
+@param fieldName The name of the field (e.g. <i>int counter;</i> would have fieldName = "counter")
+@param val The value to assign to the field. It has to match the field type.

@@ -1,0 +1,31 @@
+Returns true while the user holds down the key identified by /name/. Think auto fire.
+
+For the list of key identifiers see [[wiki:Input|Input Manager]].
+When dealing with input it is recommended to use Input.GetAxis and Input.GetButton instead
+since it allows end-users to configure the keys.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update () {
+		if (Input.GetKey ("up"))
+			print ("up arrow key is held down");
+
+		if (Input.GetKey ("down"))
+			print ("down arrow key is held down");
+	}
+END EX<signature>
+GetKey_string
+GetKey_KeyCode
+</signature>
+Returns true while the user holds down the key identified by the /key/ [[KeyCode]] enum parameter.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update () {
+		if (Input.GetKey (KeyCode.UpArrow))
+			print ("up arrow key is held down");
+
+		if (Input.GetKey (KeyCode.DownArrow))
+			print ("down arrow key is held down");
+	}
+END EX

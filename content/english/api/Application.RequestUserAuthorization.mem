@@ -1,0 +1,23 @@
+Request authorization to use the webcam or microphone in the Web Player.
+For security reasons (to avoid implementing a web player spying on users), we require
+you to have the user explicitly allow these features in the web player. To do so, you need
+to call Application.RequestUserAuthorization, which shows a dialog box to the user,
+and wait for operation to complete before being able to use these features.
+Use [[Application.HasUserAuthorization]] to query the result of the operation.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start() {
+		// Request permission to use both webcam and microphone.
+		yield Application.RequestUserAuthorization (UserAuthorization.WebCam | UserAuthorization.Microphone);
+
+		if (Application.HasUserAuthorization(UserAuthorization.WebCam | UserAuthorization.Microphone))
+		{
+			// we got permission. Set up webcam and microphone here.
+		}
+		else
+		{
+			// no permission. Show error here.
+		}
+	}
+END EX

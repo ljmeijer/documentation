@@ -1,0 +1,7 @@
+Sets the triangle list for the submesh.
+A submesh is simply a separate triangle list. When the mesh renderer uses multiple materials, you should
+ensure that there are as many submeshes as materials.
+
+It is recommended to assign a the triangle array after assigning the vertex array in order to avoid out of bounds errors.
+
+SA: ::ref::subMeshCount.

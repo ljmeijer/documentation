@@ -1,0 +1,5 @@
+Returns all asset representations at /assetPath/.
+Asset representations are objects in the asset that are visible in the Project view.
+All paths are relative to the project folder. Like: "Assets/MyTextures/hello.png"
+
+SA: AssetDatabase:LoadMainAssetAtPath, AssetDatabase.LoadAssetAtPath, AssetDatabase.LoadAllAssetsAtPath

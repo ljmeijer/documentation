@@ -1,0 +1,7 @@
+Shader scripts used for all rendering.
+
+Most of the advanced rendering is controlled via [[Material]] class. Shader class is mostly
+used just to check whether a shader can run on the user's hardware (::ref::isSupported property)
+and to find shaders by name (::ref::Find method).
+
+SA: [[Material]] class, [[wiki:Materials]], [[wiki:Shaders|ShaderLab documentation]].

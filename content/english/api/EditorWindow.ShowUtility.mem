@@ -1,0 +1,46 @@
+Show the EditorWindow as a floating utility window.
+Utility windows will always be in front of normal windows, and will be hidden when user switches to another application.
+
+__Note:__ You dont need to use EditorWindow.GetWindow() before using this function to show the window.
+
+{img RandomizeInSelection.png}\\
+''Floating window utility that lets you randomize the rotation of the selected objects.''
+BEGIN EX
+
+	// Simple script that randomizes the rotation of the Selected GameObjects
+	// and lets you see which objects are currently selected
+	
+	class RandomizeInSelection extends EditorWindow {
+	
+		var rotationAmount = 0.33;
+		var selected = "";    
+		function RandomizeSelected() {
+			for (var transform in Selection.transforms) {
+				var rotation = Random.rotation;
+				transform.localRotation = 
+					Quaternion.Slerp(transform.localRotation, rotation, rotationAmount);
+			}
+		}
+		
+		function OnGUI() {
+			for (var t in Selection.transforms)
+				selected +=  t.name + " ";
+			EditorGUILayout.LabelField("Selected Object:", selected);
+			selected = "";
+			if(GUILayout.Button("Randomize!"))
+				RandomizeSelected();
+			if(GUILayout.Button("Close"))
+				this.Close();
+			Debug.Log(selected);
+			
+		}
+	    function OnInspectorUpdate() {
+	    	Repaint();
+	    }
+	    @MenuItem("Example/Randomize Children In Selection")
+	    static function RandomizeWindow() {
+			var window : RandomizeInSelection = new RandomizeInSelection();
+			window.ShowUtility();
+	    }
+	}
+END EX

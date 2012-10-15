@@ -1,0 +1,5 @@
+Constructor.
+BEGIN EX
+
+	var dir: NVDirectory = new NVDirectory();
+END EX

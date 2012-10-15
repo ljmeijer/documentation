@@ -1,0 +1,31 @@
+Draw a line from __p1__ to __p2__.
+
+{img DrawLine.png}\\
+''Draw Line in the Scene View.''
+BEGIN EX
+
+	// Draw lines to the connected game objects that a script has.
+	// if the target object doesnt have any game objects attached
+	// then it draws a line from the object to 0,0,0.
+	
+	@CustomEditor (ConnectedObjects)
+	class ConnectLineHandle extends Editor {
+	
+	    function OnSceneGUI () {
+	    	for(var i = 0; i < target.objs.Length; i++)
+	    		if(target.objs[i])
+	    			Handles.DrawLine(target.transform.position, 
+	    						target.objs[i].transform.position);
+	    		else
+	    			Handles.DrawLine(target.transform.position, Vector3.zero);
+	    }
+	}
+END EX
+
+And the script attached to this Handle:
+BEGIN EX
+
+	//ConnectedObjects.js
+	
+	var objs : GameObject[] = null;
+END EX

@@ -1,0 +1,3 @@
+Continuous collision detection is off for this Rigidbody.
+This is the default collision detection mode, and it is the fastest mode. Collisions for this collider will
+only be checked at the content's [[Time.fixedDeltaTime]].

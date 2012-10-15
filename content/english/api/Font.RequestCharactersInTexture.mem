@@ -1,0 +1,14 @@
+Request characters to be added to the font texture (dynamic fonts only).
+Note: You should only ever need to use this when you want to implement your own text rendering.
+Call this function to request Unity to make sure all the characters in the string /characters/ are available
+in the font's font texture (and it's /characterInfo/ property). This is useful when you want to implement your
+own code to render dynamic fonts. You can supply a custom font size and style for the characters. If /size/ is zero
+(the default), it will use the default size for that font.
+
+RequestCharactersInTexture may cause the font texture to be regenerated if it does not have space to add all the
+requested characters. If the font texture is regenerated it will only contain characters which have been used
+using Font.RequestCharactersInTexture, or using Unity's text rendering functions during the last frame. So
+it is advisable to always call RequestCharactersInTexture for any text on the screen you wish to render using
+custom font rendering functions, even if the characters are currently present in the texture, to make sure they
+don't get purged during texture rebuild.
+SA: [[FontTextureRebuildCallback]], [[GetCharacterInfo]]

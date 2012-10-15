@@ -1,0 +1,2 @@
+NuiTransformSkeletonToDepthImage
+@param point Position in skeleton space. Note: Requires a depth value.

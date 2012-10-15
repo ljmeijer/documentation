@@ -1,0 +1,21 @@
+Construct an AndroidJavaClass from the class name
+This essentially means locate the class type and allocate a <tt>java.lang.Class</tt> object of that particular type.
+BEGIN EX
+
+	// Try to collect som Java garbage..
+	function Start() {
+		var jc = new AndroidJavaClass("java.lang.System");
+		jc.CallStatic("gc");
+	}
+END EX
+
+BEGIN EX
+
+	// Retrieve the manufacturer of the product/hardware.
+	function Start() {
+		var jc = new AndroidJavaClass("android.os.Build");
+		var manufacturer = jc.Get.<string>("MANUFACTURER");
+	}
+END EX
+
+@param className Specifies the Java class name (e.g. "<tt>java.lang.String</tt>" or "<tt>java/lang/String</tt>")

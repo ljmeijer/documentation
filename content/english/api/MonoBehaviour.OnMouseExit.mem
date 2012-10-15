@@ -1,0 +1,19 @@
+CSNONE
+OnMouseExit is called when the mouse is not any longer over the [[GUIElement]] or [[Collider]].
+OnMouseExit balances out OnMouseEnter
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Assigns a white color to the material 
+	// attached to this mesh.
+
+	function OnMouseExit () {
+		renderer.material.color = Color.white;
+	}
+END EX
+This function is not called on objects that belong to Ignore Raycast layer.
+
+OnMouseExit can be a co-routine, simply use the yield statement in the function.
+This event is sent to all scripts attached to the [[Collider]] or [[GUIElement]].
+
+__IMPORTANT:__ This function has no effect on iPhone.

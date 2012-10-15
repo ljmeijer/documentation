@@ -1,0 +1,7 @@
+The current angle in degrees of the joint relative to its rest position. (RO)
+The rest angle between the bodies is always zero at the beginning of the simulation.
+CONVERTEXAMPLE
+BEGIN EX
+
+	print(hingeJoint.angle);
+END EX

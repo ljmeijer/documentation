@@ -1,0 +1,9 @@
+Trilinear filtering - texture samples are averaged and also blended between mipmap levels.
+
+RenderTextures do not support mipmaps, so this setting reverts to Bilinear for those.
+SA: Texture.filterMode, [[wiki:class-Texture2D|texture assets]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	renderer.material.mainTexture.filterMode = FilterMode.Trilinear;
+END EX

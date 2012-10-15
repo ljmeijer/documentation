@@ -1,0 +1,2 @@
+Status flag indicating that the most recent calibration failed because the sphere light could not be reliably distinguished from the ambient light.
+SA: PS3SystemUtility.SystemNotificationDelegate /status/

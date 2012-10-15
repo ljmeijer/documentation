@@ -1,0 +1,8 @@
+Animation length in seconds (RO)
+CONVERTEXAMPLE
+BEGIN EX
+
+	animation.Play();
+	// Wait for the animation to have finished
+	yield WaitForSeconds (animation.clip.length);
+END EX

@@ -1,0 +1,3 @@
+Language setting as chosen by the user in Wii Menu.
+For more information, please refer to SCGetLanguage function documentation in RVL SDK.
+@return Current language setting.

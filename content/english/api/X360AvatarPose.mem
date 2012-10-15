@@ -1,0 +1,2 @@
+Container for an avatar pose.
+Holds an array of XAVATAR_SKELETON_POSE_JOINT.

@@ -1,0 +1,45 @@
+Draw a circular arc in 3D space.
+
+{img DrawWireArc.png}\\
+''Wire Arc in the Scene View.''
+BEGIN EX
+
+	// Create a 180 degrees wire arc with a ScaleValueHandle attached to the disc
+	// that lets you modify the "shieldArea" var in the WireArcExample.js
+	
+	@CustomEditor (WireArcExample)
+	class DrawWireArc extends Editor {
+	    function OnSceneGUI () {
+	    	Handles.color = Color.red;
+	        Handles.DrawWireArc(target.transform.position, 
+				target.transform.up, 
+				-target.transform.right, 
+				180, 
+				target.shieldArea);
+	        
+	        target.shieldArea = 
+			Handles.ScaleValueHandle(target.shieldArea,
+	        				target.transform.position + target.transform.forward*target.shieldArea,
+	        				target.transform.rotation,
+	        				1,
+	        				Handles.ConeCap,
+	        				1);
+	    }
+	}
+END EX
+
+And the script attached to this Handle:
+BEGIN EX
+
+	// WireArcExample.js
+	
+	var shieldArea : float = 5;
+END EX
+
+@param center the center of the circle
+@param normal the normal of the circle	
+@param from the direction of the point on the circle circumference, relative to the center, where the arc begins
+@param angle the angle of the arc, in degrees
+@param radius the radius of the circle
+
+__Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.

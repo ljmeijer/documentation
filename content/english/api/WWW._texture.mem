@@ -1,0 +1,38 @@
+*undocumented*
+Returns a [[Texture2D]] generated from the downloaded data (RO).
+
+The data must be an image in JPG or PNG format. If the data is not a valid
+image, the generated texture will be a small image of a question mark.
+It is recommended to use power-of-two size for each dimension of the image;
+arbitrary sizes will also work but can load slightly slower and take up
+a bit more memory. Each invocation of texture property allocates a new [[Texture2D]]. If you
+continously download textures you must use WWW::pref::LoadImageIntoTexture or Object::pref::Destroy
+the previously created texture.
+
+For PNG files, gamma correction is applied to the texture if PNG file contains
+gamma information. Display gamma for correction is assumed to be 2.0. If file
+does not contain gamma information, no color correction will be performed.
+
+JPG files are loaded into TextureFormat::pref::RGB24 format, PNG files are loaded into
+TextureFormat::pref::ARGB32 format. If you want to DXT-compress the downloaded image,
+use WWW::pref::LoadImageIntoTexture instead.
+
+If the object has not finished downloading the data a dummy image will be returned.
+Use ::ref::isDone or /yield/ to see if the data is available.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Get the latest webcam shot from outside "Friday's" in Times Square
+
+	var url = "http://images.earthcam.com/ec_metros/ourcams/fridays.jpg";
+	function Start () {
+		 // Start a download of the given URL
+		var www : WWW = new WWW (url);
+
+		// Wait for download to complete
+		yield www;
+
+		// assign texture
+		renderer.material.mainTexture = www.texture;
+	}
+END EX

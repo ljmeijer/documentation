@@ -1,0 +1,32 @@
+Draw textured bezier line through start and end points with the given tangents.  To get an anti-aliased effect use a texture that is 1x2 pixels with one transparent white pixel and one opaque white pixel.  The bezier curve will be swept using this texture.
+__Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.
+
+{img DrawBezier.png}\\
+''Bezier Line in the Scene View.''
+BEGIN EX
+
+	// Draws a red bezier curve from (0,0,0) to the transform's position
+	
+	@CustomEditor (BezierScript)
+	class DrawBezierHandle extends Editor {
+		
+		function OnSceneGUI() {
+			var width : float = HandleUtility.GetHandleSize(Vector3.zero) * 0.1;
+	    	Handles.DrawBezier(target.transform.position, 
+    					Vector3.zero, 
+    					Vector3.up, 
+    					Vector3.down,
+    					Color.red, 
+    					null,
+    					width);
+	    }
+	}
+END EX
+
+And the script attached to this Handle:
+BEGIN EX
+
+	//BezierScript.js
+	
+	Debug.Log("I have a bezier curve handle attached!");
+END EX

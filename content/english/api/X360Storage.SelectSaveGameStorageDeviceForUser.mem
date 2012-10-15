@@ -1,0 +1,3 @@
+Shows the storage device selection UI for /userIndex/
+If /forceShow/ is selected, the UI will be shown even if it is not required (i.e. only one storage device is available)
+Only devices with enough memory to store /sizeOfSave/ bytes are displayed.

@@ -1,0 +1,8 @@
+Center coordinate of the rectangle.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var rect = Rect (0, 0, 100, 100);
+	print(rect.center);
+	rect.center = new Vector2 (10, 10);
+END EX

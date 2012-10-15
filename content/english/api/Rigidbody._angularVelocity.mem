@@ -1,0 +1,17 @@
+The angular velocity vector of the rigidbody.
+In most cases you should not modify it directly, as this can result in unrealistic behaviour.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Change the material depending on the speed of rotation
+	var fastWheelMaterial : Material;
+	var slowWheelMaterial : Material;
+	function Update () {
+		if (rigidbody.angularVelocity.magnitude < 5) {
+			renderer.sharedMaterial = slowWheelMaterial;
+		}	
+		else {
+			renderer.sharedMaterial = fastWheelMaterial;	
+		}
+	}
+END EX

@@ -1,0 +1,6 @@
+The [[GUIText]] attached to this [[GameObject]] (null if there is none attached).
+CONVERTEXAMPLE
+BEGIN EX
+
+	guiText.text = "Hello World";
+END EX

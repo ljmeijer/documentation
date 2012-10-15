@@ -1,0 +1,25 @@
+The current relative velocity of the Character (see notes).
+This allows you to track how fast the character is actually walking for example
+when he is stuck at a wall this value will be the zero vector.
+
+Note: The velocity returned is simply the difference in distance for the current timestep
+before and after a call to CharacterController.Move or CharacterController.SimpleMove. 
+The velocity is relative because it won't track movements to the transform that happen 
+outside of the CharacterController (e.g. character parented under another moving Transform, 
+such as a moving vehicle).
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update () {
+		var controller : CharacterController = GetComponent(CharacterController);
+		var horizontalVelocity : Vector3 = controller.velocity;
+		horizontalVelocity = Vector3(controller.velocity.x, 0, controller.velocity.z);
+		
+		// The speed on the x-z plane ignoring any speed 
+		var horizontalSpeed : float = horizontalVelocity.magnitude;
+		// The speed from gravity or jumping
+		var verticalSpeed : float = controller.velocity.y;
+		// The overall speed
+		var overallSpeed : float = controller.velocity.magnitude;
+	}
+END EX

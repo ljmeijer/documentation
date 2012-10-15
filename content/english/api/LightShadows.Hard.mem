@@ -1,0 +1,9 @@
+Cast "hard" shadows (with no shadow filtering).
+SA: [[wiki:class-Light|light component]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set light to cast hard shadows
+
+	light.shadows = LightShadows.Hard;
+END EX

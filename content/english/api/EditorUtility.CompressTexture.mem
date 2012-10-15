@@ -1,0 +1,17 @@
+Compress a texture.
+
+Use this function to explicitly compress a texture into specified format.
+
+If you want to do texture compression in-game, use Texture2D.Compress function, which
+will use faster but lower quality DXT compression.
+BEGIN EX
+
+	// Automatically Compress all imported textures to the project
+	// to RGB24
+
+	class MyTexturePostprocessor extends AssetPostprocessor {
+		function OnPostprocessTexture (t : Texture2D) {
+			EditorUtility.CompressTexture(t, TextureFormat.RGB24);
+		}
+	}
+END EX

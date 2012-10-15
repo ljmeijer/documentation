@@ -1,0 +1,19 @@
+CSNONE
+Reset to default values.
+
+Reset is called when the user hits the Reset button in the Inspector's context menu or when adding the component the first time.
+This function is only called in editor mode. Reset is most commonly used to give good default values in the inspector.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Sets target to a default value.
+	// This could be used in a follow camera.
+
+	var target : GameObject;
+
+	function Reset () {
+		// Only set target if it is not assigned yet.
+		if (!target)
+			target = GameObject.FindWithTag ("Player");
+	}
+END EX

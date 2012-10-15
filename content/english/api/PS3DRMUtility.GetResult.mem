@@ -1,0 +1,3 @@
+Retrieves the result of the last completed DRM operation.
+SA: [[PS3ReturnCode]]
+@return __0__ in case the game licence is FULL VERSION or a __non-0__ value in case of a TRIAL VERSION.

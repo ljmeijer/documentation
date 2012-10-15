@@ -1,0 +1,5 @@
+The Audio Low Pass Filter filter passes low frequencies of an
+AudioSource, or all sound reaching an AudioListener, and attenuates
+frequencies higher than the Cutoff Frequency.
+
+__Note:__ This filter is only available on the PRO.

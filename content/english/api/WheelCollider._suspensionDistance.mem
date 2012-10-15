@@ -1,0 +1,8 @@
+Maximum extension distance of wheel suspension, measured in local space.
+Suspension always extends downwards the local y-axis.
+Suspension travel will be scaled by the transform's scale.
+CONVERTEXAMPLE
+BEGIN EX
+
+	collider.suspensionDistance = 0.1;
+END EX

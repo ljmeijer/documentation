@@ -1,0 +1,9 @@
+The other collider in contact.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints the name of the collider this transform collided with
+	function OnCollisionEnter(other : Collision) { 
+		print("This collider collided with: " + other.contacts[0].otherCollider.name);
+	}
+END EX

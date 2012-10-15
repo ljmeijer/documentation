@@ -1,0 +1,3 @@
+Gets the Transition information on a specified AnimatorController layer
+Only valid when during a transition
+@param layerIndex The layer's index

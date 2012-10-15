@@ -1,0 +1,19 @@
+CSNONE
+''OnBecameInvisible'' is called when the object is no longer visible by any camera.
+
+This message is sent to all scripts attached to the renderer.
+''OnBecameVisible'' and ''OnBecameInvisible'' are useful to avoid computations that are only necessary when the object is visible.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Disables the behaviour when it is invisible
+	function OnBecameInvisible () {
+		enabled = false;
+	}
+END EX
+Note that object is considered visible when it needs to be rendered in the scene. It
+might not be actually visible by any camera, but still need to be rendered for shadows
+for example. Also, when running in the editor, the scene view cameras will also
+cause this function to be called.
+
+SA: ::ref::OnBecameVisible, ::ref::isVisible.

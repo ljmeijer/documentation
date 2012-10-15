@@ -1,0 +1,33 @@
+<signature>
+DrawMeshNow_Mesh_Vector3_Quaternion
+DrawMeshNow_Mesh_Vector3_Quaternion_int
+DrawMeshNow_Mesh_Matrix4x4
+DrawMeshNow_Mesh_Matrix4x4_int
+</signature>
+Draw a mesh immediately.
+
+This function will draw a given mesh immediately. Currently set shader and
+material (see Material.SetPass) will be used. The mesh will be just drawn once,
+it won't be per-pixel lit and will not cast or receive realtime shadows. If you want
+full integration with lighting and shadowing, use Graphics.DrawMesh instead.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Attach this script to a camera.
+	// Draws a mesh inmediately.
+
+	var aMesh : Mesh;
+	var mat : Material;
+
+	function OnPostRender() {
+		// SetPass to 0 if the material doesnt have a texture.
+		mat.SetPass(1);
+		Graphics.DrawMeshNow(aMesh, Vector3.zero, Quaternion.identity);
+	}
+END EX
+
+@param mesh		The [[Mesh]] to draw.
+@param position	Position of the mesh.
+@param rotation	Rotation of the mesh.
+@param matrix	Transformation matrix of the mesh (combines position, rotation and other transformations). Note that the mesh will not be displayed correctly if matrix has negative scale.
+@param materialIndex Subset of the mesh to draw.

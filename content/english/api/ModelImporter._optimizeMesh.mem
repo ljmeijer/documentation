@@ -1,0 +1,4 @@
+Vertex optimization setting
+
+The vertices and indices will be reordered for better GPU performance.
+Techniques that require strict vertex ordering like mesh morphing or special particle mesh emitter effects should have this option disabled.

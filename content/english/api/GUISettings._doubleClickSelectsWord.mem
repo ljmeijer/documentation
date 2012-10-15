@@ -1,0 +1,13 @@
+Should double-clicking select words in text fields.
+By default is set to true.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Disables word selecting with double click on the text area
+	var str : String = "This is a string with \n two lines of text";
+
+	function OnGUI() { 
+		GUI.skin.settings.doubleClickSelectsWord = false;
+		str = GUILayout.TextArea(str);
+	}
+END EX

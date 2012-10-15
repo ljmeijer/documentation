@@ -1,0 +1,39 @@
+Does /ray/ intersect this bounding box?
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Creates a ray that points from the origin to the infinity among the z Axis.
+	// And prints if the transform touched the ray.
+
+	var ra : Ray  = new Ray (Vector3.zero, Vector3.forward);;
+
+	function Update () {
+	    // Color ra in the scene editor.
+	    Debug.DrawRay (Vector3.zero, Vector3.forward * 999, Color.green);
+	    var bounds : Bounds = transform.collider.bounds;
+	    if (bounds.IntersectRay (ra))
+	        Debug.Log("Touched the ray");
+	}
+END EX<signature>
+IntersectRay_Ray
+IntersectRay_Ray_float
+</signature>
+Does /ray/ intersect this bounding box?
+When IntersectRay returns true distance will be the distance to the ray's origin.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Creates a ray that points from the origin to 10 units among the z Axis.
+	// And prints if the transform touched the ray.
+
+	var ra : Ray = new Ray (Vector3.zero, Vector3.forward);;
+	var t : float = 10.0;
+
+	function Update () {
+	    // Color ra in the scene editor.
+	    Debug.DrawRay (Vector3.zero, Vector3.forward * 10, Color.green);
+	    var bounds : Bounds = transform.collider.bounds;
+	    if (bounds.IntersectRay (ra, t))
+	        Debug.Log("Touched the ray");
+	}
+END EX

@@ -1,0 +1,2 @@
+Returns the date and time when /userIndex/ unlocked /achievementId/ online,
+or /DateTime.MinValue/ if achievement was not yet unlocked.

@@ -1,0 +1,2 @@
+A class to access the [[Mesh]] of the [[wiki:class-MeshFilter|mesh filter]].
+Use this with a procedural mesh interface. SA: [[Mesh]] class.

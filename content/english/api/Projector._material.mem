@@ -1,0 +1,7 @@
+The material that will be projected onto every object.
+
+Projector does nothing if it has no material set up.
+The [[wiki:HOWTO-InstallStandardAssets|Standard Assets]] package
+contains an example of Projector's material in ''Blob-Shadow'' folder.
+
+SA: [[wiki:class-Projector|projector component]], [[Material]] class.

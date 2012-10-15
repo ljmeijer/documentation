@@ -1,0 +1,15 @@
+Returns specific acceleration measurement which occurred during last frame. (Does not allocate temporary variables)
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Calculates weighted sum of acceleration measurements which occurred during the last frame
+	// Might be handy if you want to get more precise measurements
+	function Update () {
+		var acceleration:Vector3 = Vector3.zero;
+		for (var i = 0; i < Input.accelerationEventCount; ++i) {
+			var accEvent:AccelerationEvent = Input.GetAccelerationEvent(i);
+			acceleration += accEvent.acceleration * accEvent.deltaTime;
+		}
+		print (acceleration);
+	}
+END EX

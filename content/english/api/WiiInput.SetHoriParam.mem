@@ -1,0 +1,4 @@
+Smoothing values for controller's calculated horizon vector.
+@param	chan		Remote index to apply settings to. Valid values 0...3.
+@param	play_radius	Limit of value difference after exceeding which, change is reported.
+@param	sensitivity	Sensitivity in range of [0...1].

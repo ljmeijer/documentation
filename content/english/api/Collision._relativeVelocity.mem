@@ -1,0 +1,10 @@
+The relative linear velocity of the two colliding objects (RO).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Play a sound when we hit an object with a big velocity
+	function OnCollisionEnter(collision : Collision) {
+		if (collision.relativeVelocity.magnitude > 2)
+			audio.Play();
+	}
+END EX

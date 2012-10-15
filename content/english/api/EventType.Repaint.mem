@@ -1,0 +1,2 @@
+A repaint event. One is sent every frame.
+All other events are processed first, then the repaint event is sent.

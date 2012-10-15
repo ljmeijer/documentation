@@ -1,0 +1,8 @@
+The center of the capsule, measured in the object's local space.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Reset the center to the transform's position
+
+	collider.center = Vector3.zero;
+END EX

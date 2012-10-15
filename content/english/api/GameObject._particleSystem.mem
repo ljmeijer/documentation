@@ -1,0 +1,7 @@
+The [[ParticleSystem]] attached to this GameObject (RO). (null if there is none attached)
+CONVERTEXAMPLE
+BEGIN EX
+
+	var other : GameObject; 
+	other.particleSystem.Emit(5);
+END EX

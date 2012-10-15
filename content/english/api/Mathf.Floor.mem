@@ -1,0 +1,17 @@
+Returns the largest integer smaller to or equal to /f/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints 10
+	Debug.Log(Mathf.Floor(10.0));
+	// Prints 10
+	Debug.Log(Mathf.Floor(10.2));
+	// Prints 10
+	Debug.Log(Mathf.Floor(10.7));
+	// Prints -10
+	Debug.Log(Mathf.Floor(-10.0));
+	// Prints -11
+	Debug.Log(Mathf.Floor(-10.2));
+	// Prints -11
+	Debug.Log(Mathf.Floor(-10.7));
+END EX

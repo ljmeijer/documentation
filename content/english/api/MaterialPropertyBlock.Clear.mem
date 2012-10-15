@@ -1,0 +1,26 @@
+Clear material property values.
+
+Graphics.DrawMesh copies the passed property block, so the most efficient way of using it is
+to create one block and reuse it for all DrawMesh calls. Use ::ref::Clear to clear block's values,
+and ::ref::AddFloat, ::ref::AddVector, ::ref::AddColor, ::ref::AddMatrix to add values.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var aMesh : Mesh;
+	var aMaterial : Material = new Material(Shader.Find("VertexLit"));
+
+	function Update() {
+		var materialProperty : MaterialPropertyBlock = new MaterialPropertyBlock();
+
+		// Clear any property and add a red color
+		materialProperty.Clear();
+		materialProperty.AddColor("_Color", Color.red);
+		Graphics.DrawMesh(aMesh, Vector3(5,0,0), Quaternion.identity,
+				  aMaterial, 0, null, 0, materialProperty);
+		// Clear any property and add a green color
+		materialProperty.Clear();
+		materialProperty.AddColor("_Color", Color.green);
+		Graphics.DrawMesh(aMesh, Vector3(-5,0,0), Quaternion.identity,
+				  aMaterial, 0, null, 0, materialProperty);
+	}
+END EX

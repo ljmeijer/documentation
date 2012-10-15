@@ -1,0 +1,98 @@
+<signature>
+CurveField_Rect_AnimationCurve
+CurveField_Rect_string_AnimationCurve
+CurveField_Rect_GUIContent_AnimationCurve
+CurveField_Rect_AnimationCurve_Color_Rect
+CurveField_Rect_string_AnimationCurve_Color_Rect
+CurveField_Rect_GUIContent_AnimationCurve_Color_Rect
+</signature>
+Make a field for editing an [[AnimationCurve]].
+
+{img EditorGUICurveField.png}\\
+''Curve field in an Editor Window.''
+BEGIN EX
+
+	// Makes the selected GameObject follow the animation curve.
+	//
+	// Usage: Generate the curves for X,Y and Z axis of your desired GameObject
+	// Select an Object and click Generate Curve.
+	// Press Play and see your object moving.
+	
+	
+	class EditorGUICurveField extends EditorWindow {
+	
+		var curveX : AnimationCurve = AnimationCurve.Linear(0,0,10,10);
+		var curveY : AnimationCurve = AnimationCurve.Linear(0,0,10,10);
+		var curveZ : AnimationCurve = AnimationCurve.Linear(0,0,10,10);
+	
+		@MenuItem("Examples/Create Curve For Object")
+		static function Init() {
+			var window = GetWindow(EditorGUICurveField);
+			window.position = Rect(0,0,200,100);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			curveX = EditorGUI.CurveField(
+				Rect(3,3,position.width-6,15),
+				"Animation on X", curveX);
+			curveY = EditorGUI.CurveField(
+				Rect(3,20,position.width-6,15),
+				"Animation on Y", curveY);
+			curveZ = EditorGUI.CurveField(
+				Rect(3,45,position.width-6,15),
+				"Animation on Z", curveZ);
+			
+			if(GUI.Button(Rect(3,60,position.width-6,30),"Generate Curve"))
+				AddCurveToSelectedGameObject();
+		}
+		
+		function AddCurveToSelectedGameObject() {
+			if(Selection.activeGameObject) {
+				var comp : FollowAnimationCurve = 
+					Selection.activeGameObject.AddComponent(FollowAnimationCurve);
+					comp.SetCurves(curveX, curveY, curveZ);
+			} else {
+				Debug.LogError("No Game Object selected for adding an animation curve");
+			}
+		}
+	}
+END EX
+
+And the script attached to this editor script:
+BEGIN EX
+
+	// FollowAnimationCurve.js
+	// This script has to go outside of the Editor Folder.
+	
+	var curveX : AnimationCurve;
+	var curveY : AnimationCurve;
+	var curveZ : AnimationCurve;
+	
+	function SetCurves(xC : AnimationCurve, yC : AnimationCurve, zC : AnimationCurve) {
+		curveX = xC;
+		curveY = yC;
+		curveZ = zC;
+	}
+	function Update() {
+		transform.position = Vector3(curveX.Evaluate(Time.time),
+									curveY.Evaluate(Time.time),
+									curveZ.Evaluate(Time.time));
+	}
+END EX
+
+@param position Rectangle on the screen to use for the field.
+@param label Optional label to display in front of the field.
+@param value The curve to edit.
+@param color The color to show the curve with.
+@param ranges Optional rectangle that the curve is restrained within.
+@returns The curve edited by the user.
+<signature>
+CurveField_Rect_SerializedProperty_Color_Rect
+</signature>
+Make a field for editing an [[AnimationCurve]].
+
+@param position Rectangle on the screen to use for the field.
+@param property The curve to edit.
+@param color The color to show the curve with.
+@param ranges Optional rectangle that the curve is restrained within.

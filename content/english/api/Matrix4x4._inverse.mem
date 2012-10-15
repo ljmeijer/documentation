@@ -1,0 +1,9 @@
+The inverse of this matrix (RO).
+
+Inverted matrix is such that if multiplied by the original would result
+in ::ref::identity matrix.
+
+If some matrix transforms vectors in a particular way,
+then the inverse matrix can transform them back. For example,
+Transform's Transform::pref::worldToLocalMatrix and Transform::pref::localToWorldMatrix
+are inverses of each other.

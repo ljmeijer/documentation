@@ -1,0 +1,32 @@
+Sets pixel color at coordinates (x,y).
+
+Call ::ref::Apply to actually upload the changed pixels to the graphics card.
+Uploading is an expensive operation, so you'll want to change as many pixels
+as possible between /Apply/ calls.
+
+If you're constantly regenerating a texture at runtime, it may be faster
+to generate an array of pixel colors and set all of them at once with ::ref::SetPixels.
+
+This function works only on /ARGB32/, /RGB24/ and /Alpha8/ texture formats.
+For other formats /SetPixel/ is ignored.
+The texture also has to have __Is Readable__ flag set in the import settings.
+SA: ::ref::SetPixels, ::ref::GetPixel, ::ref::Apply.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		// Create a new texture and assign it to the renderer's material
+		var texture = new Texture2D(128, 128);
+		renderer.material.mainTexture = texture;
+
+		// Fill the texture with Sierpinski's fractal pattern!
+		for (var y : int = 0; y < texture.height; ++y) {
+			for (var x : int = 0; x < texture.width; ++x) {
+				var color = (x&y) ? Color.white : Color.gray;
+				texture.SetPixel (x, y, color);
+			}
+		}
+		// Apply all SetPixel calls
+		texture.Apply();
+	}
+END EX

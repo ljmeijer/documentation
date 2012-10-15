@@ -1,0 +1,20 @@
+Multiplier for the ::ref::extremumValue and ::ref::asymptoteValue values (default 1).
+
+Changes the stiffness of the friction. Setting this to zero
+will completely disable all friction from the wheel.
+
+Usually you modify /stiffness/ to simulate various ground materials (e.g. lower the stiffness
+when driving on grass). SA: WheelCollider.GetGroundHit.
+BEGIN EX
+
+	// When attached to the WheelCollider, modifies tire friction based on
+	// static friction of the ground material.
+	function FixedUpdate() {
+		var hit : WheelHit;
+		var wheel : WheelCollider = GetComponent(WheelCollider);
+		if( wheel.GetGroundHit( hit ) ) {
+			wheel.forwardFriction.stiffness = hit.collider.material.staticFriction;
+			wheel.sidewaysFriction.stiffness = hit.collider.material.staticFriction;
+		}
+	}
+END EX

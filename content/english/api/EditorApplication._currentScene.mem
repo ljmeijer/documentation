@@ -1,0 +1,15 @@
+The path of the scene that the user has currently open (Will be an empty string if no scene is currently open). (RO)
+All paths are relative to the project folder. Like: "Assets/MyScenes/MyScene.unity"
+BEGIN EX
+
+	// saves the current scene into a new temporary scene.
+	
+	import UnityEditor;
+	
+	@MenuItem ("Example/Save temp Scene %s")
+	static function SaveTempScene() {
+		var path : String [] = EditorApplication.currentScene.Split(char.Parse("/"));
+		path[path.Length -1] = "Temp_" + path[path.Length-1];	
+		EditorApplication.SaveScene(String.Join("/",path));
+	}
+END EX

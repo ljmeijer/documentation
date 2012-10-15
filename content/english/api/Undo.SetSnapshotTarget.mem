@@ -1,0 +1,51 @@
+<signature>
+SetSnapshotTarget_object_string
+SetSnapshotTarget_objectArray_string
+</signature>
+Set the objects modified by the GUI or Handles so they can undo properly.
+This does not push an undo (the actual GUI or Handles are the ones who know when this is needed),
+but only informs the GUI or Handles what to call the operation on and where you end up applying it.
+
+This happens for example when you are issuing drag and drop operations and you want to save a "temporary" state but you dont want
+to register as an Undo action. (For example when you click ESC when moving the position handle)
+BEGIN EX
+
+	// Editor Script Side
+	// Create a position Handle and make the target always look at the position handle.
+	// This is an editor Script, this should go inside the Editor Folder.
+
+	@CustomEditor (LookAtPoint)
+	class SnapshotTargetEx extends Editor {
+
+		function OnSceneGUI () {
+			Undo.SetSnapshotTarget(target, "Moved Object Around");
+	        target.lookAtPoint =
+			Handles.PositionHandle(target.lookAtPoint, Quaternion.identity);
+	        if (GUI.changed)
+	            EditorUtility.SetDirty (target);
+
+	        if(Input.GetMouseButtonDown(0)) {
+	        	// Register the undos when we press the Mouse button.
+	        	Undo.CreateSnapshot();
+	        	Undo.RegisterSnapshot();
+	        }
+	    }
+	}
+END EX
+
+And the runtime script that works with this editor Script
+BEGIN EX
+
+	// LookAtPoint.js
+
+	@script ExecuteInEditMode()
+
+	var lookAtPoint = Vector3.zero;
+
+	function Update () {
+	    transform.LookAt (lookAtPoint);
+	}
+END EX
+
+@param objectToUndo The object(s) you want to save undo info for.
+@param name The name of the thing to undo. - Think "Undo ...." in the main menu.

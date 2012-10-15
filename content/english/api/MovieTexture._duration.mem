@@ -1,0 +1,11 @@
+The time, in seconds, that the movie takes to play back completely.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var mov: MovieTexture;
+	var gui: GUIText;
+
+	function Start() {
+		gui.text = mov.duration.ToString();
+	}
+END EX

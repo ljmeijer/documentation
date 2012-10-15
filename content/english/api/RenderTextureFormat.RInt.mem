@@ -1,0 +1,6 @@
+Scalar (R) render texture format, 32 bit signed integer.
+
+Note that not all graphics cards support integer render textures.
+Use SystemInfo.SupportsRenderTextureFormat to check for support.
+
+SA: RenderTexture.format, [[RenderTexture]] class, SystemInfo.SupportsRenderTextureFormat.

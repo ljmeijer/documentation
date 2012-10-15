@@ -1,0 +1,4 @@
+Use resizable window in standalone player builds.
+
+By default standalone Windows, Mac and Linux builds use a non-resizable
+game window. Enabling this makes the window resizable.

@@ -1,0 +1,25 @@
+Returns an error message if there was an error during the download (RO).
+If there was no error, /error/ will return /null/.
+
+If the object has not finished downloading the data, it will block until the download has finished.
+Use ::ref::isDone or /yield/ to see if the data is available.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Get a texture with an invalid url
+	var url = "invalid_url";
+	function Start () {
+	     // Start a download of the given URL
+	    var www : WWW = new WWW (url);
+
+	    // Wait for download to complete
+	    yield www;
+
+	    // Print the error to the console
+	    if (www.error != null)
+	    	Debug.Log(www.error);
+
+	    // assign texture
+	    renderer.material.mainTexture = www.texture;
+	}
+END EX

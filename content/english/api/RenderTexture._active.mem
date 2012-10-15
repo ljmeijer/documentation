@@ -1,0 +1,7 @@
+The active render texture.
+
+All rendering goes into the active RenderTexture.
+If the active RenderTexture is /null/ everything is rendered in the main window.
+
+When a RenderTexture becomes active its hardware rendering context is automatically created if
+it hasn't been created already.

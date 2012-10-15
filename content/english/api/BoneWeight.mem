@@ -1,0 +1,7 @@
+Skinning bone weights of a vertex in the mesh.
+
+Each vertex is skinned with up to four bones. All weights should sum up to one.
+Weights and bone indices should be defined in the order of decreasing weight.
+If a vertex is affected by less than four bones, the remaining weights should be zeroes.
+
+SA: Mesh.boneWeights variable.

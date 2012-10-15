@@ -1,0 +1,9 @@
+Emits a block of ActionScript code in the current method translating variable and field references to their ActionScript names.
+CONVERTEXAMPLE
+BEGIN EX
+
+	import UnityEngine.Flash;
+	
+	var v = 42;
+	ActionScript.Statement("trace({0})", v);
+END EX

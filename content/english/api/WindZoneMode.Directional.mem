@@ -1,0 +1,12 @@
+Wind zone only has an effect inside the radius, and has a falloff from the center towards the edge.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Creates a Directional Wind Zone that blows wind up.
+	
+	function Start() {
+	//	var wind : WindZone = gameObject.AddComponent(WindZone);
+	//	wind.mode = WindZoneMode.Directional;
+	//	transform.rotation = Quaternion.LookRotation(Vector3.up);
+	}
+END EX

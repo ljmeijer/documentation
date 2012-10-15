@@ -1,0 +1,2 @@
+Creates a new unique path for an asset.
+All paths are relative to the project folder. Like: "Assets/MyTextures/hello.png"

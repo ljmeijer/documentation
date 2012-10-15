@@ -1,0 +1,1 @@
+Returns a Texture handle. Valid only when playing with SetRenderToTexture.

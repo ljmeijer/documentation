@@ -1,0 +1,6 @@
+*undocumented
+Close a previously opened file.
+BEGIN EX
+
+	yield file.Close();
+END EX

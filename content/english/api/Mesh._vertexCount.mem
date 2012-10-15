@@ -1,0 +1,9 @@
+Returns the number of vertices in the mesh (RO).
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		var mesh : Mesh = GetComponent(MeshFilter).sharedMesh;
+		print(mesh.vertexCount);
+	}
+END EX

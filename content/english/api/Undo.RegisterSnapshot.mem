@@ -1,0 +1,3 @@
+Register the snapshot state made with ::ref::CreateSnapshot so the user can later undo back to that state.
+
+SA: ::ref::SetSnapshotTarget , ::ref::CreateSnapshotTarget.

@@ -1,0 +1,20 @@
+The visual indication of the drag.
+
+Default is DragAndDropVisualMode.Link
+BEGIN EX
+
+	function OnGUI ()
+	{
+		var eventType = Event.current.type;
+		if (eventType == EventType.DragUpdated || eventType == EventType.DragPerform)
+		{
+			// Show a copy icon on the drag
+			DragAndDrop.visualMode = DragAndDropVisualMode.Copy;
+
+			if (eventType == EventType.DragPerform)
+				DragAndDrop.AcceptDrag();
+
+			Event.current.Use();
+		}
+	}
+END EX

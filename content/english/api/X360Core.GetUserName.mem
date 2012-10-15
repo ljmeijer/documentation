@@ -1,0 +1,2 @@
+Gets the local user name.
+Returns an empty string, if user is not signed in.

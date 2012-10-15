@@ -1,0 +1,24 @@
+Returns the pixels data in raw format
+This can be faster then calling /GetPixels/, as pixel data does not have to be converted to color structs,
+so you may want to use it if you need to do continuous processing on the video feed.
+You can optionally pass in an array of Color32s to use in /colors/ to avoid allocating new memory each frame,
+which is faster when you are continuously reading data from the camera.
+The array needs to be initialized to a length matching width * height of the texture. If you don't pass an 
+array, GetPixels32 will allocate one for you and return it.
+BEGIN EX
+
+	var webcamTexture : WebCamTexture;
+	var data : Color32[];
+	
+	function Start () {
+		// Start web cam feed
+		webcamTexture = WebCamTexture();
+		webcamTexture.Play();
+		data = new Color32[webcamTexture.width * webcamTexture.height];
+	}
+	
+	function Update () {
+		webcamTexture.GetPixels32 (data);
+		// Do processing of data here.
+	}
+END EX

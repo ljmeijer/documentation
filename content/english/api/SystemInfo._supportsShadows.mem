@@ -1,0 +1,5 @@
+Are built-in shadows supported? (RO)
+
+Returns /true/ if graphics card has support for built-in shadows.
+
+SA: [[wiki:Shadows|Shadows documentation]].

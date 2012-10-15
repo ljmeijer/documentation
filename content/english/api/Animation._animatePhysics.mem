@@ -1,0 +1,3 @@
+When turned on, animations will be executed in the physics loop. This is only useful in conjunction with kinematic rigidbodies.
+An animated platform can apply velocity and friction to rigid bodies sitting on top of it.
+In order to use this,  animatePhysics must be enabled and animated object must be a kinematic rigid body.

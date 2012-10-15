@@ -1,0 +1,1 @@
+Updates the source or listener in the fixed update loop if it is attached to a [[Rigidbody]], dynamic otherwise.

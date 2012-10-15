@@ -1,0 +1,12 @@
+Is this game object tagged with /tag/?
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Immediate death trigger.
+	// Destroys any colliders that enter the trigger, if they are tagged player.
+	function OnTriggerEnter (other : Collider) {
+		if (other.gameObject.CompareTag ("Player")) {
+			Destroy (other.gameObject);
+		}
+	}
+END EX

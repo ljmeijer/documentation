@@ -1,0 +1,14 @@
+CSNONE
+OnTriggerEnter is called when the [[Collider]] /other/ enters the [[class-BoxCollider|trigger]].
+This message is sent to the trigger collider and the rigidbody (or the collider if there is no rigidbody) that touches the trigger.
+Note that trigger events are only sent if one of the colliders also has a rigid body attached.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Destroy everything that enters the trigger
+
+	function OnTriggerEnter (other : Collider) {
+		Destroy(other.gameObject);
+	}
+END EX
+OnTriggerEnter can be a co-routine, simply use the yield statement in the function.

@@ -1,0 +1,21 @@
+Displays a popup menu.
+Menu is shown at position /pos/, generated from a submenu specified by /menuItemPath/ using a
+[[MenuCommand]] as menu context.
+BEGIN EX
+
+	// Shows the Assets menu when you right click on the contextRect Rectangle.
+
+	class EditorUtilityDisplayPopupMenu extends EditorWindow {
+		function OnGUI () {
+			var evt = Event.current;
+			var contextRect = Rect(10,10,100,100);
+			if(evt.type == EventType.ContextClick) {
+				var mousePos = evt.mousePosition;
+				if (contextRect.Contains (mousePos)) {
+					EditorUtility.DisplayPopupMenu (Rect (mousePos.x,mousePos.y,0,0), "Assets/", null);
+					evt.Use();
+				}
+			}
+		}
+	}
+END EX

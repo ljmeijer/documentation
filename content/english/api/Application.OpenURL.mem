@@ -1,0 +1,11 @@
+Opens the /url/ in a browser.
+In the editor or standalone player this will open a new page in the default browser with the /url/. It will also bring the browser application to the front.
+
+When executed in the web player, the page the plugin is contained in will be redirected to the /url/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		Application.OpenURL ("http://unity3d.com/");
+	}
+END EX

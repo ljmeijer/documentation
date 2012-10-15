@@ -1,0 +1,21 @@
+Set a named color value.
+
+Many shaders use more than one color. Use SetColor to change the /propertyName/ color.
+
+Common color names used by Unity's builtin shaders: \\
+@@"_Color"@@ is the main color of a material. This can also be accessed via ::ref::color property. \\
+@@"_SpecColor"@@ is the specular color of a material (used in specular/vertexlit shaders). \\
+@@"_Emission"@@ is the emissive color of a material (used in vertexlit shaders). \\
+@@"_ReflectColor"@@ is the reflection color of the material (used in reflective shaders).
+
+SA: ::ref::color property, ::ref::GetColor.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		// Set specular shader
+		renderer.material.shader = Shader.Find ("Specular");
+		// Set red specular highlights
+		renderer.material.SetColor ("_SpecColor", Color.red);
+	}
+END EX

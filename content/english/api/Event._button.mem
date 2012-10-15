@@ -1,0 +1,21 @@
+Which mouse button was pressed.
+0 means left mouse button, 1 means right mouse button, 2 means middle mouse button.
+Used in EventType.MouseDown, EventType.MouseUp events.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Detect which mouse button is currently pressed
+	// and print it.
+	function OnGUI() {
+		var e : Event = Event.current;
+		if(e.button == 0 && e.isMouse){
+			Debug.Log("Left Click");
+		} else if(e.button == 1) {
+			Debug.Log("Right Click");
+		} else if (e.button == 2) {
+			Debug.Log("Middle Click");	
+		} else if (e.button > 2) {
+			Debug.Log("Another button in the mouse clicked");
+		}
+	}
+END EX

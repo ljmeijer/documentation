@@ -1,0 +1,12 @@
+A 16 bits/pixel texture format. Texture stores color with an alpha channel.
+SA: Texture2D.Texture2D, [[wiki:class-Texture2D|texture assets]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		// Create a new 16 bits per pixel texture with an alpha channel and assign it
+		// to the renderer's material
+		var texture = new Texture2D (128, 128, TextureFormat.ARGB4444, false);
+		renderer.material.mainTexture = texture;
+	}
+END EX

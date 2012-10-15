@@ -1,0 +1,13 @@
+Chorus feedback. Controls how much of the wet signal gets fed back into the chorus buffer. 0.0 to 1.0. Default = 0.0.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Process only once the signal and dont introduce feedback to the filter.
+	
+	@script RequireComponent(AudioSource)
+	@script RequireComponent(AudioChorusFilter)
+	
+	function Start() {
+		GetComponent(AudioChorusFilter).feedback = 0;
+	}
+END EX

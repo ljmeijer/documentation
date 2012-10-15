@@ -1,0 +1,6 @@
+Get the height needed for a [[PropertyField]] control.
+
+The height is based on the type of the SerializedProperty, and inclues the height of all expanded children
+if the includeChildren parameter is set to true, which is the default.
+If the property has a custom PropertyDrawer, the function will return the height returned by that drawer.
+The includeChildren parameter is ignored in that case, as PropertyDrawers always include children.

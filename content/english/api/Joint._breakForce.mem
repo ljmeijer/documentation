@@ -1,0 +1,11 @@
+The force that needs to be applied for this joint to break.
+The force might come from collisions with other objects, forces applied with rigidbody.AddTorque or from other joints.
+SA: [[Joint.OnJointBreak]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Makes the joint break when a force larger than 10 is applied
+	hingeJoint.breakForce = 10;
+	// Makes the joint unbreakable
+	hingeJoint.breakForce = Mathf.Infinity;
+END EX

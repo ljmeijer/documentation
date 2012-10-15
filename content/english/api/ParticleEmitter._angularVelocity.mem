@@ -1,0 +1,6 @@
+The angular velocity of new particles in degrees per second.
+CONVERTEXAMPLE
+BEGIN EX
+
+	particleEmitter.angularVelocity = 100;
+END EX

@@ -1,0 +1,1 @@
+After modifying the shader of a Procedural Material, call this function to apply the changes to the importer.

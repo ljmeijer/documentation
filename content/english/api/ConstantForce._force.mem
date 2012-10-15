@@ -1,0 +1,7 @@
+The force applied to the rigidbody every frame.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Moves the rigidbody upwards in world coordinates
+	constantForce.force = Vector3.up * 10;
+END EX

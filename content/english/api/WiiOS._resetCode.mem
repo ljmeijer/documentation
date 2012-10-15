@@ -1,0 +1,1 @@
+When game has been restarted after a reset, this property equals to the ''reset code'' that had been passed to ::ref::Restart function. Please see Revolution SDK for more explanation on Reset codes.

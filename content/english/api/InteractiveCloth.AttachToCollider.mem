@@ -1,0 +1,24 @@
+Attaches a /collider/ to the cloth object.
+Only has an effect if some vertices of the cloth are intersecting the collider. 
+These vertices will then become static in their position with respect to the collider.
+If tearable is true, attachments can tear of, depending on the value of ::ref::attachmentTearFactor.
+If twoWayInteraction is true, the cloth will apply forces back to the attached rigidbody, depending on the value of ::ref::attachmentResponse.
+
+SA: ::ref::DetachFromCollider function.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Attach this transform's collider to a cloth, make 
+	// it tearable and two way interactive on forces.
+	// REMEMBER: Only has an effect if some vertices of 
+	// the cloth are intersecting the collider
+
+	var cloth : InteractiveCloth;
+
+	function Start() {
+		if(cloth)
+			cloth.AttachToCollider(transform.collider, true, true);
+		else
+			Debug.LogError("No cloth was assigned in the inspector");
+	}
+END EX

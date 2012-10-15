@@ -1,0 +1,1 @@
+Returns true while Wii Balance Board is doing calibration (read only) and or in an unusable state.<br>For more information, please refer to WBCGetCalibrationStatus function documentation in RVL SDK.

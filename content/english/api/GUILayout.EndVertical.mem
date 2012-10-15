@@ -1,0 +1,17 @@
+Close a group started with BeginVertical
+
+{img GUILayoutVertical.png}\\
+''Vertical Layout.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI () {	
+		GUILayout.BeginVertical ("box");
+
+		GUILayout.Button ("I'm the top button");
+		GUILayout.Button ("I'm the bottom button");
+		
+		// End the vertical group we started above
+		GUILayout.EndVertical();
+	}
+END EX

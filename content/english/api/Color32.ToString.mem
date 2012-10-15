@@ -1,0 +1,11 @@
+<signature>
+ToString
+ToString_string
+</signature>
+Returns a nicely formatted string of this color.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var w : Color32 = Color.white;
+	print(w.ToString("x"));
+END EX

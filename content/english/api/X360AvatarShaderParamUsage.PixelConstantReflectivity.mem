@@ -1,0 +1,1 @@
+The parameter is a pixel constant used to specify a reflectivity argument to the X360AvatarBatchShaderType::ref::BodyShinyOpaque and X360AvatarBatchShaderType::ref::BodyShinyTransparent shaders.

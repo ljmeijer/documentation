@@ -1,0 +1,9 @@
+Call this method inside your Window's OnGUI function. Ensures that any GUI events are forwarded to the web view and that it is rendered on-screen.
+BEGIN EX
+
+	function OnGUI() {
+		if ( webView )
+			webView.DoGUI(position); // Render the web view at the same size as the window itself
+	}
+END EX
+@param position the size and position where the web view should be rendered.

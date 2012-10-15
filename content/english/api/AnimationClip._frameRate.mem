@@ -1,0 +1,9 @@
+Frame rate at which keyframes are sampled (RO)
+This is the frame rate that was used in the
+animation program you used to create the animation or model.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints the frame rate of the animation clip to the console
+	print(animation["walk"].clip.frameRate);
+END EX

@@ -1,0 +1,25 @@
+Allows you to set the help text of the wizard.
+SA: ScriptableWizard.OnWizardUpdate
+
+{img HelpString.png}\\
+''Help string on a Scriptable Wizard Window.''
+BEGIN EX
+
+	// C#
+	// Creates a simple Wizard window and prints the HelpString
+	// in the Wizard window.
+
+	using UnityEngine;
+	using UnityEditor;
+		
+	public class HelpString : ScriptableWizard {
+		
+		[MenuItem ("Example/Show Help String")]
+		static void CreateWindow() {
+			ScriptableWizard.DisplayWizard("", typeof(HelpString), "Finish");	
+		}
+		void OnWizardUpdate() {
+			helpString = "This string describes what the Scriptable Wizard does.";
+		}
+	}
+END EX

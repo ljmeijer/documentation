@@ -1,0 +1,13 @@
+PS3 video player.
+
+The PS3 video player is a native PS3 implementation that is not in any way connected with the standard Unity video playback engine.
+It supports only the types natively supported on the PS3 (MPEG4-AVC and DIVX) using only .PAM (for MPEG4-AVC) or .AVI (for DivX) containers.
+<br>Please read the documentation provided in the PS3 SDK for more information on how to prepare the video files for PS3 playback.
+<br>Because the PS3 native movie files are not Unity assets they must be kept externally in the /StreamingAssets/ directory.
+<br>MyProject
+<br>..\Assets
+<br>..\Assets\StreamingAssets\(PS3 native movie files)
+<br>..\Library
+<br>You can only play 'PAM' files on the PS3 itself, you can't play them on UnityEditor. 	
+<br>__Note:__ The files are to be accessed on the PS3 as Raw/moviefile.pam instead of StreamingAssets/moviefile.pam.
+SA: PS3VideoPlayer.Play

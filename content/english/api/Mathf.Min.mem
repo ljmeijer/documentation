@@ -1,0 +1,22 @@
+<signature>
+Min_float_float
+Min_floatArray
+</signature>
+Returns the smallest of two or more values.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// prints 1.2
+	print(Mathf.Min(1.2, 2.4));
+END EX
+<signature>
+Min_int_int
+Min_intArray
+</signature>
+Returns the smallest of two or more values.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// prints 1
+	print(Mathf.Min(1, 2));
+END EX

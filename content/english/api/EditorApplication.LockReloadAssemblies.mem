@@ -1,0 +1,6 @@
+Prevents loading of assemblies when it is inconvenient.
+For example during drag operations you might want to prevent assembly reloading to not lose state during the drag.
+Each LockReloadAssemblies must be matched by UnlockReloadAssemblies, otherwise scripts will never unload.
+Unity automatically prevents reloading during mouse down.
+
+SA: EditorApplication.UnlockReloadAssemblies

@@ -1,0 +1,2 @@
+Tells the internal implementation that the script moved the asset physically on disk. The internal implementation will
+not try to move the asset on disk, but will move it in the internal database to keep consistency

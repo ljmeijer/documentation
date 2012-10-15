@@ -1,0 +1,23 @@
+Validates a special command (e.g. copy & paste)
+"Copy", "Cut", "Paste", "Delete", "FrameSelected", "Duplicate", "SelectAll" and so on.
+Sent only in the editor.
+
+Example: Make pasting work in current window or control:
+BEGIN EX
+
+	function OnGUI()
+	{
+		var e:Event = Event.current;
+		
+		if (e.type == EventType.ValidateCommand && e.commandName == "Paste")
+		{
+			Debug.Log("validate paste");
+			e.Use(); // without this line we won't get ExecuteCommand
+		}
+		
+		if (e.type == EventType.ExecuteCommand && e.commandName == "Paste")		
+		{
+			Debug.Log("Pasting: " + EditorGUIUtility.systemCopyBuffer);
+		}
+	}
+END EX

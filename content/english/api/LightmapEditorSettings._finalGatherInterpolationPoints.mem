@@ -1,0 +1,2 @@
+The number of final gather points to interpolate between.
+Higher values give smoother results, but can also smooth out details in the lighting.

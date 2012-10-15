@@ -1,0 +1,6 @@
+The [[Rigidbody]] attached to this [[GameObject]] (null if there is none attached).
+CONVERTEXAMPLE
+BEGIN EX
+
+	rigidbody.AddForce(1, 1, 1);
+END EX

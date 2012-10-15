@@ -1,0 +1,2 @@
+The /status/ will contain the value of the PS3Move controller's sphere visibility.
+SA: PS3SystemUtility.SystemNotificationDelegate /notification/

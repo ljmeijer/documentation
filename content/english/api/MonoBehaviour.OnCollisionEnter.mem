@@ -1,0 +1,20 @@
+CSNONE
+OnCollisionEnter is called when this collider/rigidbody has begun touching another rigidbody/collider.
+In contrast to OnTriggerEnter, OnCollisionEnter is passed the [[Collision]] class and not a [[Collider]].
+The [[Collision]] class contains information about contact points, impact velocity etc.
+If you don't use collisionInfo in the function, leave out the collisionInfo parameter as this avoids unneccessary calculations.
+Note that collision events are only sent if one of the colliders also has a non-kinematic rigid body attached.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnCollisionEnter(collision : Collision) {
+		// Debug-draw all contact points and normals
+		for (var contact : ContactPoint in collision.contacts)
+			Debug.DrawRay(contact.point, contact.normal, Color.white);
+		
+		// Play a sound if the coliding objects had a big impact.		
+		if (collision.relativeVelocity.magnitude > 2)
+			audio.Play();
+	}
+END EX
+OnCollisionEnter can be a co-routine, simply use the yield statement in the function.

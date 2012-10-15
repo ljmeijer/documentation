@@ -1,0 +1,4 @@
+Get a named Procedural float property.
+Used for Procedural properties of type Float.
+
+SA: ::ref::GetProceduralPropertyDescriptions, ::ref::SetProceduralFloat.

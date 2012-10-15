@@ -1,0 +1,2 @@
+Loading screen's tpl file name, for ex., loadingscreen.tpl.
+Note: if you set fileName to an empty string, no loading screen will be displayed.

@@ -1,0 +1,59 @@
+Save the open scene.
+
+All paths are relative to the project folder, such as: "Assets/MyScenes/MyScene.unity".
+Folders specified in the path must already exist before calling the function.
+If no path is specified, the path of the current open scene is used, except if it was never saved before, in which case a save dialog is shown.
+
+The function returns /false/ if the save failed. This can happen if the specified path is invalid or if the user cancels in the case of a save dialog.
+
+When calling the function, the unsaved changes marker is cleared, just as when saving using the file menu.
+(On Windows, the unsaved changes marker is an asterix after the file name in the window title.
+On Mac OS X it's a dot inside the red close button of the window.)
+When a path is specified, the ::ref::currentScene is also changed to be the specified asset.
+
+When /saveAsCopy/ is set to /true/ however, neither the ::ref::currentScene or the unsaved changes marker is changed.
+
+SA: ::ref::currentScene.
+
+{img SimpleAutoSave.png}\\
+''Simple Editor Window that saves each 300 seconds the current scene.''
+BEGIN EX
+
+	// Simple editor window that autosaves the working scene
+	// Make sure to have this window opened to be able to execute the auto save.
+	
+	import UnityEditor;
+	
+	class SimpleAutoSave extends EditorWindow {
+		
+		var saveTime : float = 300;
+		var nextSave : float = 0;
+	
+		@MenuItem("Example/Simple autoSave")
+		static function Init() {
+			var window : SimpleAutoSave = 
+				EditorWindow.GetWindowWithRect(
+					SimpleAutoSave, 
+					Rect(0,0,165,40));
+			window.Show();
+		}
+		function OnGUI() {
+			 EditorGUILayout.LabelField("Save Each:", saveTime + " Secs");
+			 var timeToSave : int = nextSave - EditorApplication.timeSinceStartup;
+			 EditorGUILayout.LabelField("Next Save:", timeToSave.ToString() + " Sec");
+			 this.Repaint();
+			 
+			if(EditorApplication.timeSinceStartup > nextSave) {
+				var path : String [] = EditorApplication.currentScene.Split(char.Parse("/"));
+				path[path.Length -1] = "AutoSave_" + path[path.Length-1];	
+				EditorApplication.SaveScene(String.Join("/",path), true);
+				Debug.Log("Saved Scene");
+				nextSave = EditorApplication.timeSinceStartup + saveTime;
+			}
+		}
+	}
+END EX
+
+@param path The file path to save at. If empty, the current open scene will be overwritten, or if never saved before, a save dialog is shown.
+@param saveAsCopy If set to /true/, the scene will be saved without changing the ::ref::currentScene and without clearing the unsaved changes marker.
+@returns True if the save succeeded, otherwise false.

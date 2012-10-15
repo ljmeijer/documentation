@@ -1,0 +1,5 @@
+Sets whether to perform filtering of the output for the controller specified by ''controllerID'' in order to increase smoothness.
+Enabling filtering can cause some increase of tracking latency. The default behavior does not perform filtering.
+SA: PS3SystemConstants.SupportedMoveControllers
+@param controllerID Controller index
+@param state. Set to @@true@@ to enable filering, @@false@@ otherwise.

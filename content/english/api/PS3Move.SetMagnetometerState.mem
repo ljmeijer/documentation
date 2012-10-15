@@ -1,0 +1,4 @@
+Sets the magnetometer state for the controller specified by ''controllerID''.
+SA: PS3SystemConstants.SupportedMoveControllers
+@param controllerID Controller index
+@param state. Set to @@true@@ to enable magnetometer, @@false@@ otherwise.

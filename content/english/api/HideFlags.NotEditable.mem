@@ -1,0 +1,12 @@
+The object is not be editable in the inspector
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Create a plane and dont let it be modificable in the Inspector
+	// nor in the Sceneview.
+	
+	function Start() {
+		var createdGO : GameObject = GameObject.CreatePrimitive(PrimitiveType.Plane);
+		createdGO.hideFlags = HideFlags.NotEditable;
+	}
+END EX

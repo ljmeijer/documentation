@@ -1,0 +1,2 @@
+The normal of the surface the ray hit.
+SA: Physics.Raycast, Physics.Linecast, Physics.RaycastAll.

@@ -1,0 +1,2 @@
+Disconnect Wii Remote with the specified index.
+@param	 index	Index of controller to disconnect.

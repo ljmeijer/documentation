@@ -1,0 +1,22 @@
+Creates a game object with a primitive mesh renderer and appropriate collider.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Create a plane, sphere and cube in the scene.
+
+	function Start () {
+		var plane : GameObject = GameObject.CreatePrimitive(PrimitiveType.Plane);
+
+		var cube : GameObject  = GameObject.CreatePrimitive(PrimitiveType.Cube);
+		cube.transform.position = Vector3(0, 0.5, 0);
+
+		var sphere : GameObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+		sphere.transform.position = Vector3(0, 1.5, 0);
+
+		var capsule : GameObject = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+		capsule.transform.position = Vector3(2, 1, 0);
+
+		var cylinder : GameObject = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+		cylinder.transform.position = Vector3(-2, 1, 0);
+	}
+END EX

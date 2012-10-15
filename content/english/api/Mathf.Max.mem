@@ -1,0 +1,22 @@
+<signature>
+Max_float_float
+Max_floatArray
+</signature>
+Returns largest of two or more values.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// prints 2.4
+	print(Mathf.Max(1.2, 2.4));
+END EX
+<signature>
+Max_int_int
+Max_intArray
+</signature>
+Returns the largest of two or more values.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// prints 2
+	print(Mathf.Max(1, 2));
+END EX

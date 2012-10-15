@@ -1,0 +1,15 @@
+Register this server on the master server.
+If the master server address information has not been changed the default Unity master server will be used.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI() {
+		if (GUILayout.Button ("Start Server")) {
+			// Use NAT punchthrough if no public IP present
+			var useNat = !Network.HavePublicAddress();
+			Network.InitializeServer(32, 25002, useNat);
+			MasterServer.RegisterHost("MyUniqueGameType", 
+				"JohnDoes game", "l33t game for all");
+		}
+	}
+END EX

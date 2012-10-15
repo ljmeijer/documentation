@@ -1,0 +1,4 @@
+Sets Anisotropic limits.
+forcedMin value controls the minimal anisotropy level set when Anisotropy is forced.
+globalMax value controls the max possible anisotropy level.
+set any to -1 to use default values

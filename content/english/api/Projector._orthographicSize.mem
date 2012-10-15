@@ -1,0 +1,15 @@
+Projection's half-size when in orthographic mode.
+
+This is half of the vertical size of the projection volume. Horizontal projection
+size varies depending on ::ref::aspectRatio.
+Orthographic size is ignored when projection is not orthographic (see ::ref::orthographic).
+SA: [[wiki:class-Projector|projector component]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start() {
+		var proj : Projector = GetComponent(Projector);
+		proj.orthographic = true;
+		proj.orthographicSize = 2.0;
+	}
+END EX

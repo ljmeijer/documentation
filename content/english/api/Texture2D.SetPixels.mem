@@ -1,0 +1,60 @@
+Set a block of pixel colors.
+
+This function takes a color array and changes the pixel colors of the whole
+mip level of the texture. Call ::ref::Apply to actually upload the changed
+pixels to the graphics card.
+
+The /colors/ array is a flattened 2D array, where pixels are laid out left to right,
+bottom to top (i.e. row after row). Array size must be at least width by height of the mip level used.
+The default mip level is zero (the base texture) in which case the size is just the size of the texture.
+In general case, mip level size is @@mipWidth=max(1,width>>miplevel)@@
+and similarly for height.
+
+This function works only on /ARGB32/, /RGB24/ and /Alpha8/ texture formats.
+For other formats /SetPixels/ is ignored.
+The texture also has to have __Is Readable__ flag set in the import settings.
+
+Using /SetPixels/ can be faster than calling ::ref::SetPixel repeatedly, especially
+for large textures. In addition, /SetPixels/ can access individual mipmap levels.
+
+SA: ::ref::GetPixels, ::ref::Apply, ::ref::mipmapCount.
+BEGIN EX
+
+	// This script will tint texture's mip levels in different colors
+	// (1st level red, 2nd green, 3rd blue). You can use it to see
+	// which mip levels are actually used and how.
+
+	function Start () {
+		// duplicate the original texture and assign to the material
+		var texture : Texture2D = Instantiate(renderer.material.mainTexture);
+		renderer.material.mainTexture = texture;
+
+		// colors used to tint the first 3 mip levels
+		var colors = new Color[3];
+		colors[0] = Color.red;
+		colors[1] = Color.green;
+		colors[2] = Color.blue;
+		var mipCount = Mathf.Min( 3, texture.mipmapCount );
+
+		// tint each mip level
+		for( var mip = 0; mip < mipCount; ++mip ) {
+			var cols = texture.GetPixels( mip );
+			for( var i = 0; i < cols.Length; ++i ) {
+				cols[i] = Color.Lerp( cols[i], colors[mip], 0.33 );
+			}
+			texture.SetPixels( cols, mip );
+		}
+
+		// actually apply all SetPixels, don't recalculate mip levels
+		texture.Apply( false );
+	}
+END EX<signature>
+SetPixels_ColorArray_int
+SetPixels_int_int_int_int_ColorArray_int
+</signature>
+Set a block of pixel colors.
+
+This function is an extended version of /SetPixels/ above; it does not modify the whole
+mip level but modifies only /blockWidth/ by /blockHeight/ region starting at ''x,y''.
+The /colors/ array must be ''blockWidth*blockHeight'' size, and the modified block
+must fit into the used mip level.

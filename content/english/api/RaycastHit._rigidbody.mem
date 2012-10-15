@@ -1,0 +1,2 @@
+The [[Rigidbody]] of the collider that was hit. If the collider is not attached to a rigidbody then it is /null/.
+SA: Physics.Raycast, Physics.Linecast, Physics.RaycastAll.

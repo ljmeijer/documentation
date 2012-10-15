@@ -1,0 +1,35 @@
+<signature>
+Box_Texture_GUILayoutOptionArray
+Box_string_GUILayoutOptionArray
+Box_GUIContent_GUILayoutOptionArray
+Box_Texture_GUIStyle_GUILayoutOptionArray
+Box_string_GUIStyle_GUILayoutOptionArray
+Box_GUIContent_GUIStyle_GUILayoutOptionArray
+</signature>
+Make an auto-layout box.
+This will make a solid box. If you want to make a box with some contents inside, use the style paramenter of one of the subgroup functions (::ref::BeginHorizontal, ::ref::BeginVertical, etc...).
+
+{img GUILayoutBox.png}\\
+''Boxes in the Game View.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws a texture and a label inside 2 different boxes
+	var tex : Texture;
+
+	function OnGUI() {
+		if(!tex) {
+			Debug.LogError("Missing texture, assign a texture in the inspector");
+		}
+		GUILayout.Box(tex);
+		GUILayout.Box("This is an sized label");
+	}
+END EX
+
+@param text 		Text to display on the box.
+@param image	[[Texture]] to display on the box.
+@param content	Text, image and tooltip for this box.
+@param style		The style to use. If left out, the /box/ style from the current [[GUISkin]] is used.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight

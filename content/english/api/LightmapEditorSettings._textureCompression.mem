@@ -1,0 +1,4 @@
+Whether to use DXT1 compression on the generated lightmaps.
+Compression is recommended to improve lightmap rendering performance 
+and lower the memory footprint, but might introduce visible artifacts
+in scenes without high-detail texturing that would mask-out the issues.

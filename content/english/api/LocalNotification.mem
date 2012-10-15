@@ -1,0 +1,7 @@
+LocalNotification is a wrapper around the UILocalNotification class found in the Apple UIKit framework and is only available on iPhone/iPad/iPod Touch.
+
+It represents notifications that an application can schedule for presentation to its user at specific dates and times. 
+The operating system is responsible for delivering the notification at the specified time. 
+Local notifications are similar to remote notifications but are scheduled and delivered locally and do not require connection with remote servers.
+
+Local notifications are scheduled and handled using NotificationServices class.

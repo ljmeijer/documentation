@@ -1,0 +1,8 @@
+Negates a vector.
+Each component in the result is negated.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// prints (-1.0,-2.0,-3.0)
+	print (-Vector3(1,2,3));
+END EX

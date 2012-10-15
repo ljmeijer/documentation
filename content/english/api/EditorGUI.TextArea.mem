@@ -1,0 +1,34 @@
+Make a text area.
+This works just like GUI.TextArea, but correctly responds to select all, copy, paste etc. in the editor.
+
+{img EditorGUITextArea.png}\\
+''Text Area in an Editor Window.''
+BEGIN EX
+
+	// Create a window where you can have notes
+	// This doesnt preserve the notes between sessions. 
+	//
+	// check EditorPrefs Get/SetString to save the notes.
+		
+	class EditorGUITextArea extends EditorWindow {
+		
+		var note : String = "Notes:\n->";
+		
+		@MenuItem("Examples/Notes")
+		static function Init() {
+			var window = GetWindow(EditorGUITextArea);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			note = EditorGUI.TextArea(Rect(3,3,position.width - 6, position.height - 35), note);
+			if(GUI.Button(Rect(0, position.height - 30, position.width, 25), "Close"))
+				this.Close();
+		}	
+	}
+END EX
+
+@param position Rectangle on the screen to use for the text field.
+@param text The text to edit.
+@param style Optional [[GUIStyle]].
+@returns The text entered by the user.

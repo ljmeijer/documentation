@@ -1,0 +1,44 @@
+Draw a Cylinder. Pass this into handle functions.
+__Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.
+
+{img CylinderCap.png}\\
+''Cylinder Cap in the Scene View.''
+BEGIN EX
+
+	// Draw one cone on each axis that points where the transform is looking at
+	//
+	// Usage: Attach the "DummyCubeCapScript.js" script to any Object you want
+	// See this working on
+	
+	@CustomEditor (DummyCylinderCapScript)
+	class CylinderCap extends Editor {
+		
+		var cylinderSize : float = 1;
+	
+	    function OnSceneGUI () {
+	    	Handles.color = Color.red;
+	    	Handles.CylinderCap(0,
+				target.transform.position + Vector3(5,0,0),
+				target.transform.rotation,
+				cylinderSize);
+	    	Handles.color = Color.green;
+	    	Handles.CylinderCap(0,
+				target.transform.position + Vector3(0,5,0),
+				target.transform.rotation,
+				cylinderSize);    	
+	    	Handles.color = Color.blue;
+	    	Handles.CylinderCap(0,
+				target.transform.position + Vector3(0,0,5),
+				target.transform.rotation,
+				cylinderSize);
+	    }
+	}
+END EX
+
+And the script attached to this Handle:
+BEGIN EX
+
+	//DummyCylinderCapScript.js
+	
+	Debug.Log("I have CylinderCap Handles attached to this transform!");
+END EX

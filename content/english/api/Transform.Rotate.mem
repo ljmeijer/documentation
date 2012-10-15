@@ -1,0 +1,51 @@
+Applies a rotation of /eulerAngles.z/ degrees around the z axis, /eulerAngles.x/ degrees around the x axis, and /eulerAngles.y/ degrees around the y axis (in that order).
+If /relativeTo/ is left out or set to Space.Self the rotation is applied around the transform's local axes. (The x, y and z axes shown when selecting the object inside the Scene View.)
+If /relativeTo/ is Space.World the rotation is applied around the world x, y, z axes.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update() {
+		// Slowly rotate the object around its X axis at 1 degree/second.
+		transform.Rotate(Vector3.right * Time.deltaTime);
+
+		// ... at the same time as spinning relative to the global 
+		// Y axis at the same speed.
+		transform.Rotate(Vector3.up * Time.deltaTime, Space.World);
+	}
+END EX<signature>
+Rotate_Vector3_Space
+Rotate_float_float_float_Space
+</signature>
+Applies a rotation of /zAngle/ degrees around the z axis, /xAngle/ degrees around the x axis, and /yAngle/ degrees around the y axis (in that order).
+If /relativeTo/ is left out or sot to Space.Self the rotation is applied around the transform's local axes. (The x, y and z axes shown when selecting the object inside the Scene View.)
+If /relativeTo/ is Space.World the rotation is applied around the world x, y, z axes.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update() {
+		// Slowly rotate the object around its X axis at 1 degree/second.
+		transform.Rotate(Time.deltaTime, 0, 0);
+
+		// ... at the same time as spinning it relative to the global 
+		// Y axis at the same speed.
+		transform.Rotate(0, Time.deltaTime, 0, Space.World);
+	}
+END EX
+<signature>
+Rotate_Vector3_float_Space
+</signature>
+Rotates the transform around /axis/ by /angle/ degrees.
+If /relativeTo/ is left out or set to Space.Self the /axis/ parameter is relative to the transform's local axes. (The x, y and z axes shown when selecting the object inside the Scene View.)
+If /relativeTo/ is Space.World the /axis/ parameter is relative to the world x, y, z axes.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update() {
+		// Slowly rotate the object around its X axis at 1 degree/second.
+		transform.Rotate(Vector3.right, Time.deltaTime);
+
+		// ... at the same time as spinning it relative to the global 
+		// Y axis at the same speed.
+		transform.Rotate(Vector3.up, Time.deltaTime, Space.World);
+	}
+END EX

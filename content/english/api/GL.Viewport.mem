@@ -1,0 +1,51 @@
+Set the rendering viewport.
+
+All rendering is constrained to be inside the passed /pixelRect/.\\
+If the Viewport is modified, all the rendered content inside of it gets stretched.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draw a red Quad that covers all the view port, and the when space is pressed
+	// the viewport gets expanded to the whole screen and stretch the contents inside
+	var mat : Material;
+	private var stretch : boolean = false;
+
+	function Update() {
+		if(Input.GetKeyDown(KeyCode.Space)) {
+			if(stretch) {
+				stretch = false;
+			} else {
+				stretch = true;
+			}
+		}
+	}
+
+	function OnPostRender() {
+		if (!mat) {
+			Debug.LogError("Please Assign a material on the inspector");
+			return;
+		}
+		GL.PushMatrix();
+		mat.SetPass(0);
+		GL.LoadPixelMatrix();
+		if(stretch) {
+			GL.Viewport(Rect(0,0,Screen.width,Screen.height));
+		} else {
+			GL.Viewport(Rect(0,0,Screen.width/2,Screen.height));
+		}
+		GL.Color(Color.red);
+		GL.Begin(GL.QUADS);
+		GL.Vertex3(0,0,0);
+		GL.Vertex3(0,Screen.height,0);
+		GL.Vertex3(Screen.width,Screen.height,0);
+		GL.Vertex3(Screen.width,0,0);
+		GL.Color(Color.yellow);
+		GL.End();
+		GL.Begin(GL.TRIANGLES);
+		GL.Vertex3(Screen.width/2,Screen.height/4,1);
+		GL.Vertex3(Screen.width/4,Screen.height/2,1);
+		GL.Vertex3(Screen.width - Screen.width/4,Screen.height/2,1);
+		GL.End();
+		GL.PopMatrix();
+	}
+END EX

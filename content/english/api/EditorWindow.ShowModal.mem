@@ -1,0 +1,2 @@
+Show modal editor window. Other windows will not be accessible until this one is closed.
+TODO: don't want to expose it for 3.0. We have enough bugs already.

@@ -1,0 +1,2 @@
+Show privacy settings UI - Allows player to change privacy settings
+@param userIndex The user index (0-3) of the user whose HWAG data is being shown.

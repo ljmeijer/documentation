@@ -1,0 +1,11 @@
+Returns the platform the game is running (RO).
+Use this property if you absolutely need to do some platform dependent work.
+SA: [[RuntimePlatform]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		if (Application.platform == RuntimePlatform.WindowsPlayer)
+			print ("Do something special here!");
+	}
+END EX

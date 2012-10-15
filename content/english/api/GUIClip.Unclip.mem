@@ -1,0 +1,22 @@
+Unclips /pos/ to physical device coordinates.
+Used for passing a coordinate to ::ref::GL.Scissor or for rendering into offscreen buffers
+Is also used for converting coordinates between the various clipping rects.<signature>
+Unclip_Vector2
+Unclip_Rect
+</signature>
+Unclips /rect/ to physical device coordinates.
+Used for storing a rectangle in a Clipping-independant coordinate system. 
+* // Apply a clipping rect
+* GUIClip.Push (new Rect (10,10,200,200));
+* 
+* Rect buttonRect = new Rect (0,0,100,20);
+* GUI.ActionButton (buttonRect, "Click Me!");
+* 
+* // Store where the button is in unclipped coordinates
+* Rect absoluteRect = GUIClip.UnClip (buttonRect);
+* 
+* // Get out of the custom GUIClip
+* GUIClip.Pop();
+* 
+* // Make another button right on top of the old one
+* GUI.ActionButton (GUIClip.Clip (absoluteRect), "this is on top");

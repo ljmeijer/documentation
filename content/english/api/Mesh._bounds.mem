@@ -1,0 +1,25 @@
+The bounding volume of the mesh.
+
+This is the axis-aligned bounding box of the mesh in its local space (that is, not affected
+by the transform). See also Renderer.bounds property that returns bounds in world space.
+
+SA: [[Bounds]] class, Renderer.bounds property.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Generates planar UV coordinates independent of mesh size
+	// by scaling vertices by the bounding box size
+
+	function Start () {
+		var mesh : Mesh = GetComponent(MeshFilter).mesh;
+		var vertices : Vector3[] = mesh.vertices;
+		var uvs : Vector2[]  = new Vector2[vertices.Length];
+		var bounds : Bounds = mesh.bounds;
+
+		for (var i = 0; i < uvs.Length; i++)
+			uvs[i] = Vector2 (vertices[i].x / bounds.size.x
+							 ,vertices[i].z / bounds.size.x);
+
+		mesh.uv = uvs;
+	}
+END EX

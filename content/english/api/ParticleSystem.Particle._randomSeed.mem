@@ -1,0 +1,2 @@
+The random seed of the particle.
+This is used to create the value used to interpolate between the two curves when random between curves is used.

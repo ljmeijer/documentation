@@ -1,0 +1,9 @@
+Triggers device vibration.
+BEGIN EX
+
+	// Press button to vibrate
+	function OnGUI () {
+		if (GUI.Button (Rect (0, 10, 100, 32), "Vibrate!"))
+			Handheld.Vibrate ();
+	}
+END EX

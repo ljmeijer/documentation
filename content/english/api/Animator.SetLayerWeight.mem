@@ -1,0 +1,3 @@
+Sets the layer's current weight
+@param layerIndex The layer's index
+@param weight The weight of the layer

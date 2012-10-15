@@ -1,0 +1,2 @@
+Starts the movie at specified position with width and height.
+You must call PrepareMovie first before calling PlayMovie.

@@ -1,0 +1,3 @@
+Use Anti-Aliased Font rendering with hinting. This forces character lines to run along pixel boundaries, and generally produces
+a crisper output then [[FontRenderingMode.Smooth]], more similar to the font rendering used on Windows. It is slower to render
+textures then when using smooth mode, but may be easier to read for small font sizes.

@@ -1,0 +1,3 @@
+Focuses the first found EditorWindow of specified type if it is open.
+If there is no open window of such type, nothing happens.
+@param t the type of the window. Must derive from EditorWindow.

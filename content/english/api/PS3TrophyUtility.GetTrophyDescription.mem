@@ -1,0 +1,3 @@
+Returns the description of the trophy specified by /trophyId/.
+@param	trophyId	Trophy index
+@return The trophy description

@@ -1,0 +1,12 @@
+The rigidbody that was hit by the controller.
+null if we didn't touch a rigidbody but a static collider.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Activate the gravity of other object we touch
+	function OnControllerColliderHit(hit : ControllerColliderHit) {
+		if(hit != null) {
+			hit.rigidbody.useGravity = true;
+		}
+	}
+END EX

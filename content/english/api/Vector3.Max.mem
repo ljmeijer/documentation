@@ -1,0 +1,9 @@
+Returns a vector that is made from the largest components of two vectors.
+SA: ::ref::Min function.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var a : Vector3 = Vector3 (1, 2, 3);
+	var b : Vector3 = Vector3 (4, 3, 2);
+	print (Vector3.Max(a,b)); // prints (4.0,3.0,3.0)
+END EX

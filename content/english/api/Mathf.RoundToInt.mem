@@ -1,0 +1,26 @@
+Returns /f/ rounded to the nearest integer.
+If the number ends in .5 so it is halfway between two integers, one of which is even and the other odd, the even number is returned.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints 10
+	Debug.Log(Mathf.RoundToInt(10.0));
+	// Prints 10
+	Debug.Log(Mathf.RoundToInt(10.2));
+	// Prints 11
+	Debug.Log(Mathf.RoundToInt(10.7));
+	// Prints 10
+	Debug.Log(Mathf.RoundToInt(10.5));
+	// Prints 12
+	Debug.Log(Mathf.RoundToInt(11.5));
+	// Prints -10
+	Debug.Log(Mathf.RoundToInt(-10.0));
+	// Prints -10
+	Debug.Log(Mathf.RoundToInt(-10.2));
+	// Prints -11
+	Debug.Log(Mathf.RoundToInt(-10.7));
+	// Prints -10
+	Debug.Log(Mathf.RoundToInt(-10.5));
+	// Prints -12
+	Debug.Log(Mathf.RoundToInt(-11.5));
+END EX

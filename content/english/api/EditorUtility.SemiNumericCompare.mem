@@ -1,0 +1,2 @@
+Compares two strings, sorting them like the finder would.
+e.g MyFile9 < MyFile10

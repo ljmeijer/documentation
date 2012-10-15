@@ -1,0 +1,4 @@
+This function returns the value of an instance (nonstatic) field of an object.
+This is a convenience function that calls GetObjectField() with the same parameters, but creates a managed string from the result.
+
+SA: AndroidJNI.GetObjectField

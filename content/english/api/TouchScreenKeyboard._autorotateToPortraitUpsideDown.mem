@@ -1,0 +1,10 @@
+Specifies whether the keyboard should be automatically rotated to
+PortraitUpsideDown orientation to match orientation of the device.
+Ignored on Android.
+BEGIN EX
+
+	// Disallow keyboard to autorotate to PortraitUpsideDown orientation
+	function Start() {
+		TouchScreenKeyboard.autorotateToPortraitUpsideDown = false;
+	}
+END EX

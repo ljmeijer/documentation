@@ -1,0 +1,4 @@
+Returns a managed string object representing the string in modified UTF-8 encoding.
+This method is a modification of the original <tt>GetStringUTFChars</tt>, which returns a pointer to an array of bytes.
+
+SA: <a href="http://download.oracle.com/javase/1.5.0/docs/guide/jni/spec/jniTOC.html">Java Native Interface Specification (Oracle)</a>

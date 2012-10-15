@@ -1,0 +1,2 @@
+Returns an array of GUIContents using TextContent for an enum.
+enum MyEnum { MyValue } will lookup "MyEnum.MyValue" in the TextContent.

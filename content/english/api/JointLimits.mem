@@ -1,0 +1,2 @@
+JointLimits is used by the [[HingeJoint]] to limit the joints angle.
+SA: [[HingeJoint]]

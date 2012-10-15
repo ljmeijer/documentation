@@ -1,0 +1,8 @@
+Returns the sign of /f/.
+Return value is 1 when /f/ is positive or zero, -1 when /f/ is negative.
+CONVERTEXAMPLE
+BEGIN EX
+
+	Debug.Log(Mathf.Sign(-10));
+	Debug.Log(Mathf.Sign(10));
+END EX

@@ -1,0 +1,29 @@
+CollisionFlags is a bitmask returned by CharacterController.Move.
+It gives you a broad overview of where your character collided with any other objects.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update () {
+		var controller : CharacterController = GetComponent(CharacterController);
+		if (controller.collisionFlags == CollisionFlags.None)
+			print("Free floating!");
+
+		if (controller.collisionFlags & CollisionFlags.Sides)
+			print("Touching sides!");
+			
+		if (controller.collisionFlags == CollisionFlags.Sides)
+			print("Only touching sides, nothing else!");
+
+		if (controller.collisionFlags & CollisionFlags.Above)
+			print("Touching sides!");
+			
+		if (controller.collisionFlags == CollisionFlags.Above)
+			print("Only touching Ceiling, nothing else!");
+
+		if (controller.collisionFlags & CollisionFlags.Below)
+			print("Touching ground!");
+			
+		if (controller.collisionFlags == CollisionFlags.Below)
+			print("Only touching ground, nothing else!");
+	}
+END EX

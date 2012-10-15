@@ -1,0 +1,83 @@
+Clones the object /original/ and returns the clone.
+Clones the object /original/, places it at /position/ and sets the rotation to /rotation/, then returns the cloned object.
+This is essentially the same as using duplicate command (cmd-d) in Unity and then moving the
+object to the given location.
+If a game object, component or script instance is passed, Instantiate will clone the entire game object hierarchy, with all children cloned as well.
+All game objects are activated.\\
+SA: [[wiki:Instantiating Prefabs|In depth Prefab Instantiate discussion]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Instantiates 10 copies of prefab each 2 units apart from each other
+
+	var prefab : Transform;
+
+	for (var i : int = 0;i < 10; i++) {
+		Instantiate (prefab, Vector3(i * 2.0, 0, 0), Quaternion.identity);
+	}
+END EX
+Instantiate is most commonly used to instantiate projectiles, AI Enemies, particle explosions or wrecked object replacements.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Instantiate a rigidbody then set the velocity
+
+	var projectile : Rigidbody;
+
+	function Update () {
+		// Ctrl was pressed, launch a projectile
+		if (Input.GetButtonDown("Fire1")) {
+			// Instantiate the projectile at the position and rotation of this transform
+			var clone : Rigidbody;
+			clone = Instantiate(projectile, transform.position, transform.rotation);
+			
+			// Give the cloned object an initial velocity along the current 
+			// object's Z axis
+			clone.velocity = transform.TransformDirection (Vector3.forward * 10);
+		}
+	}
+END EX
+Instantiate can also clone script instances directly.
+The entire game object hierarchy will be cloned and the cloned script instance will be returned.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Instantiate a prefab with an attached Missile script
+	var projectile : Missile;
+
+	function Update () {
+		// Ctrl was pressed, launch a projectile
+		if (Input.GetButtonDown("Fire1")) {
+			// Instantiate the projectile at the position and rotation of this transform
+			var clone : Missile;
+			clone = Instantiate(projectile, transform.position, transform.rotation);
+			
+			// Set the missiles timeout destructor to 5
+			clone.timeoutDestructor = 5;
+		}
+	}
+END EX
+After cloning an object you can also use GetComponent to set properties on a specific component attached to the cloned object.<signature>
+Instantiate_object_Vector3_Quaternion
+Instantiate_object
+</signature>
+Clones the object /original/ and returns the clone.
+This function preserves the position and rotation of the cloned object.
+This is essentially the same as using duplicate command (cmd-d) in Unity.
+If the object is a [[Component]] or a [[GameObject]] then entire game object including all components
+will be cloned. 
+If the game object has a transform all children are cloned as well. All game objects are activated after cloning them.
+\\SA: [[wiki:Instantiating Prefabs|In depth Prefab Instantiate discussion]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Instantiates prefab when any rigid body enters the trigger.
+	// It preserves the prefab's original position and rotation.
+
+	var prefab : Transform;
+
+	function OnTriggerEnter () {
+		Instantiate (prefab);
+	}
+END EX
+Note that the Instantiate can clone any type of Object including scripts.

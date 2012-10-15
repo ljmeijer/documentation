@@ -1,0 +1,4 @@
+Animation is disabled when renderers are not visible.
+This culling method is more suitable when you have renderers attached after import - it will take 
+renderers (like mesh renderers, particle renderers and so on) attached to this gameObject or children 
+of this game object.

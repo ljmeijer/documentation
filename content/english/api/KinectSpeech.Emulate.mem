@@ -1,0 +1,3 @@
+Emulates speech recognition as though the text were spoken.
+@param text Text to be recognized as though it had been spoken
+@param options How the emulation should be performed. See KinectSpeechEmulateOptions

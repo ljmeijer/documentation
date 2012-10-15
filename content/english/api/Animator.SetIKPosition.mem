@@ -1,0 +1,3 @@
+Sets the position matrix of an IK goal
+@param goal The AvatarIKGoal that is set
+@param goalPosition The position in world space

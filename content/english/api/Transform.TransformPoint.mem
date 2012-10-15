@@ -1,0 +1,25 @@
+Transforms /position/ from local space to world space.
+Note that the returned position is affected by scale. Use Transform.TransformDirection if you are dealing with directions.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// You need to assign an object to this variable in the inspector
+	var someObject : GameObject;
+	// Instantiate an object to the right of the current object
+	var thePosition = transform.TransformPoint(Vector3.right * 2);
+	Instantiate(someObject, thePosition, someObject.transform.rotation);
+END EX<signature>
+TransformPoint_Vector3
+TransformPoint_float_float_float
+</signature>
+Transforms the position /x/, /y/, /z/ from local space to world space.
+Note that the returned position is affected by scale. Use Transform.TransformDirection if you are dealing with directions.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// You need to assign an object to this variable in the inspector
+	var someObject : GameObject;
+	// Instantiate an object to the right of the current object
+	thePosition = transform.TransformPoint(2, 0, 0);
+	Instantiate(someObject, thePosition, someObject.transform.rotation);
+END EX

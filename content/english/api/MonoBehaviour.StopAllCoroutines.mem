@@ -1,0 +1,14 @@
+Stops all coroutines running on this behaviour.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Starts the coroutine
+	StartCoroutine ("DoSomething");
+	// Cancels the coroutine immediately afterwards
+	function DoSomething () {
+		while (true) {
+			yield;
+		}
+	}
+	StopAllCoroutines();
+END EX

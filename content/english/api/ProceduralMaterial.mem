@@ -1,0 +1,16 @@
+CONVERTEXAMPLE
+BEGIN EX
+
+var floatRangeProperty : String = "Saturation";
+var cycleTime : float = 10;
+
+function Update () {
+	var substance : ProceduralMaterial = renderer.sharedMaterial as ProceduralMaterial;
+	if (substance) {
+		// Make the property go up and down over time
+		var lerp = Mathf.PingPong (Time.time * 2 / cycleTime, 1);
+		substance.SetProceduralFloat (floatRangeProperty, lerp);
+		substance.RebuildTextures ();
+	}
+}
+END EX

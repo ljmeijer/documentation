@@ -1,0 +1,6 @@
+RemoteNotification is only available on iPhone/iPad/iPod Touch.
+
+Remote notifications are sent by an application's remote server (its provider) to Apple Push Notification service 
+which pushes the notification to devices on which the application is installed.
+
+Remote notifications are registered for and handled using NotificationServices class.

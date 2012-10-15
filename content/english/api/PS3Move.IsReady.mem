@@ -1,0 +1,14 @@
+Checks if the status of the controller specified by ''controllerID'' is properly initialized and calibrated.
+SA: PS3SystemConstants.SupportedMoveControllers
+BEGIN EX
+
+		function OnGUI() {
+			if(PS3Move.IsReady(0)) {
+				GUILayout.Label("Move Controller 0 is Ready!");
+			}else{
+				GUILayout.Label("Move Controller 0 is not Ready!");
+			}
+		}
+END EX
+@param controllerID Controller index
+@return @@true@@ if the controller specified by ''controllerID'' is properly initialized and calibrated, @@false@@ otherwise.

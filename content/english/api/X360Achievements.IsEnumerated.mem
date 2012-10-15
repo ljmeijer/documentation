@@ -1,0 +1,2 @@
+Checks if game's achievement description is available.
+This function will return false for a short time after starting the game and signing-in with the first user.

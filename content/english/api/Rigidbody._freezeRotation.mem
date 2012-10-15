@@ -1,0 +1,11 @@
+Controls whether physics will change the rotation of the object.
+If freezeRotation is enabled, the rotation is not modified by the physics simulation.
+This is useful for creating first person shooters,
+because the player needs full control of the rotation using the mouse.
+SA: [[Rigidbody.constraints]
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Freeze the rotation
+	rigidbody.freezeRotation = true;
+END EX

@@ -1,0 +1,3 @@
+The current DPI of the screen / device (RO).
+This is the actual DPI of the screen attached or physical device running the application.
+May return 0 if unable to determine the current DPI.

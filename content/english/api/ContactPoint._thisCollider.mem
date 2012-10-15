@@ -1,0 +1,9 @@
+The first collider in contact.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints the name of this collider
+	function OnCollisionEnter(other : Collision) { 
+	 	print("This collider is named: " + other.contacts[0].thisCollider.name);
+	}
+END EX

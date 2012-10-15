@@ -1,0 +1,2 @@
+Global multiplier for the LOD's switching distance.
+A larger value leads to a longer view distance before a lower resolution LOD is picked.

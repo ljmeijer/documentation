@@ -1,0 +1,9 @@
+Do not cast shadows (default).
+SA: [[wiki:class-Light|light component]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Set light to not cast shadows.
+
+	light.shadows = LightShadows.None;
+END EX

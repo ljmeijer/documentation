@@ -1,0 +1,17 @@
+All fullscreen resolutions supported by the monitor (RO).
+The returned resolutions are sorted by width, lower resolutions come first.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start()
+	{
+		var resolutions : Resolution[] = Screen.resolutions;
+		// Print the resolutions
+		for (var res in resolutions) {
+			print(res.width + "x" + res.height);
+		}
+		// Switch to the lowest supported fullscreen resolution
+		Screen.SetResolution (resolutions[0].width, resolutions[0].height, true);
+	};
+END EX
+SA: [[Resolution]] structure, ::ref::SetResolution.

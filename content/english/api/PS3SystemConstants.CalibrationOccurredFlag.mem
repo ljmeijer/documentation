@@ -1,0 +1,2 @@
+Status flag indicating that calibration occurred; if this flag is returned in the status, look for a calibration error flag as well.
+SA: PS3SystemUtility.SystemNotificationDelegate /status/

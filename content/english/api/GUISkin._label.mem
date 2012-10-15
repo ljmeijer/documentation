@@ -1,0 +1,12 @@
+Style used by default for GUI::ref::Label controls.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Modifies only the label style of the current GUISkin
+	var style : GUIStyle;
+
+	function OnGUI() {
+		GUI.skin.label = style;
+		GUILayout.Label("This is a label.");
+	}
+END EX

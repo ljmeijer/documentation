@@ -1,0 +1,7 @@
+Register the state of a Unity Object so the user can later undo back to that state.
+
+Call this method before performing an operation that it should be possible to undo.
+
+SA: Undo.RegisterUndo.
+@param objectToUndo The Object to register undo operation on.
+@param name The name of the action to undo. Think "Undo ...." in the main menu.

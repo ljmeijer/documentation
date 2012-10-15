@@ -1,0 +1,215 @@
+This class provides access for creating, reading from, writing to and querying size of the files. All operations are implemented using asynchronuous calls.
+Here's an example creating a file and writing data to it; and querying for it's size afterwards.
+BEGIN EX
+
+// Keep file index as we might be creating number of files
+var fileIndex:int = 0;
+// Size of data has to be multiple of 32
+var dataArraySize = 32 * 16;
+// Create a buffer in memory 1 pool, aligned on 32 byte boundary
+private var data:AlignedBuffer =
+	new AlignedBuffer(dataArraySize, AlignedBuffer.Memory.Mem1, 32);
+
+function Start () {
+	// Create data array and copy it's content to AlignedBuffer
+	var dataArray: byte[] = new byte [dataArraySize];
+	
+	// Initialize it to sequence of increasing numbers
+	for (var index: int in dataArray)
+		dataArray [index] = index;
+		
+	// Copy it to AlignedBuffer
+	data.CopyFrom (dataArray, 0, 0, dataArraySize);
+}
+
+function SaveState (name:String, buffer:AlignedBuffer) {
+	var file:NVFile = new NVFile ();
+	
+	yield file.Create (name, WiiNand.Permissions.OwnerRW, 0);
+	if (!file.success) {
+		Debug.Log ("File creation failed. Result: " +
+			file.result + ", asyncResult: " + file.asyncResult);
+		return;
+	}
+
+	yield file.Open (name, WiiNand.Access.ReadWrite);
+	if (!file.success) {
+		Debug.Log ("Opening file failed. Result: " +
+			file.result + ", asyncResult: " + file.asyncResult);
+		return;
+	}
+	
+	yield file.Write (buffer, buffer.length);
+	if (!file.success) {
+		Debug.Log ("Writing to file failed. Result: " +
+			file.result + ", asyncResult: " + file.asyncResult);
+		yield file.Close ();
+		return;
+	}
+	
+	yield file.GetLength ();
+	if (!file.success) {
+		Debug.Log ("Could not get file length. Result: " +
+			file.result + ", asyncResult: " + file.asyncResult);
+		yield file.Close ();
+		return;
+	}
+	Debug.Log ("File length is: " + file.length + " bytes");
+	
+	yield file.Close ();
+	if (!file.success) {
+		Debug.Log ("Closing the file failed. Result: " +
+			file.result + ", asyncResult: " + file.asyncResult);
+		return;
+	}
+	
+	Debug.Log ("Success!");
+}
+
+function Update() {
+	if (Input.GetKeyDown ("Left ctrl")) {
+		SaveState ("data" + fileIndex++ + ".bin", data);
+	}	
+}
+END EX
+A C# example of using NAND library to create a file, write data to it and then read it back. Operations emit status messages to keep track of the progress.
+BEGIN EX
+
+using UnityEngine;
+using System.Collections;
+
+public class WriteReadCSharp : MonoBehaviour {
+
+	public string	_filename;
+	public Texture	_cursorTexture;
+	private string	_statusText = "Waiting for a command";
+	// -1 - error, 0 - finished, 1 - writing, 2 - reading, 3 - deleting
+	private int		_currentState = 0; 
+	
+	private NVFile	_file = new NVFile ();
+	// size -- 2050 -- just some random number.
+	private AlignedBuffer _buffer = new AlignedBuffer (2050, AlignedBuffer.Memory.Mem2, 32);
+	
+	uint roundLength (uint l) {
+		return (l-1 | 0x1f) + 1;
+	}
+	
+	void setStatus (int state, string txt) {
+		_currentState = state;
+		_statusText = txt;
+	}
+
+	IEnumerator deleteFile (string filename) {
+		_currentState = 3;
+		_statusText = "Deleting the file";
+		NVSystem sys = new NVSystem ();
+		yield return sys.Delete (filename);
+		if (!sys.success) {
+			setStatus (-1, "Failed to delete the file");
+			yield break;
+		}
+		
+		setStatus (0, "Deleting the file completed successfully");
+	}
+	
+	IEnumerator saveFile (string filename, AlignedBuffer buffer) {
+		_currentState = 1;
+		_statusText = "Creating the file";
+		yield return _file.Create (filename, (int)(
+				WiiNand.Permissions.OwnerRW|
+				WiiNand.Permissions.GroupRW|
+				WiiNand.Permissions.OtherRW), 0x0);
+		if (!_file.success) {
+			setStatus (-1, "Failed to create the file");
+			yield break;
+		}
+			
+		_statusText = "Opening the file";
+		yield return _file.Open (filename, WiiNand.Access.ReadWrite);
+		if (!_file.success) {
+			setStatus (-1, "Failed to open the file");
+			yield break;
+		}
+
+		_statusText = "Writing the file";
+		yield return _file.Write (buffer, buffer.length);
+		if (!_file.success) {
+			setStatus (-1, "Failed to write the file");
+			yield break;
+		}
+			
+		_statusText = "Closing the file";
+		yield return _file.Close ();
+		if (!_file.success) {
+			setStatus (-1, "Failed to close the file");
+			yield break;
+		}
+		
+		setStatus (0, "Creating and saving to the file completed successfully");
+	}
+	
+	IEnumerator loadFile (string filename) {
+		_currentState = 2;
+		_statusText = "Opening the file";
+		yield return _file.Open (filename, WiiNand.Access.Read);
+		if (!_file.success) {
+			setStatus (-1, "Failed to open the file");
+			yield break;
+		}
+
+		_statusText = "Getting length of the file";
+		yield return _file.GetLength ();
+		if (!_file.success) {
+			setStatus (-1, "Failed to get length of the file");
+			yield break;
+		}
+		
+		uint length = _file.length;
+		
+		AlignedBuffer readBuffer =
+			new AlignedBuffer ((int)roundLength(length), AlignedBuffer.Memory.Mem1, 32);
+
+		_statusText = "Reading file contents";
+		yield return _file.Read (readBuffer, readBuffer.length);
+		if (!_file.success) {
+			setStatus (-1, "Failed to read the file");
+			yield break;
+		}
+		
+		_statusText = "Closing the file";
+		yield return _file.Close ();
+		if (!_file.success) {
+			setStatus (-1, "Failed to close the file");
+			yield break;
+		}
+
+		setStatus (0, "Loading the file completed successfully");
+	}
+
+	void OnGUI () {
+		if (GUI.Button(new Rect(10, 100, 100, 20), "Save file")) {
+			if (_currentState <= 0)
+				StartCoroutine(saveFile (_filename, _buffer));
+		}
+
+		if (GUI.Button(new Rect(110, 100, 100, 20), "Load file")) {
+			if (_currentState <= 0)
+				StartCoroutine(loadFile (_filename));
+		}
+		
+		if (GUI.Button(new Rect(210, 100, 100, 20), "Delete file")) {
+			if (_currentState <= 0)
+				StartCoroutine(deleteFile (_filename));
+		}
+		
+		if (_currentState > 0)
+			GUI.Label (new Rect(10,10,500,20), "Processing: " + _statusText);
+		else
+			GUI.Label (new Rect(10,10,500,20), "Idle: " + _statusText);
+			
+		GUI.DrawTexture (
+			new Rect(Input.mousePosition.x, Screen.height -Input.mousePosition.y,16,16),
+			_cursorTexture);
+	}
+}
+END EX

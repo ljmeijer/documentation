@@ -1,0 +1,9 @@
+Where on the screen is the camera rendered in pixel coordinates.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update () {
+		var r : Rect = camera.pixelRect;
+		print ("Camera displays from " + r.xMin + " to " + r.xMax + " pixel");
+	}
+END EX

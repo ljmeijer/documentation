@@ -1,0 +1,16 @@
+LayerMask allow you to display the LayerMask popup menu in the inspector
+similar to those in the camera.cullingMask.
+[[wiki:Layers|Layer masks]] can be used selectively filter game objects for example when casting rays.
+CONVERTEXAMPLE
+BEGIN EX
+
+// Casts a ray using the layer mask,
+// which can be modified in the inspector.
+
+var mask : LayerMask = -1;
+function Update () {
+	if (Physics.Raycast (transform.position, transform.forward, 100, mask.value)) {
+		Debug.Log("Hit something");
+	}
+}
+END EX

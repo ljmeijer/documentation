@@ -1,0 +1,27 @@
+Returns true during the frame the user starts pressing down the key identified by /name/.
+You need to call this function from the MonoBehaviour::pref::Update function, since the state gets reset each frame.		
+It will not return true until the user has released the key and pressed it again.
+
+For the list of key identifiers see [[wiki:Input|Input Manager]].
+When dealing with input it is recommended to use Input.GetAxis and Input.GetButton instead
+since it allows end-users to configure the keys.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update () {
+		if (Input.GetKeyDown ("space"))
+			print ("space key was pressed");
+	}
+END EX<signature>
+GetKeyDown_string
+GetKeyDown_KeyCode
+</signature>
+Returns true during the frame the user starts pressing down the key identified by the /key/ [[KeyCode]] enum parameter.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update () {
+		if (Input.GetKeyDown (KeyCode.Space))
+			print ("space key was pressed");
+	}
+END EX

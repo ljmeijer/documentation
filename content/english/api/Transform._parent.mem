@@ -1,0 +1,28 @@
+The parent of the transform.
+Changing the parent will modify the parent-relative position, scale and rotation but keep the world space position, rotation and scale the same.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Makes the camera follow this object by
+	// making it a child of this transform.
+
+	// Get the transform of the camera
+	var cameraTransform = Camera.main.transform; 	
+
+	// make it a child of the current object
+	cameraTransform.parent = transform; 
+
+	// place it behind the current object
+	cameraTransform.localPosition = -Vector3.forward * 5;
+	
+	// make it point towards the object
+	cameraTransform.LookAt(transform);
+END EX
+
+Another Example
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Detaches the transform from its parent.
+	transform.parent = null;
+END EX

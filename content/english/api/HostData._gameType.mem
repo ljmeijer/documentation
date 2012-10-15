@@ -1,0 +1,14 @@
+The type of the game (like "MyUniqueGameType")
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Requests info from the master server and prints
+	// the gameType of each host
+
+	function Start() {
+		var hostData : HostData[] = MasterServer.PollHostList();
+		for(var element : HostData in hostData) {
+			Debug.Log(element.gameType);
+		}
+	}
+END EX

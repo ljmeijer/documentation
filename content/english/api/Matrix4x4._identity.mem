@@ -1,0 +1,13 @@
+Returns the identity matrix (RO).
+
+This is a matrix that effectively does nothing when applied.
+It has 1s in the main diagonal and 0s in all other elements:
+BEGIN EX
+NOCHECK
+	1  0  0  0
+	0  1  0  0
+	0  0  1  0
+	0  0  0  1
+END EX
+
+SA: ::ref::zero variable.

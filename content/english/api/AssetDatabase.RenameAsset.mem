@@ -1,0 +1,5 @@
+Rename an asset file.
+@param pathName the path where the asset currently resides
+@param newName the new name which should be given to the asset.
+@returns an empty string, if the asset has been successfully renamed, and an error string otherwise.
+All paths are relative to the project folder. Like: "Assets/MyTextures/hello.png"

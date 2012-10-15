@@ -1,0 +1,14 @@
+Rotates the transform about /axis/ passing through /point/ in world coordinates by /angle/ degrees.
+This modifies both the position and the rotation of the transform.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update() {
+		// Spin the object around the world origin at 20 degrees/second.
+		transform.RotateAround (Vector3.zero, Vector3.up, 20 * Time.deltaTime);
+	}
+END EX<signature>
+RotateAround_Vector3_Vector3_float
+RotateAround_Vector3_float
+</signature>
+*undocumented* DEPRECATED

@@ -1,0 +1,2 @@
+Stops Wii MotionPlus Calibration.
+@param	chan	Remote index, in range 0...3.

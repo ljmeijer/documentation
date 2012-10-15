@@ -1,0 +1,12 @@
+Sets or gets the current speaker mode. Default is 2 channel stereo.
+Be aware that the audio system is bootstrapped, when a new speaker mode is set,
+meaning that all playing [[class-AudioSource|AudioSources]] are stopped.
+If a speaker mode is set beyond the drivers capability, the audio behaviour is undefined.
+Use [[AudioSettings.driverCaps]] to get the capabilities of the current driver.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// To set the speaker mode to that of the system settings.
+
+	AudioSettings.speakerMode = AudioSettings.driverCaps;
+END EX

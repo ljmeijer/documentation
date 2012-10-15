@@ -1,0 +1,11 @@
+Set banner texture.
+BEGIN EX
+
+	var bannerTexture: Texture2D;
+	function CreateBanner () : NVBanner {
+		var banner: NVBanner = new NVBanner ();
+		banner.SetBanner (bannerTexture);
+		return banner;
+	}
+END EX
+@param	texture	Banner texture. It's size ''must'' be 192x64 and format must be RGB5A3 otherwise SetBanner will fail.

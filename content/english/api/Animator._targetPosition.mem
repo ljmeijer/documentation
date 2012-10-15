@@ -1,0 +1,2 @@
+Returns the position of the target specified by SetTarget(AvatarTarget targetIndex, float targetNormalizedTime))
+The position is only valid when a frame has being evaluated after the SetTarget call

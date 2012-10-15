@@ -1,0 +1,2 @@
+This data structure contains information on a message just received from the network.
+It reveals where it came from, what time it was send and what network view sent it.

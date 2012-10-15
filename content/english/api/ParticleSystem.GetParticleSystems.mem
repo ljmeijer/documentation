@@ -1,0 +1,6 @@
+Returns a list with 'root' and all its direct children.
+Note that this is used instead of GetComponentsInChildren<ParticleSystem>() 
+which could return incorrect results because one hieararchy could be somewhere below another hiearchy.
+In this case it would return Particle Systems of both hierarchies.
+
+SA: GetRoot

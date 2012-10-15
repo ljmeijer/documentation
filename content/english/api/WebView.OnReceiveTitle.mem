@@ -1,0 +1,4 @@
+CSNONE
+Called when the title of the current web page has changed. Use this to show the page title somewhere such as in the window title
+@param newTitle the new title of the current web page
+@param frame the name of the frame that is loading the content. Empty string if it's the main frame.

@@ -1,0 +1,13 @@
+Is Shift held down? (RO)
+Returns true if any Shift key is held down.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Detects if the shift key was pressed
+	function OnGUI() {
+		var e : Event = Event.current;
+		if (e.shift) {
+			Debug.Log("Shift was pressed :O");
+		}
+	}
+END EX

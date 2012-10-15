@@ -1,0 +1,18 @@
+The graphics API version supported by the graphics device (RO).
+
+This is the low-level graphics API version supported by the user's graphics card.
+
+In case of OpenGL API, the returned string will contain "@@OpenGL@@" followed by
+version in "@@major.minor@@" format, followed by full version string in square brackets.
+
+In case of Direct3D9 API, the returned string will contain "@@Direct3D 9.0c@@" followed
+by driver name and version in square brackets.
+SA: SystemInfo.graphicsDeviceName, SystemInfo.graphicsDeviceVendor.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints "OpenGL 2.0 [2.0 ATI-1.4.40]" on MacBook Pro / OS X 10.4.8
+	// Prints "Direct3D 9.0c [atiumdag.dll 7.14.10.471]" on MacBook Pro / Windows Vista
+
+	print (SystemInfo.graphicsDeviceVersion);
+END EX

@@ -1,0 +1,39 @@
+Simple access to web pages.
+This is a small utility module for retrieving the contents of URLs.
+
+You start a download in the background by calling @@WWW(url)@@ which returns a new WWW object.
+
+You can inspect the /isDone/ property to see if the download has completed or yield
+the download object to automatically wait until it is (without blocking the rest of the game).
+
+Use it if you want to get some data from a web server for integration with a game
+such as highscore lists or calling home for some reason. There is also functionality
+to create textures from images downloaded from the web and to stream & load new web
+player data files.
+
+The WWW class can be used to send both GET and POST requests to the server. The WWW class will use GET
+by default and POST if you supply a postData parameter.
+
+SA: [[WWWForm]] for a way to build valid form data for the postData parameter.
+
+__''Note:''__ __http://__, __https://__ and __file://__ protocols are supported on iPhone.
+__ftp://__ protocol support is limited to anonymous downloads only. Other protocols are not supported.
+
+__''Note:''__ The security sandbox present in web-player builds prevents you from accessing content
+not hosted the server where the webplayer is hosted.
+CONVERTEXAMPLE
+BEGIN EX
+
+// Get the latest webcam shot from outside "Friday's" in Times Square
+var url = "http://images.earthcam.com/ec_metros/ourcams/fridays.jpg";
+function Start () {
+	 // Start a download of the given URL
+	var www : WWW = new WWW (url);
+
+	// Wait for download to complete
+	yield www;
+
+	// assign texture
+	renderer.material.mainTexture = www.texture;
+}
+END EX

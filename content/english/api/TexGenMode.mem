@@ -1,0 +1,3 @@
+*undocumented*
+Texture generation modes for Shader.SetTexGenMode
+Use this to control the texture settings for a texture you've assigned using Shader.SetTexture

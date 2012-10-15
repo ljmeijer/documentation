@@ -1,0 +1,2 @@
+Status flag indicating that the current set hue is conflicting with something in the scene.
+SA: PS3SystemUtility.SystemNotificationDelegate /status/

@@ -1,0 +1,7 @@
+Transforms a direction by this matrix.
+
+This function is similar to ::ref::MultiplyPoint; but it transforms
+directions and not positions. When transforming a direction, only
+the rotation part of the matrix is taken into account.
+
+SA: ::ref::MultiplyPoint, ::ref::MultiplyPoint3x4.

@@ -1,0 +1,6 @@
+The name of the level that was last loaded (RO).
+CONVERTEXAMPLE
+BEGIN EX
+
+	print (Application.loadedLevelName);
+END EX

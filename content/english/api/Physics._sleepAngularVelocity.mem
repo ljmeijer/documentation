@@ -1,0 +1,10 @@
+The default angular velocity, below which objects start sleeping (default 0.14). Must be positive.
+See [[wiki:RigidbodySleeping|Rigidbody Sleeping]] for more information.
+This can be overridden per rigidbody using Rigidbody.sleepAngularVelocity. 
+
+This value is usually changed in @@Edit->Project Settings->Physics@@ inspector instead of from scripts.
+CONVERTEXAMPLE
+BEGIN EX
+
+	Physics.sleepAngularVelocity = 0.1;
+END EX

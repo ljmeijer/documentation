@@ -1,0 +1,19 @@
+Stops all playing animations that were started with this Animation.
+Stopping an animation also Rewinds it to the Start.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Stop all animations
+	animation.Stop();
+END EX<signature>
+Stop
+Stop_string
+</signature>
+Stops an animation named /name/.
+Stopping an animation also Rewinds it to the Start.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Stop the walk animation
+	animation.Stop("walk");
+END EX

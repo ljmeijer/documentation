@@ -1,0 +1,3 @@
+Gets the gamer picture of any player.
+/userIndex/ must have read permissions for the profile of /playerId/.
+Note: a new texture is created each time this function is called.

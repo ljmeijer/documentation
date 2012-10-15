@@ -1,0 +1,2 @@
+A box-shaped primitive collider.
+SA: [[SphereCollider]], [[CapsuleCollider]], [[PhysicMaterial]], [[Rigidbody]]

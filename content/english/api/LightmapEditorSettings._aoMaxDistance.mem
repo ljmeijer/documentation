@@ -1,0 +1,2 @@
+Beyond this distance a ray is considered to be unoccluded.
+Can be used to avoid full occlusion in closed scenes.

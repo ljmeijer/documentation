@@ -1,0 +1,11 @@
+<signature>
+ToString
+ToString_string
+</signature>
+Returns a nicely formatted string for this Rect.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var rect = Rect (0, 0, 10, 10);
+	print (rect);
+END EX

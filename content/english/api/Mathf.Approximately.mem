@@ -1,0 +1,9 @@
+Compares two floating point values if they are similar.
+Due to floating point imprecision it is not recommended to compare floats using the equal operator.
+eg. 1.0 == 10.0 / 10.0 might not return true.
+CONVERTEXAMPLE
+BEGIN EX
+
+	if (Mathf.Approximately(1.0, 10.0/10.0))
+		print ("same");
+END EX

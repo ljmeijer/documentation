@@ -1,0 +1,9 @@
+Returns a text for a number of bytes.
+BEGIN EX
+
+	// prints "100 bytes"
+	print (EditorUtility.FormatBytes(100));
+
+	// prints "2.0 KB"
+	print (EditorUtility.FormatBytes(2048));
+END EX

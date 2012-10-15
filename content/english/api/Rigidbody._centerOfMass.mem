@@ -1,0 +1,11 @@
+The center of mass relative to the transform's origin.
+If you don't set the center of mass from a script it will be calculated automatically from all colliders attached to the rigidbody.
+Setting the center of mass is often useful when simulating cars to make them more stable.
+A car with a lower center of mass is less likely to topple over.
+
+Note: /centerOfMass/ is relative to the transform's position and rotation, but will not reflect the transform's scale!
+CONVERTEXAMPLE
+BEGIN EX
+
+	rigidbody.centerOfMass = Vector3 (0, -2, 0);
+END EX

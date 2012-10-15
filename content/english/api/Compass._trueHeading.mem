@@ -1,0 +1,6 @@
+The heading in degrees relative to the geographic North Pole.
+The value in this property is always measured relative to the top 
+of the screen in its current orientation. 
+Note, that if you want this property to contain a valid value, you 
+must also enable location updates by calling 
+@@Input.location.Start()@@. (RO)

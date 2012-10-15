@@ -1,0 +1,24 @@
+Did the video buffer update this frame?
+Use this to check if the video buffer has changed since the last frame. When setting a low frame rate,
+it is likely that the video updates slower then the game, so it does not make sense to do expensive video
+processing in each Update call, so check this value before doing any processing.
+BEGIN EX
+
+	var webcamTexture : WebCamTexture;
+	var data : Color32[];
+
+	function Start () {
+		// Start web cam feed
+		webcamTexture = WebCamTexture();
+		webcamTexture.Play();
+		data = new Color32[webcamTexture.width * webcamTexture.height];
+	}
+		
+	function Update () {
+		if (webcamTexture.didUpdateThisFrame)
+		{
+			webcamTexture.GetPixels32 (data);
+			// Do processing of data here.
+		}
+	}
+END EX

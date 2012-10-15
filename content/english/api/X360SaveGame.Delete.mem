@@ -1,0 +1,4 @@
+Deletes this save game.
+The instance of this /X360SaveGame/ becomes invalid once this function is called.
+Returns false if a storage operation is already active by checking /X360Storage.IsStorageOpActive/ or an error happens.
+/onComplete/ is never called if this function returns false.

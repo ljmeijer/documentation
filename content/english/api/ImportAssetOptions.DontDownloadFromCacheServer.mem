@@ -1,0 +1,3 @@
+Force a full reimport but don't download the assets from the cache server.
+
+SA: AssetDatabase.ImportAsset, AssetDatabase.Refresh.

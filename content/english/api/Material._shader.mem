@@ -1,0 +1,21 @@
+The shader used by the material.
+
+SA: Shader.Find method, [[wiki:Materials]], [[wiki:Shaders|ShaderLab documentation]].ad
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Toggle between Diffuse and Transparent/Diffuse shaders
+	// when space key is pressed
+
+	var shader1 : Shader = Shader.Find("Diffuse");
+	var shader2 : Shader = Shader.Find("Transparent/Diffuse");
+
+	function Update() {
+		if (Input.GetButtonDown("Jump")) {
+			if( renderer.material.shader == shader1 )
+				renderer.material.shader = shader2;
+			else
+				renderer.material.shader = shader1;
+		}
+	}
+END EX

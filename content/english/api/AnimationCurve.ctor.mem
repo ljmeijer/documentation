@@ -1,0 +1,23 @@
+Creates an animation curve from arbitrary number of keyframes.
+
+This creates a curve from variable number of [[Keyframe]] parameters. If you want to create curve
+from an array of keyframes, create an empty curve and assign ::ref::keys property.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// An ease in, ease out animation curve (tangents are all flat)
+	var curve = new AnimationCurve(Keyframe(0, 0), Keyframe(1, 1));
+	
+	function Update () {
+		transform.position.x = Time.time;
+		transform.position.y = curve.Evaluate(Time.time);
+	}
+END EX<signature>
+ctor_KeyframeArray
+ctor_IntPtr
+</signature>
+*undocumented*
+<signature>
+ctor
+</signature>
+Creates an empty animation curve

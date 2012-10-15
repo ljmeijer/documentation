@@ -1,0 +1,13 @@
+Pauses playing the movie.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Assigns a movie texture to the current transform and pauses it immediately
+
+	var movTexture : MovieTexture;
+
+	function Start () {
+		renderer.material.mainTexture = movTexture;
+		movTexture.Pause();
+	}
+END EX

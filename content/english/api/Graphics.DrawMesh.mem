@@ -1,0 +1,49 @@
+<signature>
+DrawMesh_Mesh_Vector3_Quaternion_Material_int_Camera_int_MaterialPropertyBlock
+DrawMesh_Mesh_Matrix4x4_Material_int_Camera_int_MaterialPropertyBlock
+</signature>
+Draw a mesh.
+
+DrawMesh draws a mesh for one frame. The mesh will be affected by the lights, can cast and receive shadows and be
+affected by Projectors - just like it was part of some game object. It can be drawn for all cameras or just for
+some specific camera.
+
+Use DrawMesh in situations where you want to draw large amount of meshes, but don't want the overhead of creating and
+managing game objects. Note that DrawMesh does not draw the mesh immediately; it merely "submits" it for rendering. The mesh
+will be rendered as part of normal rendering process. If you want to draw a mesh immediately, use Graphics.DrawMeshNow.
+
+Because DrawMesh does not draw mesh immediately, modifying material properties between calls to this function won't make
+the meshes pick up them. If you want to draw series of meshes with the same material, but slightly different
+properties (e.g. change color of each mesh), use [[MaterialPropertyBlock]] parameter.
+
+SA: [[MaterialPropertyBlock]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Draws aMesh with aMaterial at (0,0,0) with no rotation for one frame
+
+	var aMesh : Mesh;
+	var aMaterial : Material;
+
+	function Update() {
+		Graphics.DrawMesh(aMesh, Vector3.zero, Quaternion.identity, aMaterial, 0);
+	}
+END EX
+
+@param mesh		The [[Mesh]] to draw.
+@param position	Position of the mesh.
+@param rotation	Rotation of the mesh.
+@param matrix	Transformation matrix of the mesh (combines position, rotation and other transformations).
+@param material	[[Material]] to use.
+@param layer	[[wiki:Layers|Layer]] to use.
+@param camera	If /null/ (default), the mesh will be drawn in all cameras. Otherwise it will be rendered in the given camera only.
+@param submeshIndex Which subset of the mesh to draw. This applies only to meshes that are composed of several materials.
+@param properties Additional material properties to apply onto material just before this mesh will be drawn. See [[MaterialPropertyBlock]].
+<signature>
+DrawMesh_Mesh_Vector3_Quaternion_Material_int_Camera_int_MaterialPropertyBlock_bool_bool
+</signature>
+*undocumented*
+<signature>
+DrawMesh_Mesh_Matrix4x4_Material_int_Camera_int_MaterialPropertyBlock_bool_bool
+</signature>
+*undocumented*

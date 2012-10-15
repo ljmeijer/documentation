@@ -1,0 +1,16 @@
+Create new directory.
+BEGIN EX
+
+	var dirname: String;
+	function Start () {
+		var dir: NVDirectory = new NVDirectory ();
+		yield dir.Create (NVDirectory.home + "/" + dirname,
+			Attributes.OwnerRW, WiiNand.Access.ReadWrite);
+		if (!dir.success) {
+			Debug.Log ("Failed to create new directory");
+		}
+	}
+END EX
+@param	name	Directory path/name.
+@param	perm	Directory WiiNand.permissions, a combination of WiiNand.Permissions flags. At least ''must'' include WiiNand.Permissions.OwnerRead or else creation will fail.
+@param	attr	Attributes of the directory. ''Not supported on Mac, always equal to 0.''

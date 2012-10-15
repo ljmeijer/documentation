@@ -1,0 +1,17 @@
+Colors the particles will cycle through over their lifetime.
+
+Currently you cannot directly modify a single index of this array.  Instead, you need to grab
+the entire array, modify it, and assign it back to the Particle Animator.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// How to properly change colorAnimation Colors via scripting
+	// Attach this script to a GameObject that contains a legacy particle components
+
+	function Start () {
+		var particleAnimator : ParticleAnimator = GetComponent(ParticleAnimator);
+		var modifiedColors : Color[] = particleAnimator.colorAnimation;
+		modifiedColors[2] = Color.yellow;
+		particleAnimator.colorAnimation = modifiedColors;
+	}
+END EX

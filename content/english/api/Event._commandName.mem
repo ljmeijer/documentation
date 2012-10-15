@@ -1,0 +1,14 @@
+The name of an ExecuteCommand or ValidateCommand Event
+"Copy", "Cut", "Paste", "Delete", "FrameSelected", "Duplicate", "SelectAll" and so on.
+Sent only in the editor.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Detects commands executed and prints them.
+	function OnGUI() {
+		var e : Event = Event.current;
+		if(e.commandName != "") {
+			Debug.Log("Command recognized: " + e.commandName);	
+		}	
+	}
+END EX

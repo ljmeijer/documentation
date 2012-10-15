@@ -1,0 +1,3 @@
+User has right-clicked (or control-clicked on the mac).
+Window should show a context menu if applicable.
+Sent only in the editor.

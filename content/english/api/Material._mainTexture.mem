@@ -1,0 +1,33 @@
+The material's texture.
+The same as using ::ref::GetTexture or ::ref::SetTexture with @@"_MainTex"@@ name.
+
+SA: ::ref::SetTexture, ::ref::GetTexture.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Assign the texture exposed in the inspector the renderer's material
+
+	var texture : Texture;
+	renderer.material.mainTexture = texture;
+END EX
+Another example:
+BEGIN EX
+
+	// Change renderer's texture each /changeInterval/
+	// seconds from the texture array defined in the inspector.
+
+	var textures : Texture[];
+	var changeInterval : float = 0.33;
+
+	function Update() {
+		if( textures.length == 0 ) // nothing if no textures
+			return;
+
+		// we want this texture index now
+		var index : int = Time.time / changeInterval;
+		// take a modulo with size so that animation repeats
+		index = index % textures.length;
+		// assign it
+		renderer.material.mainTexture = textures[index];
+	}
+END EX

@@ -1,0 +1,15 @@
+Detaches a /collider/ from the cloth object.
+
+SA: ::ref::AttachToCollider function.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Delete a collider that is attached to this transform's cloth
+	// by searching for its name.
+
+	var colliderName = "GameObject collider";
+	function Start() {
+		var colliderToRemove : Collider = GameObject.Find(colliderName) as Collider;
+		transform.GetComponent(InteractiveCloth).DetachFromCollider(colliderToRemove);
+	}
+END EX

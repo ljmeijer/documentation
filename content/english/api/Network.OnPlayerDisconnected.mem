@@ -1,0 +1,11 @@
+CSNONE
+Called on the server whenever a player is disconnected from the server
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnPlayerDisconnected(player: NetworkPlayer) {
+		Debug.Log("Clean up after player " +  player);
+		Network.RemoveRPCs(player);
+		Network.DestroyPlayerObjects(player);
+	}
+END EX

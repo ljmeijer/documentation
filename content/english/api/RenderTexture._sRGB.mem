@@ -1,0 +1,3 @@
+Does this render texture use sRGB read / write
+
+SA: [[RenderTextureColorSpace]].

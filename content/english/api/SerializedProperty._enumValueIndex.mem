@@ -1,0 +1,2 @@
+Enum index of an enum property.
+SA: ::ref::propertyType, SerializedPropertyType.Enum, ::ref::enumNames.

@@ -1,0 +1,23 @@
+Tests if a rigidbody would collide with anything, if it was moved through the scene.
+This is similar to doing a [[Physics.Raycast]] for all points contained in any of a Rigidbody's colliders, 
+and returning the closest of all hits (if any) reported.
+This is useful for AI code, when you need to know if an object would fit somewhere without colliding with anything.
+SA: [[Physics.SphereCast]], [[Physics.CapsuleCast]], [[Rigidbody.SweepTestAll]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	var hit : RaycastHit;
+
+	function Update () {
+		// Cast rigidbody shape 10 meters forward, to see if it is about to hit anything
+		if (rigidbody.SweepTest (transform.forward, hit, 10)) {
+			Debug.Log(hit.distance + "mts distance to obstacle");
+		}
+	}
+END EX
+
+@param  direction	The direction into which to sweep the rigidbody.
+@param  hitInfo		If true is returned, /hitInfo/ will contain more information about where the collider was hit (SA: [[RaycastHit]]).
+@param  distance	The length of the sweep
+
+@returns True when the rigidbody sweep intersects any collider, otherwise false.

@@ -1,0 +1,9 @@
+Enables or disables transmission of messages and [[RPC]] calls on a specific network group number.
+This can be set when you know you are not sending anything useful to other clients, such as before
+you have loaded you level completely.
+The [[wiki:net-NetworkLevelLoad|Network level loading]] page has an example of how to use this function.<signature>
+SetSendingEnabled_int_bool
+SetSendingEnabled_NetworkPlayer_int_bool
+</signature>
+Enable or disable transmission of messages and [[RPC]] calls based on target network player as well as the network group.
+When used on a client, the only [[NetworkPlayer]] possible is the server.

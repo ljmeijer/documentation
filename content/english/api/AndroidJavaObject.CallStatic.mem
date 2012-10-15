@@ -1,0 +1,14 @@
+Call a static Java method on a class.
+
+To call a static method with return type 'void', use the regular version.
+BEGIN EX
+
+	// Create a android.os.Binder object and call statich method flushPendingCommands().
+	function Start() {
+		var jo = new AndroidJavaObject("android.os.Binder");
+		jo.CallStatic("flushPendingCommands");
+	}
+END EX
+
+@param methodName Specifies which method to call.
+@param args An array of parameters passed to the method.

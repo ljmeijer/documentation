@@ -1,0 +1,19 @@
+Is Command/Windows key held down? (RO)
+On Windows, this returns true if any Windows key is held down. \\
+On Mac, this returns true if any Command key is held down.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints Command/Windows key was pressed depending the
+	// platform this script is being run.
+	function OnGUI() {
+		var e : Event = Event.current;
+		if (e.command) {
+			if(Application.platform == RuntimePlatform.OSXEditor) {
+				Debug.Log("Command key was pressed");
+			} else if( Application.platform == RuntimePlatform.WindowsEditor) {
+				Debug.Log("Windows Key was pressed!");			
+			}
+		}
+	}
+END EX

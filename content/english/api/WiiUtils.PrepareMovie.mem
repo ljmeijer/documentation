@@ -1,0 +1,32 @@
+Prepares movie for playing, must be called before calling WiiUtils.PlayMovie.
+Only 'thp' files can be played, they're made with THPConv.exe tool which is located in RVL_SDK (read RVL documentation for more information).
+For ex., %REVOLUTION_SDK_ROOT%X86\bin\THPConv.exe -j Test\*.jpeg -s test.wav -r 25 -d test.thp 
+Note: audio files should contain uncompressed 16-bit PCM data and playback frequency must be 32,000 Hz, using other frequencies might result in incorrect movie conversion.
+<br>Because 'thp' files are not Unity assets they must be kept externally in StreamingAssets directory.
+<br>MyProject
+<br>..\Assets
+<br>..\Assets\StreamingAssets\(thp files)
+<br>..\Library
+<br>You can only play 'thp' files on Wii, you can't play them on UnityEditor.
+BEGIN EX
+
+	void Update()
+	{
+		WiiRemote remote = WiiInput.GetRemote(0);
+		if (remote.GetButtonUp(WiiButton.ButtonA))
+		{
+			WiiUtils.PlayMovie(50, 50, 200, 100);
+		}
+		if (remote.GetButtonUp(WiiButton.ButtonB))
+		{
+			WiiUtils.StopMovie();
+		}
+		if (remote.GetButtonUp(WiiButton.ButtonZ))
+		{
+			WiiUtils.PrepareMovie(Application.dataPath + "/StreamingAssets/Test.thp", false, 0);
+		}
+	}
+END EX
+@param	fileName	Absolute path of the 'thp' movie, for ex., Application.dataPath + "/StreamingAssets/myMovie.thp".
+@param	loop		@@true@@ if you want for movie to automatically loop.
+@param	audioTrack	Index of the audio track to play.

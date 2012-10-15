@@ -1,0 +1,21 @@
+Request a host list from the master server.
+The list is available through MasterServer.PollHostList when it has arrived.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Awake() {
+		// Make sure list is empty and request a new list
+		MasterServer.ClearHostList();
+		MasterServer.RequestHostList("LarusTest");
+	}
+
+	function Update() {
+		// If any hosts were received, display game name, the clear host list again
+		if (MasterServer.PollHostList().Length != 0) {
+			var hostData: HostData[] = MasterServer.PollHostList();
+			for (var i : int = 0; i < hostData.Length; i++)
+				Debug.Log("Game name: " + hostData[i].gameName);
+			MasterServer.ClearHostList();
+		}
+	}
+END EX

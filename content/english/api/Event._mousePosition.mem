@@ -1,0 +1,13 @@
+The mouse position.
+Used in EventType.MouseMove and EventType.MouseDrag events.
+
+SA: Event.delta.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints the current mouse position
+	function OnGUI () {
+		var e : Event = Event.current;
+		Debug.Log(e.mousePosition);
+	}
+END EX

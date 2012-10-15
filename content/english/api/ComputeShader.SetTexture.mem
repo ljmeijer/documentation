@@ -1,0 +1,8 @@
+Set a texture parameter.
+
+This function can either set a regular texture that is read in the
+compute shader, or an output texture that is written into by the shader.
+For an output texture, it has to be a [[RenderTexture]] with random write
+flag enabled, see RenderTexture.enableRandomWrite.
+
+SA: ::ref::FindKernel, RenderTexture.enableRandomWrite.

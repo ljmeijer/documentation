@@ -1,0 +1,5 @@
+Override this method if you want to show custom controls in the preview header.
+The default implementation is a no-op.
+
+__Note:__ Inspector previews are limited to the primary editor of persistent objects (assets), e.g., GameObjectInspector, MaterialEditor, TextureInspector.
+This means that it is currently not possible for a component to have its own inspector preview.

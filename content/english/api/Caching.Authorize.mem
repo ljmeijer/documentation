@@ -1,0 +1,8 @@
+(This is a WebPlayer-only function)
+Enables a dedicated, application-specific WebPlayer cache (Dedicated WebPlayer caches require a paid license from Unity Technologies). If you have a dedicated cache license, call this function at WebPlayer application startup with the license information provided to you.
+Starting with the release of Unity 3.2, all WebPlayer applications have access to a 50 MiB shared cache; calling the Authorize() function is not necessary.
+Starting with the release of Unity 3.4, PC/Mac Standalone players and iOS/Android players have access to a 4 GiB dedicated cache for each application; calling the Authorize() function is not necessary.
+@param string name The name of the cache directory on the user's disk
+@param string domain The domain on which the content using caching is allowed to run. The .unity3d application bundle of the WebPlayer must be hosted on this domain or one of it's subdomains.
+@param int size The number of bytes allocated to this cache.
+@param string signature The authentification signature provided by Unity.

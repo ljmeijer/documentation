@@ -1,0 +1,15 @@
+<signature>
+Serialize_bool
+Serialize_char
+Serialize_short
+Serialize_int
+Serialize_float_float
+Serialize_Quaternion_float
+Serialize_Vector3_float
+Serialize_NetworkPlayer
+Serialize_NetworkViewID
+</signature>
+Serializes different types of variables.
+Supported types are: bool, char, short, int, float, [[Quaternion]], [[Vector3]] and [[NetworkPlayer]].
+
+Note that Serialize(char) serializes one byte, so it will only work properly for characters in 0..255 range.

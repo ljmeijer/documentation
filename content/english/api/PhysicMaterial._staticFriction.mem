@@ -1,0 +1,7 @@
+The friction used when an object is lying on a surface. Usually a value from 0 to 1.
+A value of 0 feels like ice, 1 feels like rubber.
+CONVERTEXAMPLE
+BEGIN EX
+
+	collider.staticFriction = 1;
+END EX

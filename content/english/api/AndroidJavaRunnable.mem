@@ -1,0 +1,14 @@
+AndroidJavaRunnable is the Unity representation of a java.lang.Runnable object
+BEGIN EX
+
+// Pass execution context over to the Java UI thread.
+function Start () {
+	var unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+	var activity = unityPlayer.GetStatic.<AndroidJavaObject>("currentActivity");
+	activity.Call("runOnUiThread", new AndroidJavaRunnable(runOnUiThread));
+}
+
+function runOnUiThread() {
+	Debug.Log("I'm running on the Java UI thread!");
+}
+END EX

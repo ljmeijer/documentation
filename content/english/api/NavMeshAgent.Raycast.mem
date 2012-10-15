@@ -1,0 +1,4 @@
+Trace movement towards a target postion in the NavMesh. Without moving the agent.
+@param targetPosition The desired end position of movement.
+@param hit Holds the properties of the resulting unblocked position.
+@returns True If terminated before reaching target position. Otherwise returns false.

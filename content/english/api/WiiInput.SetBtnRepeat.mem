@@ -1,0 +1,4 @@
+Autorepeat params for controller's buttons. Used to generate button presses, while button is actually held down.
+@param	chan		Remote index to apply settings to. Valid values 0...3.
+@param	delay_sec	Delay in seconds before autorepeating starts.
+@param	pulse_sec	Period in seconds in which press events are generated.

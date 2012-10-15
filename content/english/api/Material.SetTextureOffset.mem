@@ -1,0 +1,20 @@
+Sets the placement offset of texture /propertyName/.
+
+Common texture names used by Unity's builtin shaders: \\
+@@"_MainTex"@@ is the main diffuse texture. This can also be accessed via ::ref::mainTextureOffset property. \\
+@@"_BumpMap"@@ is the normal map. \\
+@@"_Cube"@@ is the reflection cubemap.
+
+SA: ::ref::mainTextureOffset property, ::ref::GetTextureOffset.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Scroll main texture based on time
+
+	var scrollSpeed : float = 0.5;
+
+	function Update () {
+		var offset : float = Time.time * scrollSpeed;
+		renderer.material.SetTextureOffset ("_MainTex", Vector2(offset,0));
+	}
+END EX

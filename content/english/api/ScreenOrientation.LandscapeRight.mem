@@ -1,0 +1,5 @@
+Landscape orientation, clockwise from the portrait orientation.
+Available on iOS and on Android 2.3+. On older Androids falls
+back to LandscapeLeft.
+
+SA: Screen.orientation.

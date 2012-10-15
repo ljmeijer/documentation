@@ -1,0 +1,2 @@
+The [[OffMeshLink]] if the link type is a manually placed Offmeshlink (RO).
+Automatically generated Jump and drop links will return null.

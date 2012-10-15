@@ -1,0 +1,14 @@
+Returns the position of the controller specified by ''controllerID''.
+SA: PS3SystemConstants.SupportedMoveControllers
+BEGIN EX
+
+		function OnGUI() {
+			if(PS3Move.IsReady(0)) {
+				GUILayout.Label("PS3Move Controller 0 is Ready! Pos = " + PS3Move.GetPosition(0));
+			}else{
+				GUILayout.Label("PS3Move Controller 0 is not Ready!");
+			}
+		}
+END EX
+@param controllerID Controller index
+@return Position of the controller

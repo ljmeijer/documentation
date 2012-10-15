@@ -1,0 +1,6 @@
+*undocumented
+Result of the ::ref::GetLength command.
+BEGIN EX
+
+	Debug.Log ("File length is: " + file.length);
+END EX

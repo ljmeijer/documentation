@@ -1,0 +1,10 @@
+Creates a new rectangle.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var rect = Rect (0, 0, 10, 10);
+END EX<signature>
+ctor_float_float_float_float
+ctor_Rect
+</signature>
+*undocumented*

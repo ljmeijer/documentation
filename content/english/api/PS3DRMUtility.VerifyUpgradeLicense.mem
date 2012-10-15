@@ -1,0 +1,25 @@
+Verifies the authenticity of the licence
+__Note:__ This operation is performed asynchronously. Use [[PS3DRMUtility.HasCompleted]] to wait for completion.
+<br> __Please refer to the in game purchasing documents provided with your PS3 SDK Documentation.__
+<br> SA: PS3DRMUtility.HasCompleted
+BEGIN EX
+
+		function Start ()
+		{
+			StartCoroutine(CheckIfTrial());
+		}
+		function CheckIfTrial()
+		{
+			// Query the license
+			PS3DRMUtility.VerifyUpgradeLicense("YOUR_APPLICATIONS_LICENSE");
+			while (!PS3DRMUtility.HasCompleted())
+				yield;
+			
+			// Show the result
+			if (PS3DRMUtility.GetResult() == 0)
+				Debug.Log("Not a trial");
+			else
+				Debug.Log("Its a trial");
+		}
+END EX
+@param contentID Title' Content ID

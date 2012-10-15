@@ -1,0 +1,24 @@
+Vertex colors of the mesh.
+
+If no vertex colors are available an empty array will be returned.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Sets the vertex color to be red at the y=0 and green at y=1.
+	// (Note that most builtin shaders don't display vertex colors, you can
+	// use eg. a particle shader to see vertex colors)
+
+	function Start () {
+		var mesh : Mesh = GetComponent(MeshFilter).mesh;
+		var vertices : Vector3[] = mesh.vertices;
+		var colors : Color[] = new Color[vertices.Length];
+
+		for (var i = 0; i < vertices.Length;i++)
+			colors[i] = Color.Lerp(Color.red, Color.green, vertices[i].y);
+
+		mesh.colors = colors;
+	}
+END EX
+
+For performance reasons, consider using ::ref::colors32 instead. This will avoid byte-to-float
+conversions in colors, as well as use less temporary memory.

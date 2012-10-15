@@ -1,0 +1,8 @@
+Tiles the texture, creating a repeating pattern.
+When UVs are outside of the 0...1 range, the integer part will be ignored, thus creating a repeating pattern.
+SA: Texture.wrapMode, [[wiki:class-Texture2D|texture assets]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	renderer.material.mainTexture.wrapMode = TextureWrapMode.Repeat;
+END EX

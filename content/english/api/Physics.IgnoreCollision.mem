@@ -1,0 +1,19 @@
+Makes the collision detection system ignore all collisions between /collider1/ and /collider2/.
+This is most useful for making eg. projectiles not collide with the object shooting them.
+
+IgnoreCollision has a few limitations:
+1) It is not persistent. This means ignore collision state will not be stored in the editor when saving a scene.
+2) You can only apply the ignore collision to colliders in active game objects.
+When deactivating the collider or attached rigidbody the IgnoreCollision state will be lost and you have to call Physics.IgnoreCollision again.
+SA: [[Physics.IgnoreLayerCollision]]
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Instantiate a bullet and make it ignore collisions with this object.
+
+	var bulletPrefab : Transform;
+	function Start () {
+		var bullet = Instantiate(bulletPrefab) as Transform;
+		Physics.IgnoreCollision(bullet.collider, collider);
+	}
+END EX

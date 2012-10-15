@@ -1,0 +1,36 @@
+Creates an empty prefab at given path.
+
+If a prefab at the path already exists it will be deleted and replaced with an empty prefab.
+Returns a reference to the prefab.
+BEGIN EX
+
+	// Creates a prefab from the selected GameObjects.
+	// if the prefab already exists it asks if you want to replace it
+	
+	@MenuItem("Examples/Create Prefab From Selected")
+	static function CreatePrefab() {
+		var objs = Selection.gameObjects;
+
+		for (var go : GameObject in objs) {
+			var localPath : String = "Assets/" + go.name + ".prefab";
+			if (AssetDatabase.LoadAssetAtPath(localPath, GameObject)) {
+				if (EditorUtility.DisplayDialog("Are you sure?", 
+					"The prefab already exists. Do you want to overwrite it?", 
+					"Yes", 
+					"No"))
+						CreateNew(go, localPath);
+			}
+			else
+				CreateNew(go, localPath);
+		}
+	}
+	@MenuItem("Examples/Create Prefab From Selected", true)
+	static function ValidateCreatePrefab() {
+		return Selection.activeGameObject != null;
+	}
+
+	static function CreateNew(obj : GameObject, localPath : String) {
+		var prefab : Object = PrefabUtility.CreateEmptyPrefab(localPath);
+		PrefabUtility.ReplacePrefab(obj, prefab, ReplacePrefabOptions.ConnectToPrefab);
+	}
+END EX

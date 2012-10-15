@@ -1,0 +1,58 @@
+<signature>
+Label_Vector3_string
+Label_Vector3_Texture
+Label_Vector3_GUIContent
+Label_Vector3_string_GUIStyle
+Label_Vector3_GUIContent_GUIStyle
+</signature>
+Make a text label positioned in 3D space.
+Labels have no user interaction, do not catch mouse clicks and are always rendered in normal style. 
+
+{img HandlesLabel.png}\\
+''Label in the Scene View.''
+BEGIN EX
+
+	// Create a 180 degrees wire arc with a ScaleValueHandle attached to the disc
+	// that lets you modify the "shieldArea" var in the WireArcExample.js, also
+	// lets you visualize some info of the transform
+	
+	@CustomEditor (DummyLabelScript)
+	class LabelHandle extends Editor {
+	    function OnSceneGUI () {
+	    	Handles.color = Color.blue;
+	 		Handles.Label(target.transform.position + Vector3.up*2,
+	 				target.transform.position.ToString() + "\nShieldArea: " +
+	 				target.shieldArea.ToString());
+	 		Handles.BeginGUI(Rect(Screen.width - 100, Screen.height - 80, 90,50));
+	
+	        Handles.DrawWireArc(target.transform.position, 
+	        		target.transform.up, 
+	        		-target.transform.right, 
+	        		180, 
+	        		target.shieldArea);
+	        target.shieldArea = 
+			Handles.ScaleValueHandle(target.shieldArea,
+	        				target.transform.position + target.transform.forward*target.shieldArea,
+	        				target.transform.rotation,
+	        				1,
+	        				Handles.ConeCap,
+	        				1);
+	    }
+	}
+END EX
+
+And the script attached to this Handle:
+BEGIN EX
+
+	// DummyLavelScript.js
+	
+	var shieldArea : float = 5;
+END EX
+
+@param position		Position in 3D space as seen from the current handle camera.
+@param text 			Text to display on the label.
+@param image		Texture to display on the label.
+@param content		Text, image and tooltip for this label.
+@param style			The style to use. If left out, the /label/ style from the current GUISkin is used.
+
+__Note:__ Use HandleUtility.GetHandleSize where you might want to have constant screen-sized handles.

@@ -1,0 +1,8 @@
+Sends an Event to a window.
+BEGIN EX
+
+		var win : EditorWindow;
+		
+		/// Sends a paste event to an EditorWindow, as if Paste was selected from the Edit menu.
+		win.SendEvent(EditorGUIUtility.CommandEvent("Paste"));
+END EX

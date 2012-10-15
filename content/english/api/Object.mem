@@ -1,0 +1,3 @@
+Base class for all objects Unity can reference.
+Any public variable you make that derives from Object gets shown in the inspector as a drop target, 
+allowing you to set the value from the GUI.

@@ -1,0 +1,8 @@
+The minimum contact penetration value in order to apply a penalty force (default 0.05). Must be positive.
+
+This value is usually changed in @@Edit->Project Settings->Physics@@ inspector instead of from scripts.
+CONVERTEXAMPLE
+BEGIN EX
+
+	Physics.minPenetrationForPenalty = 0.1;
+END EX

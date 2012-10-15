@@ -1,0 +1,14 @@
+Converts a layer mask value to an integer value.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Casts a ray using the layer mask,
+	// which can be modified in the inspector.
+
+	var mask : LayerMask = -1;
+	function Update () {
+		if (Physics.Raycast (transform.position, transform.forward, 100, mask.value)) {
+			Debug.Log("Hit something");
+		}
+	}
+END EX

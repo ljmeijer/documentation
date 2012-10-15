@@ -1,0 +1,7 @@
+The gravity applied to all rigid bodies in the scene.
+Gravity can be turned off for an individual rigidbody using its Rigidbody::pref::useGravity property.
+CONVERTEXAMPLE
+BEGIN EX
+
+	Physics.gravity = Vector3(0, -1.0, 0);
+END EX

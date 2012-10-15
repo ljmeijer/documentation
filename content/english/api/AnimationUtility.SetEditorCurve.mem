@@ -1,0 +1,3 @@
+Unity automatic combines position curves, scale curves, rotation curves internally.
+Thus transform curves always get combined and their keyframes is always the union of all keyframe points.
+In the Editor AnimationClip's let you specify special editor curves which do not get combined, thus it lets the user edit curves in a more intuitive way.

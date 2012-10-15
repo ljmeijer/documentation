@@ -1,0 +1,33 @@
+Translates an instance ID to a reference to an object.
+If the object is not loaded from disk, loads it from disk.
+
+{img EditorUtilityInstanceIDToObject.png}\\
+''Editor Window to enter the instance ID and print the name of the object.''
+BEGIN EX
+
+	// Simple editor window that prints on the console the GameObject
+	// name given an ID.
+	// If no objec is found it prints an error.
+
+	class EditorUtilityInstanceIDToObject extends EditorWindow {
+
+		var id : int;
+		@MenuItem("Examples/ID To Name")
+		static function Init() {
+			var window = GetWindow(EditorUtilityInstanceIDToObject);
+			window.position = Rect(0,0,160, 60);
+			window.Show();
+		}
+
+		function OnGUI() {
+			id = EditorGUILayout.IntField("Instance ID:",id);
+			if(GUILayout.Button("Find Name")) {
+				var obj = EditorUtility.InstanceIDToObject(id);
+				if(!obj)
+					Debug.LogError("No object could be found with instance id: " + id);
+				else
+					Debug.Log("Object's name: " + obj.name);
+			}
+		}
+	}
+END EX

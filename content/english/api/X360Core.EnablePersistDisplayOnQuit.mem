@@ -1,0 +1,2 @@
+Persist last rendered frame on quit.
+See IDirect3DDevice9::PersistDisplay

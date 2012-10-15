@@ -1,0 +1,5 @@
+Awards achievement /achievementId/ to user /userIndex/.
+To satisfy TCR 069, you must only award the achievement to the user who created and owns
+the active game save. Check X360PlayerId (/X360Core.GetUserLocalPlayerId/) after creating
+or opening a game save and before awarding the achievement.
+Returns false if /userIndex/ is invalid.

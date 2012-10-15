@@ -1,0 +1,67 @@
+<signature>
+IntSlider_Rect_int_int_int
+IntSlider_Rect_string_int_int_int
+IntSlider_Rect_GUIContent_int_int_int
+</signature>
+Make a slider the user can drag to change an integer value between a min and a max.
+
+{img EditorGUIIntSlider.png}\\
+''Int Slider in an Editor Window.''
+BEGIN EX
+
+	// Simple editor script that lets you clone your object in a grid
+	
+	class EditorGUIIntSlider extends EditorWindow {
+		var cloneTimesX : int = 1;
+		var cloneTimesY : int = 1;
+		var cloneTimesZ : int = 1;
+		var spacing : int = 2;
+		
+		@MenuItem("Examples/Editor GUI int slider usage")
+		static function Init() {
+			var window = GetWindow(EditorGUIIntSlider);
+			window.position = Rect(0,0,150, 95);
+			window.Show();
+		}
+		
+		function OnGUI() {
+			cloneTimesX = EditorGUI.IntSlider(Rect(0,0,position.width, 20), cloneTimesX, 1, 10);
+			cloneTimesY = EditorGUI.IntSlider(Rect(0,25,position.width, 20), cloneTimesY, 1, 10);
+			cloneTimesZ = EditorGUI.IntSlider(Rect(0,50,position.width, 20), cloneTimesZ, 1, 10);
+	
+			if(GUI.Button(Rect(0,75,position.width,15),"Make Grid!"))
+				CloneSelected();
+		}
+		function CloneSelected() {
+			if(!Selection.activeGameObject) {
+				Debug.LogError("Select a GameObject first");
+				return;
+			}
+			for(var i = 0; i < cloneTimesX; i++)
+				for(var j = 0; j < cloneTimesY; j++)
+					for(var k = 0; k < cloneTimesZ; k++)
+						Instantiate(Selection.activeGameObject, 
+							Vector3(i,j,k)*spacing, 
+							Selection.activeGameObject.transform.rotation);
+		}
+	
+	}
+END EX
+
+@param position Rectangle on the screen to use for the slider.
+@param label Optional label in front of the slider.
+@param value The value the slider shows. This determines the position of the draggable thumb.
+@param leftValue The value at the left end of the slider.
+@param rightValue The value at the right end of the slider.
+@returns The value that has been set by the user.
+<signature>
+IntSlider_Rect_SerializedProperty_int_int
+IntSlider_Rect_SerializedProperty_int_int_string
+IntSlider_Rect_SerializedProperty_int_int_GUIContent
+</signature>
+Make a slider the user can drag to change a value between a min and a max.
+@param position Rectangle on the screen to use for the slider.
+@param label Optional label in front of the slider.
+@param property The value the slider shows. This determines the position of the draggable thumb.
+@param leftValue The value at the left end of the slider.
+@param rightValue The value at the right end of the slider.

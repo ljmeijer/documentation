@@ -1,0 +1,7 @@
+The [[ConstantForce]] attached to this GameObject (RO). (null if there is none attached)
+CONVERTEXAMPLE
+BEGIN EX
+
+	var other : GameObject; 
+	other.constantForce.relativeForce = Vector3(0, 0, 1);
+END EX

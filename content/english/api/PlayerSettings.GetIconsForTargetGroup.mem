@@ -1,0 +1,4 @@
+Returns the list of assigned icons for the specified platform.
+
+Most platforms support viewing icons in multiple sizes so Unity lets you specify multiple icon textures for each platform.
+Each texture in the returned array correspond to the corresponding entry in the list of icon sizes returned by GetIconSizesForTargetGroup.

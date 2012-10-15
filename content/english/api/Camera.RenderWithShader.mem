@@ -1,0 +1,14 @@
+Render the camera with shader replacement.
+
+See [[wiki:SL-ShaderReplacement|Rendering with Replaced Shaders]] page for details.
+
+This will render the camera. It will use the camera's clear flags, target texture and all other settings.
+
+The camera will __not__ send MonoBehaviour::pref::OnPreCull, MonoBehaviour::pref::OnPreRender or
+MonoBehaviour::pref::OnPostRender to attached scripts. Image filters will not be rendered either.
+
+This is used for special effects, e.g. rendering screenspace normal buffer of the whole scene,
+heat vision and so on. To make use of this feature, usually you create a camera and disable it.
+Then call RenderWithShader on it.
+
+SA: [[wiki:SL-ShaderReplacement|Rendering with Replaced Shaders]], ::ref::SetReplacementShader, ::ref::Render.

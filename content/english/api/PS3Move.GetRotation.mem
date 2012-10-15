@@ -1,0 +1,14 @@
+Returns the rotation of the controller specified by ''controllerID''.
+SA: PS3SystemConstants.SupportedMoveControllers
+BEGIN EX
+
+		function OnGUI() {
+			if(PS3Move.IsReady(0)) {
+				GUILayout.Label("PS3Move Controller 0 is Ready! Rot = " + PS3Move.GetRotation(0));
+			}else{
+				GUILayout.Label("PS3Move Controller 0 is not Ready!");
+			}
+		}
+END EX
+@param controllerID Controller index
+@return Rotation of the controller

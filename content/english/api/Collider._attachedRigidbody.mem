@@ -1,0 +1,11 @@
+The rigidbody the collider is attached to.
+Returns null if the collider is attached to no rigidbody.
+
+Colliders are automatically connected to the rigidbody attached 
+to the same game object or attached to any parent game object.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Lift the rigidbody attached to the collider.
+	collider.attachedRigidbody.AddForce(0,1,0);
+END EX

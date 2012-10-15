@@ -1,0 +1,7 @@
+The torque applied to the rigidbody every frame.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Rotates the object around the world y-axis
+	constantForce.torque = Vector3.up * 2;
+END EX

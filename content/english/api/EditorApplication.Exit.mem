@@ -1,0 +1,23 @@
+Exit the Unity editor application.
+Calling this function will exit right away, without asking to save changes, so you may lose data!
+This function is mostly useful for exiting out of a commandline process with a specific error.
+SA: [[wiki:COMMAND LINE ARGUMENTS|Commandline Arguments]]
+BEGIN EX
+
+	// Simple script that lets you create a new
+	// scene, create a cube and an empty game object in the scene
+	// Save the scene and close the editor
+	
+	import UnityEditor;
+	
+	@MenuItem ("Example/Chain Actions and close")
+	static function Chain() {
+		EditorApplication.NewScene();
+		
+		EditorApplication.ExecuteMenuItem("GameObject/Create Other/Cube");
+		EditorApplication.ExecuteMenuItem("GameObject/Create Empty");
+	
+		EditorApplication.SaveScene("Assets/MyNewScene.unity");
+		EditorApplication.Exit(0);
+	}
+END EX

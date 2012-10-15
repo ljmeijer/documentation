@@ -1,0 +1,8 @@
+Filtering mode of the texture.
+CONVERTEXAMPLE
+BEGIN EX
+
+	renderer.material.mainTexture.filterMode = FilterMode.Trilinear;
+END EX
+
+SA: [[FilterMode]], [[wiki:class-Texture2D|texture assets]].

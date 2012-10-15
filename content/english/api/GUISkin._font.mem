@@ -1,0 +1,19 @@
+The default font to use for all styles.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Modifies the font only of the current GUISkin.
+
+	var f : Font;
+
+	function OnGUI() {
+		if(!f) {
+			Debug.LogError("No font found, assign one in the inspector.");
+			return;
+		}
+		GUI.skin.font = f;
+	
+		GUILayout.Label("This is a label with the font");
+		GUILayout.Button("And this is a button");
+	}
+END EX

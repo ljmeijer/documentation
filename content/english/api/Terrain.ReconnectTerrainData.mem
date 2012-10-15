@@ -1,0 +1,3 @@
+This method is used internally by the engine to reconnect Terrain objects to TerrainData.
+When TerrainData data is reloaded it looses its' users, so we just rebuild internal data
+of Terrain is such case.

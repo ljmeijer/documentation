@@ -1,0 +1,13 @@
+Force this clip to mono?
+BEGIN EX
+
+	// C#: Import files containing "mono" in their name as mono.
+	class DetectMono extends AssetPostprocessor {
+	    function OnPreprocessAudio () {
+	        if (assetPath.Contains("mono")) {
+	            var audioImporter : AudioImporter = assetImporter;
+	            audioImporter.forceToMono = true;
+	        }
+	    }
+	}
+END EX

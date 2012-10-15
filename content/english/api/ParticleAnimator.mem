@@ -1,0 +1,2 @@
+(Legacy Particles) Particle animators move your particles over time, you use them to apply wind, drag & color cycling to your particle emitters.
+This class is a script interface for a [[wiki:class-ParticleAnimator|particle animator]] component.

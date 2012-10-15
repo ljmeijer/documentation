@@ -1,0 +1,65 @@
+<signature>
+IntPopup_int_stringArray_intArray_GUILayoutOptionArray
+IntPopup_int_stringArray_intArray_GUIStyle_GUILayoutOptionArray
+IntPopup_int_GUIContentArray_intArray_GUILayoutOptionArray
+IntPopup_int_GUIContentArray_intArray_GUIStyle_GUILayoutOptionArray
+IntPopup_string_int_stringArray_intArray_GUILayoutOptionArray
+IntPopup_string_int_stringArray_intArray_GUIStyle_GUILayoutOptionArray
+IntPopup_GUIContent_int_GUIContentArray_intArray_GUILayoutOptionArray
+IntPopup_GUIContent_int_GUIContentArray_intArray_GUIStyle_GUILayoutOptionArray
+</signature>
+Make an integer popup selection field.
+Takes the currently selected integer as a parameter and returns the integer selected by the user.
+
+{img EditorGUILayoutIntPopup.png}\\
+''Rescales the current selected GameObject.''
+BEGIN EX
+
+	// Simple Editor Script that lets you rescale the current selected GameObject.
+	
+	class EditorGUILayoutIntPopup extends EditorWindow {
+		var selectedSize : int = 1;
+		var names : String[] = ["Normal", "Double", "Quadruple"];
+		var sizes : int[] = [1,2,4];
+		
+		@MenuItem("Examples/Editor GUILayout Int Popup usage")
+		static function Init() {
+			var window = GetWindow(EditorGUILayoutIntPopup);
+			window.Show();
+		}
+		function OnGUI() {
+			selectedSize = EditorGUILayout.IntPopup("Resize Scale: ", selectedSize, names, sizes);
+			if(GUILayout.Button("Scale"))
+				ReScale();
+		}
+		function ReScale() {
+			if(Selection.activeTransform)
+				Selection.activeTransform.localScale =
+					Vector3(selectedSize, selectedSize, selectedSize);
+			else	Debug.LogError("No Object selected, please select an object to scale.");
+		}
+	}
+END EX
+
+@param label Optional label in front of the field.
+@param selectedValue The value of the option the field shows.
+@param displayedOptions An array with the displayed options the user can choose from.
+@param optionValues An array with the values for each option.
+@param style Optional [[GUIStyle]].
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight
+@returns The value of the option that has been selected by the user.
+<signature>
+IntPopup_SerializedProperty_GUIContentArray_intArray_GUILayoutOptionArray
+IntPopup_SerializedProperty_GUIContentArray_intArray_GUIContent_GUILayoutOptionArray
+</signature>
+Make an integer popup selection field.
+
+@param property The value of the option the field shows.
+@param displayedOptions An array with the displayed options the user can choose from.
+@param optionValues An array with the values for each option.
+@param label Optional label in front of the field.
+@param options		An optional list of layout options that specify extra layouting properties. Any values passed in here will override settings defined by the /style/.<br>
+SA: GUILayout::ref::Width, GUILayout::ref::Height, GUILayout::ref::MinWidth, GUILayout::ref::MaxWidth, GUILayout::ref::MinHeight, 
+GUILayout::ref::MaxHeight, GUILayout::ref::ExpandWidth, GUILayout::ref::ExpandHeight

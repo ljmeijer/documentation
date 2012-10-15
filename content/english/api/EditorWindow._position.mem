@@ -1,0 +1,18 @@
+The position of the window in screen space.
+Setting this value will undock the window if it's docked
+
+{img EditorWindowPosition.png}\\
+''Create an empty editor window of 200x200px.''
+BEGIN EX
+
+	// Create an empty editor window of 200x200 pixels size
+	// located at the top left corner  
+	
+	class EditorWindowPosition extends EditorWindow {
+	    @MenuItem ("Example/Window position usage")
+	    static function Init () {
+	        var window = EditorWindow.GetWindow(EditorWindowPosition);
+		window.position = Rect(0,0, 200,200);
+	    }
+	}
+END EX

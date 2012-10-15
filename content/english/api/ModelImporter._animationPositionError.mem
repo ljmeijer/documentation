@@ -1,0 +1,7 @@
+Allowed error of animation position compression.
+
+Allowed error is defined in distance (in percents) between compressed and 
+original positions on a curve. This settings used only when animation keyframe 
+reduction is enabled.
+
+SA: ::ref::animationCompression, [[ModelImporterAnimationCompression]].

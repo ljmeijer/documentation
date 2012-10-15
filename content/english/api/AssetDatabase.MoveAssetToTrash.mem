@@ -1,0 +1,4 @@
+Moves the asset at path to the trash.
+Returns true if the asset has been successfully removed, false if it doesn't exit or couldn't be moved to the trash.
+All paths are relative to the project folder. Like: "Assets/MyTextures/hello.png"
+SA: AssetDatabase.DeleteAsset

@@ -1,0 +1,2 @@
+The line renderer is used to draw free-floating lines in 3D space.
+This class is a script interface for a [[wiki:class-LineRenderer|line renderer]] component.

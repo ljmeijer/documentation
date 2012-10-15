@@ -1,0 +1,8 @@
+Interpolation will always lag a little bit behind but can be smoother than extrapolation.
+
+SA: Rigidbody.interpolation variable.
+CONVERTEXAMPLE
+BEGIN EX
+
+	rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
+END EX

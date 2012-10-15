@@ -1,0 +1,7 @@
+A version of the color that has had the inverse gamma curve applied
+CONVERTEXAMPLE
+BEGIN EX
+
+	var color : Color = Color (.3, .4, .6);
+	print(color.linear);
+END EX

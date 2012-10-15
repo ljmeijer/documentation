@@ -1,0 +1,2 @@
+Creates a snapshot of SkinnedMeshRenderer and stores it in mesh.
+The vertices are relative to the SkinnedMeshRenderer Transform component.

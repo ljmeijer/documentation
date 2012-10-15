@@ -1,0 +1,9 @@
+The game object that was hit by the controller.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Objects we touch, move them to position (0, 0, 0)
+	function OnControllerColliderHit(hit : ControllerColliderHit) {
+		hit.gameObject.transform.position = Vector3.zero;
+	}
+END EX

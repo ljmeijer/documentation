@@ -1,0 +1,8 @@
+Set the particles of this particle system. /size/ is the number of particles that is set.
+Setting the lifetime of a particle to a negative value will result in Shuriken removing the particle.
+SA: ::ref::GetParticles<signature>
+CUSTOM
+CUSTOM
+</signature>
+Get the particles of this particle system. Returns the number of particles written to the input particle array.
+SA: ::ref::SetParticles

@@ -1,0 +1,4 @@
+Layout controller for content inside scroll views
+This class is used to handle the sizing negotiations when we're inside a scrollview. 
+If we need a vertical scrollbar, it will make sure that the contents layouts correctly to make space for it (and lots of variations of this theme)
+*undocumented*

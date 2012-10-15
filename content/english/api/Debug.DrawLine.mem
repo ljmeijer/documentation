@@ -1,0 +1,22 @@
+Draws a line from the /point/ start to /end/ with color for a duration of time and with or without depth testing. If duration is 0 then the line is rendered 1 frame.
+The line will be drawn in the scene view of the editor. If gizmo drawing is enabled in the game view, the line will also be drawn there.
+Note: This is for debugging playmode only. Editor gizmos should be drawn with Gizmos.Drawline or Handles.DrawLine instead.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Frame update example: Draws a red line from the world-space origin to the point (1, 0, 0) for 1 frame.
+	function Update () {
+		Debug.DrawLine (Vector3.zero, Vector3 (1, 0, 0), Color.red);
+	}
+END EX
+CONVERTEXAMPLE
+BEGIN EX
+
+
+	// Event callback example: Debug-draw all contact points and normals for 2 seconds.
+	function OnCollisionEnter(collision : Collision) {
+		for (var contact : ContactPoint in collision.contacts) {
+			Debug.DrawLine(contact.point, contact.point + contact.normal, Color.green, 2, false);
+		}
+	}
+END EX

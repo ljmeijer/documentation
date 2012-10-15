@@ -1,0 +1,17 @@
+Close a group started with BeginHorizontal
+
+{img GUILayoutHorizontal.png}\\
+''Horizontal Layout.''
+CONVERTEXAMPLE
+BEGIN EX
+
+	function OnGUI () {	
+		GUILayout.BeginHorizontal ("box");
+
+		GUILayout.Button ("I'm the first button");
+		GUILayout.Button ("I'm to the right");
+		
+		// End the horizontal group we began above
+		GUILayout.EndHorizontal ();
+	}
+END EX

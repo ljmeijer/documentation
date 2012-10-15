@@ -1,0 +1,4 @@
+Fullscreen window with Dock and Menu bar.
+Same as Fullscreen window mode, but Unity will also show the Menu bar and Dock if the cursor moves to the 
+edges of the screen, like other OS X fullscreen Apps. It is possible to switch between fullscreen and windowed 
+modes using the fullscreen button in the window title bar (or in the menu bar in fullscreen mode).

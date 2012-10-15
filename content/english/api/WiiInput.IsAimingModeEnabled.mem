@@ -1,0 +1,4 @@
+Check if aiming mode is enabled.
+SA: [[EnableAimingMode]], [[DisableAimingMode]].
+@param	chan	Remote index. Valid values 0...3.
+@return True if the aiming mode is enabled.

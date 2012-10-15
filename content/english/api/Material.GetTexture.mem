@@ -1,0 +1,20 @@
+Get a named texture.
+
+Many shaders use more than one texture. Use GetTexture to get the /propertyName/ texture.
+
+Common texture names used by Unity's builtin shaders: \\
+@@"_MainTex"@@ is the main diffuse texture. This can also be accessed via ::ref::mainTexture property. \\
+@@"_BumpMap"@@ is the normal map. \\
+@@"_Cube"@@ is the reflection cubemap.
+
+SA: ::ref::mainTexture property, ::ref::SetTexture.
+BEGIN EX
+
+	function Start () {
+		var tex : Texture = renderer.material.GetTexture ("_BumpMap");
+		if (tex)
+			print ("My bumpmap is " + tex.name);
+		else
+			print ("I have no bumpmap!");
+	}
+END EX

@@ -1,0 +1,4 @@
+Unlocks the trophy specified by /trophyId/.
+__Note:__ This operation is performed asynchronously. Use [[PS3TrophyUtility.HasCompleted]] to wait for completion.
+<br> SA: PS3TrophyUtility.HasCompleted
+@param	trophyId	Trophy index

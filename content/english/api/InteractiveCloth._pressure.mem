@@ -1,0 +1,14 @@
+The pressure inside the cloth.
+Pressure simulation only gives reasonable results for closed mesh shapes. 
+Pressure simulation is disabled when this value is set to zero. When it is set to values greater then
+zero, the cloth is simulated to be a closed shape containing air. A value of 1 sets the air pressure to
+be the same as the atmosphere outside the cloth mesh. Values smaller then one make the cloth shape contract,
+values larger then one make it expand.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// On a closhed mesh shape this will make it look inflated.
+	// Think like a balloon for a sphere
+
+	transform.GetComponent(InteractiveCloth).pressure = 3;
+END EX

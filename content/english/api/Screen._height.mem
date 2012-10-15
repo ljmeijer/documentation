@@ -1,0 +1,2 @@
+The current height of the screen window in pixels (RO).
+This is the actual height of the player window (in fullscreen it is also the current resolution)

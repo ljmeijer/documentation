@@ -1,0 +1,4 @@
+Base class to derive custom property attributes from. Use this to create custom attributes for script variables.
+A custom attributes can be hooked up with a custom [[PropertyDrawer]] class to control how a script variable with that attribute is shown in the Inspector.
+
+SA: [[PropertyDrawer]] class.

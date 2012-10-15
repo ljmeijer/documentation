@@ -1,0 +1,16 @@
+The margins between elements rendered in this style and any other GUI elements
+This only has effect when using automatic layout (SA: [[GUILayout]]).
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Prints the left, right, top and down values of the GUIStyle margin
+
+	private var rctOff : RectOffset;
+	function OnGUI() {
+		if(GUI.skin.customStyles.Length > 0) {
+			rctOff = GUI.skin.customStyles[0].margin;
+			Debug.Log("Left: " + rctOff.left + " Right: " + rctOff.right);
+			Debug.Log("Top: " + rctOff.top + " Bottom: " + rctOff.bottom);
+		}
+	}
+END EX

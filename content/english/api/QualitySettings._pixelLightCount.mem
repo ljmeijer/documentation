@@ -1,0 +1,14 @@
+The maximum number of pixel lights that should affect any object.
+If there are more lights illuminating an object, the dimmest ones will be rendered
+as vertex lights.
+
+Use this from scripting if you want to have finer control than offered by quality settings
+levels.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Use at most one pixel light for every object
+
+	QualitySettings.pixelLightCount = 1;
+END EX
+SA: [[wiki:class-QualitySettings|Quality Settings]].

@@ -1,0 +1,3 @@
+The heading in degrees relative to the magnetic North Pole.
+The value in this property is always measured relative to the top 
+of the screen in its current orientation. (RO)

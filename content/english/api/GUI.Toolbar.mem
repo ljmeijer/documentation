@@ -1,0 +1,26 @@
+<signature>
+Toolbar_Rect_int_stringArray
+Toolbar_Rect_int_TextureArray
+Toolbar_Rect_int_GUIContentArray
+Toolbar_Rect_int_stringArray_GUIStyle
+Toolbar_Rect_int_TextureArray_GUIStyle
+Toolbar_Rect_int_GUIContentArray_GUIStyle
+</signature>
+Make a toolbar
+CONVERTEXAMPLE
+BEGIN EX
+
+	var toolbarInt : int = 0;
+	var toolbarStrings : String[] = ["Toolbar1", "Toolbar2", "Toolbar3"];
+
+	function OnGUI () {
+		toolbarInt = GUI.Toolbar (Rect (25, 25, 250, 30), toolbarInt, toolbarStrings);
+	}
+END EX
+@param position			Rectangle on the screen to use for the toolbar.
+@param selected				The index of the selected button
+@param texts					An array of strings to show on the toolbar buttons.
+@param images				An array of textures on the toolbar buttons.
+@param contents				An array of text, image and tooltips for the toolbar buttons.
+@param style					The style to use. If left out, the /button/ style from the current [[GUISkin]] is used.
+@returns The index of the selected button.

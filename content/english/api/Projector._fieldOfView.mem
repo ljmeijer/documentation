@@ -1,0 +1,13 @@
+The field of view of the projection in degrees.
+
+This is the vertical field of view; horizontal FOV varies depending on the ::ref::aspectRatio.
+Field of view is ignored when projector is orthographic (see ::ref::orthographic).
+SA: [[wiki:class-Projector|projector component]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start() {
+		var proj : Projector = GetComponent(Projector);
+		proj.fieldOfView = 80.0;
+	}
+END EX

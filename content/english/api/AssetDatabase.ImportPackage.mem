@@ -1,0 +1,2 @@
+Imports package at __packagePath__ into the current project.
+If __interactive__ is true, an import package dialog will be opened, else all assets in the package will be imported into the current project.

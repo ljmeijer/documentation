@@ -1,0 +1,3 @@
+Render queue of this shader (RO)
+
+SA: Material.renderQueue, [[wiki:SL-SubshaderTags|RenderQueue tag]].

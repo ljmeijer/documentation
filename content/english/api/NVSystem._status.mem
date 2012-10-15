@@ -1,0 +1,11 @@
+*undocumented
+Result of GetStatus.
+BEGIN EX
+
+	var sys: NVSystem = new NVSystem ();
+	yield sys.GetStatus ("/tmp");
+	if (sys.success)
+		Debug.Log ("File owner: " + sys.status.ownerId);
+	else
+		Debug.Log ("Failed to get the status of the file");
+END EX

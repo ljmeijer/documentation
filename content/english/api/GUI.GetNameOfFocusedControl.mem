@@ -1,0 +1,26 @@
+Get the name of named control that has focus.
+Control names are set up by using ::ref::SetNextControlName. When a named control has focus, this function will return its name. 
+If no control has focus or the focused control has no name set returns empty string.
+
+GetNameOfFocusedControl works well when you make a login box.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var login : String = "username";
+	var login2 : String = "no action here";
+
+	function OnGUI () {
+		GUI.SetNextControlName ("user");
+		login = GUI.TextField (Rect (10,10,130,20), login);
+		
+		login2 = GUI.TextField (Rect (10,40,130,20), login2);
+		if (Event.current.Equals (Event.KeyboardEvent ("return")) &&
+			GUI.GetNameOfFocusedControl () == "user") {
+			Debug.Log ("Login");
+		}
+
+		if (GUI.Button (new Rect (150,10,50,20), "Login"))
+			Debug.Log ("Login");
+	}
+END EX
+SA: ::ref::SetNextControlName, ::ref::FocusControl.

@@ -1,0 +1,7 @@
+Get a JNI field ID based on type detection. Generic parameter represents the field type.
+Scans a particular Java class for a field matching a signature of the field type.
+The signature comparison is done to allow for sub-/base-classes of the class types.
+
+@param javaClass Raw JNI Java class object (obtained by calling AndroidJNI.FindClass).
+@param fieldName Name of the field as declared in Java.
+@param isStatic  Set to <tt>true</tt> for static fields; <tt>false</tt> for instance (nonstatic) fields.

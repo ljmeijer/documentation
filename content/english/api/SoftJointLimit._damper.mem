@@ -1,0 +1,3 @@
+If spring is greater than zero, the limit is soft.
+This is the damping of spring.
+{ 0, infinity }

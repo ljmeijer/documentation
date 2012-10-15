@@ -1,0 +1,10 @@
+The position of the rigidbody.
+This is similar to setting transform.position, however the position will only be applied to the transform at the end of the physics step.
+If you want to continously move a rigidbody or kinematic rigidbody use MovePosition and MoveRotation instead
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		rigidbody.position = Vector3.zero;
+	}
+END EX

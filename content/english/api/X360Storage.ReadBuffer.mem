@@ -1,0 +1,4 @@
+Reads the contents of "mountName:\unity.buf".
+Returns false if a storage operation is already active by checking /IsStorageOpActive/ or if unity.buf does not exist.
+/IsStorageOpActive/ will return true during the operation.
+/onComplete/ is never called if this function returns false.

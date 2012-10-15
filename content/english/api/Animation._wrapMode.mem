@@ -1,0 +1,12 @@
+How should time beyond the playback range of the clip be treated?
+WrapMode.Default: Read's the wrap mode from the clip (default for a clip is Once).\\
+WrapMode.Once: Stops the animation when time reaches the end.\\
+WrapMode.Loop: Starts at the beginning when time reaches the end.\\
+WrapMode.PingPong: Ping Pong's back and forth between beginning and end.\\
+WrapMode.ClampForever: Plays back the animation. When it reaches the end, it will keep sampling the last frame.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Make the animation loop
+	animation.wrapMode = WrapMode.Loop;
+END EX

@@ -1,0 +1,11 @@
+Checks if the active operation has completed.
+BEGIN EX
+
+		function Start() {
+			// Wait until finished
+			while (!PS3TrophyUtility.HasCompleted())
+				yield WaitForSeconds(0.1f);
+			Debug.Log("The operation was completed");
+		}
+END EX
+@return @@true@@ if the active operation has completed, @@false@@ otherwise.

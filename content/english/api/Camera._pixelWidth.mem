@@ -1,0 +1,6 @@
+How wide is the camera in pixels (RO).
+CONVERTEXAMPLE
+BEGIN EX
+
+	print ("Camera is " + camera.pixelWidth + " pixels wide");
+END EX

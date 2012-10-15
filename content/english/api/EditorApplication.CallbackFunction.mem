@@ -1,0 +1,2 @@
+Delegate to be called from [[EditorApplication]] callbacks.
+CallbackFunction is used by EditorApplication.update, EditorApplication.modifierKeysChanged, EditorApplication.playmodeStateChanged.

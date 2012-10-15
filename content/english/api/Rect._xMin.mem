@@ -1,0 +1,2 @@
+Left coordinate of the rectangle.
+Changing this value will preserve right side of rectangle (so ::ref::width will change as well).

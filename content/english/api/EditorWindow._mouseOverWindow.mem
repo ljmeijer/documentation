@@ -1,0 +1,34 @@
+The EditorWindow currently under the mouse cursor (RO)
+/mouseOverWindow/ can be null if there is no window under the cursor.
+
+SA: ::ref::focusedWindow.
+
+{img mouseFocusedWindowEx.png}\\
+''Move the mouse over other Unity windows to automatically focus them.''
+BEGIN EX
+
+	// Focus any unity window where the mouse is over.
+	
+	class mouseFocusedWindowEx extends EditorWindow {
+		
+		var mouseOver : String = "Nothing...";
+		
+		@MenuItem("Example/Quick Window Selector _s")
+		static function Init() {
+			var window = GetWindowWithRect(mouseFocusedWindowEx,Rect(0,0,200,50));
+			window.Show();
+		}
+		function OnGUI() {
+			GUILayout.Label("Mouse over " + mouseOver);
+			if(GUILayout.Button("Close")) {
+				this.Close();
+			}
+			mouseOver = EditorWindow.mouseOverWindow ? 
+				EditorWindow.mouseOverWindow.ToString() : "Nothing...";
+		}
+		function OnInspectorUpdate() {
+			if(EditorWindow.mouseOverWindow) EditorWindow.mouseOverWindow.Focus();
+			this.Repaint();
+		}
+	}
+END EX

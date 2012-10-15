@@ -1,0 +1,3 @@
+Convert a Java array of <tt>short</tt> to a managed array of System.Int16.
+
+SA: AndroidJNI.GetShortArrayElement, AndroidJNI.GetArrayLength

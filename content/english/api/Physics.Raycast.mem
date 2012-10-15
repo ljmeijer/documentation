@@ -1,0 +1,97 @@
+Casts a ray against all colliders in the scene.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update () {
+		var fwd = transform.TransformDirection (Vector3.forward);
+		if (Physics.Raycast (transform.position, fwd, 10)) {
+			print ("There is something in front of the object!");
+		}
+	}
+END EX
+
+__Notes:__ This function will return false if you cast a ray from
+inside a sphere to the outside; this in an intended behaviour.
+If you move colliders from scripting or by animation, there needs to be at
+least one FixedUpdate executed so that the physics library can update it's data
+structures, before a Raycast will hit the collider at it's new position.
+
+@param	origin		The starting point of the ray in world coordinates.
+@param  direction	The direction of the ray.
+@param  distance	The length of the ray
+@param	layerMask	A [[wiki:Layers|Layer mask]] that is used to selectively ignore colliders when casting a ray. 
+
+@returns True when the ray intersects any collider, otherwise false.<signature>
+Raycast_Vector3_Vector3_float_int
+Raycast_Vector3_Vector3_RaycastHit_float_int
+</signature>
+Casts a ray against all colliders in the scene and returns detailed information on what was hit.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Update () {
+		var hit : RaycastHit;
+		if (Physics.Raycast (transform.position, -Vector3.up, hit)) {
+			var distanceToGround = hit.distance;
+		}
+	}
+END EX
+
+
+another example:
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Raycast up to 100 meters down
+
+	function Update () {
+		var hit : RaycastHit;
+		if (Physics.Raycast (transform.position, -Vector3.up, hit, 100.0)) {
+			var distanceToGround = hit.distance;
+		}
+	}
+END EX
+
+@param	origin		The starting point of the ray in world coordinates.
+@param  direction	The direction of the ray.
+@param  distance	The length of the ray
+@param  hitInfo		If true is returned, /hitInfo/ will contain more information about where the collider was hit (SA: [[RaycastHit]]).
+@param	layerMask	A [[wiki:Layers|Layer mask]] that is used to selectively ignore colliders when casting a ray. 
+
+@returns True when the ray intersects any collider, otherwise false.
+<signature>
+Raycast_Ray_float_int
+</signature>
+Same as above using /ray.origin/ and /ray.direction/ instead of /origin/ and /direction/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+	if (Physics.Raycast (ray, 100)) {
+		print ("Hit something");
+	}
+END EX
+@param	ray			The starting point and direction of the ray.
+@param  distance	The length of the ray
+@param	layerMask	A [[wiki:Layers|Layer mask]] that is used to selectively ignore colliders when casting a ray. 
+
+@returns True when the ray intersects any collider, otherwise false.
+<signature>
+Raycast_Ray_RaycastHit_float_int
+</signature>
+Same as above using /ray.origin/ and /ray.direction/ instead of /origin/ and /direction/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+	var hit : RaycastHit;
+	if (Physics.Raycast (ray, hit, 100)) {
+		Debug.DrawLine (ray.origin, hit.point);
+	}
+END EX
+@param	ray			The starting point and direction of the ray.
+@param  distance	The length of the ray
+@param  hitInfo		If true is returned, /hitInfo/ will contain more information about where the collider was hit (SA: [[RaycastHit]]).
+@param	layerMask	A [[wiki:Layers|Layer mask]] that is used to selectively ignore colliders when casting a ray. 
+
+@returns True when the ray intersects any collider, otherwise false.

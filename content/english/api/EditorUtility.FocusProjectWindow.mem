@@ -1,0 +1,38 @@
+Brings the project window to the front and focuses it.
+This is commonly called after a menu item that creates and selects an asset is invoked.
+
+{img EditorUtilityFocusProjectWindow.png}\\
+''Changes the color of the selected GameObjects.''
+BEGIN EX
+
+	// Change The color of the selected Game Objects
+	// and focus the project window after clicking on the
+	// "Change!" Button.
+
+	class EditorUtilityFocusProjectWindow extends EditorWindow {
+
+		var matColor : Color = Color.white;
+		@MenuItem("Examples/Massive Color Change")
+		static function Init() {
+			var window = GetWindow(EditorUtilityFocusProjectWindow);
+			window.position = Rect(0,0,170,60);
+			window.Show();
+		}
+		function OnGUI() {
+			matColor = EditorGUI.ColorField(Rect(3,3,position.width - 6, 15),
+					"New Color:",
+					matColor);
+			if(GUI.Button(Rect(3,25,position.width-6, 30),"Change!"))
+				ChangeColors();
+		}
+
+		function ChangeColors() {
+			if(Selection.activeGameObject) {
+				for(var t in Selection.gameObjects)
+					if(t.renderer)
+						t.renderer.sharedMaterial.color = matColor;
+			}
+			EditorUtility.FocusProjectWindow();
+		}
+	}
+END EX

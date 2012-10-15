@@ -1,0 +1,3 @@
+AnimationEvent lets you call a script function similar to SendMessage as part of playing back an animation.
+Animation events support functions that take zero or one parameter.
+The parameter can be a float, a string, an object reference, or an AnimationEvent.

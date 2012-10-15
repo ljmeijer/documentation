@@ -1,0 +1,8 @@
+In the player on the XBOX360
+SA: Platform dependent Compilation.
+CONVERTEXAMPLE
+BEGIN EX
+
+	if (Application.platform == RuntimePlatform.XBOX360)
+		Debug.Log("Do something special here!");
+END EX

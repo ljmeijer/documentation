@@ -1,0 +1,2 @@
+DEBUG: Get garbage collected memory used.
+Only works in development builds.

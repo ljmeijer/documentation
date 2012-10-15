@@ -1,0 +1,6 @@
+The dot product between two rotations.
+CONVERTEXAMPLE
+BEGIN EX
+
+	print(Quaternion.Dot (transform.rotation, Quaternion.identity));
+END EX

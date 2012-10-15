@@ -1,0 +1,2 @@
+Presents a full screen advertisement modally to the user.
+Before calling this method, you must check if the ad has finished loading using @@ADInterstitialAd.loaded@@.

@@ -1,0 +1,7 @@
+Creates a game save
+/displayName/ is the save file name shown on the dashboard.
+/fileName/ is the save file name on disc. This name must be unique on every physical media.
+/mountName/ is the name of the virtual drive the save file is mounted to. i.e. specifying "name" will create a drive accessible via "name:\". 
+Call /Unmount/ with the same mount name once saving/loading is finished.
+Returns false if a storage operation is already active by checking /IsStorageOpActive/ or if the selected user is not signed-in and /Ready/.
+/onComplete/ is never called if this function returns false.

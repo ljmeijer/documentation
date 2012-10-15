@@ -1,0 +1,7 @@
+Show window with dropdown behaviour (e.g. window is closed when it loses focus) and having
+appearance as 'ShowMode.PopupMenu' (no frame). 
+Note this function auto fits the window to screen while trying to place it first below then above.
+So windowSize might change when fitting it to screen therefore make sure to get 'position' afterwards 
+to check size was cropped.
+@param buttonRect is used for positioning the window.
+@param windowSize is used for setting up initial size of the window.

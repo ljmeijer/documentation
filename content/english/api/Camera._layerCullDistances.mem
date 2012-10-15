@@ -1,0 +1,24 @@
+Per-layer culling distances.
+
+Normally Camera skips rendering of objects that are further away than ::ref::farClipPlane.
+You can set up some [[wiki:Layers]] to use smaller culling distances using layerCullDistances.
+This is very useful to cull small objects early on, if you put them into appropriate layers.
+
+When assigning layerCullDistances, you need to assign float array that has 32 values.
+Zero values in cull distances means "use far plane distance".
+
+By default, per-layer culling will use a plane aligned with the camera. You can change this to
+a sphere by setting layerCullSpherical on the Camera to true.
+CONVERTEXAMPLE
+BEGIN EX
+
+	function Start () {
+		var distances = new float[32];
+		// Set up layer 10 to cull at 15 meters distance.
+		// All other layers use the far clip plane distance.
+		distances[10] = 15;
+		camera.layerCullDistances = distances;
+	}
+END EX
+SA: ::ref::farClipPlane.
+SA: ::ref::layerCullSpherical.

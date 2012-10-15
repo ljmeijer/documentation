@@ -1,0 +1,6 @@
+<signature>
+IsSubAsset_object
+IsSubAsset_int
+</signature>
+Is asset a sub asset?
+For eample a procedural material can be part of a material package.

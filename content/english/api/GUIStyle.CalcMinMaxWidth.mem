@@ -1,0 +1,2 @@
+Calculate the minimum and maximum widths for this style rendered with /content/.
+Used by [[GUILayout]] to handle word-wrapping elements correctly.

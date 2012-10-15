@@ -1,0 +1,8 @@
+The layer the game object is in. A layer is in the range [0...31]
+[[wiki:Layers|Layers]] can be used for selective rendering from cameras or ignoring raycasts.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Put the game object in the ignore raycast layer
+	gameObject.layer = 2;
+END EX

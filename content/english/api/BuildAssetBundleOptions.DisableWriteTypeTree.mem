@@ -1,0 +1,6 @@
+Do not include type information within the AssetBundle.
+Specifying this flag will make an AssetBundle susceptible to script or Unity version changes, but will make the file smaller and a bit faster to load.
+This flag affects only AssetBundles for platforms that have type information included by default. Mobile and console platform always build without type information.
+Type information must be present for Web platforms, therefore Unity will reject to build an AssetBundle if you specify this flag when building for BuildTarget.WebPlayer, for example.
+
+SA: BuildPipeline.BuildAssetBundle.

@@ -1,0 +1,18 @@
+Returns true if there is any collider intersecting the line between /start/ and /end/.
+CONVERTEXAMPLE
+BEGIN EX
+
+	var target : Transform;
+	function Update () {
+		if (!Physics.Linecast (transform.position, target.position)) {
+			ProcessData.AndDoSomeCalculations();
+		}
+	}
+END EX
+[[wiki:Layers|Layer mask]] is used to selectively ignore colliders when casting a ray.<signature>
+Linecast_Vector3_Vector3_int
+Linecast_Vector3_Vector3_RaycastHit_int
+</signature>
+Returns true if there is any collider intersecting the line between /start/ and /end/.
+If true is returned, /hitInfo/ will contain more information about where the collider was hit (SA: [[RaycastHit]]).
+[[wiki:Layers|Layer mask]] is used to selectively ignore colliders when casting a ray.

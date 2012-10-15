@@ -1,0 +1,2 @@
+The format of the pixel data in the texture (RO).
+Use this to determine the format of the texture.

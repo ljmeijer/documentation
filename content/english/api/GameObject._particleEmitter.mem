@@ -1,0 +1,7 @@
+The [[ParticleEmitter]] attached to this GameObject (RO). (null if there is none attached)
+CONVERTEXAMPLE
+BEGIN EX
+
+	var other : GameObject; 
+	other.particleEmitter.emit = true;
+END EX

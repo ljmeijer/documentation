@@ -1,0 +1,9 @@
+Don't clear anything.
+This will leave colors and depth buffer from the previous frame or whatever was displayed before.
+SA: Camera.clearFlags property, [[wiki:class-Camera|camera component]].
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Don't clear anything
+	camera.clearFlags = CameraClearFlags.Nothing;
+END EX

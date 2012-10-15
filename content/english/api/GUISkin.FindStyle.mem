@@ -1,0 +1,14 @@
+Try to search for a [[GUIStyle]]. This functions returns NULL and does not give an error.
+CONVERTEXAMPLE
+BEGIN EX
+
+	// Checks if a style name exists
+
+	var aStyleName : String = "A Style I have";
+	
+	function OnGUI() {
+		if(GUI.skin.FindStyle(aStyleName) == null) {
+			Debug.LogWarning("No style named \"" + aStyleName + "\" could be found");
+		}
+	}
+END EX

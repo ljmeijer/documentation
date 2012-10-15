@@ -1,0 +1,10 @@
+How many mipmap levels are in this texture (RO).
+
+The returned value includes the base level as well, so it is always 1 or more.
+
+Mipmap count is used if you use ::ref::GetPixels or ::ref::SetPixels to fetch or modify
+the different mip levels. For example, you could change a texture so that each mip level
+is tinted in a different color - then in the game you'd see which mip levels are actually
+visible.
+
+SA: ::ref::GetPixels function, ::ref::SetPixels function.

@@ -1,0 +1,5 @@
+Mesh is made from points.
+In most of use cases, mesh index buffer should be "indendity":
+0, 1, 2, 3, 4, 5, ...
+
+SA: Mesh.SetIndices function.

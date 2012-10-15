@@ -1,0 +1,9 @@
+Render queue of this material
+
+By default materials use [[wiki:SL-SubshaderTags|render queue]] of the shader it uses. You can override
+the render queue used using this variable. Note that once render queue is set on the material,
+it stays at that value, even if shader is later changed to be different.
+
+Render queue number should be positive to work properly.
+
+SA: Shader.renderQueue, [[wiki:SL-SubshaderTags|RenderQueue tag]].

@@ -1,0 +1,4 @@
+Get the texture that will be used as the display icon at a specified size for the specified platform.
+
+From the list of icons for the specified platform, the texture for the closest larger size will be returned, or the closest smaller size if no larger size is available.
+If no icons have been assigned specifically for the specified platform, the platform-neutral default icon texture will be returned.

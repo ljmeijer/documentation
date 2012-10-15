@@ -1,0 +1,8 @@
+Equals to true if previous operation completed successfully. That is both ::ref::result and ::ref::asyncResult are equal to Error.OK.
+BEGIN EX
+
+	var file:NVFile = new NVFile ();
+	yield file.Open ("myfile.bin", WiiNand.Access.Read);
+	Debug.Log ("File " + (file.success ? "was opened successfully" : "could not be opened"));
+	// ...
+END EX
