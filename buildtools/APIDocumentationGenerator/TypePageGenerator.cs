@@ -150,18 +150,32 @@ namespace APIDocumentationGenerator2
 			tw.Write(@"<a name='{0}'></a> <div class='text' ><article>", memberReference.Name,
 			                CssTypeFor(memberReference));
 			
-			//sb.AppendFormat(SeeAlsoBar());
-
 			tw.Write(@"
         <h1 class='signature'>{0}</h1>
       ", _signatureProvider.SignatureFor(memberReference, true));
 
 			WriteSummaryAndTextBlocksFor(tw, memdoc);
 
+			WriteEditLink(tw, memberReference);
+
 			tw.Write(@"
       </article>
     </div>
 ");
+		}
+
+		private void WriteEditLink(TextWriter tw, MemberReference memberReference)
+		{
+			tw.Write(@"<a href=""{0}"">edit me</a>", EditUrlFor(memberReference));
+		}
+
+		private string EditUrlFor(MemberReference memberReference)
+		{
+			var name = memberReference.Name;
+			if (char.IsLower(name[0]))
+				name = "_" + name;
+			
+			return String.Format("https://github.com/ljmeijer/documentation/blob/master/content/english/api/{0}.{1}.mem",memberReference.DeclaringType.Name, name);
 		}
 
 		private void WriteSummaryAndTextBlocksFor(TextWriter tw, MemDocModel memdoc)
