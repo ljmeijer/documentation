@@ -1,5 +1,5 @@
 Write a log file with debugging information.
 
 This is useful to find out what happened if there are problems with your game.
-When publishing games for Apple's Mac App Store, it is recommended to turn this off,
-because Apple may reject your submission otherwise.
+When publishing apps for Apple's Mac App Store, it is recommended to turn this off,
+because Apple may reject your submission otherwise. and we don't want that.
