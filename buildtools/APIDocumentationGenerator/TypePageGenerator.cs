@@ -166,7 +166,7 @@ namespace APIDocumentationGenerator2
 
 		private void WriteEditLink(TextWriter tw, MemberReference memberReference)
 		{
-			tw.Write(@"<a href=""{0}"">edit me</a>", EditUrlFor(memberReference));
+			tw.Write(@"<p><a style=""float:right; size:8pt;"" href=""{0}"">edit me</a>", EditUrlFor(memberReference));
 		}
 
 		private string EditUrlFor(MemberReference memberReference)
