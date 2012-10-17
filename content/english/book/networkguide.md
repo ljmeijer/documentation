@@ -21,17 +21,6 @@ In order to use any networking capabilities, including **State Synchronization**
 	* SceneId
 	* Type
 
-||PROPS
-||*State Synchronization* ||The type of [[net-StateSynchronization | State Synchronization]] used by this Network View ||
-||>>>*Off* ||No State Synchronization will be used. This is the best option if you only want to send [[net-RPCDetails | RPCs]] ||
-||>>>*Reliable Delta Compressed* ||The difference between the last state and the current state will be sent, if nothing has changed nothing will be sent. This mode is ordered. In the case of packet loss, the lost packet is re-sent automatically ||
-||>>>*Unreliable* ||The complete state will be sent. This uses more bandwidth, but the impact of packet loss is minimized ||
-||*Observed* ||The **Component** data that will be sent across the network ||
-||*View ID* ||The unique identifier for this Network View. These values are read-only in the Inspector ||
-||>>>*Scene ID* ||The number id of the Network View in this particular scene ||
-||>>>*Type* ||Either saved to the *Scene* or *Allocated* at runtime ||
-
-
 ## Details
 
 When you add a Network View to a GameObject, you must decide two things
@@ -52,11 +41,6 @@ You have 2 options to send the data of the *Observed* Component: **State Synchro
 To use State Synchronization, set **State Synchronization** of the Network View to *Reliable Delta Compressed* or *Unreliable*.  The data of the *Observed* Component will now be sent across the network automatically. 
 
 **Reliable Delta Compressed** is ordered.  Packets are always received in the order they were sent.  If a packet is dropped, that packet will be re-sent.  All later packets are queued up until the earlier packet is received. Only the difference between the last transmissions values and the current values are sent and nothing is sent if there is no difference.
-
-	function Start()
-	{
-		Debug.Log("Yeah");
-	}    
 
 If it is observing a Script, you must explicitly Serialize data within the script.  You do this within the *OnSerializeNetworkView()* function.
 
@@ -97,11 +81,11 @@ If you want to use Remote Procedure Calls in your script all you need is a Netwo
         Instantiate (playerBullet, playerBullet.transform.position, playerBullet.transform.rotation);
     }
 
-RPCs are transmitted reliably and ordered. For more information about RPCs, see the [[net-RPCDetails | RPC Details]] page.
+RPCs are transmitted reliably and ordered. For more information about RPCs, see the [RPC Details](net-RPCDetails.html) page.
 
 
 ##Hints
 
-* Read through the [[Network Reference Guide]] if you're still unclear about how to use Network Views
+* Read through the [Network Reference Guide](networkguide.html) if you're still unclear about how to use Network Views
 * State Synchronization does not need to be disabled to use Remote Procedure Calls
 * If you have more than one Network View and want to call an RPC on a specific one, use `GetComponents(NetworkView)[i].RPC();`
