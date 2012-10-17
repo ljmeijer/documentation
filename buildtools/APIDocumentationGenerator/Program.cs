@@ -15,17 +15,20 @@ namespace APIDocumentationGenerator2
 			All();
 		}
 
+		private static string DocumentationRoot()
+		{
+			return Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "..\\..\\..\\");
+		}
+
 		public static void All()
 		{
-			var input = DirectoryUtil.EngineDllLocation;
-			var assemblies = new[]
-				{AssemblyDefinition.ReadAssembly(input), AssemblyDefinition.ReadAssembly(DirectoryUtil.EditorDllLocation)};
+			var assemblies = new[] { AssemblyDefinition.ReadAssembly(DocumentationRoot() + "/content/UnityEngine.dll"), AssemblyDefinition.ReadAssembly(DocumentationRoot() + "/content/UnityEditor.dll") };
 
 			var namespaces = new HashSet<string>();
 
 			EnsureDirectoryExists(ScriptApiOutputDirectory());
-	
-			File.Copy(DirectoryUtil.RootDirName+"/layout/docs.css", ScriptApiOutputDirectory()+"/docs.css", true);
+
+			File.Copy(DocumentationRoot() + "/layout/docs.css", ScriptApiOutputDirectory() + "/docs.css", true);
 
 			foreach (var t in assemblies.Select(a=>a.MainModule).SelectMany(m=>m.Types).Where(UnityDocumentation.IsDocumentedType))
 			{
@@ -58,7 +61,7 @@ namespace APIDocumentationGenerator2
 
 		private static string ScriptApiOutputDirectory()
 		{
-			return DirectoryUtil.RootDirName + "output/api";
+			return DocumentationRoot() + "output/api";
 		}
 	}
 }

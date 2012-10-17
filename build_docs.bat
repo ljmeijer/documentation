@@ -1,2 +1,2 @@
-build_api.bat
-build_book.bat
+CALL build_api.bat
+CALL build_book.bat

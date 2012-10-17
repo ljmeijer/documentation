@@ -3,7 +3,6 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using NUnit.Framework;
-using UnderlyingModel;
 
 namespace BookBuilder
 {
@@ -11,8 +10,9 @@ namespace BookBuilder
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("RootDirName: "+DirectoryUtil.RootDirName);
-			var inputdir = DirectoryUtil.RootDirName + "/content/english/book/";
+			var rootDirName = DocumentationRoot();
+			Console.WriteLine("RootDirName: "+rootDirName);
+			var inputdir = rootDirName + "/content/english/book/";
 			foreach(var file in Directory.GetFiles(inputdir,"*.md"))
 			{
 				var outputfile = OutputDir() + Path.GetFileName(Path.GetFileNameWithoutExtension(file))+".html";
@@ -30,9 +30,14 @@ namespace BookBuilder
 
 		}
 
+		private static string DocumentationRoot()
+		{
+			return Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "../../..");
+		}
+
 		private static string OutputDir()
 		{
-			return DirectoryUtil.RootDirName + "/output/book/english/";
+			return DocumentationRoot() + "/output/book/english/";
 		}
 
 		private static void ProduceHtmlFromMarkdown(string file, string outputfile)

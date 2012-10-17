@@ -70,10 +70,6 @@
       <Project>{37619116-CCE8-465A-8B1F-081CA53364BB}</Project>
       <Name>MarkdownSharp</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UnderlyingModel\UnderlyingModel.csproj">
-      <Project>{5888A64B-4E25-401B-8CEF-F8692E919704}</Project>
-      <Name>UnderlyingModel</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
