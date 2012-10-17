@@ -4,7 +4,7 @@
 They are simple to use, but they are extremely powerful.  For this reason, it is recommended that you understand the fundamental concepts behind networking before you start experimenting with Network Views.  You can learn and discover the fundamental concepts in the [[Network Reference Guide]].
 
 
-![NetworkViewInspector](class-NetworkView-0.jpg)
+![NetworkViewInspector](../../../../../raw/master/content/english/book/class-NetworkView-0.jpg)
 
 
 In order to use any networking capabilities, including **State Synchronization** or **Remote Procedure Calls**, your **GameObject** must have a Network View attached.
