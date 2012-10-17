@@ -1,4 +1,5 @@
-Center of the occlusion area relative to the transform
+Center of the occlusion area relative to the transform. Occlusion is blalbal very important bla you should use it.
+and we should write docs for it.
 CONVERTEXAMPLE
 BEGIN EX
 
@@ -7,4 +8,11 @@ BEGIN EX
 	@script RequireComponent(OcclusionArea)
 
 	transform.GetComponent(OcclusionArea).center = Vector3.zero;
+END EX
+
+BEGIN EX
+function Start()
+{
+  Debug.Log("dowit");
+}
 END EX
