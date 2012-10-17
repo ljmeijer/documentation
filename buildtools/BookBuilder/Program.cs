@@ -28,6 +28,7 @@ namespace BookBuilder
 				File.Copy(file, outputfile,true);
 			}
 
+			File.Copy(DocumentationRoot() + "/layout/book.css", OutputDir() + "/book.css", true);
 		}
 
 		private static string DocumentationRoot()
@@ -52,7 +53,22 @@ namespace BookBuilder
 		private static string PostProcessHtml(string html)
 		{
 			var regex = new Regex(@"<pre><code>(.*?)</code></pre>", RegexOptions.Singleline);
-			return regex.Replace(html, match => DocBuilderTools.ExampleHtmlGenerator.ExamleHtmlFor(match.Groups[1].ToString()));
+		
+			var postprocessed = regex.Replace(html, match => DocBuilderTools.ExampleHtmlGenerator.ExamleHtmlFor(match.Groups[1].ToString()));
+
+			var final = String.Format(@"<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <link href='book.css' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+<div class='text'>
+{0}
+</div></body></html>", postprocessed);
+
+			return final;
 		}
 
 
