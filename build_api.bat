@@ -1,0 +1,2 @@
+cd buildtools\APIDocumentationGenerator\bin
+APIDocumentationGenerator.exe

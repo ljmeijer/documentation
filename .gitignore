@@ -5,6 +5,14 @@ buildtools/APIDocumentationGenerator/obj
 *.DotSettings.user
 _Resharper.*
 *.suo
+buildtools/BookBuilder/bin
+buildtools/BookBuilder/obj
+buildtools/DocBuilderTools/bin
+buildtools/DocBuilderTools/obj
+buildtools/MarkDownSharp/obj
+buildtools/MarkDownSharp/bin
+buildtools/UnderlyingModel/obj
+buildtools/UnderlyingModel/bin
 buildtools/UnityExampleConverter/cssrc/bin
 buildtools/UnityExampleConverter/cssrc/obj
 buildtools/UnityExampleConverter/cstests/bin

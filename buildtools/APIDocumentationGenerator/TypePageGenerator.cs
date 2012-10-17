@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using DocBuilderTools;
 using Mono.Cecil;
 using UnderlyingModel;
 
@@ -197,7 +198,7 @@ namespace APIDocumentationGenerator2
 				var exampleblock = block as ExampleBlock;
 				if (exampleblock != null)
 				{
-					tw.Write(ExampleHtmlGenerator.ExamleHtmlFor(exampleblock));
+					tw.Write(ExampleHtmlGenerator.ExamleHtmlFor(exampleblock.Text));
 				}
 			}
 		}

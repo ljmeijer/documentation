@@ -7,24 +7,24 @@ using Boo.Lang.Compiler.IO;
 using UnderlyingModel;
 using UnityExampleConverter;
 
-namespace APIDocumentationGenerator2
+namespace DocBuilderTools
 {
-	class ExampleHtmlGenerator
+	public class ExampleHtmlGenerator
 	{
-		public static string ExamleHtmlFor(ExampleBlock exampleblock)
+		public static string ExamleHtmlFor(string inputjavascript)
 		{
 			var sb = new StringBuilder();
 			sb.Append("<p>");
 			sb.Append("<p>Javascript:<br>");
 			var converter = new UnityScriptConverter();
 
-			var javascript = RemoveGlobalIndenting(exampleblock.Text).Trim();
+			var javascript = RemoveGlobalIndenting(inputjavascript).Trim();
 			sb.AppendFormat(@"<div class='example'><pre>{0}</pre></div>", javascript);
 
 			converter.Input.Add(new StringInput("example", javascript));
-			converter.References.Add(typeof(UnityEngine.MonoBehaviour).Assembly);
-			converter.References.Add(typeof(UnityEditor.MenuItem).Assembly);
-			
+			converter.References.Add(typeof (UnityEngine.MonoBehaviour).Assembly);
+			converter.References.Add(typeof (UnityEditor.MenuItem).Assembly);
+
 			CompileUnit[] covertedCode = null;
 			try
 			{

@@ -1,16 +1,25 @@
 ## Network View
 
 **Network Views** are the gateway to creating networked multiplayer games in Unity.  
-They are simple to use, but they are extremely powerful.  For this reason, it is recommended that you understand the fundamental concepts behind networking before you start experimenting with Network Views.  You can learn and discover the fundamental concepts in the [[Network Reference Guide]].
+They are simple to use, but they are extremely powerful.  For this reason, it is recommended that you understand the fundamental concepts behind networking before you start experimenting with Network Views.  You can learn and discover the fundamental concepts in the [Texture Inspector](textureinspector.html)
 
 
-![NetworkViewInspector](http://docs.unity3d.com/Documentation/Images/manual/class-NetworkView-0.jpg)
+![NetworkViewInspector](class-NetworkView-0.jpg)
 
 
 In order to use any networking capabilities, including **State Synchronization** or **Remote Procedure Calls**, your **GameObject** must have a Network View attached.
 
 
 ## Properties
+
+* State Sync
+	* Off
+	* Reliable diff copmressed
+	* Unreliable
+* Observed
+	* ViewID
+	* SceneId
+	* Type
 
 ||PROPS
 ||*State Synchronization* ||The type of [[net-StateSynchronization | State Synchronization]] used by this Network View ||
@@ -43,6 +52,11 @@ You have 2 options to send the data of the *Observed* Component: **State Synchro
 To use State Synchronization, set **State Synchronization** of the Network View to *Reliable Delta Compressed* or *Unreliable*.  The data of the *Observed* Component will now be sent across the network automatically. 
 
 **Reliable Delta Compressed** is ordered.  Packets are always received in the order they were sent.  If a packet is dropped, that packet will be re-sent.  All later packets are queued up until the earlier packet is received. Only the difference between the last transmissions values and the current values are sent and nothing is sent if there is no difference.
+
+	function Start()
+	{
+		Debug.Log("Yeah");
+	}    
 
 If it is observing a Script, you must explicitly Serialize data within the script.  You do this within the *OnSerializeNetworkView()* function.
 
