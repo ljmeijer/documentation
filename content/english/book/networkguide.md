@@ -2,7 +2,7 @@
 
 **Network Views** are the gateway to creating networked multiplayer games in Unity.  
 They are simple to use, but they are extremely powerful.  For this reason, it is recommended that you understand the fundamental concepts behind networking before you start experimenting with Network Views.  You can learn and discover the fundamental concepts in the [Texture Inspector](textureinspector.html)
-
+**bla** **bla**
 
 ![NetworkViewInspector](class-NetworkView-0.jpg)
 
