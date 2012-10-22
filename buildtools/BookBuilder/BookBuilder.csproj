@@ -58,8 +58,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookPage.cs" />
+    <Compile Include="PathTools.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TOCBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DocBuilderTools\DocBuilderTools.csproj">

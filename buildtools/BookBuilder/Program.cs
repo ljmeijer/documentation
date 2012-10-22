@@ -1,7 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using NUnit.Framework;
 
 namespace BookBuilder
@@ -13,21 +13,25 @@ namespace BookBuilder
 			var rootDirName = DocumentationRoot();
 			Console.WriteLine("RootDirName: "+rootDirName);
 			var inputdir = rootDirName + "/content/english/book/";
+			var pages = new List<BookPage>();
 			foreach(var file in Directory.GetFiles(inputdir,"*.md"))
 			{
+				var page = new BookPage(file);
 				var outputfile = OutputDir() + Path.GetFileName(Path.GetFileNameWithoutExtension(file))+".html";
-				
-				ProduceHtmlFromMarkdown(file, outputfile);
+				pages.Add(page);
+				page.WriteAsHtml(outputfile);
 			}
 
 			foreach (var file in Directory.GetFiles(inputdir, "*").Where(file => Path.GetExtension(file).ToLower()!=".md"))
 			{
 				var outputfile = Path.Combine(OutputDir(), Path.GetFileName(file));
 				Console.WriteLine("outputfile: "+outputfile);
-				EnsureDirectoryExists(Path.GetDirectoryName(outputfile));
+				PathTools.EnsureDirectoryExists(Path.GetDirectoryName(outputfile));
 				File.Copy(file, outputfile,true);
 			}
 
+			var tocBuilder = new TOCBuilder(pages);
+			File.WriteAllText(OutputDir()+"/toc.html",tocBuilder.Build());
 			File.Copy(DocumentationRoot() + "/layout/book.css", OutputDir() + "/book.css", true);
 		}
 
@@ -39,48 +43,6 @@ namespace BookBuilder
 		private static string OutputDir()
 		{
 			return DocumentationRoot() + "/output/book/english/";
-		}
-
-		private static void ProduceHtmlFromMarkdown(string file, string outputfile)
-		{
-			string input = File.ReadAllText(file);
-			var output = new MarkdownSharp.Markdown().Transform(input);
-			output = PostProcessHtml(output);
-			EnsureDirectoryExists(Path.GetDirectoryName(outputfile));
-			File.WriteAllText(outputfile,output);
-		}
-
-		private static string PostProcessHtml(string html)
-		{
-			var regex = new Regex(@"<pre><code>(.*?)</code></pre>", RegexOptions.Singleline);
-		
-			var postprocessed = regex.Replace(html, match => DocBuilderTools.ExampleHtmlGenerator.ExamleHtmlFor(match.Groups[1].ToString()));
-
-			var final = String.Format(@"<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8' />
-    <link href='book.css' rel='stylesheet' type='text/css' />
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
-  </head>
-  <body>
-<div class='text'>
-{0}
-</div></body></html>", postprocessed);
-
-			return final;
-		}
-
-
-		private static void EnsureDirectoryExists(string dir)
-		{
-			if (Directory.Exists(dir))
-				return;
-
-			var parent = Path.GetDirectoryName(dir);
-			EnsureDirectoryExists(parent);
-
-			Directory.CreateDirectory(dir);
 		}
 	}
 }
