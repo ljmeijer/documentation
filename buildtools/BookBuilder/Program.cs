@@ -14,12 +14,15 @@ namespace BookBuilder
 			Console.WriteLine("RootDirName: "+rootDirName);
 			var inputdir = rootDirName + "/content/english/book/";
 			var pages = new List<BookPage>();
+
+            var tocBuilder = new TOCBuilder(File.ReadAllText(inputdir+"/toc.yaml"));
+
 			foreach(var file in Directory.GetFiles(inputdir,"*.md"))
 			{
 				var page = new BookPage(file);
 				var outputfile = OutputDir() + Path.GetFileName(Path.GetFileNameWithoutExtension(file))+".html";
 				pages.Add(page);
-				page.WriteAsHtml(outputfile);
+				page.WriteAsHtml(outputfile, tocBuilder);
 			}
 
 			foreach (var file in Directory.GetFiles(inputdir, "*").Where(file => Path.GetExtension(file).ToLower()!=".md"))
@@ -30,8 +33,8 @@ namespace BookBuilder
 				File.Copy(file, outputfile,true);
 			}
 
-			var tocBuilder = new TOCBuilder(pages);
-			File.WriteAllText(OutputDir()+"/toc.html",tocBuilder.Build());
+			
+			
 			File.Copy(DocumentationRoot() + "/layout/book.css", OutputDir() + "/book.css", true);
 		}
 
