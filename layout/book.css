@@ -15,3 +15,16 @@ article aside { border-left: 1px solid #dfdfdf; float: right; margin: 0 0 15px 2
 .text p { margin: 5px 0; }
 .text strong { font-weight: 700; }
 .text pre code, .text .example { display: inline-block; padding: 15px; border: 1px solid #eeeeee; margin: 10px 0; background-color: #fefefe; -webkit-border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px; }
+
+.menu {
+	background-color: yellow;}
+
+.keyword {
+	background-color: red;}
+
+.inspector {
+	background-color: blue;}
+
+.component {
+	background-color: green;}
+
