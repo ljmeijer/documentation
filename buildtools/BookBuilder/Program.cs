@@ -15,6 +15,7 @@ namespace BookBuilder
 			var inputdir = rootDirName + "/content/english/book/";
 			var pages = new List<BookPage>();
 
+
             var tocBuilder = new TOCBuilder(File.ReadAllText(inputdir+"/toc.yaml"));
 
 			foreach(var file in Directory.GetFiles(inputdir,"*.md"))
