@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Text;
 using System.Text.RegularExpressions;
 using DocBuilderTools;
 using MarkdownSharp;
@@ -9,13 +10,17 @@ namespace BookBuilder
 	internal class BookPage
 	{
 		private readonly string _file;
+	    private readonly string _language;
+	    private readonly bool _usingEnglishAsFallback;
 
-		public BookPage(string file)
+	    public BookPage(string file, string language, bool usingEnglishAsFallback)
 		{
-			_file = file;
+		    _file = file;
+		    _language = language;
+	        _usingEnglishAsFallback = usingEnglishAsFallback;
 		}
 
-		public string Title
+	    public string Title
 		{
 			get { return Path.GetFileNameWithoutExtension(_file); }
 		}
@@ -25,20 +30,24 @@ namespace BookBuilder
 			ProduceHtmlFromMarkdown(_file, outputfile, tocBuilder);
 		}
 
-		private static void ProduceHtmlFromMarkdown(string file, string outputfile, TOCBuilder tocBuilder)
+		private void ProduceHtmlFromMarkdown(string file, string outputfile, TOCBuilder tocBuilder)
 		{
 			string input = File.ReadAllText(file);
 			var output = new Markdown().Transform(input);
-			output = PostProcessHtml(output, tocBuilder);
+			output = PostProcessHtml(output, tocBuilder, outputfile);
 			PathTools.EnsureDirectoryExists(Path.GetDirectoryName(outputfile));
 			File.WriteAllText(outputfile, output);
 		}
 
-		private static string PostProcessHtml(string html, TOCBuilder tocBuilder)
+		private string PostProcessHtml(string html, TOCBuilder tocBuilder, string outputfile)
 		{
 			var regex = new Regex(@"<pre><code>(.*?)</code></pre>", RegexOptions.Singleline);
 
 			var postprocessed = regex.Replace(html, match => ExampleHtmlGenerator.ExamleHtmlFor(match.Groups[1].ToString()));
+
+		    var prefixmessage = _usingEnglishAsFallback
+		                        ? "<p>This page has not been translated into this language yet.  You'll find the english version of this document below.</p>"
+		                        : "";
 
 		    var final = String.Format(@"<!DOCTYPE html>
 <html>
@@ -48,15 +57,33 @@ namespace BookBuilder
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
   </head>
   <body>
+  <div class='languagebar'>
+  Choose language:
+{0}
+</div>
   <div style=""float:left; width=350px;"" class='toc'>
-  {0}  
+  {1}  
 </div>
 <div class='text'>
-{1}
-</div></body></html>", tocBuilder.Build(), postprocessed);
+{2}
+{3}
+</div></body></html>", LanguageSelector(outputfile), tocBuilder.Build(), prefixmessage, postprocessed);
 
 			return final;
 		}
 
+	    private string LanguageSelector(string outputfile)
+	    {
+	        var languages = AvailableLanguages.Get();
+            var sb = new StringBuilder();
+	        sb.Append(@"<select id='languageselector' onclick='window.open(languageselector.options[languageselector.selectedIndex].value)'>");
+            foreach(var lang in languages)
+            {
+                string selectedstr = lang == _language ? "selected='selected';" : "";
+                sb.AppendFormat("<option value='../{0}/{2}' {3}>{1}</option>",lang.ToLower(),lang,Path.GetFileName(outputfile), selectedstr);
+            }
+            sb.Append("</select>");
+	        return sb.ToString();
+	    }
 	}
 }
