@@ -35,7 +35,7 @@ namespace BookBuilder
                 foreach (var file in Directory.GetFiles(englishinputdir, "*.md"))
                 {
                     var languagefile = inputdir + "/" + Path.GetFileName(file);
-                    string filecontents;
+                    string filecontents = null;
                     bool usingEnglishAsFallback = !File.Exists(languagefile);
 
                     string filetouse = usingEnglishAsFallback ? file : languagefile;
