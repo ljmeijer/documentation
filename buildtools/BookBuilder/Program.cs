@@ -52,9 +52,7 @@ namespace BookBuilder
             }
 		}
 
-        //some experiment  2
-
-	    private static void CopyNonMDFilesFrom(string inputdir, string outputDir)
+        private static void CopyNonMDFilesFrom(string inputdir, string outputDir)
 	    {
 	        foreach (var file in NonMDFilesIn(inputdir))
 	        {
