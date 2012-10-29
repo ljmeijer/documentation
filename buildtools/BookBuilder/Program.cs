@@ -28,6 +28,7 @@ namespace BookBuilder
                 var inputdir = rootDirName + "/content/"+lang+"/book/";
                 var pages = new List<BookPage>();
                 //trying this out
+                //trying this out//trying this out//trying this out
 
                 var tocBuilder = new TOCBuilder(File.ReadAllText(rootDirName + "/content/toc.yaml"));
 
