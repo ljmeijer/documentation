@@ -112,8 +112,6 @@ Unity Manual TOC
             * [Sound](Sound.md)
             * [Game Interface Elements](GameInterfaceElements.md)
             * [Networked Multiplayer](NetworkedMultiplayer.md)
-
-##ios Details
     * [iphone-GettingStarted](iphone-GettingStarted.md)
         * [iphone-basic](iphone-basic.md)
         * [unity-remote](unity-remote.md)
@@ -134,8 +132,6 @@ Unity Manual TOC
         * [MobileCustomizeSplashScreen](MobileCustomizeSplashScreen.md)
         * [iphone-troubleshooting](TroubleShooting#iPhoneTroubleShooting.md)
         * [iphone-bugreporting](iphone-bugreporting.md)
-
-##android Details
     * [android-GettingStarted](android-GettingStarted.md)
         * [android-sdksetup](android-sdksetup.md)
         * [android-remote](android-remote.md)
@@ -150,8 +146,6 @@ Unity Manual TOC
             * [Android-DotNet](MobileDotnet#Android.md)
         * [Android-Plugins](PluginsForAndroid.md)
         * [Android Splash Screen](MobileCustomizeSplashScreen#Android.md)
-
-##metro Details
     * [metro-gettingstarted](metro-gettingstarted.md)
         * [metro-debugging](metro-debugging.md)
         * [metro-plugins](metro-plugins.md)
@@ -159,8 +153,6 @@ Unity Manual TOC
         * [metro-faq](metro-faq.md)
             * [metro-wack](metro-wack.md)
         * [metro-examples](metro-examples.md)
-
-##xbox360 Details
     * [xbox360-gettingstarted](xbox360-gettingstarted.md)
         * [xbox360-setup](xbox360-setup.md)
         * [xbox360-setupforsource](xbox360-setupforsource.md)
@@ -175,11 +167,7 @@ Unity Manual TOC
         * [xbox360-kinect](xbox360-kinect.md)
         * [xbox360-avatars](xbox360-avatars.md)
         * [xbox360-knownissues](xbox360-knownissues.md)
-
-##wiiu Details
     * [wiiu-gettingstarted](wiiu-gettingstarted.md)
-
-##wii Details
     * [wii-gettingstarted](wii-gettingstarted.md)
         * [wii-wiiremotepc](wii-wiiremotepc.md)
         * [wii-debugging](wii-debugging.md)
@@ -191,8 +179,6 @@ Unity Manual TOC
         * [wii-profiler](wii-profiler.md)
         * [wii-tipsandtricks](wii-tipsandtricks.md)
         * [wii-featuresandlimitations](wii-featuresandlimitations.md)
-
-##ps3 Details
     * [ps3-gettingstarted](ps3-gettingstarted.md)
         * [PS3 Setup](ps3-setup.md)
         * [PS3 Setup for Source Code Customers](ps3-setupforsource.md)
@@ -358,15 +344,11 @@ Unity Manual TOC
         * [Version Check](VersionCheck.md)
         * [Installing Multiple Versions of Unity](InstallingMultipleVersionsofUnity.md)
         * [TroubleShooting](TroubleShooting.md)
-
-##desktop Details
         * [IME Input](IMEInput.md)
         * [Shadows](Shadows.md)
             * [DirectionalShadowDetails](DirectionalShadowDetails.md)
             * [Shadow Troubleshooting](ShadowTroubleshooting.md)
             * [Shadow Size Details](ShadowSizeDetails.md)
-
-##desktop Details
         * [OptimizeForIntegratedCards](OptimizeForIntegratedCards.md)
         * [Web Player Deployment](WebPlayerDeployment.md)
             * [HTML code to load Unity Web Player content](HTMLcodetoloadUnityWebPlayercontent.md)
@@ -458,8 +440,6 @@ Reference Manual
             * [class-GameObject](class-GameObject.md)
         * [comp-ImageEffects](comp-ImageEffects.md)
             * [script-AntialiasingAsPostEffect](script-AntialiasingAsPostEffect.md)
-
-##u40 Details
             * [script-Bloom](script-Bloom.md)
             * [script-CameraMotionBlur](script-CameraMotionBlur.md)
             * [script-DepthOfFieldScatter](script-DepthOfFieldScatter.md)
@@ -497,8 +477,6 @@ Reference Manual
             * [class-NavMeshLayers](class-NavMeshLayers.md)
             * [class-NetworkManager](class-NetworkManager.md)
             * [class-PhysicsManager](class-PhysicsManager.md)
-
-##u40 Details
             * [class-PlayerSettings40](class-PlayerSettings40.md)
             * [class-QualitySettings](class-QualitySettings.md)
             * [class-RenderSettings](class-RenderSettings.md)
@@ -574,8 +552,6 @@ Reference Manual
         * [gui-Extending](gui-Extending.md)
         * [gui-ExtendingEditor](gui-ExtendingEditor.md)
     * [Network Reference Guide](NetworkReferenceGuide.md)
-
-##ios Details
         * [Networking on iOS](MobileNetworking.md)
         * [net-HighLevelOverview](net-HighLevelOverview.md)
         * [net-UnityNetworkElements](net-UnityNetworkElements.md)
@@ -642,8 +618,6 @@ Reference Manual
             * [SL-SurfaceShaderExamples](SL-SurfaceShaderExamples.md)
             * [SL-SurfaceShaderLighting](SL-SurfaceShaderLighting.md)
             * [SL-SurfaceShaderLightingExamples](SL-SurfaceShaderLightingExamples.md)
-
-##u40 Details
             * [SL-SurfaceShaderTessellation](SL-SurfaceShaderTessellation.md)
         * [SL-ShaderPrograms](SL-ShaderPrograms.md)
             * [SL-PropertiesInPrograms](SL-PropertiesInPrograms.md)
