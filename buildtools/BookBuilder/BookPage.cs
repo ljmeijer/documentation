@@ -45,6 +45,8 @@ namespace BookBuilder
 
 			var postprocessed = regex.Replace(html, match => ExampleHtmlGenerator.ExamleHtmlFor(match.Groups[1].ToString()));
 
+		    postprocessed = postprocessed.Replace(".md", ".html");
+
 		    var prefixmessage = _usingEnglishAsFallback
 		                        ? "<p>This page has not been translated into this language yet.  You'll find the english version of this document below.</p>"
 		                        : "";
