@@ -18,3 +18,9 @@ buildtools/UnityExampleConverter/cssrc/obj
 buildtools/UnityExampleConverter/cstests/bin
 buildtools/UnityExampleConverter/cstests/obj
 *.dotCover
+
+content/english/.DS_Store
+
+.DS_Store
+
+content/.DS_Store
